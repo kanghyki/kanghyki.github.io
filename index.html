@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+{% assign documents = site.wiki | sort: 'updated' | reverse %}
+
+<div>
+    <h3>최근 변경된 문서</h3>
+    <ul class="post_list">
+        {% for doc in documents limit: 10 %}
+            {% if doc.public == true and doc.title != 'wiki index'%}
+            <li class="post_list_item">
+                <a href="{{ doc.url | prepend: site.baseurl }}">
+                    <div class="link">
+                        {{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}
+                    </div>
+                    <div class="post_etc">{{ doc.summary }}</div>
+                    <div class="post_etc">
+                        <ul class="post_tags">
+                            {% for tag in doc.tags %}
+                            <li class="post_tag">
+                                <a href="/tag/#{{tag}}">#{{tag}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <h4>
+        <a href="/recent/">전체 문서 리스트 보기 ({{ site.wiki | size }} 항목)</a>
+    </h4>
+</div>
+
+<style>
+.post_list {
+    list-style: none;
+}
+
+.post_list_item {
+  list-style: none;
+  padding: 0.4em 0;
+  border-bottom: 0.5px solid var(--accent-low);
+}
+
+.post_list_item:first-child {
+  padding-top: 0;
+}
+
+.link {
+    font-size: 1.0em;
+}
+
+.post_etc {
+    font-size: 0.8em;
+    opacity: 0.6;
+    color: var(--font-color);
+}
+
+.post_tags {
+    display: flex;
+}
+
+.post_tag {
+    list-style: none;
+    margin-right: 0.3em;
+}
+
+.post_tag a {
+    color: var(--font-color);
+}
+</style>

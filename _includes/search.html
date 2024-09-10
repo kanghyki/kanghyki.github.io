@@ -1,0 +1,34 @@
+<form  class="search_container" role="search" method="get" action="/search/">
+    <input name="searchstr" class="search_box" placeholder="검색어를 입력하세요" type="text">
+    <input class="search_box_button" type="submit" value="검색">
+</form>
+
+<style>
+.search_container {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+.search_box {
+    width: 100%;
+    background-color: inherit;
+    color: var(--font-color);
+    outline: none;
+    border: none;
+    padding: 0.33em;
+    border-radius: 0;
+    border-bottom: 1px solid var(--accent-low);
+    transition: 0.15s ease-in;
+}
+
+.search_box input:focus {
+    border-bottom: 0.5px solid var(--highlight);
+}
+
+.search_box_button {
+border: 0;
+background-color: inherit;
+color: var(--highlight);
+cursor: pointer;
+    border-bottom: 1px solid var(--accent-low);
+}
+</style>

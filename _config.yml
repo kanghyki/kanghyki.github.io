@@ -18,19 +18,30 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Blog
 email: kanghyk@gmail.com
+author: kanghyki
+blame: https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki
+
+title: Blog
 description: >- # this means to ignore newlines until "baseurl:"
   ... description ...
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kanghyki.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username:
 github_username:  kanghyki
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
+
+collections:
+    wiki:
+        output: true
+        permalink: /:collection/:path/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+{% assign thisName = page.id | remove: '/wiki/' %}
+{% assign tags = page.tags | sort %}
+
+<div>
+    <header>
+        <h1 class="post_title">{{ page.title }}</h1>
+        {% if page.summary %}
+        <h2 class="post_summary">{{ page.summary }}</h2>
+        {% endif %}
+
+        <ul class="post_edit">
+            <p align="right">
+                <a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">
+                    created : {{ page.date | date: '%Y.%m.%d' }}
+                </a>
+            </p>
+            <p align="right">
+                <a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">
+                    updated : {{ page.updated | date: '%Y.%m.%d' }}
+                </a>
+            </p>
+            <p align="right">
+                <a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">
+                    blame
+                </a>
+            </p>
+        </ul>
+
+        {% if page.tags %}
+        <ul class="post_tags">
+            {% for tag in tags %}
+            <li>
+                <a href="/tag/#{{tag|slugize}}">#{{tag}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </header>
+
+    <article class="post-content">
+        {{ content }}
+    </article>
+</div>
+
+{% include createLink.html %}
+
+<style>
+
+.post_title {
+    color: var(--highlight);
+    margin: 0;
+}
+
+.post_summary {
+    color: var(--font-color);
+    opacity: 0.6;
+    margin: 0;
+}
+
+.post_tags {
+    display: flex;
+}
+
+.post_tags li {
+    list-style: none;
+    margin-right: 0.3em;
+}
+
+.post_tags li:last-child {
+    margin-right: 0;
+}
+
+.post_tags a {
+    color: var(--font-color);
+    opacity: 0.6;
+}
+
+.post_edit p {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+</style>
