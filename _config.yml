@@ -1,6 +1,5 @@
 email: kanghyk@gmail.com
 author: kanghyki
-blame: https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki
 
 title: Kanghyki
 baseurl: ""
@@ -19,3 +18,6 @@ collections:
         permalink: /:collection/:path/
 
 markdown: kramdown
+
+blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
+history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_wiki"
