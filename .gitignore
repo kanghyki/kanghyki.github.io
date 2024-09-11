@@ -5,6 +5,8 @@ _site
 vendor
 
 tags
+tags.lock
+tags.temp
 
 # generateData.js
 node_modules
