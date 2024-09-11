@@ -1,9 +1,9 @@
 ---
 layout  : wiki
-title   : 
-summary : 
+title   : new
+summary : new summary
 date    : 2024-09-11 12:38:05 +0900
-updated : 2024-09-11 15:49:14 +0900
+updated : 2024-09-11 16:46:28 +0900
 tag     : a b c d e
 toc     : true
 public  : true

@@ -3,8 +3,8 @@ layout  : wiki
 title   : Link
 summary : This is Link file
 date    : 2024-09-11 03:49:55 +0900
-updated : 2024-09-11 03:50:16 +0900
-tag     : [link]
+updated : 2024-09-11 16:46:38 +0900
+tag     : link c e
 toc     : true
 public  : true
 parent  : 

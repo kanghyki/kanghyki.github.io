@@ -1,19 +1,15 @@
 [
  {
-  "name": "[link]",
-  "size": 1
- },
- {
   "name": "a",
   "size": 1
  },
  {
   "name": "b",
-  "size": 1
+  "size": 2
  },
  {
   "name": "c",
-  "size": 1
+  "size": 3
  },
  {
   "name": "d",
@@ -21,10 +17,14 @@
  },
  {
   "name": "e",
-  "size": 1
+  "size": 2
  },
  {
   "name": "layout_test",
+  "size": 1
+ },
+ {
+  "name": "link",
   "size": 1
  },
  {
