@@ -2,9 +2,9 @@
  "type": "wiki",
  "title": "new",
  "summary": "new summary",
- "parent": "",
+ "parent": "parent",
  "url": "/wiki/new",
- "updated": "2024-09-11 16:46:28 +0900",
+ "updated": "2024-09-11 16:56:43 +0900",
  "resource": "35B432CD-62A6-43D2-8828-169536908EE6",
  "children": []
 }

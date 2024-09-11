@@ -5,6 +5,7 @@ layout: default
 {% assign thisName = page.id | remove: '/wiki/' %}
 {% assign tags = page.tags | sort %}
 
+<input type="hidden" id="thisName" value="{{ thisName }}"/>
 <div>
     <header>
         <h1 class="post_title">{{ page.title }}</h1>
@@ -30,6 +31,10 @@ layout: default
             </p>
         </ul>
 
+{% raw %}
+        <div id="parent-list"></div>
+{% endraw %}
+
         {% if page.tags %}
         <ul class="post_tags">
             {% for tag in tags %}
@@ -49,8 +54,9 @@ layout: default
 
 {% include createLink.html %}
 
-<style>
+<script async src="/js/parentLink.js"></script>
 
+<style>
 .post_title {
     color: var(--highlight);
     margin: 0;

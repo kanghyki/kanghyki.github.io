@@ -2,9 +2,11 @@
  "type": "wiki",
  "title": "test",
  "summary": "This is test file",
- "parent": "",
+ "parent": "link",
  "url": "/wiki/test",
- "updated": "2024-09-11 16:46:34 +0900",
+ "updated": "2024-09-11 17:26:50 +0900",
  "resource": "E4669AE9-8108-4591-BC21-DD155EA3FE6A",
- "children": []
+ "children": [
+  "parent"
+ ]
 }

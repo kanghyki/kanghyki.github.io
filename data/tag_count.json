@@ -1,15 +1,15 @@
 [
  {
   "name": "a",
-  "size": 1
- },
- {
-  "name": "b",
   "size": 2
  },
  {
-  "name": "c",
+  "name": "b",
   "size": 3
+ },
+ {
+  "name": "c",
+  "size": 4
  },
  {
   "name": "d",
