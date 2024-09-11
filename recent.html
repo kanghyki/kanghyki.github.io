@@ -15,22 +15,26 @@ permalink: /recent/
                         <div class="link">
                             {{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}
                         </div>
-                        <div class="post_etc">{{ doc.summary }}</div>
-                        <div class="post_etc">
-                            <ul class="post_tags">
-                                {% for tag in doc.tags %}
-                                <li class="post_tag">
-                                    <a href="/tag/#{{tag}}">#{{tag}}</a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <div class="post-summary">{{ doc.summary }}</div>
                     </a>
+
+                    {% if doc.tags %}
+                    <ul class="post-tags">
+                        {% for tag in doc.tags %}
+                        <li class="post-tag">
+                            {{ tag }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
                 </li>
             {% endif %}
         {% endfor %}
     </ul>
 </div>
+
+{% include createLink.html %}
 
 <style>
 .post_list {
@@ -56,22 +60,25 @@ permalink: /recent/
     font-size: 1.0em;
 }
 
-.post_etc {
+.post-summary {
     font-size: 0.8em;
     opacity: 0.6;
     color: var(--font-color);
 }
 
-.post_tags {
+.post-tags {
     display: flex;
+    font-size: 0.8em;
+    opacity: 0.6;
+    color: var(--font-color);
 }
 
-.post_tag {
+.post-tag {
     list-style: none;
     margin-right: 0.3em;
 }
 
-.post_tag a {
+.post-tag a {
     color: var(--font-color);
 }
 </style>

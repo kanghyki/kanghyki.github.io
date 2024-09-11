@@ -33,8 +33,8 @@ layout: default
         {% if page.tags %}
         <ul class="post_tags">
             {% for tag in tags %}
-            <li>
-                <a href="/tag/#{{tag|slugize}}">#{{tag}}</a>
+            <li class="post-tag">
+                {{ tag }}
             </li>
             {% endfor %}
         </ul>

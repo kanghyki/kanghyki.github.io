@@ -3,8 +3,8 @@ layout  : wiki
 title   : test
 summary : This is test file
 date    : 2024-09-11 03:39:51 +0900
-updated : 2024-09-11 03:44:52 +0900
-tag     : [test, layout_test, wiki test]
+updated : 2024-09-11 16:09:20 +0900
+tag     : test layout_test wiki
 toc     : true
 public  : true
 parent  : 

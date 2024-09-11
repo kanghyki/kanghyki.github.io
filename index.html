@@ -9,23 +9,28 @@ layout: default
     <ul class="post_list">
         {% for doc in documents limit: 10 %}
             {% if doc.public == true and doc.title != 'wiki index'%}
+
             <li class="post_list_item">
+
                 <a href="{{ doc.url | prepend: site.baseurl }}">
                     <div class="link">
                         {{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}
                     </div>
-                    <div class="post_etc">{{ doc.summary }}</div>
-                    <div class="post_etc">
-                        <ul class="post_tags">
-                            {% for tag in doc.tags %}
-                            <li class="post_tag">
-                                <a href="/tag/#{{tag}}">#{{tag}}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                    <div class="post-summary">{{ doc.summary }}</div>
                 </a>
+
+                {% if doc.tags %}
+                <ul class="post-tags">
+                    {% for tag in doc.tags %}
+                    <li class="post-tag">
+                        {{ tag }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
             </li>
+
             {% endif %}
         {% endfor %}
     </ul>
@@ -33,6 +38,8 @@ layout: default
         <a href="/recent/">전체 문서 리스트 보기 ({{ site.wiki | size }} 항목)</a>
     </h4>
 </div>
+
+{% include createLink.html %}
 
 <style>
 .post_list {
@@ -53,22 +60,25 @@ layout: default
     font-size: 1.0em;
 }
 
-.post_etc {
+.post-summary {
     font-size: 0.8em;
     opacity: 0.6;
     color: var(--font-color);
 }
 
-.post_tags {
+.post-tags {
     display: flex;
+    font-size: 0.8em;
+    opacity: 0.6;
+    color: var(--font-color);
 }
 
-.post_tag {
+.post-tag {
     list-style: none;
     margin-right: 0.3em;
 }
 
-.post_tag a {
+.post-tag a {
     color: var(--font-color);
 }
 </style>
