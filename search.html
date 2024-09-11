@@ -1,25 +1,19 @@
 ---
-layout: default
+layout: searchList
 permalink: /search/
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  .err_code {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1 class="err_code">501</h1>
-
-  <p><strong>Not Implemented :(</strong></p>
-  <p>해당 페이지는 아직 구현되지 않았습니다. 나중에 다시 시도해 주세요.</p>
-</div>
+ <div>
+     <script>
+         (function() {
+             var cx = 'd18aee37aed9143e7';
+             var gcse = document.createElement('script');
+             gcse.type = 'text/javascript';
+             gcse.async = true;
+             gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(gcse, s);
+         })();
+     </script>
+     <gcse:search linkTarget="_parent" queryParameterName="searchString"></gcse:search>
+ </div>
