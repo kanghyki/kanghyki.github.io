@@ -8,16 +8,8 @@
   "size": 3
  },
  {
-  "name": "bash",
-  "size": 1
- },
- {
   "name": "c",
   "size": 4
- },
- {
-  "name": "command",
-  "size": 1
  },
  {
   "name": "d",
