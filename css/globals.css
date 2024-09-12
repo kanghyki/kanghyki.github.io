@@ -123,11 +123,10 @@ img {
   display: block;
 }
 
-#markdown-toc {
-    margin-top: 1em;
-    margin-bottom: 1em;
+article ul > li {
+  padding: 0px;
+}
 
-    padding: 1em;
-
-    border: 1px solid var(--accent-low);
+article ul > li > ul > li {
+  padding-left: 1em;
 }
