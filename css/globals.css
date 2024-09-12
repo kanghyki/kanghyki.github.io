@@ -109,9 +109,8 @@ code {
 
 pre {
   overflow: auto;
-  background-color: var(--background2);
-  padding: 1em;
-  border-radius: 8px;
+  padding-left: 1em;
+  padding-right: 1em;
   margin: 1em 0;
 }
 

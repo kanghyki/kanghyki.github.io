@@ -24,6 +24,12 @@ collections:
         permalink: /:collection/:path/
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
 blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
 history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_wiki"
