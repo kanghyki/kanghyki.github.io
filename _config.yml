@@ -1,7 +1,7 @@
 email: kanghyk@gmail.com
 author: kanghyki
 
-title: Kanghyki
+title: hywiki
 baseurl: ""
 description: >
     블로그
@@ -33,6 +33,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
+  #   syntax_highlighter_opts:
+  #     block:
+  #       line_numbers: true

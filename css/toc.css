@@ -1,0 +1,11 @@
+.task-list-item {
+  list-style: none;
+}
+
+article ul > li {
+  padding: 0px;
+}
+
+article ul > li > ul > li {
+  padding-left: 1em;
+}

@@ -1,9 +1,12 @@
 :root {
-  --background: #222831;
+  --background: #2e343a;
   --background2: #393e46;
+
   --accent-low: #393e46;
-  --highlight: #00adb5;
-  --font-color: #eeeeee;
+
+  --text-color: #d0c6ad;
+  --cloudy-text-color: #b2b2b2;
+  --link-text-color: #8cb9b2;
 
   --width: 768px;
 }
@@ -15,22 +18,18 @@
 }
 
 body {
-  font-family: 'SUSE';
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
   max-width: var(--width);
   background-color: var(--background);
-  color: var(--font-color);
+  color: var(--text-color);
   margin: auto;
   padding: 1em;
   line-height: 1.6;
   overflow-wrap: break-word;
-}
-
-article {
-  font-weight: 300;
-}
-
-summary {
-  font-weight: 300;
 }
 
 h1,
@@ -40,8 +39,6 @@ h4,
 h5,
 h6 {
   margin: 0.5em 0;
-  color: var(--font-color);
-  font-weight: normal;
 }
 
 h1 {
@@ -86,7 +83,7 @@ p:first-child {
 }
 
 a {
-  color: var(--highlight);
+  color: var(--link-text-color);
   text-decoration: none;
 }
 
@@ -94,35 +91,27 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
-}
-
 li {
   list-style-position: inside;
 }
 
-code {
-  background-color: var(--background2);
-  border-radius: 2px;
-  padding: 2px 4px;
-}
-
 pre {
   overflow: auto;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 1em 0;
+  padding: 1em;
+  border-radius: 8px;
 }
 
 pre code {
-  background-color: inherit;
-  padding: 0;
-  border-radius: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: small;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 blockquote {
   background-color: var(--background2);
-  border-left: 4px solid var(--highlight);
+  border-left: 4px solid var(--link-text-color);
   padding: 1em 1em 1em 2em;
   margin: 1em 0;
 }
@@ -131,21 +120,6 @@ img {
   max-width: 100%;
   margin: 1em auto;
   display: block;
-}
-
-.task-list-item {
-  list-style: none;
-}
-
-article ul > li {
-  padding: 0px;
-}
-article ul > li > ul > li {
-  padding-left: 1em;
-}
-
-article h1, h2, h3, h4, h5, h6 {
-    color: var(--highlight)
 }
 
 #markdown-toc {
