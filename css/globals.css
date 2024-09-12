@@ -112,7 +112,7 @@ pre code {
 
 blockquote {
   background-color: var(--background2);
-  border-left: 4px solid var(--link-text-color);
+  border-left: 4px solid var(--text-color);
   padding: 1em 1em 1em 2em;
   margin: 1em 0;
 }
