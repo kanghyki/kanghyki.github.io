@@ -95,7 +95,7 @@ permalink: /tag/
                 const updatedDate = d.updated.replace(/^(\d{4}-\d{2}-\d{2}).*$/, '$1')
                 const summaryText = (d.summary == null || /^\s*$/.test(d.summary))
                     ? ('')
-                    : ('-' + d.summary);
+                    : ('- ' + d.summary);
                 const subDocument = (d.children && d.children.length > 0)
                     ? `- 서브 문서: ${d.children.length} 개`
                     : '';
