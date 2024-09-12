@@ -8,6 +8,12 @@ description: >
 url: "https://kanghyki.github.io"
 github_username:  kanghyki
 
+giscus:
+  repo: kanghyki/kanghyki.github.io
+  repo_id: R_kgDOMu3cnQ
+  category: Comments
+  category_id: DIC_kwDOMu3cnc4CiZVC
+
 # Build settings
 plugins:
   - jekyll-feed
