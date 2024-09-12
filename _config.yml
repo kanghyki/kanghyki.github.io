@@ -6,7 +6,13 @@ baseurl: ""
 description: >
     블로그
 url: "https://kanghyki.github.io"
-github_username:  kanghyki
+
+github:
+  username: kanghyki
+  blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
+  history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_wiki"
+  issue: "https://github.com/kanghyki/kanghyki.github.io/issues/new"
+  edit: "https://github.com/kanghyki/kanghyki.github.io/edit/main/_wiki"
 
 giscus:
   repo: kanghyki/kanghyki.github.io
@@ -30,6 +36,3 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
-
-blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
-history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_wiki"

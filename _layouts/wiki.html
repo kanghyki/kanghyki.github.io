@@ -15,19 +15,19 @@ layout: default
 
         <ul class="post_edit">
             <p align="right">
-                <a href="{{ site.history }}/{{ thisName }}.md" target="_blank">
+                <a href="{{ site.github.history }}/{{ thisName }}.md" target="_blank">
                     created : {{ page.date | date: '%Y.%m.%d' }}
                 </a>
             </p>
             <p align="right">
-                <a href="{{ site.history }}/{{ thisName }}.md" target="_blank">
+                <a href="{{ site.github.history }}/{{ thisName }}.md" target="_blank">
                     updated : {{ page.updated | date: '%Y.%m.%d' }}
                 </a>
             </p>
             <p align="right">
-                <a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">
-                    blame
-                </a>
+                <a href="{{ site.github.blame }}/{{ thisName }}.md" target="_blank">blame</a>
+                / <a href="{{ site.github.edit }}/{{ thisName }}.md">edit</a>
+                / <a href="{{ site.github.issue }}?title={{ page.title | url_encode }}">issue</a>
             </p>
         </ul>
 
