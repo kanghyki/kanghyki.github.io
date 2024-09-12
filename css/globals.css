@@ -1,6 +1,7 @@
 :root {
   --background: #2e343a;
-  --background2: #393e46;
+  --heavy-background: #262b30;
+  --light-background: #393e46;
 
   --accent-low: #393e46;
 
@@ -100,6 +101,8 @@ pre {
   overflow: auto;
   padding: 1em;
   border-radius: 8px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 pre code {
@@ -111,7 +114,7 @@ pre code {
 }
 
 blockquote {
-  background-color: var(--background2);
+  background-color: var(--light-background);
   border-left: 4px solid var(--text-color);
   padding: 1em 1em 1em 2em;
   margin: 1em 0;
