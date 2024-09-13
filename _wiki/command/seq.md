@@ -3,7 +3,7 @@ layout  : wiki
 title   : seq
 summary : 수열을 출력한다.
 date    : 2024-09-12 17:20:18 +0900
-updated : 2024-09-13 12:42:12 +0900
+updated : 2024-09-14 10:41:54 +0900
 tag     : bash command
 toc     : true
 public  : false
@@ -36,5 +36,3 @@ $ for i in $(seq 0 5); do echo "? : ${i}"; done
 ? : 4
 ? : 5
 ```
-
-> asdasd

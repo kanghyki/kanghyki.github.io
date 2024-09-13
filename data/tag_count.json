@@ -8,31 +8,11 @@
   "size": 2
  },
  {
-  "name": "b",
-  "size": 1
- },
- {
-  "name": "c",
-  "size": 1
- },
- {
   "name": "dijkstra",
   "size": 1
  },
  {
-  "name": "layout_test",
-  "size": 1
- },
- {
-  "name": "test",
-  "size": 1
- },
- {
   "name": "vim",
-  "size": 2
- },
- {
-  "name": "wiki",
-  "size": 1
+  "size": 3
  }
 ]

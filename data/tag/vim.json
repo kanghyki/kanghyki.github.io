@@ -1,4 +1,5 @@
 [
+ "vim",
  "vim/verbose-set",
- "vim/vim"
+ "vim/vimwiki"
 ]
