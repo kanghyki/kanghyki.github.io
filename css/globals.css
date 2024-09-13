@@ -84,6 +84,14 @@ p:first-child {
   margin-top: 0;
 }
 
+p code {
+    font-family: "JetBrains Mono";
+    background-color: var(--heavy-background);
+    margin: 0 0.1em;
+    padding: 0.3em;
+    border-radius: 0.3em;
+}
+
 a {
   color: var(--link-text-color);
   text-decoration: none;

@@ -1,34 +1,18 @@
 [
  {
-  "name": "a",
-  "size": 2
+  "name": "2024",
+  "size": 1
  },
  {
   "name": "b",
-  "size": 3
+  "size": 1
  },
  {
   "name": "c",
-  "size": 4
- },
- {
-  "name": "d",
   "size": 1
- },
- {
-  "name": "e",
-  "size": 2
  },
  {
   "name": "layout_test",
-  "size": 1
- },
- {
-  "name": "link",
-  "size": 1
- },
- {
-  "name": "md",
   "size": 1
  },
  {
