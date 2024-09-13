@@ -1,9 +1,10 @@
 {
  "type": "wiki",
  "title": "데이크스트라 알고리즘",
- "summary": "최단경로를 구해보자",
+ "summary": "최단경로 알고리즘",
+ "parent": "algorithm/algorithm",
  "url": "/wiki/algorithm/dijkstra",
- "updated": "2024-09-13 15:36:59 +0900",
+ "updated": "2024-09-13 16:58:14 +0900",
  "resource": "28BF8765-DD61-43FE-8D87-4527461765BA",
  "children": []
 }
