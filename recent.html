@@ -14,7 +14,7 @@ permalink: /recent/
             {% if doc.public != false and doc.title != 'wiki' %}
                 <li class="post_list_item">
                     <a href="{{ doc.url | prepend: site.baseurl }}">
-                        <div class="link">
+                        <div class="post-title">
                             {{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}
                         </div>
                         <div class="post-summary">{{ doc.summary }}</div>
@@ -58,18 +58,13 @@ permalink: /recent/
   border-bottom: none;
 }
 
-.link {
-    font-size: 1.0em;
-}
-
 .post-summary {
-    font-size: 0.8em;
     color: var(--cloudy-text-color);
 }
 
 .post-tags {
     display: flex;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .post-tag {
