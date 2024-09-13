@@ -3,11 +3,11 @@ layout  : wiki
 title   : test
 summary : This is test file
 date    : 2024-09-11 03:39:51 +0900
-updated : 2024-09-11 17:26:50 +0900
+updated : 2024-09-13 13:58:25 +0900
 tag     : test layout_test wiki b c
 toc     : true
 public  : true
-parent  : [[link]]
+parent  :
 latex   : false
 resource: E4669AE9-8108-4591-BC21-DD155EA3FE6A
 ---
@@ -29,6 +29,25 @@ resource: E4669AE9-8108-4591-BC21-DD155EA3FE6A
 #### T4
 
 # D1
+
+inner text
+
 ## D2
+
+inner text
+inner text
+
 ## D2
-## D2
+
+> abcd...
+
+h `hello-world` is hello world
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, world!" << std::endl;
+    return 0;
+}
+```

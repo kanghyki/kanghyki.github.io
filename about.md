@@ -4,4 +4,6 @@ title: About
 permalink: /about/
 ---
 
-... about ...
+> Have no fear of perfection - you'll never reach it.
+>
+> Salvador Dali.
