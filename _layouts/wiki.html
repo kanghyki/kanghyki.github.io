@@ -50,6 +50,11 @@ layout: default
     <article class="post-content">
         {{ content }}
     </article>
+
+{% raw %}
+        <div id="child-list"></div>
+{% endraw %}
+
     {% if page.comment != false %}
     {% include comment.html %}
     {% endif %}
@@ -58,6 +63,7 @@ layout: default
 {% include createLink.html %}
 
 <script async src="/js/parentLink.js"></script>
+<script async src="/js/childLink.js"></script>
 
 <style>
 .post_title {
