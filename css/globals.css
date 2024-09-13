@@ -84,12 +84,12 @@ p:first-child {
   margin-top: 0;
 }
 
-p code {
+code.language-plaintext {
     font-family: "JetBrains Mono";
     background-color: var(--heavy-background);
     margin: 0 0.1em;
-    padding: 0.3em;
-    border-radius: 0.3em;
+    padding: 0.2em;
+    border-radius: 0.2em;
 }
 
 a {
@@ -105,16 +105,18 @@ li {
   list-style-position: inside;
 }
 
+ol li {
+    margin: 0.67em 0;
+}
+
 pre {
   overflow: auto;
   padding: 1em;
-  border-radius: 8px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 
 pre code {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "JetBrains Mono";
     font-size: small;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -139,5 +141,17 @@ article ul > li {
 }
 
 article ul > li > ul > li {
+  padding-left: 1em;
+}
+
+article ul > li > ol > li {
+  padding-left: 1em;
+}
+
+article ol > li > ol > li {
+  padding-left: 1em;
+}
+
+article ol > li > ul > li {
   padding-left: 1em;
 }

@@ -4,11 +4,19 @@
   "size": 1
  },
  {
+  "name": "algorithm",
+  "size": 1
+ },
+ {
   "name": "b",
   "size": 1
  },
  {
   "name": "c",
+  "size": 1
+ },
+ {
+  "name": "dijkstra",
   "size": 1
  },
  {
