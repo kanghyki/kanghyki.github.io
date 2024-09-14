@@ -3,12 +3,11 @@ layout: default
 permalink: /recent/
 ---
 
-{% assign documents = site.wiki | sort: 'updated' | reverse %}
-{% assign private_document = site.wiki | where: "public", false %}
-{% assign private_document_size = private_document | size %}
+{% assign wikies = site.wiki | where: "layout", "wiki" %}
+{% assign documents = wikies | where: "public", true | sort: "updated" | reverse %}
 
 <div>
-    <h3>최근 변경된 문서 ({{ site.wiki | size | minus: private_document_size }} 항목)</h3>
+    <h3>최근 변경된 문서 ({{ documents | size }} 항목)</h3>
     <ul class="post_list">
         {% for doc in documents %}
             {% if doc.public != false and doc.title != 'wiki' %}

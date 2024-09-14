@@ -51,9 +51,10 @@ layout: default
         {{ content }}
     </article>
 
-    {% if page.comment != false %}
-    {% include comment.html %}
-    {% endif %}
+{% raw %}
+    <div id="child-list"></div>
+{% endraw %}
+
 </div>
 
 {% include createLink.html %}
@@ -61,3 +62,4 @@ layout: default
 <link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl }}">
 
 <script async src="/js/parentLink.js"></script>
+<script async src="/js/childLink.js"></script>

@@ -136,6 +136,10 @@ img {
   display: block;
 }
 
+article {
+    padding: 1em 0;
+}
+
 article ul > li {
   padding: 0px;
 }
@@ -154,4 +158,8 @@ article ol > li > ol > li {
 
 article ol > li > ul > li {
   padding-left: 1em;
+}
+
+#child-list {
+    padding: 1.0em 0;
 }

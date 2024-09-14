@@ -1,0 +1,32 @@
+.post-title {
+    margin: 0;
+}
+
+.post-summary {
+    color: var(--cloudy-text-color);
+    margin: 0;
+}
+
+.post-tags {
+    display: flex;
+    font-size: 0.9em;
+}
+
+.post-tags li {
+    list-style: none;
+    margin-right: 0.3em;
+}
+
+.post-tags li:last-child {
+    margin-right: 0;
+}
+
+.post-tags a {
+    color: var(--cloudy-text-color);
+}
+
+.post-git p {
+    font-size: 0.9em;
+    margin: 0;
+}
+

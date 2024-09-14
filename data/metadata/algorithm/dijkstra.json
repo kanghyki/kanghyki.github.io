@@ -2,9 +2,9 @@
  "type": "wiki",
  "title": "데이크스트라 알고리즘",
  "summary": "최단경로 알고리즘",
- "parent": "algorithm/algorithm",
+ "parent": "algorithm",
  "url": "/wiki/algorithm/dijkstra",
- "updated": "2024-09-14 08:55:55 +0900",
+ "updated": "2024-09-14 16:36:51 +0900",
  "resource": "28BF8765-DD61-43FE-8D87-4527461765BA",
  "children": []
 }

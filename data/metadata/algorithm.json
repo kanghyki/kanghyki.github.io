@@ -1,9 +1,11 @@
 {
  "type": "wiki",
  "title": "알고리즘",
- "parent": "root",
+ "parent": "index",
  "url": "/wiki/algorithm",
- "updated": "2024-09-13 16:22:35 +0900",
+ "updated": "2024-09-14 22:24:33 +0900",
  "resource": "934A94B7-3321-4F45-AA55-C975DA87CE74",
- "children": []
+ "children": [
+  "algorithm/dijkstra"
+ ]
 }
