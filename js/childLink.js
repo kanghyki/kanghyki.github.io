@@ -9,7 +9,6 @@
 
         let ret = '<h2>하위 문서</h2><ul>';
         for (let i = 0; i < clist.length; ++i) {
-            console.log(clist[i])
             ret += `<li><a href="${clist[i].url}">${clist[i].title}</a></li>`;
         }
         ret += '</ul>'

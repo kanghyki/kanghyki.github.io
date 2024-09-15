@@ -1,0 +1,17 @@
+.mention-ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    padding: 1em;
+
+    border: 1px solid var(--accent-low);
+}
+
+.mention-link {
+    color: var(--text-color);
+}
+
+.mention-link div {
+    font-size: 0.8em;
+    color: var(--cloudy-text-color);
+}

@@ -11,6 +11,7 @@ function main() {
     const list = [];
     const tagMap = {};
     const pageMap = {};
+    const mentionMap = {};
 
     getFiles('./_wiki', 'wiki', list);
 //getFiles('./_posts', 'blog', list);
@@ -67,10 +68,25 @@ function main() {
         }
     });
 
+    dataList.forEach(page => {
+        if (page.mentions == null || page.mentions.length == 0) return;
+        for (let i = 0; i < page.mentions.length; ++i) {
+            const url = page.mentions[i].url;
+            if (!mentionMap[url]) {
+                mentionMap[url] = [];
+            }
+            mentionMap[url].push({
+                from: page.fileName,
+                paragraph: page.mentions[i].paragraph,
+            });
+        }
+    })
+
     saveTagFiles(tagMap, pageMap);
     saveTagCount(tagMap);
     saveMetaDataFiles(pageMap);
     saveDocumentUrlList(pageMap);
+    saveMentionList(mentionMap);
 }
 
 function lexicalOrderingBy(property) {
@@ -169,6 +185,27 @@ function saveMetaDataFiles(pageMap) {
 }
 
 /**
+* 문서가 갖는 멘션의 정보를 파일로 저장한다.
+*/
+function saveMentionList(mentionMap) {
+    for (const mention in mentionMap) {
+        const data = mentionMap[mention];
+        const fileName = mention;
+        const dirName = `./data/mention/${fileName}`
+            .replace(/(\/\/)/g, '/')
+            .replace(/[/][^/]*$/, '');
+
+        fs.mkdirSync(dirName, { recursive: true }, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+        })
+
+        saveToFile(`./data/mention/${fileName}.json`, JSON.stringify(data, null, 1), NO_PRINT);
+    }
+}
+
+/**
  * 모든 문서 파일의 목록 json 파일을 생성합니다.
  */
 function saveDocumentUrlList(pageMap) {
@@ -214,7 +251,7 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
     });
 }
 
-function parseInfo(file, info) {
+function parseInfo(file, info, mentions) {
     if (info === null) {
         return undefined;
     }
@@ -223,7 +260,8 @@ function parseInfo(file, info) {
         fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, '$1'),
         type: file.type,
         url: '',
-        modified: fs.statSync(file.path).mtime
+        modified: fs.statSync(file.path).mtime,
+        mentions: []
     };
 
     const rawData = info.split('\n');
@@ -256,6 +294,25 @@ function parseInfo(file, info) {
     if (obj.tag) {
         obj.tag = obj.tag.split(/\s+/);
     }
+
+//./_wiki/vim/vim-set.md
+    if (mentions != null) {
+        mentions.forEach(m => {
+            let rel = m.replace(/^.*\[\[(.+)\]\].*$/, '$1')
+            if (rel === m) return;
+            let prefix = ''
+            if (rel && rel[0] !== '/') {
+                prefix = file.path
+                    .replace(/^(.*\/).*\.md/, '$1')
+                    .replace(/^\.\/_wiki/, '')
+            }
+            obj.mentions.push({
+                paragraph: m,
+                url: prefix + rel
+            })
+        })
+    }
+
     return obj;
 }
 
@@ -294,5 +351,13 @@ function getFiles(path, type, array, testFileList = null) {
 
 function collectData(file) {
     const data = fs.readFileSync(file.path, 'utf8');
-    return parseInfo(file, data.split('---')[1]);
+
+    const sep = '---'
+    const s1 = data.indexOf(sep) + sep.length;
+    const s2 = data.indexOf(sep, s1);
+    const info = data.substring(s1, s2);
+    const body = data.substring(s2 + sep.length);
+    const mentions = body.match(/.*\[\[.*\]\].*/g);
+
+    return parseInfo(file, info, mentions);
 }
