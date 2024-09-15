@@ -20,6 +20,7 @@
     let target_data = null;
     try {
         const target_res = await fetch(`/data/metadata/${target}.json`);
+        if (!target_res.ok) return;
         target_data = await target_res.json();
     }
     catch (e) {
@@ -32,6 +33,7 @@
         let child_data = null;
         try {
             const child_res = await fetch(uri)
+            if (!child_res.ok) continue;
             child_data = await child_res.json();
         }
         catch (e) {

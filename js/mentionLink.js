@@ -25,9 +25,11 @@
     let target_res = null;
     try {
         target_res = await fetch(`/data/mention/${target}.json`);
+        if (!target_res.ok) return;
         target_data = await target_res.json();
     } catch (e) {
-        console.log("No mention data", e);
+        console.log(e);
+        return;
     }
 
     const mlist = [];
