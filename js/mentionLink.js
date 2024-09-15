@@ -11,7 +11,7 @@
         if (mlist == null || mlist.length < 1) return '';
         let ret = '<h2>이 문서를 참조한 문서</h2><ul class="mention-ul">';
         for (const mention of mlist) {
-            const para = mention.paragraph.replace(new RegExp(String.raw`(\[\[.*${fileName}\]\])`, "g"), '<span class="mention-highlight">$1</span>');
+            const para = mention.paragraph.replace(new RegExp(String.raw`(\[\[.*${fileName}\]\])(\{.*\})?`, "g"), '<span class="mention-highlight">$1$2</span>');
             ret += `<li>
                 <a class="mention-link" href="${mention.url}">
                     <span>${mention.title}</span>
