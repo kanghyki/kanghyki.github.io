@@ -11,3 +11,7 @@
     font-size: 0.8em;
     color: var(--cloudy-text-color);
 }
+
+.mention-highlight {
+    background-color: var(--light-background);
+}
