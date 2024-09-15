@@ -1,0 +1,6 @@
+[
+ {
+  "from": "vim/verbose-set",
+  "paragraph": "마지막으로 [[vim-set]]{Vim 설정}이 세팅된 위치를 알려준다."
+ }
+]

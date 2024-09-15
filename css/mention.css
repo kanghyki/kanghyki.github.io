@@ -7,10 +7,6 @@
     border: 1px solid var(--accent-low);
 }
 
-.mention-link {
-    color: var(--text-color);
-}
-
 .mention-link div {
     font-size: 0.8em;
     color: var(--cloudy-text-color);
