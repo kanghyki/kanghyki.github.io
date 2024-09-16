@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "명령어",
+ "summary": "명령어 인덱스",
+ "parent": "index",
+ "url": "/wiki/command",
+ "updated": "2024-09-16 12:39:48 +0900",
+ "resource": "A854C8D7-1917-413E-BF43-FD7A17BD02CD",
+ "children": [
+  "command/seq"
+ ]
+}

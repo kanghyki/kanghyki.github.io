@@ -1,6 +1,0 @@
-[
- {
-  "from": "vim/vimwiki",
-  "paragraph": "`[[/algorithm/dijkstra]]`처럼 디렉토리와 파일명이 다르면 잘 작동한다..."
- }
-]

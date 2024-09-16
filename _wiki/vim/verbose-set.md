@@ -3,7 +3,7 @@ layout  : wiki
 title   : verbose set
 summary : 마지막으로 설정이 세팅된 위치를 파악하기
 date    : 2024-09-13 16:24:37 +0900
-updated : 2024-09-15 20:01:16 +0900
+updated : 2024-09-16 12:58:49 +0900
 tag     : vim
 toc     : true
 public  : true

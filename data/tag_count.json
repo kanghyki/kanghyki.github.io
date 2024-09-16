@@ -8,11 +8,31 @@
   "size": 1
  },
  {
+  "name": "bash",
+  "size": 1
+ },
+ {
+  "name": "command",
+  "size": 2
+ },
+ {
   "name": "dijkstra",
   "size": 1
  },
  {
+  "name": "git",
+  "size": 2
+ },
+ {
+  "name": "graph",
+  "size": 1
+ },
+ {
+  "name": "tools",
+  "size": 1
+ },
+ {
   "name": "vim",
-  "size": 3
+  "size": 2
  }
 ]

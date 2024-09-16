@@ -3,11 +3,11 @@ layout  : wiki
 title   : 데이크스트라 알고리즘
 summary : 최단경로 알고리즘
 date    : 2024-09-13 15:05:49 +0900
-updated : 2024-09-14 16:36:51 +0900
+updated : 2024-09-16 13:07:42 +0900
 tag     : dijkstra
 toc     : true
 public  : true
-parent  : [[/algorithm]]
+parent  : [[/algorithm/graph]]
 latex   : false
 resource: 28BF8765-DD61-43FE-8D87-4527461765BA
 ---

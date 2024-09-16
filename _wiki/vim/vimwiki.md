@@ -3,10 +3,10 @@ layout  : wiki
 title   : vimwiki
 summary :
 date    : 2024-09-14 10:04:33 +0900
-updated : 2024-09-14 22:37:56 +0900
+updated : 2024-09-16 12:21:31 +0900
 tag     : vim
 toc     : true
-public  : true
+public  : false
 parent  : [[/vim]]
 latex   : false
 resource: B7946ED7-AEBE-4B95-9995-7DE0FC9E3C0A

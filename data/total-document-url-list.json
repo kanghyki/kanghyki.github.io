@@ -1,10 +1,15 @@
 [
  "/wiki/algorithm",
  "/wiki/algorithm/dijkstra",
+ "/wiki/algorithm/graph",
+ "/wiki/command",
+ "/wiki/command/seq",
  "/wiki/index",
+ "/wiki/tools",
+ "/wiki/tools/git",
+ "/wiki/tools/git-hook",
  "/wiki/vim",
  "/wiki/vim/verbose-set",
  "/wiki/vim/vim-set",
- "/wiki/vim/vimwiki",
  "/wiki/yearly/2024"
 ]

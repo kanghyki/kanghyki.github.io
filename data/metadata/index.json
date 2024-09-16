@@ -6,6 +6,8 @@
  "resource": "310D538D-DFF9-4640-AC47-03DC471C5C14",
  "children": [
   "algorithm",
+  "command",
+  "tools",
   "vim"
  ]
 }
