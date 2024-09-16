@@ -49,10 +49,15 @@ layout: default
 
     <article class="post-content">
         {{ content }}
-        {% raw %}
-            <div id="mention-list"></div>
-        {% endraw %}
     </article>
+
+    {% raw %}
+        <div id="child-list"></div>
+    {% endraw %}
+
+    {% raw %}
+        <div id="mention-list"></div>
+    {% endraw %}
 
     {% if page.comment != false %}
     {% include comment.html %}
@@ -65,4 +70,5 @@ layout: default
 <link rel="stylesheet" href="{{ "/css/mention.css" | prepend: site.baseurl }}">
 
 <script async src="/js/parentLink.js"></script>
+<script async src="/js/childLink.js"></script>
 <script async src="/js/mentionLink.js"></script>
