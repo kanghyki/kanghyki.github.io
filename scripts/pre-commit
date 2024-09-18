@@ -1,0 +1,55 @@
+#!/bin/bash
+
+BOLDGREEN="\033[1;32m"
+BOLDWHITE="\033[1;97m"
+ENDCOLOR="\033[0m"
+
+staged=$(git diff --cached --name-only)
+
+non_public=()
+
+for file in $staged; do
+    if grep -qE "^\s*public\s*:\s*false\s*$" "$file"; then
+        non_public+=(${file})
+    fi
+done
+
+if [ ${#non_public[@]} -gt 0 ]
+then
+    echo -e "${BOLDWHITE}--------------${ENDCOLOR}"
+    echo -e "${BOLDGREEN}public : false\n${ENDCOLOR}"
+    for file in ${non_public[@]}; do
+        echo $file
+    done
+    echo -e "${BOLDWHITE}--------------${ENDCOLOR}"
+    printf '\n'
+    while true
+    do
+
+        echo -e "${BOLDWHITE}------------------------------------------------${ENDCOLOR}"
+        echo -e "${BOLDWHITE}Are you sure to unstage non-public files? ${BOLDGREEN}[y/n]${ENDCOLOR}"
+        echo -e "${BOLDWHITE}------------------------------------------------${ENDCOLOR}"
+        read input < /dev/tty
+
+        if [ $input == 'n' ]; then
+            break
+        elif [ $input == 'y' ]; then
+            for file in ${non_public[@]}; do
+                git restore --staged "$file"
+            done
+            break;
+        fi
+
+        printf '\n${BOLDGREEN}DONE${ENDCOLOR}\n'
+
+    done
+fi
+
+if [ "$SKIP_PRECOMMIT" = "true" ]; then
+    echo "Pre-commit hook skipped."
+    exit 0
+fi
+
+rm -rf data
+./generateData.js
+git add data
