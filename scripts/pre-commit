@@ -23,33 +23,48 @@ then
     done
     echo -e "${BOLDWHITE}--------------${ENDCOLOR}"
     printf '\n'
+    echo -e "${BOLDWHITE}-----------------------------------------${ENDCOLOR}"
+    echo -e "${BOLDWHITE}Are you sure to unstage non-public files?"
+    echo -e "${BOLDWHITE}-----------------------------------------${ENDCOLOR}"
     while true
     do
 
-        echo -e "${BOLDWHITE}------------------------------------------------${ENDCOLOR}"
-        echo -e "${BOLDWHITE}Are you sure to unstage non-public files? ${BOLDGREEN}[y/n]${ENDCOLOR}"
-        echo -e "${BOLDWHITE}------------------------------------------------${ENDCOLOR}"
-        read input < /dev/tty
+        printf "${BOLDGREEN}[y/n]${ENDCOLOR} : "
 
+        read input < /dev/tty
         if [ $input == 'n' ]; then
+            printf "\nSKIP\n\n"
+            sleep 1
             break
         elif [ $input == 'y' ]; then
             for file in ${non_public[@]}; do
                 git restore --staged "$file"
             done
+            printf "\nDONE\n\n"
+            sleep 1
             break;
         fi
-
-        printf '\n${BOLDGREEN}DONE${ENDCOLOR}\n'
 
     done
 fi
 
-if [ "$SKIP_PRECOMMIT" = "true" ]; then
-    echo "Pre-commit hook skipped."
-    exit 0
-fi
-
-rm -rf data
-./generateData.js
-git add data
+echo -e "${BOLDWHITE}------------------------------${ENDCOLOR}"
+echo -e "${BOLDWHITE}Are you sure to generate data?"
+echo -e "${BOLDWHITE}------------------------------${ENDCOLOR}"
+while true
+do
+    printf "${BOLDGREEN}[y/n]${ENDCOLOR} : "
+    read input < /dev/tty
+    if [ $input == 'n' ]; then
+        printf "\nSKIP\n\n"
+        sleep 1
+        break
+    elif [ $input == 'y' ]; then
+        rm -rf data
+        ./generateData.js
+        git add data
+        printf "\nDONE\n\n"
+        sleep 1
+        break;
+    fi
+done
