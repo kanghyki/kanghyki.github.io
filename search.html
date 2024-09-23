@@ -10,68 +10,81 @@ permalink: /search/
     import { TrieElement } from "/js/search/trie.js";
     import { Indexer } from "/js/search/indexer.js";
 
-    function makeHTML(val, list) {
-        if (list == null || list.length < 1) return "<h2>검색 결과 없음</h2>";
+    function makeHTML(search_str, page_metadata_list) {
+        if (page_metadata_list == null || page_metadata_list.length < 1)
+            return "<h2>검색 결과 없음</h2>";
 
-        let ret = '<h2>검색 결과</h2><ul class="post_list">';
-        const exp = new RegExp(String.raw`(${val})`, "gi")
-        for (var i = 0; i < list.length; i++) {
-            ret += '<li class="post_list_item" >';
-            ret += `<a href="${list[i].url}">`;
-            ret += `<span class="post-title">${list[i].title.replace(exp, '<strong>$1</strong>')}</span>`;
-            list[i].summary &&
-                (ret += `<span class="post-summary"> - ${list[i].summary.replace(exp, '<strong>$1</strong>')}</span>`);
-            ret += `</a>`;
-            ret += "</li>";
+        const reg_exp = new RegExp(String.raw`(${search_str})`, "gi");
+        const replace_exp = "<strong>$1</strong>";
+
+        let inner_html_str = "<h2>검색 결과</h2>";
+        inner_html_str += '<ul class="post-list">';
+        for (let i = 0; i < page_metadata_list.length; i++) {
+            inner_html_str += '<li class="post-list-item">';
+            inner_html_str += `<a href="${page_metadata_list[i].url}">`;
+            inner_html_str += `<span class="post-title">${page_metadata_list[
+                i
+            ].title.replace(reg_exp, replace_exp)}</span>`;
+            page_metadata_list[i].summary &&
+                (inner_html_str += `<span class="post-summary"> - ${page_metadata_list[
+                    i
+                ].summary.replace(reg_exp, replace_exp)}</span>`);
+            inner_html_str += `</a>`;
+            inner_html_str += "</li>";
         }
-        ret += "</ul>";
-        return ret;
+        inner_html_str += "</ul>";
+        return inner_html_str;
     }
 
     (async () => {
         const engine = new Search(new Indexer());
         try {
-            const res = await fetch('/data/search-index.json');
-            const index = await res.json();
-            engine.indexer.fromJson(index);
+            const search_index_res = await fetch("/data/search-index.json");
+            const search_index_json = await search_index_res.json();
+            engine.indexer.fromJson(search_index_json);
         } catch (e) {
             console.error(e);
             return;
         }
         const params = new URLSearchParams(window.location.search);
-        const val = params.get("searchString");
-        const searchResult = engine.search(val);
-        const list = [];
+        const search_str = params.get("searchString");
+        const search_result = engine.search(search_str);
+        const page_meatadata_list = [];
 
-        for (const key of searchResult) {
+        for (const file_name of search_result) {
             try {
-                const res = await fetch(`/data/metadata/${key}.json`);
-                const json = await res.json();
-                list.push(json);
+                const metadata_res = await fetch(
+                    `/data/metadata/${file_name}.json`
+                );
+                const metadata_json = await metadata_res.json();
+                page_meatadata_list.push(metadata_json);
             } catch (e) {
                 console.warn(e);
             }
         }
-        document.getElementById("search-list").innerHTML = makeHTML(val, list);
+        document.getElementById("search-list").innerHTML = makeHTML(
+            search_str,
+            page_meatadata_list
+        );
     })();
 </script>
 
 <style>
-    .post_list_item {
+    .post-list-item {
         padding: 0.4em 0;
     }
 
-    .post_list_item:first-child {
+    .post-list-item:first-child {
         padding-top: 0;
     }
 
-    .post_list_item:last-child {
+    .post-list-item:last-child {
         padding-bottom: 0;
         border-bottom: none;
     }
 
     .post-title {
-        font-size:medium;
+        font-size: medium;
     }
 
     .post-summary {
