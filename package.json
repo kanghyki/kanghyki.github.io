@@ -1,11 +1,9 @@
 {
-  "name": "kanghyki.github.io",
-  "version": "1.0.0",
-  "main": "generateData.js",
-  "repository": "git@github.com:kanghyki/kanghyki.github.io.git",
-  "author": "kanghyki <kanghyki@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "yamljs": "^0.3.0"
-  }
+    "name": "kanghyki.github.io",
+    "version": "1.0.0",
+    "main": "generateData.js",
+    "repository": "git@github.com:kanghyki/kanghyki.github.io.git",
+    "author": "kanghyki <kanghyki@gmail.com>",
+    "license": "MIT",
+    "type": "module"
 }

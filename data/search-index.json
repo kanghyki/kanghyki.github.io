@@ -1,0 +1,963 @@
+{
+ "0": [
+  "algorithm/dijkstra",
+  "algorithm/graph",
+  "command/seq",
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "1": [
+  "algorithm/dijkstra",
+  "command/seq"
+ ],
+ "2": [
+  "algorithm/graph",
+  "command/seq"
+ ],
+ "3": [
+  "command/seq",
+  "tools/git-hook"
+ ],
+ "4": [
+  "command/seq"
+ ],
+ "5": [
+  "algorithm/graph",
+  "command/seq"
+ ],
+ "8": [
+  "tools/git-hook"
+ ],
+ "13": [
+  "yearly/2024"
+ ],
+ "15": [
+  "yearly/2024"
+ ],
+ "200": [
+  "vim/verbose-set"
+ ],
+ "2024": [
+  "yearly/2024"
+ ],
+ "알고리즘": [
+  "algorithm",
+  "algorithm/dijkstra"
+ ],
+ "algorithm": [
+  "algorithm"
+ ],
+ "toc": [
+  "algorithm/dijkstra",
+  "algorithm/graph",
+  "command",
+  "command/seq",
+  "tools",
+  "tools/git",
+  "tools/git-hook",
+  "vim/verbose-set",
+  "vim/vim-set",
+  "yearly/2024"
+ ],
+ "우선": [
+  "algorithm/dijkstra"
+ ],
+ "순위": [
+  "algorithm/dijkstra"
+ ],
+ "큐": [
+  "algorithm/dijkstra"
+ ],
+ "min": [
+  "algorithm/dijkstra"
+ ],
+ "heap": [
+  "algorithm/dijkstra"
+ ],
+ "를": [
+  "algorithm/dijkstra"
+ ],
+ "활용한": [
+  "algorithm/dijkstra"
+ ],
+ "데이크스트라": [
+  "algorithm/dijkstra"
+ ],
+ "cpp": [
+  "algorithm/dijkstra"
+ ],
+ "include": [
+  "algorithm/dijkstra"
+ ],
+ "iostream": [
+  "algorithm/dijkstra"
+ ],
+ "limits": [
+  "algorithm/dijkstra"
+ ],
+ "h": [
+  "algorithm/dijkstra"
+ ],
+ "queue": [
+  "algorithm/dijkstra"
+ ],
+ "vector": [
+  "algorithm/dijkstra"
+ ],
+ "using": [
+  "algorithm/dijkstra"
+ ],
+ "namespace": [
+  "algorithm/dijkstra"
+ ],
+ "std": [
+  "algorithm/dijkstra"
+ ],
+ "int": [
+  "algorithm/dijkstra"
+ ],
+ "main": [
+  "algorithm/dijkstra"
+ ],
+ "ios": [
+  "algorithm/dijkstra"
+ ],
+ "sync": [
+  "algorithm/dijkstra"
+ ],
+ "with": [
+  "algorithm/dijkstra"
+ ],
+ "stdio": [
+  "algorithm/dijkstra"
+ ],
+ "false": [
+  "algorithm/dijkstra"
+ ],
+ "cin": [
+  "algorithm/dijkstra"
+ ],
+ "tie": [
+  "algorithm/dijkstra"
+ ],
+ "null": [
+  "algorithm/dijkstra"
+ ],
+ "cout": [
+  "algorithm/dijkstra"
+ ],
+ "v": [
+  "algorithm/dijkstra"
+ ],
+ "e": [
+  "algorithm/dijkstra"
+ ],
+ "s": [
+  "algorithm/dijkstra"
+ ],
+ "pair": [
+  "algorithm/dijkstra"
+ ],
+ "adj": [
+  "algorithm/dijkstra"
+ ],
+ "for": [
+  "algorithm/dijkstra",
+  "command/seq"
+ ],
+ "i": [
+  "algorithm/dijkstra",
+  "command/seq"
+ ],
+ "a": [
+  "algorithm/dijkstra",
+  "algorithm/graph"
+ ],
+ "b": [
+  "algorithm/dijkstra",
+  "algorithm/graph"
+ ],
+ "c": [
+  "algorithm/dijkstra",
+  "algorithm/graph"
+ ],
+ "push": [
+  "algorithm/dijkstra"
+ ],
+ "back": [
+  "algorithm/dijkstra"
+ ],
+ "priority": [
+  "algorithm/dijkstra"
+ ],
+ "greater": [
+  "algorithm/dijkstra"
+ ],
+ "pq": [
+  "algorithm/dijkstra"
+ ],
+ "dist": [
+  "algorithm/dijkstra"
+ ],
+ "max": [
+  "algorithm/dijkstra"
+ ],
+ "while": [
+  "algorithm/dijkstra"
+ ],
+ "empty": [
+  "algorithm/dijkstra"
+ ],
+ "cur": [
+  "algorithm/dijkstra"
+ ],
+ "top": [
+  "algorithm/dijkstra"
+ ],
+ "pop": [
+  "algorithm/dijkstra"
+ ],
+ "dist에": [
+  "algorithm/dijkstra"
+ ],
+ "저장된": [
+  "algorithm/dijkstra"
+ ],
+ "비용이": [
+  "algorithm/dijkstra"
+ ],
+ "현재": [
+  "algorithm/dijkstra"
+ ],
+ "노드의": [
+  "algorithm/dijkstra"
+ ],
+ "비용과": [
+  "algorithm/dijkstra"
+ ],
+ "다르다면": [
+  "algorithm/dijkstra"
+ ],
+ "패스한다": [
+  "algorithm/dijkstra"
+ ],
+ "비용은": [
+  "algorithm/dijkstra"
+ ],
+ "항상": [
+  "algorithm/dijkstra"
+ ],
+ "가장": [
+  "algorithm/dijkstra"
+ ],
+ "적다": [
+  "algorithm/dijkstra"
+ ],
+ "if": [
+  "algorithm/dijkstra",
+  "tools/git-hook"
+ ],
+ "second": [
+  "algorithm/dijkstra"
+ ],
+ "first": [
+  "algorithm/dijkstra"
+ ],
+ "continue": [
+  "algorithm/dijkstra"
+ ],
+ "const": [
+  "algorithm/dijkstra"
+ ],
+ "auto": [
+  "algorithm/dijkstra"
+ ],
+ "nxt": [
+  "algorithm/dijkstra"
+ ],
+ "cost": [
+  "algorithm/dijkstra"
+ ],
+ "size": [
+  "algorithm/dijkstra"
+ ],
+ "inf": [
+  "algorithm/dijkstra",
+  "algorithm/graph"
+ ],
+ "n": [
+  "algorithm/dijkstra"
+ ],
+ "else": [
+  "algorithm/dijkstra"
+ ],
+ "return": [
+  "algorithm/dijkstra"
+ ],
+ "경로": [
+  "algorithm/dijkstra"
+ ],
+ "복원": [
+  "algorithm/dijkstra"
+ ],
+ "테이블을": [
+  "algorithm/dijkstra"
+ ],
+ "추가해": [
+  "algorithm/dijkstra"
+ ],
+ "갱신이": [
+  "algorithm/dijkstra"
+ ],
+ "일어날": [
+  "algorithm/dijkstra"
+ ],
+ "때": [
+  "algorithm/dijkstra",
+  "algorithm/graph"
+ ],
+ "갱신된": [
+  "algorithm/dijkstra"
+ ],
+ "테이블에": [
+  "algorithm/dijkstra"
+ ],
+ "노드를": [
+  "algorithm/dijkstra"
+ ],
+ "기록해준다": [
+  "algorithm/dijkstra"
+ ],
+ "경로를": [
+  "algorithm/dijkstra"
+ ],
+ "구할": [
+  "algorithm/dijkstra"
+ ],
+ "때는": [
+  "algorithm/dijkstra"
+ ],
+ "원하는": [
+  "algorithm/dijkstra"
+ ],
+ "노드에서": [
+  "algorithm/dijkstra"
+ ],
+ "시작해": [
+  "algorithm/dijkstra"
+ ],
+ "역순으로": [
+  "algorithm/dijkstra"
+ ],
+ "따라간다": [
+  "algorithm/dijkstra"
+ ],
+ "pre": [
+  "algorithm/dijkstra",
+  "tools/git-hook"
+ ],
+ "테이블": [
+  "algorithm/dijkstra"
+ ],
+ "존재하지": [
+  "algorithm/dijkstra"
+ ],
+ "않는": [
+  "algorithm/dijkstra"
+ ],
+ "0번": [
+  "algorithm/dijkstra"
+ ],
+ "가르킨다": [
+  "algorithm/dijkstra"
+ ],
+ "갱신한다": [
+  "algorithm/dijkstra"
+ ],
+ "links": [
+  "algorithm/dijkstra",
+  "tools/git-hook"
+ ],
+ "바킹독의": [
+  "algorithm/dijkstra"
+ ],
+ "실전": [
+  "algorithm/dijkstra"
+ ],
+ "0x1d강": [
+  "algorithm/dijkstra"
+ ],
+ "다익스트라": [
+  "algorithm/dijkstra"
+ ],
+ "https": [
+  "algorithm/dijkstra",
+  "tools/git-hook",
+  "yearly/2024"
+ ],
+ "youtu": [
+  "algorithm/dijkstra"
+ ],
+ "be": [
+  "algorithm/dijkstra"
+ ],
+ "o9bnvwgpt": [
+  "algorithm/dijkstra"
+ ],
+ "o": [
+  "algorithm/dijkstra"
+ ],
+ "si": [
+  "algorithm/dijkstra"
+ ],
+ "5jk7eux4pynm1o": [
+  "algorithm/dijkstra"
+ ],
+ "최단경로": [
+  "algorithm/dijkstra"
+ ],
+ "dijkstra": [
+  "algorithm/dijkstra"
+ ],
+ "그래프": [
+  "algorithm/graph"
+ ],
+ "정점": [
+  "algorithm/graph"
+ ],
+ "vertex": [
+  "algorithm/graph"
+ ],
+ "와": [
+  "algorithm/graph"
+ ],
+ "간선": [
+  "algorithm/graph"
+ ],
+ "edge": [
+  "algorithm/graph"
+ ],
+ "로": [
+  "algorithm/graph"
+ ],
+ "이루어진": [
+  "algorithm/graph"
+ ],
+ "자료구조를": [
+  "algorithm/graph"
+ ],
+ "의미한다": [
+  "algorithm/graph"
+ ],
+ "표현": [
+  "algorithm/graph"
+ ],
+ "그래프의": [
+  "algorithm/graph"
+ ],
+ "표현은": [
+  "algorithm/graph"
+ ],
+ "인접": [
+  "algorithm/graph"
+ ],
+ "리스트와": [
+  "algorithm/graph"
+ ],
+ "행렬으로": [
+  "algorithm/graph"
+ ],
+ "한다": [
+  "algorithm/graph"
+ ],
+ "리스트": [
+  "algorithm/graph"
+ ],
+ "만약": [
+  "algorithm/graph"
+ ],
+ "정점이": [
+  "algorithm/graph"
+ ],
+ "존재할": [
+  "algorithm/graph"
+ ],
+ "으로": [
+  "algorithm/graph"
+ ],
+ "연결되어": [
+  "algorithm/graph"
+ ],
+ "있다면": [
+  "algorithm/graph"
+ ],
+ "표현한다": [
+  "algorithm/graph"
+ ],
+ "행렬": [
+  "algorithm/graph"
+ ],
+ "동일하게": [
+  "algorithm/graph"
+ ],
+ "자료구조": [
+  "algorithm/graph"
+ ],
+ "graph": [
+  "algorithm/graph"
+ ],
+ "명령어": [
+  "command"
+ ],
+ "인덱스": [
+  "command"
+ ],
+ "command": [
+  "command",
+  "command/seq"
+ ],
+ "기본": [
+  "command/seq"
+ ],
+ "bash": [
+  "command/seq"
+ ],
+ "seq": [
+  "command/seq"
+ ],
+ "in": [
+  "command/seq"
+ ],
+ "do": [
+  "command/seq",
+  "tools/git-hook"
+ ],
+ "echo": [
+  "command/seq",
+  "vim/vim-set"
+ ],
+ "done": [
+  "command/seq"
+ ],
+ "수열을": [
+  "command/seq"
+ ],
+ "출력한다": [
+  "command/seq"
+ ],
+ "root": [
+  "index"
+ ],
+ "tools": [
+  "tools"
+ ],
+ "git": [
+  "tools/git",
+  "tools/git-hook"
+ ],
+ "분기": [
+  "tools/git-hook"
+ ],
+ "처리": [
+  "tools/git-hook"
+ ],
+ "환경변수에": [
+  "tools/git-hook"
+ ],
+ "따라": [
+  "tools/git-hook"
+ ],
+ "분기처리": [
+  "tools/git-hook"
+ ],
+ "하도록": [
+  "tools/git-hook"
+ ],
+ "로직을": [
+  "tools/git-hook"
+ ],
+ "작성한다": [
+  "tools/git-hook"
+ ],
+ "sh": [
+  "tools/git-hook"
+ ],
+ "bin": [
+  "tools/git-hook"
+ ],
+ "something": [
+  "tools/git-hook"
+ ],
+ "true": [
+  "tools/git-hook"
+ ],
+ "then": [
+  "tools/git-hook"
+ ],
+ "fi": [
+  "tools/git-hook"
+ ],
+ "다음과": [
+  "tools/git-hook"
+ ],
+ "같이": [
+  "tools/git-hook"
+ ],
+ "환경변수": [
+  "tools/git-hook"
+ ],
+ "설정": [
+  "tools/git-hook",
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "후": [
+  "tools/git-hook"
+ ],
+ "실행한다": [
+  "tools/git-hook"
+ ],
+ "commit": [
+  "tools/git-hook",
+  "yearly/2024"
+ ],
+ "훅": [
+  "tools/git-hook"
+ ],
+ "생략": [
+  "tools/git-hook"
+ ],
+ "훅을": [
+  "tools/git-hook"
+ ],
+ "생략하려면": [
+  "tools/git-hook"
+ ],
+ "no": [
+  "tools/git-hook"
+ ],
+ "verify": [
+  "tools/git-hook"
+ ],
+ "옵션을": [
+  "tools/git-hook"
+ ],
+ "주면": [
+  "tools/git-hook"
+ ],
+ "된다": [
+  "tools/git-hook"
+ ],
+ "git맞춤": [
+  "tools/git-hook"
+ ],
+ "hooks": [
+  "tools/git-hook"
+ ],
+ "scm": [
+  "tools/git-hook"
+ ],
+ "com": [
+  "tools/git-hook",
+  "yearly/2024"
+ ],
+ "book": [
+  "tools/git-hook"
+ ],
+ "ko": [
+  "tools/git-hook"
+ ],
+ "v2": [
+  "tools/git-hook"
+ ],
+ "eb": [
+  "tools/git-hook"
+ ],
+ "a7": [
+  "tools/git-hook"
+ ],
+ "9e": [
+  "tools/git-hook"
+ ],
+ "ec": [
+  "tools/git-hook"
+ ],
+ "b6": [
+  "tools/git-hook"
+ ],
+ "a4": [
+  "tools/git-hook"
+ ],
+ "vim": [
+  "vim",
+  "vim/verbose-set",
+  "yearly/2024"
+ ],
+ "설명": [
+  "vim/verbose-set"
+ ],
+ "verbose": [
+  "vim/verbose-set"
+ ],
+ "set": [
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "option": [
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "cr": [
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "마지막으로": [
+  "vim/verbose-set"
+ ],
+ "이": [
+  "vim/verbose-set",
+  "yearly/2024"
+ ],
+ "세팅된": [
+  "vim/verbose-set"
+ ],
+ "위치를": [
+  "vim/verbose-set"
+ ],
+ "알려준다": [
+  "vim/verbose-set"
+ ],
+ "예시": [
+  "vim/verbose-set"
+ ],
+ "conceallevel": [
+  "vim/verbose-set",
+  "vim/vim-set"
+ ],
+ "last": [
+  "vim/verbose-set"
+ ],
+ "from": [
+  "vim/verbose-set"
+ ],
+ "local": [
+  "vim/verbose-set"
+ ],
+ "share": [
+  "vim/verbose-set"
+ ],
+ "nvim": [
+  "vim/verbose-set"
+ ],
+ "plugged": [
+  "vim/verbose-set"
+ ],
+ "vimwiki": [
+  "vim/verbose-set",
+  "yearly/2024"
+ ],
+ "plugin": [
+  "vim/verbose-set"
+ ],
+ "line": [
+  "vim/verbose-set"
+ ],
+ "설정이": [
+  "vim/verbose-set"
+ ],
+ "파악하기": [
+  "vim/verbose-set"
+ ],
+ "빔": [
+  "vim/vim-set"
+ ],
+ "확인": [
+  "vim/vim-set"
+ ],
+ "확인하기": [
+  "vim/vim-set"
+ ],
+ "09": [
+  "yearly/2024"
+ ],
+ "금": [
+  "yearly/2024"
+ ],
+ "jekyll": [
+  "yearly/2024"
+ ],
+ "github": [
+  "yearly/2024"
+ ],
+ "io로": [
+  "yearly/2024"
+ ],
+ "나만의": [
+  "yearly/2024"
+ ],
+ "위키를": [
+  "yearly/2024"
+ ],
+ "만들자": [
+  "yearly/2024"
+ ],
+ "johngrib": [
+  "yearly/2024"
+ ],
+ "io": [
+  "yearly/2024"
+ ],
+ "wiki": [
+  "yearly/2024"
+ ],
+ "my": [
+  "yearly/2024"
+ ],
+ "아티클을": [
+  "yearly/2024"
+ ],
+ "보고": [
+  "yearly/2024"
+ ],
+ "만든": [
+  "yearly/2024"
+ ],
+ "위키": [
+  "yearly/2024"
+ ],
+ "페이지가": [
+  "yearly/2024"
+ ],
+ "어느정도": [
+  "yearly/2024"
+ ],
+ "완성되었다": [
+  "yearly/2024"
+ ],
+ "기쁘다": [
+  "yearly/2024"
+ ],
+ "이제": [
+  "yearly/2024"
+ ],
+ "모든걸": [
+  "yearly/2024"
+ ],
+ "vim으로": [
+  "yearly/2024"
+ ],
+ "할": [
+  "yearly/2024"
+ ],
+ "수": [
+  "yearly/2024"
+ ],
+ "있다니": [
+  "yearly/2024"
+ ],
+ "그동안": [
+  "yearly/2024"
+ ],
+ "vim을": [
+  "yearly/2024"
+ ],
+ "나름": [
+  "yearly/2024"
+ ],
+ "잘": [
+  "yearly/2024"
+ ],
+ "활용한다고": [
+  "yearly/2024"
+ ],
+ "생각했었는데": [
+  "yearly/2024"
+ ],
+ "두": [
+  "yearly/2024"
+ ],
+ "가지": [
+  "yearly/2024"
+ ],
+ "관점": [
+  "yearly/2024"
+ ],
+ "two": [
+  "yearly/2024"
+ ],
+ "views": [
+  "yearly/2024"
+ ],
+ "of": [
+  "yearly/2024"
+ ],
+ "읽고": [
+  "yearly/2024"
+ ],
+ "vim의": [
+  "yearly/2024"
+ ],
+ "더": [
+  "yearly/2024"
+ ],
+ "넓은": [
+  "yearly/2024"
+ ],
+ "세계로": [
+  "yearly/2024"
+ ],
+ "사고가": [
+  "yearly/2024"
+ ],
+ "확장되는": [
+  "yearly/2024"
+ ],
+ "느낌을": [
+  "yearly/2024"
+ ],
+ "받았다": [
+  "yearly/2024"
+ ],
+ "좋은": [
+  "yearly/2024"
+ ],
+ "작성해": [
+  "yearly/2024"
+ ],
+ "주신": [
+  "yearly/2024"
+ ],
+ "님께": [
+  "yearly/2024"
+ ],
+ "감사드립니다": [
+  "yearly/2024"
+ ],
+ "일": [
+  "yearly/2024"
+ ],
+ "문서를": [
+  "yearly/2024"
+ ],
+ "참조한": [
+  "yearly/2024"
+ ],
+ "문서": [
+  "yearly/2024"
+ ],
+ "kanghyki": [
+  "yearly/2024"
+ ],
+ "3f12ca5d7b2719c38ce76c81d7dd54706f14512e": [
+  "yearly/2024"
+ ],
+ "기능을": [
+  "yearly/2024"
+ ],
+ "추가했다": [
+  "yearly/2024"
+ ],
+ "기록": [
+  "yearly/2024"
+ ]
+}

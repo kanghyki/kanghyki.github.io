@@ -3,17 +3,78 @@ layout: search-list
 permalink: /search/
 ---
 
- <div>
-     <script>
-         (function() {
-             var cx = 'd18aee37aed9143e7';
-             var gcse = document.createElement('script');
-             gcse.type = 'text/javascript';
-             gcse.async = true;
-             gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-             var s = document.getElementsByTagName('script')[0];
-             s.parentNode.insertBefore(gcse, s);
-         })();
-     </script>
-     <gcse:search linkTarget="_parent" queryParameterName="searchString"></gcse:search>
- </div>
+<div id="search-list"></div>
+
+<script type="module">
+    import { Search } from "/js/search/search.js";
+    import { TrieElement } from "/js/search/trie.js";
+    import { Indexer } from "/js/search/indexer.js";
+
+    function makeHTML(val, list) {
+        if (list == null || list.length < 1) return "<h2>검색 결과 없음</h2>";
+
+        let ret = '<h2>검색 결과</h2><ul class="post_list">';
+        const exp = new RegExp(String.raw`(${val})`, "gi")
+        for (var i = 0; i < list.length; i++) {
+            ret += '<li class="post_list_item" >';
+            ret += `<a href="${list[i].url}">`;
+            ret += `<span class="post-title">${list[i].title.replace(exp, '<strong>$1</strong>')}</span>`;
+            list[i].summary &&
+                (ret += `<span class="post-summary"> - ${list[i].summary.replace(exp, '<strong>$1</strong>')}</span>`);
+            ret += `</a>`;
+            ret += "</li>";
+        }
+        ret += "</ul>";
+        return ret;
+    }
+
+    (async () => {
+        const engine = new Search(new Indexer());
+        try {
+            const res = await fetch('/data/search-index.json');
+            const index = await res.json();
+            engine.indexer.fromJson(index);
+        } catch (e) {
+            console.error(e);
+            return;
+        }
+        const params = new URLSearchParams(window.location.search);
+        const val = params.get("searchString");
+        const searchResult = engine.search(val);
+        const list = [];
+
+        for (const key of searchResult) {
+            try {
+                const res = await fetch(`/data/metadata/${key}.json`);
+                const json = await res.json();
+                list.push(json);
+            } catch (e) {
+                console.warn(e);
+            }
+        }
+        document.getElementById("search-list").innerHTML = makeHTML(val, list);
+    })();
+</script>
+
+<style>
+    .post_list_item {
+        padding: 0.4em 0;
+    }
+
+    .post_list_item:first-child {
+        padding-top: 0;
+    }
+
+    .post_list_item:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .post-title {
+        font-size:medium;
+    }
+
+    .post-summary {
+        color: var(--cloudy-text-color);
+    }
+</style>

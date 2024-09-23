@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
-const YAML = require('yamljs');
-const fs = require('fs');
+import { Search } from "./js/search/search.js";
+import { Indexer } from "./js/search/indexer.js";
+
+import fs from "fs";
 const PRINT = true;
 const NO_PRINT = false;
 
 main();
 
 function main() {
+    const engine = new Search(new Indexer());
     const list = [];
     const tagMap = {};
     const pageMap = {};
@@ -21,6 +24,12 @@ function main() {
         .filter((row) => row.public != 'false')
         .sort(lexicalOrderingBy('fileName'))
 
+    dataList.forEach((data) => {
+        engine.indexer.addIndex(data.fileName, data.body);
+        engine.indexer.addIndex(data.fileName, data.title);
+        data.summary && engine.indexer.addIndex(data.fileName, data.summary);
+        data.tag && data.tag.forEach((tag) => engine.indexer.addIndex(data.fileName, tag));
+    });
 
     dataList.forEach(function collectTagMap(data) {
         if (!data.tag) {
@@ -87,6 +96,7 @@ function main() {
     saveMetaDataFiles(pageMap);
     saveDocumentUrlList(pageMap);
     saveMentionList(mentionMap);
+    saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
 }
 
 function lexicalOrderingBy(property) {
@@ -251,7 +261,7 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
     });
 }
 
-function parseInfo(file, info, mentions) {
+function parseInfo(file, info, body) {
     if (info === null) {
         return undefined;
     }
@@ -261,7 +271,8 @@ function parseInfo(file, info, mentions) {
         type: file.type,
         url: '',
         modified: fs.statSync(file.path).mtime,
-        mentions: []
+        mentions: [],
+        body: body
     };
 
     const rawData = info.split('\n');
@@ -295,7 +306,7 @@ function parseInfo(file, info, mentions) {
         obj.tag = obj.tag.split(/\s+/);
     }
 
-//./_wiki/vim/vim-set.md
+    const mentions = body.match(/.*\[\[.*\]\].*/g);
     if (mentions != null) {
         mentions.forEach(m => {
             let rel = m.replace(/^.*\[\[(.+)\]\].*$/, '$1')
@@ -357,7 +368,6 @@ function collectData(file) {
     const s2 = data.indexOf(sep, s1);
     const info = data.substring(s1, s2);
     const body = data.substring(s2 + sep.length);
-    const mentions = body.match(/.*\[\[.*\]\].*/g);
 
-    return parseInfo(file, info, mentions);
+    return parseInfo(file, info, body);
 }
