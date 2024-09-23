@@ -52,7 +52,7 @@ permalink: /search/
         }
         document.getElementById("search-list").innerHTML = "<h2>검색중...</h2>";
         const params = new URLSearchParams(window.location.search);
-        const search_str = params.get("searchString")?.toLowerCase();
+        const search_str = params.get("searchString");
         const search_result = engine.search(search_str);
         const page_meatadata_list = [];
 

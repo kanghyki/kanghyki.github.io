@@ -22,6 +22,10 @@ export class Indexer {
         }
     }
 
+    findChildIndex(str) {
+        return this.trie.getChildList(str?.toLowerCase());
+    }
+
     toJson() {
         const ret = JSON.stringify(
             this.storage,

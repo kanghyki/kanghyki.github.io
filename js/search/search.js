@@ -4,11 +4,11 @@ export class Search {
     }
 
     search(query) {
-        const list = this.indexer.trie.getChildList(query);
+        const list = this.indexer.findChildIndex(query);
         let pages = [];
         for (const child of list) {
-            const info = this.indexer.find(child);
-            if (info) pages = pages.concat(info);
+            const file_names = this.indexer.find(child);
+            if (file_names) pages = pages.concat(file_names);
         }
         return Array.from(new Set(pages));
     }
