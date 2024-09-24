@@ -17,7 +17,7 @@ permalink: /search/
         const reg_exp = new RegExp(String.raw`(${search_str})`, "gi");
         const replace_exp = "<strong>$1</strong>";
 
-        let inner_html_str = "<h2>검색 결과</h2>";
+        let inner_html_str = `<h2>검색 결과 (${page_metadata_list.length} 항목)</h2>`;
         inner_html_str += '<ul class="post-list">';
         for (let i = 0; i < page_metadata_list.length; i++) {
             inner_html_str += '<li class="post-list-item">';
@@ -25,10 +25,13 @@ permalink: /search/
             inner_html_str += `<span class="post-title">${page_metadata_list[
                 i
             ].title.replace(reg_exp, replace_exp)}</span>`;
+            inner_html_str += `<span style="float: right;">${page_metadata_list[
+                i
+            ].updated.replace(/^(\d{4}-\d{2}-\d{2}).*$/, "$1")}</span>`;
             page_metadata_list[i].summary &&
-                (inner_html_str += `<span class="post-summary"> - ${page_metadata_list[
+                (inner_html_str += `<div class="post-summary"> - ${page_metadata_list[
                     i
-                ].summary.replace(reg_exp, replace_exp)}</span>`);
+                ].summary.replace(reg_exp, replace_exp)}</div>`);
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
         }

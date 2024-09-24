@@ -16,19 +16,25 @@ function main() {
     const pageMap = {};
     const mentionMap = {};
 
-    getFiles('./_wiki', 'wiki', list);
-//getFiles('./_posts', 'blog', list);
+    getFiles("./_wiki", "wiki", list);
+    //getFiles('./_posts', 'blog', list);
 
-    const dataList = list.map(file => collectData(file))
+    const dataList = list
+        .map((file) => collectData(file))
         .filter((row) => row != null)
-        .filter((row) => row.public != 'false')
-        .sort(lexicalOrderingBy('fileName'))
+        .filter((row) => row.public != "false")
+        .sort(lexicalOrderingBy("fileName"));
 
     dataList.forEach((data) => {
-        engine.indexer.addIndex(data.fileName, data.body);
-        engine.indexer.addIndex(data.fileName, data.title);
-        data.summary && engine.indexer.addIndex(data.fileName, data.summary);
-        data.tag && data.tag.forEach((tag) => engine.indexer.addIndex(data.fileName, tag));
+        let str = "";
+        str += "<title>" + data.title + "</title>";
+        data.summary && (str += "<summary>" + data.summary + "</summary>");
+        data.tag &&
+            data.tag.forEach((tag) => (str += "<tag>" + tag + "</tag>"));
+        str += data.body
+            .replace(/\* TOC\s{:toc}/, "")
+            .replace(/```[\s\S]*?```/gs, "")
+        engine.indexer.addIndex(data.fileName, str);
     });
 
     dataList.forEach(function collectTagMap(data) {
@@ -36,7 +42,7 @@ function main() {
             return;
         }
 
-        data.tag.forEach(tag => {
+        data.tag.forEach((tag) => {
             if (!tagMap[tag]) {
                 tagMap[tag] = [];
             }
@@ -48,27 +54,24 @@ function main() {
     });
 
     for (const tag in tagMap) {
-        tagMap[tag].sort(lexicalOrderingBy('fileName'));
+        tagMap[tag].sort(lexicalOrderingBy("fileName"));
     }
 
-    dataList.sort(lexicalOrderingBy('fileName'))
-        .forEach((page) => {
-            pageMap[page.fileName] =
-                {
-                    type: page.type,
-                    title: page.title,
-                    summary: page.summary,
-                    parent: page.parent,
-                    url: page.url,
-                    updated: page.updated || page.date,
-                    resource: page.resource,
-                    children: [],
-                };
-        });
+    dataList.sort(lexicalOrderingBy("fileName")).forEach((page) => {
+        pageMap[page.fileName] = {
+            type: page.type,
+            title: page.title,
+            summary: page.summary,
+            parent: page.parent,
+            url: page.url,
+            updated: page.updated || page.date,
+            resource: page.resource,
+            children: [],
+        };
+    });
 
-    dataList.forEach(page => {
+    dataList.forEach((page) => {
         if (page.parent) {
-
             const parent = pageMap[page.parent];
 
             if (parent && parent.children) {
@@ -77,7 +80,7 @@ function main() {
         }
     });
 
-    dataList.forEach(page => {
+    dataList.forEach((page) => {
         if (page.mentions == null || page.mentions.length == 0) return;
         for (let i = 0; i < page.mentions.length; ++i) {
             const url = page.mentions[i].url;
@@ -89,7 +92,7 @@ function main() {
                 paragraph: page.mentions[i].paragraph,
             });
         }
-    })
+    });
 
     saveTagFiles(tagMap, pageMap);
     saveTagCount(tagMap);
@@ -100,8 +103,8 @@ function main() {
 }
 
 function lexicalOrderingBy(property) {
-    return (a, b) => a[property].toLowerCase()
-        .localeCompare(b[property].toLowerCase())
+    return (a, b) =>
+        a[property].toLowerCase().localeCompare(b[property].toLowerCase());
 }
 
 /**
@@ -137,11 +140,11 @@ function lexicalOrderingBy(property) {
 */
 
 function saveTagFiles(tagMap, pageMap) {
-    fs.mkdirSync('./data/tag', { recursive: true }, (err) => {
+    fs.mkdirSync("./data/tag", { recursive: true }, (err) => {
         if (err) {
             return console.log(err);
         }
-    })
+    });
 
     const completedTags = {};
 
@@ -157,16 +160,19 @@ function saveTagFiles(tagMap, pageMap) {
 
         for (const index in tagDatas) {
             const tagData = tagDatas[index];
-            const data = pageMap[tagData.fileName]
+            const data = pageMap[tagData.fileName];
 
-            const documentId = (data.type === 'wiki')
-                ? tagData.fileName
-                : data.url;
+            const documentId =
+                data.type === "wiki" ? tagData.fileName : data.url;
 
             collection.push(documentId);
         }
 
-        saveToFile(`./data/tag/${tag}.json`, JSON.stringify(collection, null, 1), NO_PRINT);
+        saveToFile(
+            `./data/tag/${tag}.json`,
+            JSON.stringify(collection, null, 1),
+            NO_PRINT
+        );
     }
 }
 
@@ -179,39 +185,47 @@ function saveTagFiles(tagMap, pageMap) {
 function saveMetaDataFiles(pageMap) {
     for (const page in pageMap) {
         const data = pageMap[page];
-        const fileName = data.url.replace(/^[/]wiki[/]/, '');
+        const fileName = data.url.replace(/^[/]wiki[/]/, "");
         const dirName = `./data/metadata/${fileName}`
-            .replace(/(\/\/)/g, '/')
-            .replace(/[/][^/]*$/, '');
+            .replace(/(\/\/)/g, "/")
+            .replace(/[/][^/]*$/, "");
 
         fs.mkdirSync(dirName, { recursive: true }, (err) => {
             if (err) {
                 return console.log(err);
             }
-        })
+        });
 
-        saveToFile(`./data/metadata/${fileName}.json`, JSON.stringify(data, null, 1), NO_PRINT);
+        saveToFile(
+            `./data/metadata/${fileName}.json`,
+            JSON.stringify(data, null, 1),
+            NO_PRINT
+        );
     }
 }
 
 /**
-* 문서가 갖는 멘션의 정보를 파일로 저장한다.
-*/
+ * 문서가 갖는 멘션의 정보를 파일로 저장한다.
+ */
 function saveMentionList(mentionMap) {
     for (const mention in mentionMap) {
         const data = mentionMap[mention];
         const fileName = mention;
         const dirName = `./data/mention/${fileName}`
-            .replace(/(\/\/)/g, '/')
-            .replace(/[/][^/]*$/, '');
+            .replace(/(\/\/)/g, "/")
+            .replace(/[/][^/]*$/, "");
 
         fs.mkdirSync(dirName, { recursive: true }, (err) => {
             if (err) {
                 return console.log(err);
             }
-        })
+        });
 
-        saveToFile(`./data/mention/${fileName}.json`, JSON.stringify(data, null, 1), NO_PRINT);
+        saveToFile(
+            `./data/mention/${fileName}.json`,
+            JSON.stringify(data, null, 1),
+            NO_PRINT
+        );
     }
 }
 
@@ -224,7 +238,11 @@ function saveDocumentUrlList(pageMap) {
         const data = pageMap[page];
         urlList.push(data.url);
     }
-    saveToFile("./data/total-document-url-list.json", JSON.stringify(urlList, null, 1), PRINT);
+    saveToFile(
+        "./data/total-document-url-list.json",
+        JSON.stringify(urlList, null, 1),
+        PRINT
+    );
 }
 
 /**
@@ -235,12 +253,16 @@ function saveTagCount(tagMap) {
     for (const tag in tagMap) {
         list.push({
             name: tag,
-            size: tagMap[tag].length
+            size: tagMap[tag].length,
         });
     }
-    const sortedList = list.sort((lexicalOrderingBy('name')));
+    const sortedList = list.sort(lexicalOrderingBy("name"));
 
-    saveToFile("./data/tag_count.json", JSON.stringify(sortedList, null, 1), PRINT);
+    saveToFile(
+        "./data/tag_count.json",
+        JSON.stringify(sortedList, null, 1),
+        PRINT
+    );
 }
 
 /**
@@ -251,7 +273,7 @@ function saveTagCount(tagMap) {
  * @param isPrintWhenSuccess 파일이 저장되었을 때 표준 출력으로 메시지를 띄우려 한다면 true
  */
 function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
-    fs.writeFile(fileLocation, dataString, function(err) {
+    fs.writeFile(fileLocation, dataString, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -267,17 +289,17 @@ function parseInfo(file, info, body) {
     }
 
     const obj = {
-        fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, '$1'),
+        fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, "$1"),
         type: file.type,
-        url: '',
+        url: "",
         modified: fs.statSync(file.path).mtime,
         mentions: [],
-        body: body
+        body: body,
     };
 
-    const rawData = info.split('\n');
+    const rawData = info.split("\n");
 
-    rawData.forEach(str => {
+    rawData.forEach((str) => {
         const result = /^\s*([^:]+):\s*(.+)\s*$/.exec(str);
 
         if (result == null) {
@@ -285,21 +307,20 @@ function parseInfo(file, info, body) {
         }
 
         const key = result[1].trim();
-        const val = result[2].trim()
-            .replace(/\[{2}\/?|\]{2}/g, '')    // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
-        ;
-
+        const val = result[2].trim().replace(/\[{2}\/?|\]{2}/g, ""); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
         obj[key] = val;
     });
 
-    if (file.type === 'blog') {
-        obj.url = '/blog/' + obj.date.replace(/^(\d{4})-(\d{2})-(\d{2}).*$/, '$1/$2/$3/');
-        obj.url += obj.fileName.replace(/^.*[/]\d{4}-\d{2}-\d{2}-([^/]*)\.md$/, '$1');
-
-    } else if (file.type === 'wiki') {
-        obj.url = file.path
-            .replace(/^\.\/_wiki/, '/wiki')
-            .replace(/\.md$/, '');
+    if (file.type === "blog") {
+        obj.url =
+            "/blog/" +
+            obj.date.replace(/^(\d{4})-(\d{2})-(\d{2}).*$/, "$1/$2/$3/");
+        obj.url += obj.fileName.replace(
+            /^.*[/]\d{4}-\d{2}-\d{2}-([^/]*)\.md$/,
+            "$1"
+        );
+    } else if (file.type === "wiki") {
+        obj.url = file.path.replace(/^\.\/_wiki/, "/wiki").replace(/\.md$/, "");
     }
 
     if (obj.tag) {
@@ -308,20 +329,20 @@ function parseInfo(file, info, body) {
 
     const mentions = body.match(/.*\[\[.*\]\].*/g);
     if (mentions != null) {
-        mentions.forEach(m => {
-            let rel = m.replace(/^.*\[\[(.+)\]\].*$/, '$1')
+        mentions.forEach((m) => {
+            let rel = m.replace(/^.*\[\[(.+)\]\].*$/, "$1");
             if (rel === m) return;
-            let prefix = ''
-            if (rel && rel[0] !== '/') {
+            let prefix = "";
+            if (rel && rel[0] !== "/") {
                 prefix = file.path
-                    .replace(/^(.*\/).*\.md/, '$1')
-                    .replace(/^\.\/_wiki/, '')
+                    .replace(/^(.*\/).*\.md/, "$1")
+                    .replace(/^\.\/_wiki/, "");
             }
             obj.mentions.push({
                 paragraph: m,
-                url: prefix + rel
-            })
-        })
+                url: prefix + rel,
+            });
+        });
     }
 
     return obj;
@@ -336,24 +357,22 @@ function isMarkdown(fileName) {
 }
 
 function getFiles(path, type, array, testFileList = null) {
-
-    fs.readdirSync(path).forEach(fileName => {
-
+    fs.readdirSync(path).forEach((fileName) => {
         const subPath = `${path}/${fileName}`;
 
         if (isDirectory(subPath)) {
             return getFiles(subPath, type, array, testFileList);
         }
         if (isMarkdown(fileName)) {
-            if(testFileList && !testFileList.includes(fileName)) {
+            if (testFileList && !testFileList.includes(fileName)) {
                 return;
             }
 
             const obj = {
-                'path': `${path}/${fileName}`,
-                'type': type,
-                'name': fileName,
-                'children': [],
+                path: `${path}/${fileName}`,
+                type: type,
+                name: fileName,
+                children: [],
             };
             return array.push(obj);
         }
@@ -361,9 +380,9 @@ function getFiles(path, type, array, testFileList = null) {
 }
 
 function collectData(file) {
-    const data = fs.readFileSync(file.path, 'utf8');
+    const data = fs.readFileSync(file.path, "utf8");
 
-    const sep = '---'
+    const sep = "---";
     const s1 = data.indexOf(sep) + sep.length;
     const s2 = data.indexOf(sep, s1);
     const info = data.substring(s1, s2);

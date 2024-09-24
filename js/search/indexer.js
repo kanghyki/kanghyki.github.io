@@ -2,23 +2,27 @@ import { TrieElement } from "./trie.js";
 
 export class Indexer {
     constructor() {
-        this.storage = {};
+        this.storage = new Map();
         this.trie = new TrieElement("");
     }
 
     find(word) {
-        if (this.storage[word]) return this.storage[word];
+        const indexes = this.storage.get(word);
+        if (indexes) return indexes;
         return [];
     }
 
     addIndex(id, data) {
-        const words = data.match(/[a-zA-Z가-힣0-9]+/g);
-        if (!words) return;
-        for (let i = 0; i < words.length; ++i) {
-            const low_word = words[i].toLowerCase();
-            if (this.storage[low_word]) this.storage[low_word].add(id);
-            else this.storage[low_word] = new Set([id]);
-            this.trie.insert(low_word);
+        const tokens = data
+            .replace(/\[(.+)\]\(.*\)/gm, "$1")
+            .match(/<?\/?([a-zA-Z가-힣0-9-_]+|".+"|'.+')>?/g);
+        if (!tokens) return;
+        for (let i = 0; i < tokens.length; ++i) {
+            const lower_token = tokens[i].toLowerCase();
+            let word_index = this.storage.get(lower_token);
+            if (word_index) word_index.push({ id: id, pos: i });
+            else this.storage.set(lower_token, [{ id: id, pos: i }]);
+            this.trie.insert(lower_token);
         }
     }
 
@@ -27,19 +31,13 @@ export class Indexer {
     }
 
     toJson() {
-        const ret = JSON.stringify(
-            this.storage,
-            (_, val) => {
-                if (val instanceof Set) return Array.from(val);
-                return val;
-            },
-            1
-        );
-        return ret;
+        return JSON.stringify(Array.from(this.storage.entries()), null, 1);
     }
 
     fromJson(json) {
-        this.storage = json;
-        for (const key in this.storage) this.trie.insert(key);
+        this.storage = new Map(json);
+        for (const key of this.storage.keys()) {
+            this.trie.insert(key);
+        }
     }
 }
