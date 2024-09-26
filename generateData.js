@@ -33,7 +33,7 @@ function main() {
             data.tag.forEach((tag) => (str += "<tag>" + tag + "</tag>"));
         str += data.body
             .replace(/\* TOC\s{:toc}/, "")
-            .replace(/```[\s\S]*?```/gs, "")
+            .replace(/```[\s\S]*?```/g, "")
         engine.indexer.addIndex(data.fileName, str);
     });
 
@@ -67,6 +67,7 @@ function main() {
             updated: page.updated || page.date,
             resource: page.resource,
             children: [],
+            body: page.body
         };
     });
 

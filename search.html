@@ -10,28 +10,60 @@ permalink: /search/
     import { TrieElement } from "/js/search/trie.js";
     import { Indexer } from "/js/search/indexer.js";
 
+    function highlightSearchSnippet(body_content_str, search_str) {
+        const sanitized_content_str = body_content_str
+            .replace(/\[(.+)\]\(.*\)/gm, "$1")
+            .replace(/```[\s\S]*?```/g, "")
+
+        const matched = sanitized_content_str.match(new RegExp(String.raw`(.{0,25}${search_str}.{0,25})`, "gi"));
+        if (!matched) return "본문에 일치하는 결과 없음.";
+
+        let joined = matched.join(" ... ");
+
+        if (joined.length > 100)
+            joined = joined.slice(0, 100);
+
+        return `... ${joined.replace(
+            new RegExp(String.raw`(${search_str})`, "gi"),
+            "<strong>$1</strong>"
+        )} ...`;
+    }
+
     function makeHTML(search_str, page_metadata_list) {
         if (page_metadata_list == null || page_metadata_list.length < 1)
             return "<h2>검색 결과 없음</h2>";
 
+        /* 검색 키워드를 strong 태그로 감싸는 Regex */
         const reg_exp = new RegExp(String.raw`(${search_str})`, "gi");
         const replace_exp = "<strong>$1</strong>";
 
         let inner_html_str = `<h2>검색 결과 (${page_metadata_list.length} 항목)</h2>`;
         inner_html_str += '<ul class="post-list">';
-        for (let i = 0; i < page_metadata_list.length; i++) {
+        for (const metadata of page_metadata_list) {
             inner_html_str += '<li class="post-list-item">';
-            inner_html_str += `<a href="${page_metadata_list[i].url}">`;
-            inner_html_str += `<span class="post-title">${page_metadata_list[
-                i
-            ].title.replace(reg_exp, replace_exp)}</span>`;
-            inner_html_str += `<span style="float: right;">${page_metadata_list[
-                i
-            ].updated.replace(/^(\d{4}-\d{2}-\d{2}).*$/, "$1")}</span>`;
-            page_metadata_list[i].summary &&
-                (inner_html_str += `<div class="post-summary"> - ${page_metadata_list[
-                    i
-                ].summary.replace(reg_exp, replace_exp)}</div>`);
+            inner_html_str += `<a href="${metadata.url}">`;
+            inner_html_str += `<span class="post-title">${metadata.title.replace(
+                reg_exp,
+                replace_exp
+            )}</span>`;
+            /* 날짜를 2024-09-20 같이 표현함 */
+            const updated = metadata.updated.replace(
+                /^(\d{4}-\d{2}-\d{2}).*$/,
+                "$1"
+            );
+            inner_html_str += `<span style="float: right;">${updated}</span>`;
+            metadata.summary &&
+                (inner_html_str += `<div class="post-summary"> - ${metadata.summary.replace(
+                    reg_exp,
+                    replace_exp
+                )}</div>`);
+            inner_html_str += `<div class="post-summary"> - ${highlightSearchSnippet(
+                /* body_content_str = */ metadata.body,
+                /* search_str = */ search_str
+            )}</div>`;
+            inner_html_str += `<span class="post-summary"> - ${metadata.url
+                .replace(/\/wiki\//, "")
+                .replace(/\//g, " > ")}</span>`;
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
         }

@@ -5,6 +5,7 @@ export class Search {
 
     search(query) {
         const query_words = query.match(/<?\/?([a-zA-Z가-힣0-9-_]+|".+"|'.+')>?/g);
+        if (!query_words) return [];
         const page_prior_map = new Map();
         for (const query_word of query_words) {
             const list = this.indexer.findChildIndex(query_word);
