@@ -57,13 +57,13 @@ permalink: /search/
                     reg_exp,
                     replace_exp
                 )}</div>`);
-            inner_html_str += `<div class="post-summary"> - ${highlightSearchSnippet(
+            inner_html_str += `<div class="post-summary">${highlightSearchSnippet(
                 /* body_content_str = */ metadata.body,
                 /* search_str = */ search_str
             )}</div>`;
-            inner_html_str += `<span class="post-summary"> - ${metadata.url
-                .replace(/\/wiki\//, "")
-                .replace(/\//g, " > ")}</span>`;
+            inner_html_str += `<span class="post-summary">${metadata.url
+                .replace(/\/wiki\//, " › ")
+                .replace(/\//g, " › ")}</span>`;
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
         }
