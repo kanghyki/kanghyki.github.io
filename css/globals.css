@@ -163,3 +163,16 @@ article ol > li > ul > li {
 #child-list {
     padding: 1.0em 0;
 }
+
+table {
+    border: 1px solid var(--light-background);
+    border-collapse: collapse;
+    th, td {
+        border: 1px solid var(--light-background);
+        padding: 0.5em 0.5em;
+    }
+    th {
+        background-color: var(--heavy-background);
+        color: var(--cloudy-text-color)
+    }
+}

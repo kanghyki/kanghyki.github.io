@@ -1,14 +1,10 @@
 {
  "type": "wiki",
  "title": "ROOT",
+ "summary": "나는 루트다",
  "url": "/wiki/index",
- "updated": "2024-09-14 22:24:36 +0900",
- "resource": "310D538D-DFF9-4640-AC47-03DC471C5C14",
- "children": [
-  "algorithm",
-  "command",
-  "tools",
-  "vim"
- ],
+ "updated": "2024-09-26 15:51:55 +0900",
+ "resource": "A83E5F55-3CBD-4E6F-80E9-21EDB95B3FD8",
+ "children": [],
  "body": "\n"
 }

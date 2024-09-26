@@ -15,7 +15,7 @@ export class Indexer {
     addIndex(id, data) {
         const tokens = data
             .replace(/\[(.+)\]\(.*\)/gm, "$1")
-            .match(/<?\/?([a-zA-Z가-힣0-9-_]+|".+"|'.+')>?/g);
+            .match(/<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g);
         if (!tokens) return;
         for (let i = 0; i < tokens.length; ++i) {
             const lower_token = tokens[i].toLowerCase();

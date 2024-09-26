@@ -13,15 +13,16 @@ permalink: /search/
     function highlightSearchSnippet(body_content_str, search_str) {
         const sanitized_content_str = body_content_str
             .replace(/\[(.+)\]\(.*\)/gm, "$1")
-            .replace(/```[\s\S]*?```/g, "")
+            .replace(/```[\s\S]*?```/g, "");
 
-        const matched = sanitized_content_str.match(new RegExp(String.raw`(.{0,25}${search_str}.{0,25})`, "gi"));
+        const matched = sanitized_content_str.match(
+            new RegExp(String.raw`(.{0,25}${search_str}.{0,25})`, "gi")
+        );
         if (!matched) return "본문에 일치하는 결과 없음.";
 
         let joined = matched.join(" ... ");
 
-        if (joined.length > 100)
-            joined = joined.slice(0, 100);
+        if (joined.length > 100) joined = joined.slice(0, 100);
 
         return `... ${joined.replace(
             new RegExp(String.raw`(${search_str})`, "gi"),
@@ -52,18 +53,13 @@ permalink: /search/
                 "$1"
             );
             inner_html_str += `<span style="float: right;">${updated}</span>`;
-            metadata.summary &&
-                (inner_html_str += `<div class="post-summary"> - ${metadata.summary.replace(
-                    reg_exp,
-                    replace_exp
-                )}</div>`);
-            inner_html_str += `<div class="post-summary">${highlightSearchSnippet(
+            inner_html_str += `<div class="post-hier">${metadata.url
+                .replace(/\/wiki\//, " › ")
+                .replace(/\//g, " › ")}</div>`;
+            inner_html_str += `<div class="post-snip">${highlightSearchSnippet(
                 /* body_content_str = */ metadata.body,
                 /* search_str = */ search_str
             )}</div>`;
-            inner_html_str += `<span class="post-summary">${metadata.url
-                .replace(/\/wiki\//, " › ")
-                .replace(/\//g, " › ")}</span>`;
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
         }
@@ -129,5 +125,15 @@ permalink: /search/
 
     .post-summary {
         color: var(--cloudy-text-color);
+    }
+
+    .post-hier {
+        color: var(--cloudy-text-color);
+        font-size: small;
+    }
+
+    .post-snip {
+        color: var(--cloudy-text-color);
+        font-size: medium;
     }
 </style>

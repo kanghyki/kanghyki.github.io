@@ -1,14 +1,13 @@
 ---
 layout  : wiki-index
 title   : ROOT
-summary :
-date    : 2024-09-13 16:19:37 +0900
-updated : 2024-09-14 22:24:36 +0900
+summary : 나는 루트다
+date    : 2024-09-26 15:42:19 +0900
+updated : 2024-09-26 15:51:55 +0900
 tag     :
 toc     : true
 public  : true
 parent  :
 latex   : false
-comment : false
-resource: 310D538D-DFF9-4640-AC47-03DC471C5C14
+resource: A83E5F55-3CBD-4E6F-80E9-21EDB95B3FD8
 ---
