@@ -8,5 +8,6 @@
  "resource": "A854C8D7-1917-413E-BF43-FD7A17BD02CD",
  "children": [
   "command/seq"
- ]
+ ],
+ "body": "\n* TOC\n{:toc}\n"
 }

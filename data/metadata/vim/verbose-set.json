@@ -6,5 +6,6 @@
  "url": "/wiki/vim/verbose-set",
  "updated": "2024-09-16 12:58:49 +0900",
  "resource": "74F9B097-DFFC-400A-843D-A972FAD01657",
- "children": []
+ "children": [],
+ "body": "\n* TOC\n{:toc}\n\n## 설명\n`:verbose set {option}<CR>`\n\n마지막으로 [[vim-set]]{Vim 설정}이 세팅된 위치를 알려준다.\n\n## 예시\n```\n:verbose set conceallevel<CR>\n\n  conceallevel=0\n        Last set from ~/.local/share/nvim/plugged/vimwiki/plugin/vimwiki.vim line 200\n```\n"
 }

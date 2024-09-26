@@ -8,5 +8,6 @@
  "children": [
   "vim/verbose-set",
   "vim/vim-set"
- ]
+ ],
+ "body": "\n"
 }

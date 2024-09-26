@@ -7,5 +7,6 @@
  "resource": "9F8ACC93-DFC5-4579-92B3-70EF07D5F1D1",
  "children": [
   "tools/git"
- ]
+ ],
+ "body": "\n* TOC\n{:toc}\n"
 }
