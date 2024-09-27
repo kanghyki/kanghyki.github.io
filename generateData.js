@@ -27,13 +27,12 @@ function main() {
 
     dataList.forEach((data) => {
         let str = "";
-        str += "<title>" + data.title + "</title>";
-        data.summary && (str += "<summary>" + data.summary + "</summary>");
-        data.tag &&
-            data.tag.forEach((tag) => (str += "<tag>" + tag + "</tag>"));
+        str += `<title>${data.title}</title>`;
+        data.summary && (str += `<summary>${data.summary}</summary>`);
+        data.tag && (str += `<tag>${data.tag.join(" ")}</tag>`);
         str += data.body
             .replace(/\* TOC\s{:toc}/, "")
-            .replace(/```[\s\S]*?```/g, "")
+            .replace(/```[\s\S]*?```/g, "");
         engine.indexer.addIndex(data.fileName, str);
     });
 
@@ -67,7 +66,7 @@ function main() {
             updated: page.updated || page.date,
             resource: page.resource,
             children: [],
-            body: page.body
+            body: page.body,
         };
     });
 

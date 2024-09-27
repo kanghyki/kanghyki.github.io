@@ -26,7 +26,7 @@ export class Indexer {
         }
     }
 
-    findChildIndex(str) {
+    getTrieChildren(str) {
         return this.trie.getChildList(str?.toLowerCase());
     }
 
