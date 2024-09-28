@@ -18,7 +18,7 @@ permalink: /search/
         const matched = sanitized_content_str.match(
             new RegExp(String.raw`(.{0,25}${search_str}.{0,25})`, "gi")
         );
-        if (!matched) return "본문에 일치하는 결과 없음.";
+        if (!matched) return "";
 
         let joined = matched.join(" ... ");
 
