@@ -8,12 +8,12 @@ export class Search {
             /<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g
         );
         if (!query_words) return [];
-        const page_prior_map = new Map();
+        const page_prior_map = new Map(); // (file_name : String) -> (priority : int)
         let word_children = [];
         let word_indexes = [];
 
         for (const query_word of query_words) {
-            // 앞 글자가 일치하는 단어를 리스트에 추가한다.
+            // 하위 노드에서 단어를 찾아 값을 리스트에 추가한다.
             // 찾지 못하면 아무것도 추가되지 않는다.
             word_children = word_children.concat(
                 this.indexer.getTrieChildren(query_word)
@@ -32,6 +32,8 @@ export class Search {
             page_prior_map.set(index.id, orig_score + add_score);
         }
 
+        // 우선순위에 따라 내림차순으로 정렬하고,
+        // 파일 이름을 추출해 새로운 배열을 만든다.
         const sorted_file_names_by_prior = Array.from(page_prior_map)
             .sort((a, b) => b[1] - a[1])
             .map((index) => index[0]);
