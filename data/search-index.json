@@ -9,6 +9,14 @@
    {
     "id": "init",
     "pos": 0
+   },
+   {
+    "id": "principle/dry",
+    "pos": 0
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 0
    }
   ]
  ],
@@ -31,6 +39,14 @@
    {
     "id": "init",
     "pos": 2
+   },
+   {
+    "id": "principle/dry",
+    "pos": 3
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 3
    }
   ]
  ],
@@ -44,6 +60,14 @@
    {
     "id": "init",
     "pos": 3
+   },
+   {
+    "id": "principle/dry",
+    "pos": 4
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 4
    }
   ]
  ],
@@ -75,6 +99,14 @@
    {
     "id": "init",
     "pos": 5
+   },
+   {
+    "id": "principle/dry",
+    "pos": 9
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 9
    }
   ]
  ],
@@ -92,6 +124,182 @@
    {
     "id": "init",
     "pos": 6
+   }
+  ]
+ ],
+ [
+  "dry",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 1
+   },
+   {
+    "id": "principle/dry",
+    "pos": 14
+   }
+  ]
+ ],
+ [
+  "원칙",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 2
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 2
+   }
+  ]
+ ],
+ [
+  "don",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "t",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 6
+   }
+  ]
+ ],
+ [
+  "repeat",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 7
+   }
+  ]
+ ],
+ [
+  "yourself",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 8
+   }
+  ]
+ ],
+ [
+  "<tag>",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 10
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 10
+   }
+  ]
+ ],
+ [
+  "principle",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 11
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 11
+   }
+  ]
+ ],
+ [
+  "</tag>",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 12
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 12
+   }
+  ]
+ ],
+ [
+  "links",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 13
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 13
+   }
+  ]
+ ],
+ [
+  "wikipedia",
+  [
+   {
+    "id": "principle/dry",
+    "pos": 15
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 15
+   }
+  ]
+ ],
+ [
+  "kiss",
+  [
+   {
+    "id": "principle/kiss",
+    "pos": 1
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 14
+   }
+  ]
+ ],
+ [
+  "keep",
+  [
+   {
+    "id": "principle/kiss",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "it",
+  [
+   {
+    "id": "principle/kiss",
+    "pos": 6
+   }
+  ]
+ ],
+ [
+  "simple",
+  [
+   {
+    "id": "principle/kiss",
+    "pos": 7
+   }
+  ]
+ ],
+ [
+  "stupid",
+  [
+   {
+    "id": "principle/kiss",
+    "pos": 8
    }
   ]
  ]
