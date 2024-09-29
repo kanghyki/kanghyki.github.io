@@ -327,23 +327,25 @@ function parseInfo(file, info, body) {
         obj.tag = obj.tag.split(/\s+/);
     }
 
-    const mentions = body.match(/.*\[\[.*\]\].*/g);
-    if (mentions != null) {
-        mentions.forEach((m) => {
-            let rel = m.replace(/^.*\[\[(.+)\]\].*$/, "$1");
-            if (rel === m) return;
-            let prefix = "";
-            if (rel && rel[0] !== "/") {
-                prefix = file.path
-                    .replace(/^(.*\/).*\.md/, "$1")
-                    .replace(/^\.\/_wiki/, "");
+    const mentions = body.match(/.*\[\[.+?\]\].*/g);
+
+    mentions &&
+        mentions.forEach((mention) => {
+            const wiki_links = mention.match(/\[\[.+?\]\]/g);
+            for (const wiki_link of wiki_links) {
+                const path = wiki_link.replace(/((\[\[)|(\]\]))/g, "");
+                let prefix = "";
+                if (path && path[0] !== "/") {
+                    prefix = file.path
+                        .replace(/^(.*\/).*\.md/, "$1")
+                        .replace(/^\.\/_wiki/, "");
+                }
+                obj.mentions.push({
+                    paragraph: mention,
+                    url: prefix + path,
+                });
             }
-            obj.mentions.push({
-                paragraph: m,
-                url: prefix + rel,
-            });
         });
-    }
 
     return obj;
 }

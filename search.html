@@ -55,7 +55,8 @@ permalink: /search/
             inner_html_str += `<span style="float: right;">${updated}</span>`;
             inner_html_str += `<div class="post-hier">${metadata.url
                 .replace(/\/wiki\//, " › ")
-                .replace(/\//g, " › ")}</div>`;
+                .replace(/\//g, " › ")
+                .replace(reg_exp, replace_exp)}</div>`;
             inner_html_str += `<div class="post-snip">${highlightSearchSnippet(
                 /* content = */ metadata.summary + metadata.body,
                 /* query = */ query
