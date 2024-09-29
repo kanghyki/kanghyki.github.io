@@ -3,7 +3,23 @@ export class Search {
         this.indexer = indexer;
     }
 
-    search(query) {
+    async fetchMetadataForFiles(file_names) {
+        const page_meatadata_list = [];
+        for (const file_name of file_names) {
+            try {
+                const metadata_res = await fetch(
+                    `/data/metadata/${file_name}.json`
+                );
+                const metadata_json = await metadata_res.json();
+                page_meatadata_list.push(metadata_json);
+            } catch (e) {
+                console.warn(e);
+            }
+        }
+        return page_meatadata_list;
+    }
+
+    searchFilesByQuery(query) {
         const query_words = query.match(
             /<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g
         );

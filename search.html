@@ -10,37 +10,37 @@ permalink: /search/
     import { TrieElement } from "/js/search/trie.js";
     import { Indexer } from "/js/search/indexer.js";
 
-    function highlightSearchSnippet(body_content_str, search_str) {
-        const sanitized_content_str = body_content_str
+    function highlightSearchSnippet(content, query) {
+        const sanitized_content_str = content
             .replace(/\[(.+)\]\(.*\)/gm, "$1")
             .replace(/```[\s\S]*?```/g, "");
 
         const matched = sanitized_content_str.match(
-            new RegExp(String.raw`(.{0,25}${search_str}.{0,25})`, "gi")
+            new RegExp(String.raw`(.{0,40}${query}.{0,40})`, "gi")
         );
         if (!matched) return "";
 
         let joined = matched.join(" ... ");
 
-        if (joined.length > 100) joined = joined.slice(0, 100);
+        if (joined.length > 120) joined = joined.slice(0, 120);
 
         return `... ${joined.replace(
-            new RegExp(String.raw`(${search_str})`, "gi"),
+            new RegExp(String.raw`(${query})`, "gi"),
             "<strong>$1</strong>"
         )} ...`;
     }
 
-    function makeHTML(search_str, page_metadata_list) {
-        if (page_metadata_list == null || page_metadata_list.length < 1)
+    function makeHTML(query, metadata_list) {
+        if (metadata_list == null || metadata_list.length < 1)
             return "<h2>검색 결과 없음</h2>";
 
         /* 검색 키워드를 strong 태그로 감싸는 Regex */
-        const reg_exp = new RegExp(String.raw`(${search_str})`, "gi");
+        const reg_exp = new RegExp(String.raw`(${query})`, "gi");
         const replace_exp = "<strong>$1</strong>";
 
-        let inner_html_str = `<h2>검색 결과 (${page_metadata_list.length} 항목)</h2>`;
+        let inner_html_str = `<h2>검색 결과 (${metadata_list.length} 항목)</h2>`;
         inner_html_str += '<ul class="post-list">';
-        for (const metadata of page_metadata_list) {
+        for (const metadata of metadata_list) {
             inner_html_str += '<li class="post-list-item">';
             inner_html_str += `<a href="${metadata.url}">`;
             inner_html_str += `<span class="post-title">${metadata.title.replace(
@@ -57,8 +57,8 @@ permalink: /search/
                 .replace(/\/wiki\//, " › ")
                 .replace(/\//g, " › ")}</div>`;
             inner_html_str += `<div class="post-snip">${highlightSearchSnippet(
-                /* body_content_str = */ metadata.body,
-                /* search_str = */ search_str
+                /* content = */ metadata.summary + metadata.body,
+                /* query = */ query
             )}</div>`;
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
@@ -83,24 +83,13 @@ permalink: /search/
         }
         document.getElementById("search-list").innerHTML = "<h2>검색중...</h2>";
         const params = new URLSearchParams(window.location.search);
-        const search_str = params.get("searchString");
-        const search_result = engine.search(search_str);
-        const page_meatadata_list = [];
+        const query = params.get("searchString");
+        const file_names = engine.searchFilesByQuery(query);
+        const metadata_list = await engine.fetchMetadataForFiles(file_names);
 
-        for (const file_name of search_result) {
-            try {
-                const metadata_res = await fetch(
-                    `/data/metadata/${file_name}.json`
-                );
-                const metadata_json = await metadata_res.json();
-                page_meatadata_list.push(metadata_json);
-            } catch (e) {
-                console.warn(e);
-            }
-        }
         document.getElementById("search-list").innerHTML = makeHTML(
-            search_str,
-            page_meatadata_list
+            query,
+            metadata_list
         );
     })();
 </script>
@@ -134,6 +123,6 @@ permalink: /search/
 
     .post-snip {
         color: var(--cloudy-text-color);
-        font-size: medium;
+        font-size: small;
     }
 </style>
