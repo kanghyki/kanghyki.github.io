@@ -9,7 +9,7 @@
 
 .post-tags {
     display: flex;
-    font-size: 0.9em;
+    font-size: small;
 }
 
 .post-tags li {
@@ -26,7 +26,7 @@
 }
 
 .post-git p {
-    font-size: 0.9em;
+    font-size: small;
     margin: 0;
 }
 
