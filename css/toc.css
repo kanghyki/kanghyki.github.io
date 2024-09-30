@@ -1,8 +1,26 @@
 #markdown-toc {
     margin-top: 1em;
     margin-bottom: 1em;
-
     padding: 1em;
-
     border: 1px solid var(--accent-low);
+
+    @media (min-width: 1670px) {
+        position: fixed;
+        top: 120px;
+        left: calc(50vw + 384px + 50px);
+        width: 350px;
+        border: 0px solid;
+        border-left: 2px solid var(--accent-low);
+        padding: 0 1em;
+        font-size: small;
+    }
+
+    a {
+        color: var(--cloudy-text-color);
+    }
+    .active-toc {
+      color: var(--link-text-color);
+      font-weight: bold;
+    }
 }
+

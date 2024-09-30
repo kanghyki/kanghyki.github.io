@@ -160,10 +160,6 @@ article ol > li > ul > li {
   padding-left: 1em;
 }
 
-#child-list {
-    padding: 1.0em 0;
-}
-
 table {
     border: 1px solid var(--light-background);
     border-collapse: collapse;
