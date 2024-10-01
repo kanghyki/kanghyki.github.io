@@ -1,9 +1,9 @@
 ---
 layout  : wiki-index
 title   : ROOT
-summary : 나는 루트다
+summary :
 date    : 2024-09-26 15:42:19 +0900
-updated : 2024-09-26 15:51:55 +0900
+updated : 2024-09-30 14:54:43 +0900
 tag     :
 toc     : true
 public  : true

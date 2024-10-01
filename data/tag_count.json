@@ -1,6 +1,14 @@
 [
  {
+  "name": "book",
+  "size": 1
+ },
+ {
   "name": "principle",
   "size": 2
+ },
+ {
+  "name": "toc",
+  "size": 1
  }
 ]

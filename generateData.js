@@ -21,8 +21,7 @@ function main() {
 
     const dataList = list
         .map((file) => collectData(file))
-        .filter((row) => row != null)
-        .filter((row) => row.public != "false")
+        .filter((row) => row && row.public == "true")
         .sort(lexicalOrderingBy("fileName"));
 
     dataList.forEach((data) => {

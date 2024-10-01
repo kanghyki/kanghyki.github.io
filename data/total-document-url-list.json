@@ -1,6 +1,9 @@
 [
+ "/wiki/book",
  "/wiki/index",
  "/wiki/init",
+ "/wiki/principle",
  "/wiki/principle/dry",
- "/wiki/principle/kiss"
+ "/wiki/principle/kiss",
+ "/wiki/toc-test"
 ]

@@ -3,11 +3,19 @@
   "<title>",
   [
    {
+    "id": "book",
+    "pos": 0
+   },
+   {
     "id": "index",
     "pos": 0
    },
    {
     "id": "init",
+    "pos": 0
+   },
+   {
+    "id": "principle",
     "pos": 0
    },
    {
@@ -17,6 +25,103 @@
    {
     "id": "principle/kiss",
     "pos": 0
+   },
+   {
+    "id": "toc-test",
+    "pos": 0
+   }
+  ]
+ ],
+ [
+  "책",
+  [
+   {
+    "id": "book",
+    "pos": 1
+   }
+  ]
+ ],
+ [
+  "</title>",
+  [
+   {
+    "id": "book",
+    "pos": 2
+   },
+   {
+    "id": "index",
+    "pos": 2
+   },
+   {
+    "id": "init",
+    "pos": 2
+   },
+   {
+    "id": "principle",
+    "pos": 2
+   },
+   {
+    "id": "principle/dry",
+    "pos": 3
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 3
+   },
+   {
+    "id": "toc-test",
+    "pos": 3
+   }
+  ]
+ ],
+ [
+  "<tag>",
+  [
+   {
+    "id": "book",
+    "pos": 3
+   },
+   {
+    "id": "principle/dry",
+    "pos": 10
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 10
+   },
+   {
+    "id": "toc-test",
+    "pos": 8
+   }
+  ]
+ ],
+ [
+  "book",
+  [
+   {
+    "id": "book",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "</tag>",
+  [
+   {
+    "id": "book",
+    "pos": 5
+   },
+   {
+    "id": "principle/dry",
+    "pos": 12
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 12
+   },
+   {
+    "id": "toc-test",
+    "pos": 10
    }
   ]
  ],
@@ -26,87 +131,6 @@
    {
     "id": "index",
     "pos": 1
-   }
-  ]
- ],
- [
-  "</title>",
-  [
-   {
-    "id": "index",
-    "pos": 2
-   },
-   {
-    "id": "init",
-    "pos": 2
-   },
-   {
-    "id": "principle/dry",
-    "pos": 3
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 3
-   }
-  ]
- ],
- [
-  "<summary>",
-  [
-   {
-    "id": "index",
-    "pos": 3
-   },
-   {
-    "id": "init",
-    "pos": 3
-   },
-   {
-    "id": "principle/dry",
-    "pos": 4
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 4
-   }
-  ]
- ],
- [
-  "나는",
-  [
-   {
-    "id": "index",
-    "pos": 4
-   }
-  ]
- ],
- [
-  "루트다",
-  [
-   {
-    "id": "index",
-    "pos": 5
-   }
-  ]
- ],
- [
-  "</summary>",
-  [
-   {
-    "id": "index",
-    "pos": 6
-   },
-   {
-    "id": "init",
-    "pos": 5
-   },
-   {
-    "id": "principle/dry",
-    "pos": 9
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 9
    }
   ]
  ],
@@ -128,6 +152,65 @@
   ]
  ],
  [
+  "<summary>",
+  [
+   {
+    "id": "init",
+    "pos": 3
+   },
+   {
+    "id": "principle/dry",
+    "pos": 4
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 4
+   },
+   {
+    "id": "toc-test",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "</summary>",
+  [
+   {
+    "id": "init",
+    "pos": 5
+   },
+   {
+    "id": "principle/dry",
+    "pos": 9
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 9
+   },
+   {
+    "id": "toc-test",
+    "pos": 7
+   }
+  ]
+ ],
+ [
+  "원칙",
+  [
+   {
+    "id": "principle",
+    "pos": 1
+   },
+   {
+    "id": "principle/dry",
+    "pos": 2
+   },
+   {
+    "id": "principle/kiss",
+    "pos": 2
+   }
+  ]
+ ],
+ [
   "dry",
   [
    {
@@ -137,19 +220,6 @@
    {
     "id": "principle/dry",
     "pos": 14
-   }
-  ]
- ],
- [
-  "원칙",
-  [
-   {
-    "id": "principle/dry",
-    "pos": 2
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 2
    }
   ]
  ],
@@ -190,19 +260,6 @@
   ]
  ],
  [
-  "<tag>",
-  [
-   {
-    "id": "principle/dry",
-    "pos": 10
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 10
-   }
-  ]
- ],
- [
   "principle",
   [
    {
@@ -212,19 +269,6 @@
    {
     "id": "principle/kiss",
     "pos": 11
-   }
-  ]
- ],
- [
-  "</tag>",
-  [
-   {
-    "id": "principle/dry",
-    "pos": 12
-   },
-   {
-    "id": "principle/kiss",
-    "pos": 12
    }
   ]
  ],
@@ -300,6 +344,177 @@
    {
     "id": "principle/kiss",
     "pos": 8
+   }
+  ]
+ ],
+ [
+  "목차",
+  [
+   {
+    "id": "toc-test",
+    "pos": 1
+   }
+  ]
+ ],
+ [
+  "테스트",
+  [
+   {
+    "id": "toc-test",
+    "pos": 2
+   },
+   {
+    "id": "toc-test",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "파일입니다",
+  [
+   {
+    "id": "toc-test",
+    "pos": 6
+   }
+  ]
+ ],
+ [
+  "toc",
+  [
+   {
+    "id": "toc-test",
+    "pos": 9
+   }
+  ]
+ ],
+ [
+  "heading",
+  [
+   {
+    "id": "toc-test",
+    "pos": 11
+   },
+   {
+    "id": "toc-test",
+    "pos": 13
+   },
+   {
+    "id": "toc-test",
+    "pos": 15
+   },
+   {
+    "id": "toc-test",
+    "pos": 17
+   },
+   {
+    "id": "toc-test",
+    "pos": 19
+   },
+   {
+    "id": "toc-test",
+    "pos": 21
+   },
+   {
+    "id": "toc-test",
+    "pos": 23
+   },
+   {
+    "id": "toc-test",
+    "pos": 25
+   },
+   {
+    "id": "toc-test",
+    "pos": 27
+   },
+   {
+    "id": "toc-test",
+    "pos": 29
+   },
+   {
+    "id": "toc-test",
+    "pos": 31
+   },
+   {
+    "id": "toc-test",
+    "pos": 33
+   }
+  ]
+ ],
+ [
+  "1",
+  [
+   {
+    "id": "toc-test",
+    "pos": 12
+   },
+   {
+    "id": "toc-test",
+    "pos": 24
+   }
+  ]
+ ],
+ [
+  "2",
+  [
+   {
+    "id": "toc-test",
+    "pos": 14
+   },
+   {
+    "id": "toc-test",
+    "pos": 26
+   }
+  ]
+ ],
+ [
+  "3",
+  [
+   {
+    "id": "toc-test",
+    "pos": 16
+   },
+   {
+    "id": "toc-test",
+    "pos": 28
+   }
+  ]
+ ],
+ [
+  "4",
+  [
+   {
+    "id": "toc-test",
+    "pos": 18
+   },
+   {
+    "id": "toc-test",
+    "pos": 30
+   }
+  ]
+ ],
+ [
+  "5",
+  [
+   {
+    "id": "toc-test",
+    "pos": 20
+   },
+   {
+    "id": "toc-test",
+    "pos": 32
+   }
+  ]
+ ],
+ [
+  "6",
+  [
+   {
+    "id": "toc-test",
+    "pos": 22
+   },
+   {
+    "id": "toc-test",
+    "pos": 34
    }
   ]
  ]
