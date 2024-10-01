@@ -27,7 +27,19 @@
     "pos": 0
    },
    {
-    "id": "toc-test",
+    "id": "tool",
+    "pos": 0
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 0
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 0
+   },
+   {
+    "id": "tool/xargs",
     "pos": 0
    }
   ]
@@ -69,8 +81,20 @@
     "pos": 3
    },
    {
-    "id": "toc-test",
+    "id": "tool",
     "pos": 3
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 2
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 2
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 2
    }
   ]
  ],
@@ -90,8 +114,20 @@
     "pos": 10
    },
    {
-    "id": "toc-test",
+    "id": "tool",
+    "pos": 4
+   },
+   {
+    "id": "tool/fswatch",
     "pos": 8
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 8
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 3
    }
   ]
  ],
@@ -120,8 +156,20 @@
     "pos": 12
    },
    {
-    "id": "toc-test",
+    "id": "tool",
+    "pos": 6
+   },
+   {
+    "id": "tool/fswatch",
     "pos": 10
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 10
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 5
    }
   ]
  ],
@@ -167,8 +215,12 @@
     "pos": 4
    },
    {
-    "id": "toc-test",
-    "pos": 4
+    "id": "tool/fswatch",
+    "pos": 3
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 3
    }
   ]
  ],
@@ -188,7 +240,11 @@
     "pos": 9
    },
    {
-    "id": "toc-test",
+    "id": "tool/fswatch",
+    "pos": 7
+   },
+   {
+    "id": "tool/homebrew",
     "pos": 7
    }
   ]
@@ -348,121 +404,525 @@
   ]
  ],
  [
-  "목차",
+  "도구",
   [
    {
-    "id": "toc-test",
+    "id": "tool",
     "pos": 1
-   }
-  ]
- ],
- [
-  "테스트",
-  [
-   {
-    "id": "toc-test",
-    "pos": 2
    },
    {
-    "id": "toc-test",
-    "pos": 5
-   }
-  ]
- ],
- [
-  "파일입니다",
-  [
-   {
-    "id": "toc-test",
+    "id": "tool/fswatch",
     "pos": 6
    }
   ]
  ],
  [
-  "toc",
+  "모음",
   [
    {
-    "id": "toc-test",
-    "pos": 9
+    "id": "tool",
+    "pos": 2
    }
   ]
  ],
  [
-  "heading",
+  "tool",
   [
    {
-    "id": "toc-test",
+    "id": "tool",
+    "pos": 5
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 9
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 9
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "fswatch",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 1
+   },
+   {
+    "id": "tool/fswatch",
     "pos": 11
    },
    {
-    "id": "toc-test",
-    "pos": 13
-   },
-   {
-    "id": "toc-test",
-    "pos": 15
-   },
-   {
-    "id": "toc-test",
-    "pos": 17
-   },
-   {
-    "id": "toc-test",
-    "pos": 19
-   },
-   {
-    "id": "toc-test",
-    "pos": 21
-   },
-   {
-    "id": "toc-test",
-    "pos": 23
-   },
-   {
-    "id": "toc-test",
-    "pos": 25
-   },
-   {
-    "id": "toc-test",
-    "pos": 27
-   },
-   {
-    "id": "toc-test",
+    "id": "tool/fswatch",
     "pos": 29
    },
    {
-    "id": "toc-test",
-    "pos": 31
+    "id": "tool/fswatch",
+    "pos": 47
    },
    {
-    "id": "toc-test",
-    "pos": 33
+    "id": "tool/fswatch",
+    "pos": 75
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 92
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 164
    }
   ]
  ],
  [
-  "1",
+  "파일시스템",
   [
    {
-    "id": "toc-test",
+    "id": "tool/fswatch",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "추적",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "fswatch는",
+  [
+   {
+    "id": "tool/fswatch",
     "pos": 12
+   }
+  ]
+ ],
+ [
+  "파일",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 13
+   }
+  ]
+ ],
+ [
+  "또는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 14
+   }
+  ]
+ ],
+ [
+  "디렉토리의",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 15
+   }
+  ]
+ ],
+ [
+  "이벤트를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 16
    },
    {
-    "id": "toc-test",
+    "id": "tool/fswatch",
+    "pos": 86
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 98
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 115
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 131
+   }
+  ]
+ ],
+ [
+  "감시하고",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 17
+   }
+  ]
+ ],
+ [
+  "추적하는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 18
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 148
+   }
+  ]
+ ],
+ [
+  "모니터이다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 19
+   }
+  ]
+ ],
+ [
+  "모니터는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 20
+   }
+  ]
+ ],
+ [
+  "지속적으로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 21
+   }
+  ]
+ ],
+ [
+  "변화를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 22
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 94
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 147
+   }
+  ]
+ ],
+ [
+  "감지하고",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 23
+   }
+  ]
+ ],
+ [
+  "특정",
+  [
+   {
+    "id": "tool/fswatch",
     "pos": 24
    }
   ]
  ],
  [
-  "2",
+  "작업을",
   [
    {
-    "id": "toc-test",
-    "pos": 14
+    "id": "tool/fswatch",
+    "pos": 25
    },
    {
-    "id": "toc-test",
+    "id": "tool/fswatch",
+    "pos": 198
+   }
+  ]
+ ],
+ [
+  "수행하는",
+  [
+   {
+    "id": "tool/fswatch",
     "pos": 26
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 155
+   }
+  ]
+ ],
+ [
+  "도구를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 27
+   }
+  ]
+ ],
+ [
+  "의미한다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 28
+   }
+  ]
+ ],
+ [
+  "는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 30
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 93
+   }
+  ]
+ ],
+ [
+  "여러",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 31
+   }
+  ]
+ ],
+ [
+  "시스템에서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 32
+   }
+  ]
+ ],
+ [
+  "사용",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 33
+   }
+  ]
+ ],
+ [
+  "가능하고",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 34
+   }
+  ]
+ ],
+ [
+  "여기에서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 35
+   }
+  ]
+ ],
+ [
+  "확인할",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 36
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 124
+   }
+  ]
+ ],
+ [
+  "수",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 37
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 63
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 78
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 88
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 125
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 173
+   }
+  ]
+ ],
+ [
+  "있다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 38
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 64
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 79
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 89
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 126
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 174
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 201
+   }
+  ]
+ ],
+ [
+  "나는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 39
+   }
+  ]
+ ],
+ [
+  "macos를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 40
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 54
+   }
+  ]
+ ],
+ [
+  "사용하고",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 41
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 55
+   }
+  ]
+ ],
+ [
+  "있어서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 42
+   }
+  ]
+ ],
+ [
+  "이를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 43
+   }
+  ]
+ ],
+ [
+  "기준으로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 44
+   }
+  ]
+ ],
+ [
+  "설명한다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 45
+   }
+  ]
+ ],
+ [
+  "라이선스",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 46
+   }
+  ]
+ ],
+ [
+  "의",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 48
+   }
+  ]
+ ],
+ [
+  "라이선스는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 49
+   }
+  ]
+ ],
+ [
+  "gpl",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 50
    }
   ]
  ],
@@ -470,51 +930,1077 @@
   "3",
   [
    {
-    "id": "toc-test",
-    "pos": 16
-   },
-   {
-    "id": "toc-test",
-    "pos": 28
+    "id": "tool/fswatch",
+    "pos": 51
    }
   ]
  ],
  [
-  "4",
+  "0이다",
   [
    {
-    "id": "toc-test",
-    "pos": 18
-   },
-   {
-    "id": "toc-test",
-    "pos": 30
+    "id": "tool/fswatch",
+    "pos": 52
    }
   ]
  ],
  [
-  "5",
+  "설치",
   [
    {
-    "id": "toc-test",
-    "pos": 20
-   },
-   {
-    "id": "toc-test",
-    "pos": 32
+    "id": "tool/fswatch",
+    "pos": 53
    }
   ]
  ],
  [
-  "6",
+  "있다면",
   [
    {
-    "id": "toc-test",
-    "pos": 22
+    "id": "tool/fswatch",
+    "pos": 56
+   }
+  ]
+ ],
+ [
+  "/tool",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 57
    },
    {
-    "id": "toc-test",
-    "pos": 34
+    "id": "tool/fswatch",
+    "pos": 167
+   }
+  ]
+ ],
+ [
+  "/homebrew",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 58
+   }
+  ]
+ ],
+ [
+  "homebrew",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 59
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 1
+   },
+   {
+    "id": "tool/homebrew",
+    "pos": 11
+   }
+  ]
+ ],
+ [
+  "로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 60
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 171
+   }
+  ]
+ ],
+ [
+  "쉽게",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 61
+   }
+  ]
+ ],
+ [
+  "설치할",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 62
+   }
+  ]
+ ],
+ [
+  "usage",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 65
+   }
+  ]
+ ],
+ [
+  "많이",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 66
+   }
+  ]
+ ],
+ [
+  "사용하는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 67
+   }
+  ]
+ ],
+ [
+  "옵션을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 68
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 103
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 135
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 207
+   }
+  ]
+ ],
+ [
+  "정리했다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 69
+   }
+  ]
+ ],
+ [
+  "자세한",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 70
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 118
+   }
+  ]
+ ],
+ [
+  "내용은",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 71
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 119
+   }
+  ]
+ ],
+ [
+  "man",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 72
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 74
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 120
+   }
+  ]
+ ],
+ [
+  "page",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 73
+   }
+  ]
+ ],
+ [
+  "에서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 76
+   }
+  ]
+ ],
+ [
+  "찾을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 77
+   }
+  ]
+ ],
+ [
+  "기본",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 80
+   }
+  ]
+ ],
+ [
+  "사용법",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 81
+   }
+  ]
+ ],
+ [
+  "아래",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 82
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 182
+   }
+  ]
+ ],
+ [
+  "스크립트로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 83
+   }
+  ]
+ ],
+ [
+  "path",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 84
+   }
+  ]
+ ],
+ [
+  "경로의",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 85
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 97
+   }
+  ]
+ ],
+ [
+  "추적할",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 87
+   }
+  ]
+ ],
+ [
+  "간격",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 90
+   }
+  ]
+ ],
+ [
+  "조정",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 91
+   }
+  ]
+ ],
+ [
+  "일정",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 95
+   }
+  ]
+ ],
+ [
+  "시간마다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 96
+   }
+  ]
+ ],
+ [
+  "추적한다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 99
+   }
+  ]
+ ],
+ [
+  "간격을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 100
+   }
+  ]
+ ],
+ [
+  "조정하려면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 101
+   }
+  ]
+ ],
+ [
+  "l",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 102
+   }
+  ]
+ ],
+ [
+  "사용한다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 104
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 136
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 189
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 208
+   }
+  ]
+ ],
+ [
+  "원하는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 105
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 108
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 114
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 186
+   }
+  ]
+ ],
+ [
+  "이벤트만",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 106
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 109
+   }
+  ]
+ ],
+ [
+  "감시",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 107
+   }
+  ]
+ ],
+ [
+  "감시하려면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 110
+   }
+  ]
+ ],
+ [
+  "event",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 111
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 122
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 206
+   }
+  ]
+ ],
+ [
+  "옵션",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 112
+   }
+  ]
+ ],
+ [
+  "뒤에",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 113
+   }
+  ]
+ ],
+ [
+  "적으면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 116
+   }
+  ]
+ ],
+ [
+  "된다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 117
+   }
+  ]
+ ],
+ [
+  "page의",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 121
+   }
+  ]
+ ],
+ [
+  "types에서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 123
+   }
+  ]
+ ],
+ [
+  "이벤트",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 127
+   }
+  ]
+ ],
+ [
+  "받고",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 128
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 132
+   }
+  ]
+ ],
+ [
+  "종료",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 129
+   }
+  ]
+ ],
+ [
+  "한번만",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 130
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 191
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 197
+   }
+  ]
+ ],
+ [
+  "종료하려면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 133
+   }
+  ]
+ ],
+ [
+  "1",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 134
+   }
+  ]
+ ],
+ [
+  "이벤트가",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 137
+   }
+  ]
+ ],
+ [
+  "발생했을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 138
+   }
+  ]
+ ],
+ [
+  "때",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 139
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 196
+   }
+  ]
+ ],
+ [
+  "명령어",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 140
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 170
+   }
+  ]
+ ],
+ [
+  "실행",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 141
+   }
+  ]
+ ],
+ [
+  "각각의",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 142
+   }
+  ]
+ ],
+ [
+  "이벤트에",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 143
+   }
+  ]
+ ],
+ [
+  "대해",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 144
+   }
+  ]
+ ],
+ [
+  "수행",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 145
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 193
+   }
+  ]
+ ],
+ [
+  "일반적으로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 146
+   }
+  ]
+ ],
+ [
+  "일은",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 149
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 163
+   }
+  ]
+ ],
+ [
+  "그에",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 150
+   }
+  ]
+ ],
+ [
+  "따라",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 151
+   }
+  ]
+ ],
+ [
+  "로그를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 152
+   }
+  ]
+ ],
+ [
+  "작성하거나",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 153
+   }
+  ]
+ ],
+ [
+  "테스트를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 154
+   }
+  ]
+ ],
+ [
+  "것과",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 156
+   }
+  ]
+ ],
+ [
+  "같이",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 157
+   }
+  ]
+ ],
+ [
+  "해야할",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 158
+   }
+  ]
+ ],
+ [
+  "일이",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 159
+   }
+  ]
+ ],
+ [
+  "있기",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 160
+   }
+  ]
+ ],
+ [
+  "때문이다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 161
+   }
+  ]
+ ],
+ [
+  "이런",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 162
+   }
+  ]
+ ],
+ [
+  "와",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 165
+   }
+  ]
+ ],
+ [
+  "파이프",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 166
+   }
+  ]
+ ],
+ [
+  "/xargs",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 168
+   }
+  ]
+ ],
+ [
+  "xargs",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 169
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 1
+   }
+  ]
+ ],
+ [
+  "할",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 172
+   }
+  ]
+ ],
+ [
+  "0",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 175
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 179
+   }
+  ]
+ ],
+ [
+  "옵션은",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 176
+   }
+  ]
+ ],
+ [
+  "결과",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 177
+   }
+  ]
+ ],
+ [
+  "레코드들을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 178
+   }
+  ]
+ ],
+ [
+  "문자로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 180
+   }
+  ]
+ ],
+ [
+  "분리해준다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 181
+   }
+  ]
+ ],
+ [
+  "스크립트에서",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 183
+   }
+  ]
+ ],
+ [
+  "echo",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 184
+   }
+  ]
+ ],
+ [
+  "대신",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 185
+   }
+  ]
+ ],
+ [
+  "명령어를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 187
+   }
+  ]
+ ],
+ [
+  "넣어",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 188
+   }
+  ]
+ ],
+ [
+  "간격당",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 190
+   }
+  ]
+ ],
+ [
+  "작업",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 192
+   }
+  ]
+ ],
+ [
+  "변화가",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 194
+   }
+  ]
+ ],
+ [
+  "생겼을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 195
+   }
+  ]
+ ],
+ [
+  "수행해야하는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 199
+   }
+  ]
+ ],
+ [
+  "경우가",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 200
+   }
+  ]
+ ],
+ [
+  "이",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 202
+   }
+  ]
+ ],
+ [
+  "때는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 203
+   }
+  ]
+ ],
+ [
+  "o",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 204
+   }
+  ]
+ ],
+ [
+  "one",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 205
+   }
+  ]
+ ],
+ [
+  "macos",
+  [
+   {
+    "id": "tool/homebrew",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "패키지",
+  [
+   {
+    "id": "tool/homebrew",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "매니저",
+  [
+   {
+    "id": "tool/homebrew",
+    "pos": 6
    }
   ]
  ]

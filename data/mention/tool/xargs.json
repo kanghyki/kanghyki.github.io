@@ -1,0 +1,6 @@
+[
+ {
+  "from": "tool/fswatch",
+  "paragraph": "이런 일은 `fswatch`와 파이프, [[/tool/xargs]]{xargs 명령어}로 할 수 있다."
+ }
+]

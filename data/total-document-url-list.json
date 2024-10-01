@@ -5,5 +5,8 @@
  "/wiki/principle",
  "/wiki/principle/dry",
  "/wiki/principle/kiss",
- "/wiki/toc-test"
+ "/wiki/tool",
+ "/wiki/tool/fswatch",
+ "/wiki/tool/homebrew",
+ "/wiki/tool/xargs"
 ]
