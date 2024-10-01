@@ -3,7 +3,7 @@ layout  : wiki
 title   : fswatch
 summary : 파일시스템 추적 도구
 date    : 2024-10-01 17:31:04 +0900
-updated : 2024-10-02 00:10:16 +0900
+updated : 2024-10-02 01:06:53 +0900
 tag     : tool
 toc     : true
 public  : true
@@ -60,9 +60,16 @@ $ fswatch -l 5 path
 
 ### 원하는 이벤트만 감시
 
-원하는 이벤트만 감시하려면 `--event` 옵션 뒤에 원하는 이벤트를 적으면 된다.
+원하는 이벤트만 감시하려면 `--event` 옵션 뒤에 키워드를 적으면 된다.
+
+| 이벤트 | 키워드  |
+|--------|---------|
+| 생성   | Created |
+| 수정   | Updated |
+| 삭제   | Removed |
 
 자세한 내용은 man page의 EVENT TYPES에서 확인할 수 있다.
+
 ```sh
 $ fswatch --event Updated path
 ```
@@ -77,15 +84,20 @@ $ fswatch -1 path
 ### 이벤트가 발생했을 때 명령어 실행
 
 #### 각각의 이벤트에 대해 수행
-일반적으로 변화를 추적하는 일은 그에 따라 로그를 작성하거나, 테스트를 수행하는 것과 같이 해야할 일이 있기 때문이다.
 
-이런 일은 `fswatch`와 파이프, [[/tool/xargs]]{xargs 명령어}로 할 수 있다.
+파일시스템의 변화를 추적하는 건 제각기 다른 목적을 가지고 있겠지만, 보통 이후에 일련의 과정을 수행하기 위함이다.
+
+이 때 `fswatch`와 `| (Pipe)`, [[/tool/xargs]]{xargs 명령어}를 조합해 목적을 달성할 수 있다.
 
 > `-0` 옵션은 결과 레코드들을 `\0` 문자로 분리해준다.
 
 아래 스크립트에서 echo 대신 원하는 명령어를 넣어 사용한다.
 ```sh
 $ fswatch -0 test | xargs -0 -n 1 -I {} echo "changed > {}"
+
+changed > Users/.../1
+changed > Users/.../2
+changed > Users/.../3
 ```
 
 ### 간격당 한번만 작업 수행
@@ -95,4 +107,6 @@ $ fswatch -0 test | xargs -0 -n 1 -I {} echo "changed > {}"
 
 ```sh
 $ fswatch -o test | xargs -n 1 -I {} echo "changed {}"
+
+changed 3
 ```
