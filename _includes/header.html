@@ -1,39 +1,42 @@
 <header class="header">
-    <a href="/">
-        <h1 class="header_title">{{ site.title }}</h1>
-    </a>
+    <h1 class="header_title">
+        <a href="/"> {{ site.title }} </a>
+    </h1>
     <ul>
-        <a href="/wiki/index">
-            <li>Index</li>
-        </a>
-        <a href="/about/">
-            <li>About</li>
-        </a>
+        <li>
+            <a href="/wiki/index"> Index </a>
+        </li>
+        <li>
+            <a href="/about/"> About </a>
+        </li>
     </ul>
 </header>
 <hr />
 
 <style>
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.header h1 {
-    font-family: 'Playwrite CU';
+    .header h1 a {
+        font-family: "Playwrite CU";
 
-    color: var(--text-color);
-    margin: 0;
-}
+        color: var(--text-color);
+        margin: 0;
+    }
 
-.header ul {
-    display: flex;
-}
+    .header ul {
+        display: flex;
+    }
 
-.header li {
-    list-style-type: none;
-    margin-left: 1em;
-}
+    .header li {
+        list-style-type: none;
+        margin-left: 1em;
+    }
 
+    .header li a {
+        color: var(--link-text-color);
+    }
 </style>

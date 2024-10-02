@@ -34,6 +34,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   toc_levels: 1..6
+  hard_wrap: true
   #   syntax_highlighter_opts:
   #     block:
   #       line_numbers: true

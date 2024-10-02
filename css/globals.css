@@ -1,36 +1,41 @@
 :root {
-  --background: #2e343a;
-  --heavy-background: #262b30;
-  --light-background: #393e46;
+    --background: #2e343a;
+    --heavy-background: #262b30;
+    --light-background: #393e46;
 
-  --accent-low: #393e46;
+    --accent-low: #393e46;
 
-  --text-color: #d0c6ad;
-  --cloudy-text-color: #b2b2b2;
-  --link-text-color: #8cb9b2;
+    --text-color: #d0c6ad;
+    --cloudy-text-color: #b2b2b2;
+    --link-text-color: #8cb9b2;
+    --visited-link-text-color: #cc9bb4;
 
-  --width: 768px;
+    --cyan-text-color: #58a47e;
+    --green-text-color: #abbf86;
+    --yellow-text-color: #d5bd86;
+
+    --width: 768px;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
 }
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 
-  max-width: var(--width);
-  background-color: var(--background);
-  color: var(--text-color);
-  margin: auto;
-  padding: 1em;
-  line-height: 1.6;
-  overflow-wrap: break-word;
+    max-width: var(--width);
+    background-color: var(--background);
+    color: var(--text-color);
+    margin: auto;
+    padding: 1em;
+    line-height: 1.7;
+    overflow-wrap: break-word;
 }
 
 h1,
@@ -39,70 +44,75 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0.5em 0;
-  font-weight: 400;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 h1 {
-  font-size: 2em;
+    font-size: 2em;
 }
 
 h2 {
-  font-size: 1.7em;
+    font-size: 1.7em;
 }
 
 h3 {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 h4 {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 
 h5 {
-  font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 h6 {
-  font-size: 0.9em;
+    font-size: 0.9em;
 }
 
 hr {
-  margin: 0.5em 0;
-  border: 1px solid var(--accent-low);
+    margin: 0.5em 0;
+    border: 1px solid var(--accent-low);
 }
 
 p {
-  margin: 0.67em 0;
+    margin: 0.67em 0;
 }
 
 p:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 p:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 code.language-plaintext {
     font-family: "JetBrains Mono";
     background-color: var(--heavy-background);
     margin: 0 0.1em;
-    padding: 0.2em;
-    border-radius: 0.2em;
+    padding: 0.1em 0.2em;
+    border-radius: 0.3em;
+    color: var(--cloudy-text-color);
 }
 
 a {
-  color: var(--link-text-color);
-  text-decoration: none;
+    color: var(--link-text-color);
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--visited-link-text-color);
 }
 
 li {
-  list-style-position: inside;
+    list-style-position: inside;
 }
 
 ol li {
@@ -110,9 +120,9 @@ ol li {
 }
 
 pre {
-  overflow: auto;
-  padding: 1em;
-  margin: 1em 0;
+    overflow: auto;
+    padding: 1em;
+    margin: 1em 0;
 }
 
 pre code {
@@ -124,16 +134,16 @@ pre code {
 }
 
 blockquote {
-  background-color: var(--light-background);
-  border-left: 4px solid var(--text-color);
-  padding: 1em 1em 1em 2em;
-  margin: 1em 0;
+    background-color: var(--light-background);
+    border-left: 4px solid var(--text-color);
+    padding: 1em 1em 1em 2em;
+    margin: 1em 0;
 }
 
 img {
-  max-width: 100%;
-  margin: 1em auto;
-  display: block;
+    max-width: 100%;
+    margin: 1em auto;
+    display: block;
 }
 
 article {
@@ -141,34 +151,35 @@ article {
 }
 
 article ul > li {
-  padding: 0px;
+    padding: 0px;
 }
 
 article ul > li > ul > li {
-  padding-left: 1em;
+    padding-left: 1em;
 }
 
 article ul > li > ol > li {
-  padding-left: 1em;
+    padding-left: 1em;
 }
 
 article ol > li > ol > li {
-  padding-left: 1em;
+    padding-left: 1em;
 }
 
 article ol > li > ul > li {
-  padding-left: 1em;
+    padding-left: 1em;
 }
 
 table {
     border: 1px solid var(--light-background);
     border-collapse: collapse;
-    th, td {
+    th,
+    td {
         border: 1px solid var(--light-background);
         padding: 0.5em 0.5em;
     }
     th {
         background-color: var(--heavy-background);
-        color: var(--cloudy-text-color)
+        color: var(--cloudy-text-color);
     }
 }

@@ -1,3 +1,29 @@
+.post-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+    }
+
+    h1,
+    h2 {
+        color: var(--cyan-text-color);
+        border-bottom: 1px solid var(--light-background)
+    }
+    h3,
+    h4 {
+        color: var(--green-text-color);
+    }
+    h5,
+    h6 {
+        color: var(--yellow-text-color);
+    }
+
+}
+
 .post-title {
     margin: 0;
 }
@@ -29,4 +55,3 @@
     font-size: small;
     margin: 0;
 }
-
