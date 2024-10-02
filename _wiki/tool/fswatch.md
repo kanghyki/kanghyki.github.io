@@ -14,9 +14,9 @@ resource: 6DD7BCEA-230C-4E49-8CC3-74327D390BCE
 * TOC
 {:toc}
 
-**[fswatch](https://github.com/emcrisostomo/fswatch)**는 파일시스템의 이벤트를 감시하고 추적하는 모니터다.
+[fswatch](https://github.com/emcrisostomo/fswatch)는 파일시스템의 이벤트를 감시하고 추적하는 모니터다.
 모니터는 지속적으로 변화를 감지하고 특정 작업을 수행하는 도구를 의미한다.
-**fswatch**는 여러 시스템에서 사용 가능하고 [여기](https://github.com/emcrisostomo/fswatch?tab=readme-ov-file#readme)에서 확인할 수 있다.
+fswatch는 여러 시스템에서 사용 가능하고 [여기](https://github.com/emcrisostomo/fswatch?tab=readme-ov-file#readme)에서 확인할 수 있다.
 
 나는 MacOS를 사용해서 이를 기준으로 설명한다.
 
@@ -31,7 +31,7 @@ $ brew install fswatch
 자세한 내용은 `man fswatch`에서 찾을 수 있다.
 
 ### 기본
-fswatch는 *path* 경로의 이벤트를 추적한다.
+fswatch는 *path* 경로의 이벤트를 일정 간격으로 추적한다.
 ```sh
 $ fswatch path
 
@@ -39,10 +39,9 @@ $ fswatch path
 ```
 
 ### 간격 조정
-fswatch는 변화를 일정 시간마다 경로의 이벤트를 추적한다.
 간격을 조정하려면 `-l`옵션을 사용한다.
 ```sh
-$ fswatch -l 5 path
+$ fswatch -l 5 path // 5sec
 ```
 
 ### 이벤트 필터
