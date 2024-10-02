@@ -6,8 +6,10 @@
  "updated": "2024-10-01 22:41:11 +0900",
  "resource": "84E8536F-788F-462A-99D3-3DBE82FBE968",
  "children": [
+  "tool/awk",
   "tool/fswatch",
   "tool/homebrew",
+  "tool/sed",
   "tool/xargs"
  ],
  "body": "\n* TOC\n{:toc}\n"

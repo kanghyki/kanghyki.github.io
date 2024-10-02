@@ -1,10 +1,10 @@
 ---
 layout  : wiki
 title   : xargs
-summary :
+summary : construct argument list(s) and execute utility
 date    : 2024-10-01 23:21:54 +0900
-updated : 2024-10-01 23:46:39 +0900
-tag     : tool
+updated : 2024-10-02 12:21:35 +0900
+tag     :
 toc     : true
 public  : true
 parent  : [[/tool]]

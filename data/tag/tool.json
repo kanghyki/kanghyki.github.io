@@ -1,6 +1,3 @@
 [
- "tool",
- "tool/fswatch",
- "tool/homebrew",
- "tool/xargs"
+ "tool"
 ]

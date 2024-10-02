@@ -1,0 +1,6 @@
+[
+ {
+  "from": "tool/fswatch",
+  "paragraph": "[[/tool/awk]]{awk}나 [[/tool/sed]]{sed}를 조합해 사용해보자."
+ }
+]

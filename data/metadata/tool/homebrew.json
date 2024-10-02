@@ -4,7 +4,7 @@
  "summary": "MacOS 패키지 매니저",
  "parent": "tool",
  "url": "/wiki/tool/homebrew",
- "updated": "2024-10-01 23:47:00 +0900",
+ "updated": "2024-10-02 12:21:39 +0900",
  "resource": "9289A589-647E-4A86-A994-E1273C412008",
  "children": [],
  "body": "\n* TOC\n{:toc}\n\n[Homebrew](https://brew.sh/)\n"

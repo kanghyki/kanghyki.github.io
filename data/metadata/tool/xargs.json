@@ -1,9 +1,10 @@
 {
  "type": "wiki",
  "title": "xargs",
+ "summary": "construct argument list(s) and execute utility",
  "parent": "tool",
  "url": "/wiki/tool/xargs",
- "updated": "2024-10-01 23:46:39 +0900",
+ "updated": "2024-10-02 12:21:35 +0900",
  "resource": "D089243E-5A19-4ABB-B9AE-2BE7C31B89C2",
  "children": [],
  "body": "\n* TOC\n{:toc}\n"

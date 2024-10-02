@@ -3,8 +3,8 @@ layout  : wiki
 title   : Homebrew
 summary : MacOS 패키지 매니저
 date    : 2024-10-01 22:47:29 +0900
-updated : 2024-10-01 23:47:00 +0900
-tag     : tool
+updated : 2024-10-02 12:21:39 +0900
+tag     :
 toc     : true
 public  : true
 parent  : [[/tool]]
