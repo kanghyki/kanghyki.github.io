@@ -4,6 +4,13 @@
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
 
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <!-- TODO: add image -->
+    <!-- <meta property="og:image" content="{{ site.url }}/.../*.png"> -->
+
     <meta name="google-site-verification" content="4ZtmgC4bydCQmx7qFvM71RqsRzAdiBpitD8ZRqzOb4o" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
