@@ -467,7 +467,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 114
+    "pos": 113
    }
   ]
  ],
@@ -538,23 +538,15 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 26
+    "pos": 11
    },
    {
     "id": "tool/fswatch",
-    "pos": 63
+    "pos": 27
    },
    {
     "id": "tool/fswatch",
-    "pos": 69
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 77
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 142
+    "pos": 64
    }
   ]
  ],
@@ -586,11 +578,15 @@
   ]
  ],
  [
-  "fswatch는",
+  "는",
   [
    {
     "id": "tool/fswatch",
-    "pos": 11
+    "pos": 12
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 28
    }
   ]
  ],
@@ -599,11 +595,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 12
+    "pos": 13
    },
    {
     "id": "tool/fswatch",
-    "pos": 124
+    "pos": 123
    }
   ]
  ],
@@ -612,7 +608,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 13
+    "pos": 14
    },
    {
     "id": "tool/fswatch",
@@ -620,7 +616,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 83
+    "pos": 82
    }
   ]
  ],
@@ -629,7 +625,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 14
+    "pos": 15
    }
   ]
  ],
@@ -638,51 +634,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 15
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 126
-   }
-  ]
- ],
- [
-  "모니터다",
-  [
-   {
-    "id": "tool/fswatch",
     "pos": 16
-   }
-  ]
- ],
- [
-  "모니터는",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 17
-   }
-  ]
- ],
- [
-  "지속적으로",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 18
-   }
-  ]
- ],
- [
-  "변화를",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 19
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 79
    },
    {
     "id": "tool/fswatch",
@@ -691,16 +643,51 @@
   ]
  ],
  [
-  "감지하고",
+  "모니터다",
   [
    {
     "id": "tool/fswatch",
-    "pos": 20
+    "pos": 17
    }
   ]
  ],
  [
-  "특정",
+  "모니터는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 18
+   }
+  ]
+ ],
+ [
+  "지속적으로",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 19
+   }
+  ]
+ ],
+ [
+  "변화를",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 20
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 78
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 124
+   }
+  ]
+ ],
+ [
+  "감지하고",
   [
    {
     "id": "tool/fswatch",
@@ -709,15 +696,24 @@
   ]
  ],
  [
-  "작업을",
+  "특정",
   [
    {
     "id": "tool/fswatch",
     "pos": 22
+   }
+  ]
+ ],
+ [
+  "작업을",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 23
    },
    {
     "id": "tool/fswatch",
-    "pos": 179
+    "pos": 177
    }
   ]
  ],
@@ -726,7 +722,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 23
+    "pos": 24
    }
   ]
  ],
@@ -735,7 +731,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 24
+    "pos": 25
    }
   ]
  ],
@@ -744,24 +740,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 25
-   }
-  ]
- ],
- [
-  "는",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 27
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 70
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 78
+    "pos": 26
    }
   ]
  ],
@@ -770,7 +749,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 28
+    "pos": 29
    }
   ]
  ],
@@ -779,7 +758,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 29
+    "pos": 30
    }
   ]
  ],
@@ -788,7 +767,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 30
+    "pos": 31
    }
   ]
  ],
@@ -797,7 +776,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 31
+    "pos": 32
    }
   ]
  ],
@@ -806,7 +785,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 32
+    "pos": 33
    }
   ]
  ],
@@ -815,33 +794,12 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 33
+    "pos": 34
    }
   ]
  ],
  [
   "수",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 34
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 52
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 66
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 153
-   }
-  ]
- ],
- [
-  "있다",
   [
    {
     "id": "tool/fswatch",
@@ -857,7 +815,28 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 154
+    "pos": 151
+   }
+  ]
+ ],
+ [
+  "있다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 36
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 54
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 68
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 152
    }
   ]
  ],
@@ -866,7 +845,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 36
+    "pos": 37
    }
   ]
  ],
@@ -875,11 +854,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 37
+    "pos": 38
    },
    {
     "id": "tool/fswatch",
-    "pos": 43
+    "pos": 44
    }
   ]
  ],
@@ -888,7 +867,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 38
+    "pos": 39
    }
   ]
  ],
@@ -897,7 +876,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 39
+    "pos": 40
    }
   ]
  ],
@@ -906,7 +885,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 40
+    "pos": 41
    }
   ]
  ],
@@ -915,7 +894,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 41
+    "pos": 42
    }
   ]
  ],
@@ -924,7 +903,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 42
+    "pos": 43
    }
   ]
  ],
@@ -933,7 +912,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 44
+    "pos": 45
    }
   ]
  ],
@@ -942,7 +921,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 45
+    "pos": 46
    }
   ]
  ],
@@ -951,19 +930,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 46
+    "pos": 47
    },
    {
     "id": "tool/fswatch",
-    "pos": 112
+    "pos": 111
    },
    {
     "id": "tool/fswatch",
-    "pos": 116
+    "pos": 115
    },
    {
     "id": "tool/fswatch",
-    "pos": 145
+    "pos": 143
    }
   ]
  ],
@@ -972,7 +951,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 47
+    "pos": 48
    }
   ]
  ],
@@ -981,7 +960,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 48
+    "pos": 49
    },
    {
     "id": "tool/homebrew",
@@ -998,7 +977,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 49
+    "pos": 50
    }
   ]
  ],
@@ -1007,7 +986,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 50
+    "pos": 51
    }
   ]
  ],
@@ -1016,7 +995,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 51
+    "pos": 52
    }
   ]
  ],
@@ -1025,7 +1004,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 54
+    "pos": 55
    }
   ]
  ],
@@ -1034,7 +1013,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 55
+    "pos": 56
    }
   ]
  ],
@@ -1043,7 +1022,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 56
+    "pos": 57
    }
   ]
  ],
@@ -1052,7 +1031,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 57
+    "pos": 58
    }
   ]
  ],
@@ -1061,19 +1040,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 58
+    "pos": 59
    },
    {
     "id": "tool/fswatch",
-    "pos": 88
+    "pos": 87
    },
    {
     "id": "tool/fswatch",
-    "pos": 110
+    "pos": 109
    },
    {
     "id": "tool/fswatch",
-    "pos": 185
+    "pos": 183
    }
   ]
  ],
@@ -1082,7 +1061,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 59
+    "pos": 60
    }
   ]
  ],
@@ -1091,7 +1070,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 60
+    "pos": 61
    }
   ]
  ],
@@ -1100,7 +1079,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 61
+    "pos": 62
    }
   ]
  ],
@@ -1109,7 +1088,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 62
+    "pos": 63
    }
   ]
  ],
@@ -1118,7 +1097,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 64
+    "pos": 65
    }
   ]
  ],
@@ -1127,7 +1106,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 65
+    "pos": 66
    }
   ]
  ],
@@ -1136,7 +1115,20 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 68
+    "pos": 69
+   }
+  ]
+ ],
+ [
+  "fswatch는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 70
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 77
    }
   ]
  ],
@@ -1158,7 +1150,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 82
+    "pos": 81
    }
   ]
  ],
@@ -1171,7 +1163,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 84
+    "pos": 83
    }
   ]
  ],
@@ -1198,7 +1190,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 80
+    "pos": 79
    }
   ]
  ],
@@ -1207,7 +1199,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 81
+    "pos": 80
    }
   ]
  ],
@@ -1216,7 +1208,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 85
+    "pos": 84
    }
   ]
  ],
@@ -1225,7 +1217,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 86
+    "pos": 85
    }
   ]
  ],
@@ -1234,7 +1226,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 87
+    "pos": 86
    }
   ]
  ],
@@ -1243,98 +1235,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 89
+    "pos": 88
    },
    {
     "id": "tool/fswatch",
-    "pos": 111
+    "pos": 110
    },
    {
     "id": "tool/fswatch",
-    "pos": 163
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 186
-   }
-  ]
- ],
- [
-  "이벤트",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 90
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 102
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 104
-   }
-  ]
- ],
- [
-  "필터",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 91
-   }
-  ]
- ],
- [
-  "원하는",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 92
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 160
-   }
-  ]
- ],
- [
-  "이벤트만",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 93
-   }
-  ]
- ],
- [
-  "필터링",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 94
-   }
-  ]
- ],
- [
-  "하려면",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 95
-   }
-  ]
- ],
- [
-  "event",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 96
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 108
+    "pos": 161
    },
    {
     "id": "tool/fswatch",
@@ -1343,11 +1252,94 @@
   ]
  ],
  [
+  "이벤트",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 89
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 101
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 103
+   }
+  ]
+ ],
+ [
+  "필터",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 90
+   }
+  ]
+ ],
+ [
+  "원하는",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 91
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 158
+   }
+  ]
+ ],
+ [
+  "이벤트만",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 92
+   }
+  ]
+ ],
+ [
+  "필터링",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 93
+   }
+  ]
+ ],
+ [
+  "하려면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 94
+   }
+  ]
+ ],
+ [
+  "event",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 95
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 107
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 182
+   }
+  ]
+ ],
+ [
   "옵션",
   [
    {
     "id": "tool/fswatch",
-    "pos": 97
+    "pos": 96
    }
   ]
  ],
@@ -1356,7 +1348,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 98
+    "pos": 97
    }
   ]
  ],
@@ -1365,7 +1357,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 99
+    "pos": 98
    }
   ]
  ],
@@ -1374,7 +1366,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 100
+    "pos": 99
    }
   ]
  ],
@@ -1383,7 +1375,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 101
+    "pos": 100
    }
   ]
  ],
@@ -1392,7 +1384,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 103
+    "pos": 102
    }
   ]
  ],
@@ -1401,7 +1393,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 105
+    "pos": 104
    }
   ]
  ],
@@ -1410,7 +1402,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 106
+    "pos": 105
    }
   ]
  ],
@@ -1419,7 +1411,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 107
+    "pos": 106
    }
   ]
  ],
@@ -1428,7 +1420,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 109
+    "pos": 108
    }
   ]
  ],
@@ -1437,7 +1429,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 113
+    "pos": 112
    }
   ]
  ],
@@ -1446,7 +1438,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 115
+    "pos": 114
    }
   ]
  ],
@@ -1455,7 +1447,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 117
+    "pos": 116
    }
   ]
  ],
@@ -1464,7 +1456,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 118
+    "pos": 117
    },
    {
     "id": "tool/sed",
@@ -1477,11 +1469,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 119
+    "pos": 118
    },
    {
     "id": "tool/fswatch",
-    "pos": 149
+    "pos": 147
    }
   ]
  ],
@@ -1490,29 +1482,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 120
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 150
-   }
-  ]
- ],
- [
-  "사용해보자",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 121
-   }
-  ]
- ],
- [
-  "명령어",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 122
+    "pos": 119
    },
    {
     "id": "tool/fswatch",
@@ -1521,11 +1491,33 @@
   ]
  ],
  [
+  "사용해보자",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 120
+   }
+  ]
+ ],
+ [
+  "명령어",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 121
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 146
+   }
+  ]
+ ],
+ [
   "조합",
   [
    {
     "id": "tool/fswatch",
-    "pos": 123
+    "pos": 122
    }
   ]
  ],
@@ -1534,7 +1526,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 127
+    "pos": 126
    }
   ]
  ],
@@ -1543,7 +1535,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 128
+    "pos": 127
    }
   ]
  ],
@@ -1552,7 +1544,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 129
+    "pos": 128
    }
   ]
  ],
@@ -1561,11 +1553,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 130
+    "pos": 129
    },
    {
     "id": "tool/fswatch",
-    "pos": 151
+    "pos": 149
    }
   ]
  ],
@@ -1574,7 +1566,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 131
+    "pos": 130
    }
   ]
  ],
@@ -1583,7 +1575,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 132
+    "pos": 131
    }
   ]
  ],
@@ -1592,7 +1584,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 133
+    "pos": 132
    }
   ]
  ],
@@ -1601,7 +1593,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 134
+    "pos": 133
    }
   ]
  ],
@@ -1610,7 +1602,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 135
+    "pos": 134
    }
   ]
  ],
@@ -1619,7 +1611,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 136
+    "pos": 135
    }
   ]
  ],
@@ -1628,7 +1620,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 137
+    "pos": 136
    }
   ]
  ],
@@ -1637,7 +1629,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 138
+    "pos": 137
    }
   ]
  ],
@@ -1646,7 +1638,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 139
+    "pos": 138
    }
   ]
  ],
@@ -1655,7 +1647,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 140
+    "pos": 139
    }
   ]
  ],
@@ -1664,20 +1656,20 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 141
+    "pos": 140
    },
    {
     "id": "tool/fswatch",
-    "pos": 176
+    "pos": 174
    }
   ]
  ],
  [
-  "와",
+  "fswatch와",
   [
    {
     "id": "tool/fswatch",
-    "pos": 143
+    "pos": 141
    }
   ]
  ],
@@ -1686,7 +1678,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 144
+    "pos": 142
    }
   ]
  ],
@@ -1695,7 +1687,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 146
+    "pos": 144
    }
   ]
  ],
@@ -1704,7 +1696,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 147
+    "pos": 145
    },
    {
     "id": "tool/xargs",
@@ -1717,7 +1709,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 152
+    "pos": 150
    }
   ]
  ],
@@ -1726,11 +1718,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 155
+    "pos": 153
    },
    {
     "id": "tool/fswatch",
-    "pos": 171
+    "pos": 169
    }
   ]
  ],
@@ -1739,7 +1731,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 156
+    "pos": 154
    }
   ]
  ],
@@ -1748,7 +1740,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 157
+    "pos": 155
    }
   ]
  ],
@@ -1757,7 +1749,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 158
+    "pos": 156
    }
   ]
  ],
@@ -1766,7 +1758,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 159
+    "pos": 157
    }
   ]
  ],
@@ -1775,7 +1767,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 161
+    "pos": 159
    }
   ]
  ],
@@ -1784,7 +1776,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 162
+    "pos": 160
    }
   ]
  ],
@@ -1793,11 +1785,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 164
+    "pos": 162
    },
    {
     "id": "tool/fswatch",
-    "pos": 168
+    "pos": 166
    }
   ]
  ],
@@ -1806,7 +1798,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 165
+    "pos": 163
    }
   ]
  ],
@@ -1815,7 +1807,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 166
+    "pos": 164
    }
   ]
  ],
@@ -1824,7 +1816,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 167
+    "pos": 165
    }
   ]
  ],
@@ -1833,7 +1825,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 169
+    "pos": 167
    }
   ]
  ],
@@ -1842,7 +1834,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 170
+    "pos": 168
    }
   ]
  ],
@@ -1851,11 +1843,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 172
+    "pos": 170
    },
    {
     "id": "tool/fswatch",
-    "pos": 177
+    "pos": 175
    }
   ]
  ],
@@ -1864,11 +1856,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 173
+    "pos": 171
    },
    {
     "id": "tool/fswatch",
-    "pos": 178
+    "pos": 176
    }
   ]
  ],
@@ -1877,7 +1869,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 174
+    "pos": 172
    }
   ]
  ],
@@ -1886,7 +1878,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 175
+    "pos": 173
    }
   ]
  ],
@@ -1895,7 +1887,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 180
+    "pos": 178
    }
   ]
  ],
@@ -1904,7 +1896,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 181
+    "pos": 179
    }
   ]
  ],
@@ -1913,7 +1905,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 182
+    "pos": 180
    }
   ]
  ],
@@ -1922,7 +1914,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 183
+    "pos": 181
    }
   ]
  ],
