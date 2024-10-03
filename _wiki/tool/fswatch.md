@@ -3,8 +3,8 @@ layout  : wiki
 title   : fswatch
 summary : 파일시스템 모니터링 도구
 date    : 2024-10-01 17:31:04 +0900
-updated : 2024-10-02 15:33:30 +0900
-tag     : monitoring
+updated : 2024-10-03 16:53:17 +0900
+tag     :
 toc     : true
 public  : true
 parent  : [[/tool]]
@@ -52,7 +52,6 @@ $ fswatch --event Created --event Updated --event Removed path
 
 ### 이벤트 출력
 이벤트 플래그를 출력하려면 `-x, --event-flags` 옵션을 사용한다.
-[[/tool/awk]]{awk}나 [[/tool/sed]]{sed}를 조합해 사용해보자.
 ```sh
 $ fswatch -x path
 
@@ -60,13 +59,15 @@ $ fswatch -x path
 /Users/.../abc Created IsFile AttributeModified
 ```
 
+필요하다면 [[/tool/awk]]{awk}나 [[/tool/sed]]{sed}를 조합해 사용해보자.
+
 ### 명령어 조합
 파일시스템의 변화를 추적하는 건 제각기 다른 목적을 가지고 있지만 보통 추적 이후 일련의 과정을 수행하기 위함이다.
-이 때 fswatch와 파이프, [[/tool/xargs]]{xargs 명령어}를 조합해 목적을 달성할 수 있다.
+이 때 fswatch와 파이프, [[/tool/xargs]]{xargs}를 조합해 목적을 달성할 수 있다.
 
 #### 이벤트마다
 아래 스크립트에서 echo 대신 원하는 명령어를 넣어 사용한다.
-`-0` 옵션은 결과 레코드들을 `\0` 문자로 분리해준다.
+`-0` 옵션은 결과를 NUL 문자로 분리한다.
 ```sh
 $ fswatch -0 test | xargs -0 -n 1 -I {} echo "changed > {}"
 
@@ -78,7 +79,7 @@ changed > Users/.../3
 #### 이벤트마다 한 번만
 변화가 생겼을 때 한 번만 작업을 수행해야 한다면 `-o, --one-event` 옵션을 사용한다.
 ```sh
-$ fswatch -o test | xargs -n 1 -I {} echo "changed {}"
+$ fswatch -o test | xargs -n 1 -I {} echo "changed > {}"
 
-changed 3
+changed > 3
 ```

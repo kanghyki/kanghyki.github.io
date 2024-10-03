@@ -1,0 +1,11 @@
+{
+ "type": "wiki",
+ "title": "grep",
+ "summary": "file pattern searcher",
+ "parent": "tool",
+ "url": "/wiki/tool/grep",
+ "updated": "2024-10-03 16:54:06 +0900",
+ "resource": "C276F943-4684-4901-8967-E81DCC78953E",
+ "children": [],
+ "body": "\n* TOC\n{:toc}\n\n# grep\n\ngrep은 주어진 입력 파일에서 패턴이 일치하는 라인을 찾아주는 유틸리티다.\n패턴 중 하나 이상과 일치하는 라인은 표준 출력으로 기록된다.\n\ngrep은 파일이 지정되지 않으면 표준 입력에서 데이터를 읽는다.\n\n## 종료 코드\n\n| 코드 | 상황                      |\n|------|---------------------------|\n| 0    | 1개 이상의 라인이 선택됨  |\n| 1    | 아무 라인도 선택되지 않음 |\n| 2    | 에러 발생                 |\n\n## 옵션\n\n### 정규 표현식\n\n- `-e`, Regex\n\n정규 표현식 패턴을 찾는다.\n```sh\n$ cat bbb\nA\nAA\nAAA\nAAAA\nAAAAA\n$ grep -e \"[A]\\{3\\}\" bbb\nAAA\nAAAA\nAAAAA\n```\n\n여러 번 사용해도 된다.\n\n```sh\n$ grep -e \"pattern1\" -e \"pattern2\" file\n```\n\n- `-E`, Extended Regex\n\n확장된 정규 표현식을 사용한다.\n확장된 정규 표현식을 사용하면 메타 문자(`+, -, ?, !, ...`)를 escape(`\\`)없이 사용할 수 있다.\n```sh\n$ cat bbb\nA\nAA\nAAA\nAAAA\nAAAAA\n$ grep -E \"[A]{3}\" bbb\nAAA\nAAAA\nAAAAA\n```\n\n### 특정 파일 제외하기\n- 파일 제외\n`--exclude` 옵션을 사용한다.\n\n```sh\n$ grep \"pattern\" --exclude=\"*.md\" path\n```\n\n- 디렉터리 제외\n`--exclude-dir` 옵션을 사용한다.\n\n```sh\n$ grep \"pattern\" --exclude-dir=\"./tmp\" path\n```\n\n### etc.\n\n- ABC\n`-A` 옵션은 매칭된 라인 이후의 N개의 줄을 추가로 출력한다.\n`-B` 옵션은 매칭된 라인 이전의 N개의 줄을 추가로 출력한다.\n`-C` 옵션은 매칭된 라인 이전, 이후의 N개의 줄을 추가로 출력한다.\n```sh\n$ cat bbb\nA\nAA\nAAA\nccccccccccccccc\nccccccccccccccc\nccccccccccccccc\nccccccccccccccc\nccccccccccccccc\nccccccccccccccc\nAAAA\nAAAAA\n$ grep -A 3 \"AAA\" bbb\nAAA\nccccccccccccccc\nccccccccccccccc\nccccccccccccccc\n--\nAAAA\nAAAAA\n```\n\n- `-n, --line-number` 줄 번호 출력\n\n```sh\n$ grep -n \"AAA\" bbb\n3:AAA\n4:AAAA\n5:AAAAA\n```\n\n- `-c, --count`, 카운팅\n\n```sh\n$ grep -c \"AAA\" bbb\n3\n```\n"
+}

@@ -1,6 +1,6 @@
 [
  {
   "from": "tool/fswatch",
-  "paragraph": "이 때 fswatch와 파이프, [[/tool/xargs]]{xargs 명령어}를 조합해 목적을 달성할 수 있다."
+  "paragraph": "이 때 fswatch와 파이프, [[/tool/xargs]]{xargs}를 조합해 목적을 달성할 수 있다."
  }
 ]

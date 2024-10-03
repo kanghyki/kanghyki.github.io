@@ -8,6 +8,7 @@
  "children": [
   "tool/awk",
   "tool/fswatch",
+  "tool/grep",
   "tool/homebrew",
   "tool/sed",
   "tool/xargs"

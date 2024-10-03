@@ -39,6 +39,10 @@
     "pos": 0
    },
    {
+    "id": "tool/grep",
+    "pos": 0
+   },
+   {
     "id": "tool/homebrew",
     "pos": 0
    },
@@ -101,6 +105,10 @@
     "pos": 2
    },
    {
+    "id": "tool/grep",
+    "pos": 2
+   },
+   {
     "id": "tool/homebrew",
     "pos": 2
    },
@@ -132,10 +140,6 @@
    {
     "id": "tool",
     "pos": 4
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 8
    }
   ]
  ],
@@ -166,10 +170,6 @@
    {
     "id": "tool",
     "pos": 6
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 10
    }
   ]
  ],
@@ -223,6 +223,10 @@
     "pos": 3
    },
    {
+    "id": "tool/grep",
+    "pos": 3
+   },
+   {
     "id": "tool/homebrew",
     "pos": 3
    },
@@ -257,6 +261,10 @@
    },
    {
     "id": "tool/fswatch",
+    "pos": 7
+   },
+   {
+    "id": "tool/grep",
     "pos": 7
    },
    {
@@ -467,7 +475,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 113
+    "pos": 104
    }
   ]
  ],
@@ -477,6 +485,10 @@
    {
     "id": "tool/awk",
     "pos": 4
+   },
+   {
+    "id": "tool/grep",
+    "pos": 5
    }
   ]
  ],
@@ -538,15 +550,7 @@
    },
    {
     "id": "tool/fswatch",
-    "pos": 11
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 27
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 64
+    "pos": 59
    }
   ]
  ],
@@ -569,24 +573,19 @@
   ]
  ],
  [
-  "monitoring",
+  "fswatch는",
   [
    {
     "id": "tool/fswatch",
-    "pos": 9
-   }
-  ]
- ],
- [
-  "는",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 12
+    "pos": 8
    },
    {
     "id": "tool/fswatch",
-    "pos": 28
+    "pos": 23
+   },
+   {
+    "id": "tool/fswatch",
+    "pos": 65
    }
   ]
  ],
@@ -595,11 +594,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 13
+    "pos": 9
    },
    {
     "id": "tool/fswatch",
-    "pos": 123
+    "pos": 114
    }
   ]
  ],
@@ -608,15 +607,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 14
+    "pos": 10
    },
    {
     "id": "tool/fswatch",
-    "pos": 73
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 82
+    "pos": 68
    }
   ]
  ],
@@ -625,7 +620,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 15
+    "pos": 11
    }
   ]
  ],
@@ -634,11 +629,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 16
+    "pos": 12
    },
    {
     "id": "tool/fswatch",
-    "pos": 125
+    "pos": 116
    }
   ]
  ],
@@ -647,7 +642,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 17
+    "pos": 13
    }
   ]
  ],
@@ -656,7 +651,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 18
+    "pos": 14
    }
   ]
  ],
@@ -665,7 +660,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 19
+    "pos": 15
    }
   ]
  ],
@@ -674,15 +669,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 20
+    "pos": 16
    },
    {
     "id": "tool/fswatch",
-    "pos": 78
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 124
+    "pos": 115
    }
   ]
  ],
@@ -691,7 +682,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 21
+    "pos": 17
    }
   ]
  ],
@@ -700,7 +691,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 22
+    "pos": 18
+   },
+   {
+    "id": "tool/grep",
+    "pos": 84
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 30
    }
   ]
  ],
@@ -709,11 +708,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 23
+    "pos": 19
    },
    {
     "id": "tool/fswatch",
-    "pos": 177
+    "pos": 166
    }
   ]
  ],
@@ -722,7 +721,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 24
+    "pos": 20
    }
   ]
  ],
@@ -731,7 +730,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 25
+    "pos": 21
    }
   ]
  ],
@@ -740,7 +739,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 26
+    "pos": 22
    }
   ]
  ],
@@ -749,7 +748,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 29
+    "pos": 24
+   },
+   {
+    "id": "tool/grep",
+    "pos": 61
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 32
    }
   ]
  ],
@@ -758,7 +765,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 30
+    "pos": 25
    }
   ]
  ],
@@ -767,7 +774,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 31
+    "pos": 26
    }
   ]
  ],
@@ -776,7 +783,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 32
+    "pos": 27
    }
   ]
  ],
@@ -785,7 +792,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 33
+    "pos": 28
    }
   ]
  ],
@@ -794,7 +801,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 34
+    "pos": 29
    }
   ]
  ],
@@ -803,19 +810,31 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 35
+    "pos": 30
    },
    {
     "id": "tool/fswatch",
-    "pos": 53
+    "pos": 48
    },
    {
     "id": "tool/fswatch",
-    "pos": 67
+    "pos": 62
    },
    {
     "id": "tool/fswatch",
-    "pos": 151
+    "pos": 141
+   },
+   {
+    "id": "tool/grep",
+    "pos": 82
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 44
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 103
    }
   ]
  ],
@@ -824,19 +843,31 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 36
+    "pos": 31
    },
    {
     "id": "tool/fswatch",
-    "pos": 54
+    "pos": 49
    },
    {
     "id": "tool/fswatch",
-    "pos": 68
+    "pos": 63
    },
    {
     "id": "tool/fswatch",
-    "pos": 152
+    "pos": 142
+   },
+   {
+    "id": "tool/grep",
+    "pos": 83
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 45
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 104
    }
   ]
  ],
@@ -845,7 +876,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 37
+    "pos": 32
    }
   ]
  ],
@@ -854,11 +885,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 38
+    "pos": 33
    },
    {
     "id": "tool/fswatch",
-    "pos": 44
+    "pos": 39
    }
   ]
  ],
@@ -867,7 +898,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 39
+    "pos": 34
    }
   ]
  ],
@@ -876,7 +907,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 40
+    "pos": 35
    }
   ]
  ],
@@ -885,7 +916,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 41
+    "pos": 36
    }
   ]
  ],
@@ -894,7 +925,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 42
+    "pos": 37
    }
   ]
  ],
@@ -903,7 +934,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 43
+    "pos": 38
    }
   ]
  ],
@@ -912,7 +943,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 45
+    "pos": 40
    }
   ]
  ],
@@ -921,7 +952,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 46
+    "pos": 41
    }
   ]
  ],
@@ -930,19 +961,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 47
+    "pos": 42
    },
    {
     "id": "tool/fswatch",
-    "pos": 111
+    "pos": 102
    },
    {
     "id": "tool/fswatch",
-    "pos": 115
+    "pos": 106
    },
    {
     "id": "tool/fswatch",
-    "pos": 143
+    "pos": 134
    }
   ]
  ],
@@ -951,7 +982,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 48
+    "pos": 43
    }
   ]
  ],
@@ -960,7 +991,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 49
+    "pos": 44
    },
    {
     "id": "tool/homebrew",
@@ -977,7 +1008,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 50
+    "pos": 45
    }
   ]
  ],
@@ -986,7 +1017,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 51
+    "pos": 46
    }
   ]
  ],
@@ -995,7 +1026,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 52
+    "pos": 47
    }
   ]
  ],
@@ -1004,7 +1035,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 55
+    "pos": 50
    }
   ]
  ],
@@ -1013,7 +1044,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 56
+    "pos": 51
    }
   ]
  ],
@@ -1022,7 +1053,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 57
+    "pos": 52
    }
   ]
  ],
@@ -1031,7 +1062,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 58
+    "pos": 53
    }
   ]
  ],
@@ -1040,19 +1071,27 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 59
+    "pos": 54
    },
    {
     "id": "tool/fswatch",
-    "pos": 87
+    "pos": 77
    },
    {
     "id": "tool/fswatch",
-    "pos": 109
+    "pos": 99
    },
    {
     "id": "tool/fswatch",
-    "pos": 183
+    "pos": 172
+   },
+   {
+    "id": "tool/grep",
+    "pos": 90
+   },
+   {
+    "id": "tool/grep",
+    "pos": 96
    }
   ]
  ],
@@ -1061,7 +1100,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 60
+    "pos": 55
    }
   ]
  ],
@@ -1070,7 +1109,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 61
+    "pos": 56
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 38
    }
   ]
  ],
@@ -1079,7 +1122,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 62
+    "pos": 57
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 39
    }
   ]
  ],
@@ -1088,7 +1135,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 63
+    "pos": 58
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 40
    }
   ]
  ],
@@ -1097,7 +1148,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 65
+    "pos": 60
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 42
    }
   ]
  ],
@@ -1106,7 +1161,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 66
+    "pos": 61
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 43
    }
   ]
  ],
@@ -1115,20 +1174,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 69
-   }
-  ]
- ],
- [
-  "fswatch는",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 70
+    "pos": 64
    },
    {
-    "id": "tool/fswatch",
-    "pos": 77
+    "id": "tool/xargs",
+    "pos": 53
    }
   ]
  ],
@@ -1137,7 +1187,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 71
+    "pos": 66
    }
   ]
  ],
@@ -1146,42 +1196,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 72
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 81
-   }
-  ]
- ],
- [
-  "추적한다",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 74
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 83
-   }
-  ]
- ],
- [
-  "간격",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 75
-   }
-  ]
- ],
- [
-  "조정",
-  [
-   {
-    "id": "tool/fswatch",
-    "pos": 76
+    "pos": 67
    }
   ]
  ],
@@ -1190,16 +1205,43 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 79
+    "pos": 69
    }
   ]
  ],
  [
-  "시간마다",
+  "간격으로",
   [
    {
     "id": "tool/fswatch",
-    "pos": 80
+    "pos": 70
+   }
+  ]
+ ],
+ [
+  "추적한다",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 71
+   }
+  ]
+ ],
+ [
+  "간격",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 72
+   }
+  ]
+ ],
+ [
+  "조정",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 73
    }
   ]
  ],
@@ -1208,7 +1250,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 84
+    "pos": 74
    }
   ]
  ],
@@ -1217,7 +1259,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 85
+    "pos": 75
    }
   ]
  ],
@@ -1226,7 +1268,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 86
+    "pos": 76
    }
   ]
  ],
@@ -1235,19 +1277,35 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 88
+    "pos": 78
    },
    {
     "id": "tool/fswatch",
-    "pos": 110
+    "pos": 100
    },
    {
     "id": "tool/fswatch",
-    "pos": 161
+    "pos": 151
    },
    {
     "id": "tool/fswatch",
-    "pos": 184
+    "pos": 173
+   },
+   {
+    "id": "tool/grep",
+    "pos": 71
+   },
+   {
+    "id": "tool/grep",
+    "pos": 91
+   },
+   {
+    "id": "tool/grep",
+    "pos": 97
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 72
    }
   ]
  ],
@@ -1256,15 +1314,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 89
+    "pos": 79
    },
    {
     "id": "tool/fswatch",
-    "pos": 101
+    "pos": 91
    },
    {
     "id": "tool/fswatch",
-    "pos": 103
+    "pos": 93
    }
   ]
  ],
@@ -1273,7 +1331,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 90
+    "pos": 80
    }
   ]
  ],
@@ -1282,11 +1340,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 91
+    "pos": 81
    },
    {
     "id": "tool/fswatch",
-    "pos": 158
+    "pos": 148
    }
   ]
  ],
@@ -1295,7 +1353,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 92
+    "pos": 82
    }
   ]
  ],
@@ -1304,7 +1362,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 93
+    "pos": 83
    }
   ]
  ],
@@ -1313,7 +1371,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 94
+    "pos": 84
    }
   ]
  ],
@@ -1322,15 +1380,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 95
+    "pos": 85
    },
    {
     "id": "tool/fswatch",
-    "pos": 107
+    "pos": 97
    },
    {
     "id": "tool/fswatch",
-    "pos": 182
+    "pos": 171
    }
   ]
  ],
@@ -1339,7 +1397,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 96
+    "pos": 86
+   },
+   {
+    "id": "tool/grep",
+    "pos": 52
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 37
    }
   ]
  ],
@@ -1348,7 +1414,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 97
+    "pos": 87
    }
   ]
  ],
@@ -1357,7 +1423,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 98
+    "pos": 88
    }
   ]
  ],
@@ -1366,7 +1432,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 99
+    "pos": 89
    }
   ]
  ],
@@ -1375,7 +1441,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 100
+    "pos": 90
+   },
+   {
+    "id": "tool/grep",
+    "pos": 64
    }
   ]
  ],
@@ -1384,7 +1454,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 102
+    "pos": 92
+   },
+   {
+    "id": "tool/grep",
+    "pos": 133
    }
   ]
  ],
@@ -1393,7 +1467,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 104
+    "pos": 94
    }
   ]
  ],
@@ -1402,7 +1476,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 105
+    "pos": 95
    }
   ]
  ],
@@ -1411,7 +1485,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 106
+    "pos": 96
    }
   ]
  ],
@@ -1420,7 +1494,16 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 108
+    "pos": 98
+   }
+  ]
+ ],
+ [
+  "필요하다면",
+  [
+   {
+    "id": "tool/fswatch",
+    "pos": 101
    }
   ]
  ],
@@ -1429,7 +1512,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 112
+    "pos": 103
    }
   ]
  ],
@@ -1438,7 +1521,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 114
+    "pos": 105
    }
   ]
  ],
@@ -1447,7 +1530,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 116
+    "pos": 107
    }
   ]
  ],
@@ -1456,7 +1539,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 117
+    "pos": 108
    },
    {
     "id": "tool/sed",
@@ -1469,11 +1552,15 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 118
+    "pos": 109
    },
    {
     "id": "tool/fswatch",
-    "pos": 147
+    "pos": 137
+   },
+   {
+    "id": "tool/grep",
+    "pos": 78
    }
   ]
  ],
@@ -1482,11 +1569,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 119
+    "pos": 110
    },
    {
     "id": "tool/fswatch",
-    "pos": 148
+    "pos": 138
    }
   ]
  ],
@@ -1495,7 +1582,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 120
+    "pos": 111
    }
   ]
  ],
@@ -1504,11 +1591,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 121
-   },
-   {
-    "id": "tool/fswatch",
-    "pos": 146
+    "pos": 112
    }
   ]
  ],
@@ -1517,7 +1600,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 122
+    "pos": 113
    }
   ]
  ],
@@ -1526,7 +1609,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 126
+    "pos": 117
    }
   ]
  ],
@@ -1535,7 +1618,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 127
+    "pos": 118
    }
   ]
  ],
@@ -1544,7 +1627,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 128
+    "pos": 119
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 18
    }
   ]
  ],
@@ -1553,11 +1640,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 129
+    "pos": 120
    },
    {
     "id": "tool/fswatch",
-    "pos": 149
+    "pos": 139
    }
   ]
  ],
@@ -1566,7 +1653,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 130
+    "pos": 121
    }
   ]
  ],
@@ -1575,7 +1662,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 131
+    "pos": 122
    }
   ]
  ],
@@ -1584,7 +1671,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 132
+    "pos": 123
    }
   ]
  ],
@@ -1593,7 +1680,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 133
+    "pos": 124
    }
   ]
  ],
@@ -1602,7 +1689,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 134
+    "pos": 125
    }
   ]
  ],
@@ -1611,7 +1698,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 135
+    "pos": 126
    }
   ]
  ],
@@ -1620,7 +1707,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 136
+    "pos": 127
    }
   ]
  ],
@@ -1629,7 +1716,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 137
+    "pos": 128
    }
   ]
  ],
@@ -1638,7 +1725,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 138
+    "pos": 129
    }
   ]
  ],
@@ -1647,7 +1734,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 139
+    "pos": 130
    }
   ]
  ],
@@ -1656,11 +1743,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 140
+    "pos": 131
    },
    {
     "id": "tool/fswatch",
-    "pos": 174
+    "pos": 163
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 35
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 71
    }
   ]
  ],
@@ -1669,7 +1764,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 141
+    "pos": 132
    }
   ]
  ],
@@ -1678,7 +1773,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 142
+    "pos": 133
    }
   ]
  ],
@@ -1687,7 +1782,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 144
+    "pos": 135
    }
   ]
  ],
@@ -1696,11 +1791,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 145
+    "pos": 136
    },
    {
     "id": "tool/xargs",
     "pos": 1
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 12
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 41
    }
   ]
  ],
@@ -1709,7 +1812,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 150
+    "pos": 140
    }
   ]
  ],
@@ -1718,11 +1821,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 153
+    "pos": 143
    },
    {
     "id": "tool/fswatch",
-    "pos": 169
+    "pos": 158
    }
   ]
  ],
@@ -1731,7 +1834,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 154
+    "pos": 144
    }
   ]
  ],
@@ -1740,7 +1843,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 155
+    "pos": 145
    }
   ]
  ],
@@ -1749,7 +1852,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 156
+    "pos": 146
    }
   ]
  ],
@@ -1758,7 +1861,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 157
+    "pos": 147
    }
   ]
  ],
@@ -1767,7 +1870,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 159
+    "pos": 149
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 31
    }
   ]
  ],
@@ -1776,7 +1883,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 160
+    "pos": 150
    }
   ]
  ],
@@ -1785,11 +1892,19 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 162
+    "pos": 152
    },
    {
-    "id": "tool/fswatch",
-    "pos": 166
+    "id": "tool/grep",
+    "pos": 39
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 86
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 88
    }
   ]
  ],
@@ -1798,25 +1913,41 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 163
+    "pos": 153
+   },
+   {
+    "id": "tool/grep",
+    "pos": 101
+   },
+   {
+    "id": "tool/grep",
+    "pos": 110
+   },
+   {
+    "id": "tool/grep",
+    "pos": 119
    }
   ]
  ],
  [
-  "결과",
+  "결과를",
   [
    {
     "id": "tool/fswatch",
-    "pos": 164
+    "pos": 154
    }
   ]
  ],
  [
-  "레코드들을",
+  "nul",
   [
    {
     "id": "tool/fswatch",
-    "pos": 165
+    "pos": 155
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 87
    }
   ]
  ],
@@ -1825,16 +1956,20 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 167
+    "pos": 156
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 89
    }
   ]
  ],
  [
-  "분리해준다",
+  "분리한다",
   [
    {
     "id": "tool/fswatch",
-    "pos": 168
+    "pos": 157
    }
   ]
  ],
@@ -1843,11 +1978,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 170
+    "pos": 159
    },
    {
     "id": "tool/fswatch",
-    "pos": 175
+    "pos": 164
    }
   ]
  ],
@@ -1856,11 +1991,11 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 171
+    "pos": 160
    },
    {
     "id": "tool/fswatch",
-    "pos": 176
+    "pos": 165
    }
   ]
  ],
@@ -1869,7 +2004,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 172
+    "pos": 161
    }
   ]
  ],
@@ -1878,7 +2013,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 173
+    "pos": 162
    }
   ]
  ],
@@ -1887,7 +2022,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 178
+    "pos": 167
    }
   ]
  ],
@@ -1896,7 +2031,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 179
+    "pos": 168
    }
   ]
  ],
@@ -1905,7 +2040,7 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 180
+    "pos": 169
    }
   ]
  ],
@@ -1914,7 +2049,940 @@
   [
    {
     "id": "tool/fswatch",
-    "pos": 181
+    "pos": 170
+   }
+  ]
+ ],
+ [
+  "grep",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 1
+   },
+   {
+    "id": "tool/grep",
+    "pos": 8
+   }
+  ]
+ ],
+ [
+  "file",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 4
+   }
+  ]
+ ],
+ [
+  "searcher",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 6
+   }
+  ]
+ ],
+ [
+  "grep은",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 9
+   },
+   {
+    "id": "tool/grep",
+    "pos": 27
+   }
+  ]
+ ],
+ [
+  "주어진",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 10
+   }
+  ]
+ ],
+ [
+  "입력",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 11
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 27
+   }
+  ]
+ ],
+ [
+  "파일에서",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 12
+   }
+  ]
+ ],
+ [
+  "패턴이",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 13
+   }
+  ]
+ ],
+ [
+  "일치하는",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 14
+   },
+   {
+    "id": "tool/grep",
+    "pos": 22
+   }
+  ]
+ ],
+ [
+  "라인을",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 15
+   }
+  ]
+ ],
+ [
+  "찾아주는",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 16
+   }
+  ]
+ ],
+ [
+  "유틸리티다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 17
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 22
+   }
+  ]
+ ],
+ [
+  "패턴",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 18
+   }
+  ]
+ ],
+ [
+  "중",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 19
+   }
+  ]
+ ],
+ [
+  "하나",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 20
+   }
+  ]
+ ],
+ [
+  "이상과",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 21
+   }
+  ]
+ ],
+ [
+  "라인은",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 23
+   }
+  ]
+ ],
+ [
+  "표준",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 24
+   },
+   {
+    "id": "tool/grep",
+    "pos": 31
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 14
+   }
+  ]
+ ],
+ [
+  "출력으로",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 25
+   }
+  ]
+ ],
+ [
+  "기록된다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 26
+   }
+  ]
+ ],
+ [
+  "파일이",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 28
+   }
+  ]
+ ],
+ [
+  "지정되지",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 29
+   }
+  ]
+ ],
+ [
+  "않으면",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 30
+   }
+  ]
+ ],
+ [
+  "입력에서",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 32
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 47
+   }
+  ]
+ ],
+ [
+  "데이터를",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 33
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 17
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 28
+   }
+  ]
+ ],
+ [
+  "읽는다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 34
+   }
+  ]
+ ],
+ [
+  "종료",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 35
+   }
+  ]
+ ],
+ [
+  "코드",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 36
+   },
+   {
+    "id": "tool/grep",
+    "pos": 37
+   }
+  ]
+ ],
+ [
+  "상황",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 38
+   }
+  ]
+ ],
+ [
+  "1개",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 40
+   }
+  ]
+ ],
+ [
+  "이상의",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 41
+   }
+  ]
+ ],
+ [
+  "라인이",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 42
+   }
+  ]
+ ],
+ [
+  "선택됨",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 43
+   }
+  ]
+ ],
+ [
+  "1",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 44
+   }
+  ]
+ ],
+ [
+  "아무",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 45
+   }
+  ]
+ ],
+ [
+  "라인도",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 46
+   }
+  ]
+ ],
+ [
+  "선택되지",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 47
+   }
+  ]
+ ],
+ [
+  "않음",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 48
+   }
+  ]
+ ],
+ [
+  "2",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 49
+   }
+  ]
+ ],
+ [
+  "에러",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 50
+   }
+  ]
+ ],
+ [
+  "발생",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 51
+   }
+  ]
+ ],
+ [
+  "정규",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 53
+   },
+   {
+    "id": "tool/grep",
+    "pos": 57
+   },
+   {
+    "id": "tool/grep",
+    "pos": 69
+   },
+   {
+    "id": "tool/grep",
+    "pos": 73
+   }
+  ]
+ ],
+ [
+  "표현식",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 54
+   },
+   {
+    "id": "tool/grep",
+    "pos": 58
+   }
+  ]
+ ],
+ [
+  "e",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 55
+   },
+   {
+    "id": "tool/grep",
+    "pos": 65
+   }
+  ]
+ ],
+ [
+  "regex",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 56
+   },
+   {
+    "id": "tool/grep",
+    "pos": 67
+   }
+  ]
+ ],
+ [
+  "패턴을",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 59
+   }
+  ]
+ ],
+ [
+  "찾는다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 60
+   }
+  ]
+ ],
+ [
+  "번",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 62
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 33
+   }
+  ]
+ ],
+ [
+  "사용해도",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 63
+   }
+  ]
+ ],
+ [
+  "extended",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 66
+   }
+  ]
+ ],
+ [
+  "확장된",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 68
+   },
+   {
+    "id": "tool/grep",
+    "pos": 72
+   }
+  ]
+ ],
+ [
+  "표현식을",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 70
+   },
+   {
+    "id": "tool/grep",
+    "pos": 74
+   }
+  ]
+ ],
+ [
+  "사용하면",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 75
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 95
+   }
+  ]
+ ],
+ [
+  "메타",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 76
+   }
+  ]
+ ],
+ [
+  "문자",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 77
+   }
+  ]
+ ],
+ [
+  "escape",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 79
+   }
+  ]
+ ],
+ [
+  "없이",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 80
+   }
+  ]
+ ],
+ [
+  "사용할",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 81
+   }
+  ]
+ ],
+ [
+  "파일",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 85
+   },
+   {
+    "id": "tool/grep",
+    "pos": 87
+   }
+  ]
+ ],
+ [
+  "제외하기",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 86
+   }
+  ]
+ ],
+ [
+  "제외",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 88
+   },
+   {
+    "id": "tool/grep",
+    "pos": 93
+   }
+  ]
+ ],
+ [
+  "exclude",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 89
+   },
+   {
+    "id": "tool/grep",
+    "pos": 94
+   }
+  ]
+ ],
+ [
+  "디렉터리",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 92
+   }
+  ]
+ ],
+ [
+  "dir",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 95
+   }
+  ]
+ ],
+ [
+  "etc",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 98
+   }
+  ]
+ ],
+ [
+  "abc",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 99
+   }
+  ]
+ ],
+ [
+  "a",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 100
+   }
+  ]
+ ],
+ [
+  "매칭된",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 102
+   },
+   {
+    "id": "tool/grep",
+    "pos": 111
+   },
+   {
+    "id": "tool/grep",
+    "pos": 120
+   }
+  ]
+ ],
+ [
+  "라인",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 103
+   },
+   {
+    "id": "tool/grep",
+    "pos": 112
+   },
+   {
+    "id": "tool/grep",
+    "pos": 121
+   }
+  ]
+ ],
+ [
+  "이후의",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 104
+   },
+   {
+    "id": "tool/grep",
+    "pos": 123
+   }
+  ]
+ ],
+ [
+  "n개의",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 105
+   },
+   {
+    "id": "tool/grep",
+    "pos": 114
+   },
+   {
+    "id": "tool/grep",
+    "pos": 124
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 65
+   }
+  ]
+ ],
+ [
+  "줄을",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 106
+   },
+   {
+    "id": "tool/grep",
+    "pos": 115
+   },
+   {
+    "id": "tool/grep",
+    "pos": 125
+   }
+  ]
+ ],
+ [
+  "추가로",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 107
+   },
+   {
+    "id": "tool/grep",
+    "pos": 116
+   },
+   {
+    "id": "tool/grep",
+    "pos": 126
+   }
+  ]
+ ],
+ [
+  "출력한다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 108
+   },
+   {
+    "id": "tool/grep",
+    "pos": 117
+   },
+   {
+    "id": "tool/grep",
+    "pos": 127
+   }
+  ]
+ ],
+ [
+  "b",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 109
+   }
+  ]
+ ],
+ [
+  "이전의",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 113
+   }
+  ]
+ ],
+ [
+  "c",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 118
+   },
+   {
+    "id": "tool/grep",
+    "pos": 134
+   }
+  ]
+ ],
+ [
+  "이전",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 122
+   }
+  ]
+ ],
+ [
+  "n",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 128
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 58
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 59
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 62
+   }
+  ]
+ ],
+ [
+  "line",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 129
+   }
+  ]
+ ],
+ [
+  "number",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 130
+   }
+  ]
+ ],
+ [
+  "줄",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 131
+   }
+  ]
+ ],
+ [
+  "번호",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 132
+   }
+  ]
+ ],
+ [
+  "count",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 135
+   }
+  ]
+ ],
+ [
+  "카운팅",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 136
    }
   ]
  ],
@@ -2014,6 +3082,489 @@
    {
     "id": "tool/xargs",
     "pos": 10
+   }
+  ]
+ ],
+ [
+  "xargs는",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 13
+   }
+  ]
+ ],
+ [
+  "입력으로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 15
+   }
+  ]
+ ],
+ [
+  "받은",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 16
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 48
+   }
+  ]
+ ],
+ [
+  "명령어의",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 19
+   }
+  ]
+ ],
+ [
+  "인수로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 20
+   }
+  ]
+ ],
+ [
+  "전달하는",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 21
+   }
+  ]
+ ],
+ [
+  "주로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 23
+   }
+  ]
+ ],
+ [
+  "파이프와",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 24
+   }
+  ]
+ ],
+ [
+  "함께",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 25
+   }
+  ]
+ ],
+ [
+  "사용되고",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 26
+   }
+  ]
+ ],
+ [
+  "받아서",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 29
+   }
+  ]
+ ],
+ [
+  "실행할",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 34
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 82
+   }
+  ]
+ ],
+ [
+  "유용하다",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 36
+   }
+  ]
+ ],
+ [
+  "i",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 46
+   }
+  ]
+ ],
+ [
+  "각",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 49
+   }
+  ]
+ ],
+ [
+  "항목을",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 50
+   }
+  ]
+ ],
+ [
+  "지정된",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 51
+   }
+  ]
+ ],
+ [
+  "플레이스홀더",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 52
+   }
+  ]
+ ],
+ [
+  "으로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 54
+   }
+  ]
+ ],
+ [
+  "대체해서",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 55
+   }
+  ]
+ ],
+ [
+  "명령어에",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 56
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 67
+   }
+  ]
+ ],
+ [
+  "전달한다",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 57
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 68
+   }
+  ]
+ ],
+ [
+  "max",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 60
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 75
+   }
+  ]
+ ],
+ [
+  "args",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 61
+   }
+  ]
+ ],
+ [
+  "한번에",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 63
+   }
+  ]
+ ],
+ [
+  "최대",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 64
+   }
+  ]
+ ],
+ [
+  "인수를",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 66
+   }
+  ]
+ ],
+ [
+  "그룹화",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 69
+   }
+  ]
+ ],
+ [
+  "할",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 70
+   }
+  ]
+ ],
+ [
+  "p",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 73
+   }
+  ]
+ ],
+ [
+  "maxprocs",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 74
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 77
+   }
+  ]
+ ],
+ [
+  "procs",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 76
+   }
+  ]
+ ],
+ [
+  "병렬",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 78
+   }
+  ]
+ ],
+ [
+  "처리",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 79
+   }
+  ]
+ ],
+ [
+  "모드",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 80
+   }
+  ]
+ ],
+ [
+  "병렬로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 81
+   }
+  ]
+ ],
+ [
+  "프로세스의",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 83
+   }
+  ]
+ ],
+ [
+  "수를",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 84
+   }
+  ]
+ ],
+ [
+  "지정한다",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 85
+   }
+  ]
+ ],
+ [
+  "구분된",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 90
+   }
+  ]
+ ],
+ [
+  "입력을",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 91
+   }
+  ]
+ ],
+ [
+  "처리한다",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 92
+   }
+  ]
+ ],
+ [
+  "nul문자를",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 93
+   }
+  ]
+ ],
+ [
+  "구분자로",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 94
+   }
+  ]
+ ],
+ [
+  "공백",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 96
+   }
+  ]
+ ],
+ [
+  "줄바꿈",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 97
+   }
+  ]
+ ],
+ [
+  "문자가",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 98
+   }
+  ]
+ ],
+ [
+  "포함된",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 99
+   }
+  ]
+ ],
+ [
+  "경우에도",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 100
+   }
+  ]
+ ],
+ [
+  "올바르게",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 101
+   }
+  ]
+ ],
+ [
+  "처리할",
+  [
+   {
+    "id": "tool/xargs",
+    "pos": 102
    }
   ]
  ]
