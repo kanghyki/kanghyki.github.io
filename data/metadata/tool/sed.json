@@ -4,8 +4,8 @@
  "summary": "stream editor",
  "parent": "tool",
  "url": "/wiki/tool/sed",
- "updated": "2024-10-02 12:20:53 +0900",
+ "updated": "2024-10-04 12:23:55 +0900",
  "resource": "413751CC-2C36-4332-996B-FDE47BA33308",
  "children": [],
- "body": "\n* TOC\n{:toc}\n\n.\n"
+ "body": "\n* TOC\n{:toc}\n\n# sed\nsed는 입력 파일에서 패턴을 찾아 명령어를 수행한다.\n\n## Usage\n\n```sh\n$ sed 옵션 명령어 파일\n```\n`명령어` : 출력, 치환, 삭제등 처리\n`파일(optional)` : 지정되지 않으면 표준 입력에서 데이터를 읽음\n\n### 명령어\n\n##### 출력\n\n```sh\nsed '1 p' aaa\n```\n`1`번째 행을 출력(`p`)한다. 보통 `-n` 옵션과 조합해 사용한다.\n\n##### 삭제\n```sh\n$ sed '1 d' aaa\n```\n`n`번째 행을 삭제(`d`)한다.\n\n##### 치환\n```sh\n$ sed 's/A/B' aaa\n```\n`A`를 `B`로 치환(`s`)한다.\n\n##### 다중 치환\n```sh\n$ sed 's/A/B/g' aaa\n```\n\n모든(`g`) `A`를 `B`로 치환(`s`)한다.\n\n### 옵션\n\n##### -r, 확장된 정규 표현식\n```sh\n$ sed 's/[0-9]\\{3\\}-[0-9]\\{3,4\\}-[0-9]\\{3,4\\}/XXX-XXXX-XXXX/g' aaa\nXXX-XXXX-XXXX\n\n$ sed -r 's/[0-9]{3}-[0-9]{3,4}-[0-9]{3,4}/XXX-XXXX-XXXX/g' aaa\nXXX-XXXX-XXXX\n```\n\n##### -i, 파일 저장 (in-place)\n```sh\n$ sed -i 's/b/d/' aaa\n```\n\n###### macOS 주의\nmacOS를 사용하고 있다면 백업 확장자를 지정해줘야 한다.\n`file.백업확장자`라는 백업 파일이 만들어지고 기존 파일은 변경된다.\n필요 없다면 `''` 빈 문자열을 지정한다.\n```sh\n$ sed -i '.backup' 's/b/d/' aaa\nor\n$ sed -i '' 's/b/d/' aaa\n```\n\n##### -e, 여러 명령어 사용\n```sh\n$ sed -e 's/b/d/' -e '2 d' aaa\n```\n\n##### -n, 명시적으로 지정한 출력만 사용\n```sh\nsed -n '1 p' aaa\n```\n"
 }

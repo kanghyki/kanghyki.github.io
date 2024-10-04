@@ -3,7 +3,7 @@ layout  : wiki
 title   : grep
 summary : file pattern searcher
 date    : 2024-10-03 15:56:04 +0900
-updated : 2024-10-03 16:54:06 +0900
+updated : 2024-10-04 12:17:00 +0900
 tag     :
 toc     : true
 public  : true
@@ -19,7 +19,7 @@ resource: C276F943-4684-4901-8967-E81DCC78953E
 grep은 주어진 입력 파일에서 패턴이 일치하는 라인을 찾아주는 유틸리티다.
 패턴 중 하나 이상과 일치하는 라인은 표준 출력으로 기록된다.
 
-grep은 파일이 지정되지 않으면 표준 입력에서 데이터를 읽는다.
+파일이 지정되지 않으면 표준 입력에서 데이터를 읽는다.
 
 ## 종료 코드
 
@@ -33,7 +33,7 @@ grep은 파일이 지정되지 않으면 표준 입력에서 데이터를 읽는
 
 ### 정규 표현식
 
-- `-e`, Regex
+##### `-e`, Regex
 
 정규 표현식 패턴을 찾는다.
 ```sh
@@ -55,7 +55,7 @@ AAAAA
 $ grep -e "pattern1" -e "pattern2" file
 ```
 
-- `-E`, Extended Regex
+##### `-E`, Extended Regex
 
 확장된 정규 표현식을 사용한다.
 확장된 정규 표현식을 사용하면 메타 문자(`+, -, ?, !, ...`)를 escape(`\`)없이 사용할 수 있다.
@@ -73,15 +73,13 @@ AAAAA
 ```
 
 ### 특정 파일 제외하기
-- 파일 제외
-`--exclude` 옵션을 사용한다.
+##### `--exclude`, 파일 제외
 
 ```sh
 $ grep "pattern" --exclude="*.md" path
 ```
 
-- 디렉터리 제외
-`--exclude-dir` 옵션을 사용한다.
+##### `--exclude-dir`, 디렉터리 제외
 
 ```sh
 $ grep "pattern" --exclude-dir="./tmp" path
@@ -89,7 +87,7 @@ $ grep "pattern" --exclude-dir="./tmp" path
 
 ### etc.
 
-- ABC
+##### ABC
 `-A` 옵션은 매칭된 라인 이후의 N개의 줄을 추가로 출력한다.
 `-B` 옵션은 매칭된 라인 이전의 N개의 줄을 추가로 출력한다.
 `-C` 옵션은 매칭된 라인 이전, 이후의 N개의 줄을 추가로 출력한다.
@@ -116,7 +114,7 @@ AAAA
 AAAAA
 ```
 
-- `-n, --line-number` 줄 번호 출력
+##### `-n`, 줄 번호 출력
 
 ```sh
 $ grep -n "AAA" bbb
@@ -125,7 +123,7 @@ $ grep -n "AAA" bbb
 5:AAAAA
 ```
 
-- `-c, --count`, 카운팅
+##### `-c`, 카운팅
 
 ```sh
 $ grep -c "AAA" bbb

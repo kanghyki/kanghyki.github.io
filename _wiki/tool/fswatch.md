@@ -3,7 +3,7 @@ layout  : wiki
 title   : fswatch
 summary : 파일시스템 모니터링 도구
 date    : 2024-10-01 17:31:04 +0900
-updated : 2024-10-03 16:53:17 +0900
+updated : 2024-10-04 12:22:23 +0900
 tag     :
 toc     : true
 public  : true
@@ -27,10 +27,6 @@ $ brew install fswatch
 ```
 
 ## Usage
-내가 자주 사용하는 옵션을 정리했다.
-자세한 내용은 `man fswatch`에서 찾을 수 있다.
-
-### 기본
 fswatch는 *path* 경로의 이벤트를 일정 간격으로 추적한다.
 ```sh
 $ fswatch path
