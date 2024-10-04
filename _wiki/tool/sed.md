@@ -3,7 +3,7 @@ layout  : wiki
 title   : sed
 summary : stream editor
 date    : 2024-10-02 12:04:23 +0900
-updated : 2024-10-04 12:23:55 +0900
+updated : 2024-10-04 15:14:15 +0900
 tag     :
 toc     : true
 public  : true
@@ -38,7 +38,7 @@ sed '1 p' aaa
 ```sh
 $ sed '1 d' aaa
 ```
-`n`번째 행을 삭제(`d`)한다.
+`1`번째 행을 삭제(`d`)한다.
 
 ##### 치환
 ```sh
@@ -65,6 +65,7 @@ XXX-XXXX-XXXX
 ```
 
 ##### -i, 파일 저장 (in-place)
+결과를 파일에 저장한다. 주의해서 사용하자.
 ```sh
 $ sed -i 's/b/d/' aaa
 ```
