@@ -3,7 +3,7 @@ layout  : wiki
 title   : grep
 summary : file pattern searcher
 date    : 2024-10-03 15:56:04 +0900
-updated : 2024-10-04 12:17:00 +0900
+updated : 2024-10-04 22:18:57 +0900
 tag     :
 toc     : true
 public  : true
@@ -72,6 +72,14 @@ AAAA
 AAAAA
 ```
 
+### `-R` 하위 디렉토리를 재귀적으로 검색
+`-r, --recursive`
+
+```sh
+$ grep -r 'aaa' .
+./hello:aaaaaaaaaaaa
+```
+
 ### 특정 파일 제외하기
 ##### `--exclude`, 파일 제외
 
@@ -80,6 +88,8 @@ $ grep "pattern" --exclude="*.md" path
 ```
 
 ##### `--exclude-dir`, 디렉터리 제외
+
+`-R` 옵션을 사용할 때 특정 디렉터리를 제외한다.
 
 ```sh
 $ grep "pattern" --exclude-dir="./tmp" path

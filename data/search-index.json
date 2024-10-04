@@ -691,7 +691,11 @@
    },
    {
     "id": "tool/grep",
-    "pos": 83
+    "pos": 90
+   },
+   {
+    "id": "tool/grep",
+    "pos": 104
    },
    {
     "id": "tool/xargs",
@@ -1159,6 +1163,10 @@
    {
     "id": "tool/fswatch",
     "pos": 158
+   },
+   {
+    "id": "tool/grep",
+    "pos": 101
    }
   ]
  ],
@@ -1344,7 +1352,7 @@
    },
    {
     "id": "tool/grep",
-    "pos": 126
+    "pos": 140
    },
    {
     "id": "tool/sed",
@@ -1680,6 +1688,10 @@
     "pos": 149
    },
    {
+    "id": "tool/grep",
+    "pos": 103
+   },
+   {
     "id": "tool/xargs",
     "pos": 35
    }
@@ -1843,15 +1855,15 @@
    },
    {
     "id": "tool/grep",
-    "pos": 96
+    "pos": 110
    },
    {
     "id": "tool/grep",
-    "pos": 105
+    "pos": 119
    },
    {
     "id": "tool/grep",
-    "pos": 114
+    "pos": 128
    }
   ]
  ],
@@ -2650,6 +2662,76 @@
    {
     "id": "tool/grep",
     "pos": 80
+   },
+   {
+    "id": "tool/grep",
+    "pos": 102
+   }
+  ]
+ ],
+ [
+  "r",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 83
+   },
+   {
+    "id": "tool/grep",
+    "pos": 88
+   },
+   {
+    "id": "tool/grep",
+    "pos": 100
+   },
+   {
+    "id": "tool/sed",
+    "pos": 69
+   }
+  ]
+ ],
+ [
+  "하위",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 84
+   }
+  ]
+ ],
+ [
+  "디렉토리를",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 85
+   }
+  ]
+ ],
+ [
+  "재귀적으로",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 86
+   }
+  ]
+ ],
+ [
+  "검색",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 87
+   }
+  ]
+ ],
+ [
+  "recursive",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 89
    }
   ]
  ],
@@ -2658,11 +2740,11 @@
   [
    {
     "id": "tool/grep",
-    "pos": 84
+    "pos": 91
    },
    {
     "id": "tool/grep",
-    "pos": 87
+    "pos": 94
    },
    {
     "id": "tool/sed",
@@ -2679,7 +2761,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 85
+    "pos": 92
    }
   ]
  ],
@@ -2688,11 +2770,11 @@
   [
    {
     "id": "tool/grep",
-    "pos": 86
+    "pos": 93
    },
    {
     "id": "tool/grep",
-    "pos": 89
+    "pos": 96
    }
   ]
  ],
@@ -2701,11 +2783,11 @@
   [
    {
     "id": "tool/grep",
-    "pos": 88
+    "pos": 95
    },
    {
     "id": "tool/grep",
-    "pos": 92
+    "pos": 99
    }
   ]
  ],
@@ -2714,7 +2796,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 90
+    "pos": 97
    }
   ]
  ],
@@ -2723,7 +2805,25 @@
   [
    {
     "id": "tool/grep",
-    "pos": 91
+    "pos": 98
+   }
+  ]
+ ],
+ [
+  "디렉터리를",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 105
+   }
+  ]
+ ],
+ [
+  "제외한다",
+  [
+   {
+    "id": "tool/grep",
+    "pos": 106
    }
   ]
  ],
@@ -2732,7 +2832,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 93
+    "pos": 107
    }
   ]
  ],
@@ -2741,7 +2841,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 94
+    "pos": 108
    }
   ]
  ],
@@ -2750,7 +2850,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 95
+    "pos": 109
    },
    {
     "id": "tool/sed",
@@ -2767,15 +2867,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 97
+    "pos": 111
    },
    {
     "id": "tool/grep",
-    "pos": 106
+    "pos": 120
    },
    {
     "id": "tool/grep",
-    "pos": 115
+    "pos": 129
    }
   ]
  ],
@@ -2784,15 +2884,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 98
+    "pos": 112
    },
    {
     "id": "tool/grep",
-    "pos": 107
+    "pos": 121
    },
    {
     "id": "tool/grep",
-    "pos": 116
+    "pos": 130
    }
   ]
  ],
@@ -2801,11 +2901,11 @@
   [
    {
     "id": "tool/grep",
-    "pos": 99
+    "pos": 113
    },
    {
     "id": "tool/grep",
-    "pos": 118
+    "pos": 132
    }
   ]
  ],
@@ -2814,15 +2914,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 100
+    "pos": 114
    },
    {
     "id": "tool/grep",
-    "pos": 109
+    "pos": 123
    },
    {
     "id": "tool/grep",
-    "pos": 119
+    "pos": 133
    },
    {
     "id": "tool/xargs",
@@ -2835,15 +2935,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 101
+    "pos": 115
    },
    {
     "id": "tool/grep",
-    "pos": 110
+    "pos": 124
    },
    {
     "id": "tool/grep",
-    "pos": 120
+    "pos": 134
    }
   ]
  ],
@@ -2852,15 +2952,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 102
+    "pos": 116
    },
    {
     "id": "tool/grep",
-    "pos": 111
+    "pos": 125
    },
    {
     "id": "tool/grep",
-    "pos": 121
+    "pos": 135
    }
   ]
  ],
@@ -2869,15 +2969,15 @@
   [
    {
     "id": "tool/grep",
-    "pos": 103
+    "pos": 117
    },
    {
     "id": "tool/grep",
-    "pos": 112
+    "pos": 126
    },
    {
     "id": "tool/grep",
-    "pos": 122
+    "pos": 136
    }
   ]
  ],
@@ -2886,7 +2986,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 104
+    "pos": 118
    },
    {
     "id": "tool/sed",
@@ -2903,7 +3003,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 108
+    "pos": 122
    }
   ]
  ],
@@ -2912,11 +3012,11 @@
   [
    {
     "id": "tool/grep",
-    "pos": 113
+    "pos": 127
    },
    {
     "id": "tool/grep",
-    "pos": 127
+    "pos": 141
    }
   ]
  ],
@@ -2925,7 +3025,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 117
+    "pos": 131
    }
   ]
  ],
@@ -2934,7 +3034,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 123
+    "pos": 137
    },
    {
     "id": "tool/sed",
@@ -2967,7 +3067,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 124
+    "pos": 138
    }
   ]
  ],
@@ -2976,7 +3076,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 125
+    "pos": 139
    }
   ]
  ],
@@ -2985,7 +3085,7 @@
   [
    {
     "id": "tool/grep",
-    "pos": 128
+    "pos": 142
    }
   ]
  ],
@@ -3266,15 +3366,6 @@
    {
     "id": "tool/sed",
     "pos": 60
-   }
-  ]
- ],
- [
-  "r",
-  [
-   {
-    "id": "tool/sed",
-    "pos": 69
    }
   ]
  ],
