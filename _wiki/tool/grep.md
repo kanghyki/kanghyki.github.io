@@ -3,7 +3,7 @@ layout  : wiki
 title   : grep
 summary : file pattern searcher
 date    : 2024-10-03 15:56:04 +0900
-updated : 2024-10-04 22:18:57 +0900
+updated : 2024-10-05 22:45:18 +0900
 tag     :
 toc     : true
 public  : true
@@ -76,7 +76,7 @@ AAAAA
 `-r, --recursive`
 
 ```sh
-$ grep -r 'aaa' .
+$ grep -R 'aaa' .
 ./hello:aaaaaaaaaaaa
 ```
 
@@ -92,7 +92,7 @@ $ grep "pattern" --exclude="*.md" path
 `-R` 옵션을 사용할 때 특정 디렉터리를 제외한다.
 
 ```sh
-$ grep "pattern" --exclude-dir="./tmp" path
+$ grep --exclude-dir="subpath" -R "pattern" path
 ```
 
 ### etc.
