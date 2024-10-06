@@ -2,5 +2,9 @@
  {
   "from": "tool/fswatch",
   "paragraph": "MacOS를 사용하고 있다면 [[/tool/homebrew]]{homebrew}로 쉽게 설치할 수 있다."
+ },
+ {
+  "from": "tool/timeout",
+  "paragraph": "macOS는 포함하지 않아서 [[/tool/homebrew]]{homebrew}로 설치했다."
  }
 ]

@@ -51,6 +51,10 @@
     "pos": 0
    },
    {
+    "id": "tool/timeout",
+    "pos": 0
+   },
+   {
     "id": "tool/xargs",
     "pos": 0
    }
@@ -115,6 +119,10 @@
    {
     "id": "tool/sed",
     "pos": 2
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 3
    },
    {
     "id": "tool/xargs",
@@ -235,6 +243,10 @@
     "pos": 3
    },
    {
+    "id": "tool/timeout",
+    "pos": 4
+   },
+   {
     "id": "tool/xargs",
     "pos": 3
    }
@@ -274,6 +286,10 @@
    {
     "id": "tool/sed",
     "pos": 6
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 12
    },
    {
     "id": "tool/xargs",
@@ -837,6 +853,14 @@
     "pos": 81
    },
    {
+    "id": "tool/timeout",
+    "pos": 88
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 93
+   },
+   {
     "id": "tool/xargs",
     "pos": 84
    }
@@ -860,6 +884,10 @@
    {
     "id": "tool/grep",
     "pos": 82
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 51
    },
    {
     "id": "tool/xargs",
@@ -935,6 +963,10 @@
    {
     "id": "tool/fswatch",
     "pos": 38
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 28
    }
   ]
  ],
@@ -948,6 +980,10 @@
    {
     "id": "tool/sed",
     "pos": 86
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 32
    }
   ]
  ],
@@ -982,6 +1018,10 @@
    {
     "id": "tool/fswatch",
     "pos": 120
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 40
    }
   ]
  ],
@@ -991,6 +1031,10 @@
    {
     "id": "tool/fswatch",
     "pos": 43
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 41
    }
   ]
  ],
@@ -1008,6 +1052,10 @@
    {
     "id": "tool/homebrew",
     "pos": 8
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 42
    }
   ]
  ],
@@ -1025,6 +1073,10 @@
    {
     "id": "tool/sed",
     "pos": 64
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 43
    }
   ]
  ],
@@ -1056,6 +1108,10 @@
    {
     "id": "tool/sed",
     "pos": 15
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 52
    }
   ]
  ],
@@ -1110,6 +1166,10 @@
    {
     "id": "tool/fswatch",
     "pos": 58
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 23
    }
   ]
  ],
@@ -1298,6 +1358,10 @@
     "pos": 68
    },
    {
+    "id": "tool/timeout",
+    "pos": 66
+   },
+   {
     "id": "tool/xargs",
     "pos": 37
    }
@@ -1340,6 +1404,10 @@
    {
     "id": "tool/grep",
     "pos": 63
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 36
    }
   ]
  ],
@@ -1526,6 +1594,10 @@
    {
     "id": "tool/sed",
     "pos": 108
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 81
    }
   ]
  ],
@@ -2242,6 +2314,10 @@
    {
     "id": "tool/sed",
     "pos": 23
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 76
    }
   ]
  ],
@@ -2859,6 +2935,14 @@
    {
     "id": "tool/sed",
     "pos": 61
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 6
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 9
    }
   ]
  ],
@@ -3322,6 +3406,10 @@
    {
     "id": "tool/sed",
     "pos": 47
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 64
    }
   ]
  ],
@@ -3335,6 +3423,10 @@
    {
     "id": "tool/sed",
     "pos": 66
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 56
    },
    {
     "id": "tool/xargs",
@@ -3616,6 +3708,778 @@
   ]
  ],
  [
+  "gnu",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 1
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 14
+   }
+  ]
+ ],
+ [
+  "timeout",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 2
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 13
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 17
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 80
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 109
+   }
+  ]
+ ],
+ [
+  "run",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 5
+   }
+  ]
+ ],
+ [
+  "command",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 7
+   }
+  ]
+ ],
+ [
+  "with",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 8
+   }
+  ]
+ ],
+ [
+  "time",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 10
+   }
+  ]
+ ],
+ [
+  "limit",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 11
+   }
+  ]
+ ],
+ [
+  "coreutil에",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 15
+   }
+  ]
+ ],
+ [
+  "포함된",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 16
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 80
+   }
+  ]
+ ],
+ [
+  "유틸리티는",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 18
+   }
+  ]
+ ],
+ [
+  "명령을",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 19
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 91
+   }
+  ]
+ ],
+ [
+  "실행하고",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 20
+   }
+  ]
+ ],
+ [
+  "지정된",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 21
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 58
+   }
+  ]
+ ],
+ [
+  "시간",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 22
+   }
+  ]
+ ],
+ [
+  "이후에도",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 24
+   }
+  ]
+ ],
+ [
+  "실행중이면",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 25
+   }
+  ]
+ ],
+ [
+  "프로세스를",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 26
+   }
+  ]
+ ],
+ [
+  "종료한다",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 27
+   }
+  ]
+ ],
+ [
+  "gnu를",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 29
+   }
+  ]
+ ],
+ [
+  "포함하는",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 30
+   }
+  ]
+ ],
+ [
+  "os를",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 31
+   }
+  ]
+ ],
+ [
+  "있으면",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 33
+   }
+  ]
+ ],
+ [
+  "설치하지",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 34
+   }
+  ]
+ ],
+ [
+  "않아도",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 35
+   }
+  ]
+ ],
+ [
+  "macos는",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 37
+   }
+  ]
+ ],
+ [
+  "포함하지",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 38
+   }
+  ]
+ ],
+ [
+  "않아서",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 39
+   }
+  ]
+ ],
+ [
+  "설치했다",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 44
+   }
+  ]
+ ],
+ [
+  "설치하기",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 45
+   }
+  ]
+ ],
+ [
+  "힘든",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 46
+   }
+  ]
+ ],
+ [
+  "상황이라면",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 47
+   }
+  ]
+ ],
+ [
+  "간단하게라도",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 48
+   }
+  ]
+ ],
+ [
+  "이런",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 49
+   }
+  ]
+ ],
+ [
+  "방법이",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 50
+   }
+  ]
+ ],
+ [
+  "duration",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 53
+   }
+  ]
+ ],
+ [
+  "플래그",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 54
+   }
+  ]
+ ],
+ [
+  "단위",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 55
+   }
+  ]
+ ],
+ [
+  "초",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 57
+   }
+  ]
+ ],
+ [
+  "기본",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 58
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 60
+   }
+  ]
+ ],
+ [
+  "값",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 59
+   }
+  ]
+ ],
+ [
+  "m",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 60
+   }
+  ]
+ ],
+ [
+  "분",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 61
+   }
+  ]
+ ],
+ [
+  "h",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 62
+   }
+  ]
+ ],
+ [
+  "시",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 63
+   }
+  ]
+ ],
+ [
+  "일",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 65
+   }
+  ]
+ ],
+ [
+  "레퍼런스",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 67
+   }
+  ]
+ ],
+ [
+  "참고",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 68
+   }
+  ]
+ ],
+ [
+  "종료코드",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 69
+   }
+  ]
+ ],
+ [
+  "124",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 70
+   }
+  ]
+ ],
+ [
+  "명령이",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 71
+   }
+  ]
+ ],
+ [
+  "타임아웃됨",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 72
+   }
+  ]
+ ],
+ [
+  "preserve",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 73
+   }
+  ]
+ ],
+ [
+  "status",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 74
+   }
+  ]
+ ],
+ [
+  "가",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 75
+   }
+  ]
+ ],
+ [
+  "않은",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 77
+   }
+  ]
+ ],
+ [
+  "경우",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 78
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 102
+   }
+  ]
+ ],
+ [
+  "125",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 79
+   }
+  ]
+ ],
+ [
+  "자체가",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 82
+   }
+  ]
+ ],
+ [
+  "실패",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 83
+   }
+  ]
+ ],
+ [
+  "126",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 84
+   }
+  ]
+ ],
+ [
+  "명령은",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 85
+   }
+  ]
+ ],
+ [
+  "찾았지만",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 86
+   }
+  ]
+ ],
+ [
+  "호출할",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 87
+   }
+  ]
+ ],
+ [
+  "없음",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 89
+   },
+   {
+    "id": "tool/timeout",
+    "pos": 94
+   }
+  ]
+ ],
+ [
+  "127",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 90
+   }
+  ]
+ ],
+ [
+  "찾을",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 92
+   }
+  ]
+ ],
+ [
+  "137",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 95
+   }
+  ]
+ ],
+ [
+  "명령이나",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 96
+   }
+  ]
+ ],
+ [
+  "timeout이",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 97
+   }
+  ]
+ ],
+ [
+  "kill",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 98
+   }
+  ]
+ ],
+ [
+  "9",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 99
+   }
+  ]
+ ],
+ [
+  "시그널을",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 100
+   }
+  ]
+ ],
+ [
+  "받은",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 101
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 16
+   },
+   {
+    "id": "tool/xargs",
+    "pos": 55
+   }
+  ]
+ ],
+ [
+  "그",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 103
+   }
+  ]
+ ],
+ [
+  "외",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 104
+   }
+  ]
+ ],
+ [
+  "명령의",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 105
+   }
+  ]
+ ],
+ [
+  "종료코드를",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 106
+   }
+  ]
+ ],
+ [
+  "따름",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 107
+   }
+  ]
+ ],
+ [
+  "reference",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 108
+   }
+  ]
+ ],
+ [
+  "invocation",
+  [
+   {
+    "id": "tool/timeout",
+    "pos": 110
+   }
+  ]
+ ],
+ [
   "construct",
   [
    {
@@ -3675,19 +4539,6 @@
    {
     "id": "tool/xargs",
     "pos": 15
-   }
-  ]
- ],
- [
-  "받은",
-  [
-   {
-    "id": "tool/xargs",
-    "pos": 16
-   },
-   {
-    "id": "tool/xargs",
-    "pos": 55
    }
   ]
  ],
@@ -3915,29 +4766,11 @@
   ]
  ],
  [
-  "지정된",
-  [
-   {
-    "id": "tool/xargs",
-    "pos": 58
-   }
-  ]
- ],
- [
   "플레이스홀더",
   [
    {
     "id": "tool/xargs",
     "pos": 59
-   }
-  ]
- ],
- [
-  "기본",
-  [
-   {
-    "id": "tool/xargs",
-    "pos": 60
    }
   ]
  ],
@@ -4037,15 +4870,6 @@
    {
     "id": "tool/xargs",
     "pos": 79
-   }
-  ]
- ],
- [
-  "포함된",
-  [
-   {
-    "id": "tool/xargs",
-    "pos": 80
    }
   ]
  ],

@@ -1,0 +1,11 @@
+{
+ "type": "wiki",
+ "title": "GNU timeout",
+ "summary": "run a command with a time limit",
+ "parent": "tool",
+ "url": "/wiki/tool/timeout",
+ "updated": "2024-10-06 13:09:13 +0900",
+ "resource": "770318C4-72D1-47BE-8A4C-611A7F3A966B",
+ "children": [],
+ "body": "\n* TOC\n{:toc}\n\n# timeout\n\nGNU coreutil에 포함된 timeout 유틸리티는 명령을 실행하고\n지정된 시간 간격 이후에도 실행중이면 프로세스를 종료한다.\n\n\n## 설치\n\nGNU를 포함하는 OS를 사용하고 있으면 설치하지 않아도 된다.\nmacOS는 포함하지 않아서 [[/tool/homebrew]]{homebrew}로 설치했다.\n\n```sh\n$ brew install coreutils\n```\n\n설치하기 힘든 상황이라면 간단하게라도 이런 방법이 있다.\n\n```sh\n# .sh\nbash -c \"$BIN_DIR/$testcase 2>&1\" > $output 2>&1 &\npid=$!\n( sleep 10; kill -TERM $pid ) > /dev/null 2>&1 &\n```\n\n## Usage\n\n```sh\n$ timeout [option] duration command [arg]…\n\n$ timeout 10s bash -c \"( $BIN_DIR/$testcase )\" > $output 2>&1 &\n```\n\n### duration\n\n| 플래그 | 단위         |\n|--------|--------------|\n| `s`    | 초 (기본 값) |\n| `m`    | 분           |\n| `h`    | 시           |\n| `d`    | 일           |\n\n### 옵션\n\n[레퍼런스 참고](#reference)\n\n### 종료코드\n- 124, 명령이 타임아웃됨 (`--preserve-status`가 지정되지 않은 경우)\n- 125, timeout 명령어 자체가 실패\n- 126, 명령은 찾았지만 호출할 수 없음\n- 127, 명령을 찾을 수 없음\n- 137, 명령이나 timeout이 KILL(9) 시그널을 받은 경우\n\n그 외 명령의 종료코드를 따름\n\n## Reference\n\n- [timeout-invocation](https://www.gnu.org/software/coreutils/manual/html_node/timeout-invocation.html#timeout-invocation)\n"
+}

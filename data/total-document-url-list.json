@@ -11,5 +11,6 @@
  "/wiki/tool/grep",
  "/wiki/tool/homebrew",
  "/wiki/tool/sed",
+ "/wiki/tool/timeout",
  "/wiki/tool/xargs"
 ]

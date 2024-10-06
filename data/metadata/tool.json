@@ -11,6 +11,7 @@
   "tool/grep",
   "tool/homebrew",
   "tool/sed",
+  "tool/timeout",
   "tool/xargs"
  ],
  "body": "\n* TOC\n{:toc}\n"
