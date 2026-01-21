@@ -8,7 +8,12 @@ import { execSync } from "child_process";
 const PRINT = true;
 const NO_PRINT = false;
 
-main();
+try {
+    main();
+} catch (error) {
+    console.error(error);
+    process.exit(1);
+}
 
 function main() {
     const engine = new Search(new Indexer());
@@ -289,7 +294,7 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
             console.log(`The file "${fileLocation}" has been saved.`);
         }
     } catch (err) {
-        console.log(err);
+        throw err;
     }
 }
 

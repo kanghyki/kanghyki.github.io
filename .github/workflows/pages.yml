@@ -36,6 +36,17 @@ jobs:
 
       - name: Generate data
         run: node ./generateData.js
+        env:
+          NODE_OPTIONS: --unhandled-rejections=strict --trace-warnings
+
+      - name: Verify generated data
+        run: |
+          set -e
+          test -s data/search-index.json
+          test -s data/tag_count.json
+          test -s data/total-document-url-list.json
+          test -d data/metadata
+          find data/metadata -type f -name "*.json" -size +2c -print -quit | grep -q .
 
       - name: Build site
         run: bundle exec jekyll build -d _site
