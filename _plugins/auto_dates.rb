@@ -37,5 +37,14 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     file_mtime = File.exist?(full_path) ? File.mtime(full_path) : nil
     item.data["date"] ||= created || file_mtime
     item.data["updated"] ||= updated || file_mtime
+    if item.respond_to?(:date=) && item.data["date"]
+      item.date = item.data["date"]
+    end
+    if item.data["date"].nil? || item.data["updated"].nil?
+      Jekyll.logger.warn(
+        "auto_dates",
+        "missing date/updated for #{path} (date=#{item.data['date']}, updated=#{item.data['updated']})"
+      )
+    end
   end
 end

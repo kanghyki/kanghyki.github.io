@@ -48,3 +48,7 @@ kramdown:
 
 exclude:
   - scripts
+
+include:
+  - _wiki/assets
+  - data

@@ -283,14 +283,14 @@ function saveTagCount(tagMap) {
  * @param isPrintWhenSuccess 파일이 저장되었을 때 표준 출력으로 메시지를 띄우려 한다면 true
  */
 function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
-    fs.writeFile(fileLocation, dataString, function (err) {
-        if (err) {
-            return console.log(err);
-        }
+    try {
+        fs.writeFileSync(fileLocation, dataString);
         if (isPrintWhenSuccess) {
             console.log(`The file "${fileLocation}" has been saved.`);
         }
-    });
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 function parseInfo(file, info, body) {

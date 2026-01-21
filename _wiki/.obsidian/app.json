@@ -1,4 +1,5 @@
 {
   "propertiesInDocument": "source",
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "absolute",
+  "alwaysUpdateLinks": true
 }
