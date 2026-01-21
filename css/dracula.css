@@ -95,3 +95,74 @@
  .highlight .vi { color: #8be9fd; font-style: italic } /* Name.Variable.Instance */
  .highlight .vm { color: #8be9fd; font-style: italic } /* Name.Variable.Magic */
  .highlight .il { color: #bd93f9 } /* Literal.Number.Integer.Long */
+
+@media (prefers-color-scheme: light) {
+  .highlight { background: var(--heavy-background); color: var(--text-color) }
+  .highlight .hll { background-color: var(--light-background) }
+
+  .highlight .c,
+  .highlight .ch,
+  .highlight .cm,
+  .highlight .cpf,
+  .highlight .c1,
+  .highlight .cs { color: #939f91 }
+
+  .highlight .k,
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .kr,
+  .highlight .kt,
+  .highlight .ow { color: #f57d26 }
+
+  .highlight .s,
+  .highlight .sa,
+  .highlight .sb,
+  .highlight .sc,
+  .highlight .dl,
+  .highlight .sd,
+  .highlight .s2,
+  .highlight .se,
+  .highlight .sh,
+  .highlight .si,
+  .highlight .sx,
+  .highlight .sr,
+  .highlight .s1,
+  .highlight .ss { color: #8da101 }
+
+  .highlight .m,
+  .highlight .mb,
+  .highlight .mf,
+  .highlight .mh,
+  .highlight .mi,
+  .highlight .mo,
+  .highlight .il { color: #df69ba }
+
+  .highlight .nf,
+  .highlight .na,
+  .highlight .nc,
+  .highlight .nt,
+  .highlight .gu,
+  .highlight .gh,
+  .highlight .gd,
+  .highlight .gi,
+  .highlight .gp { color: #3a94c5 }
+
+  .highlight .err,
+  .highlight .gr,
+  .highlight .gt { color: #c85552 }
+
+  .highlight .o,
+  .highlight .p,
+  .highlight .n,
+  .highlight .x,
+  .highlight .no,
+  .highlight .nd,
+  .highlight .ni,
+  .highlight .ne,
+  .highlight .nn,
+  .highlight .nx,
+  .highlight .py,
+  .highlight .w { color: var(--text-color) }
+}
