@@ -24,9 +24,56 @@
 
     ;(function() {
         var content = document.querySelector('article.post-content');
+        if (!content) {
+            return;
+        }
+
+        function splitWikiTarget(raw) {
+            var parts = raw.split('@@WIKILINK_PIPE@@');
+            if (parts.length === 1) {
+                parts = raw.split('|');
+            }
+            var target = (parts[0] || '').trim();
+            var label = (parts[1] || target).trim();
+            return { target: target, label: label };
+        }
+
+        function isImageTarget(target) {
+            return /\.(png|jpe?g|gif|svg|webp|avif)$/i.test(target);
+        }
+
+        function normalizeAssetTarget(target) {
+            var cleaned = target.replace(/^\/+/, '');
+            if (cleaned.startsWith('assets/')) {
+                return encodeURI('/wiki/' + cleaned);
+            }
+            return encodeURI('/wiki/assets/' + cleaned);
+        }
+
+        content.innerHTML = content.innerHTML.replace(/!\[\[(.+?)\]\]/g, function(_, raw) {
+            var data = splitWikiTarget(raw);
+            if (isImageTarget(data.target)) {
+                var src = normalizeAssetTarget(data.target);
+                var alt = data.label || data.target;
+                return `<img src="${src}" alt="${alt}" loading="lazy">`;
+            }
+            var embedHref = data.target[0] === '/'
+                ? `/wiki/${data.target.replace(/^\/+/, '')}`
+                : `../${data.target}`;
+            return `<a href="${embedHref}">${data.label}</a>`;
+        });
+
         content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]\{(.+?)\}/g, '<a href="/wiki/$1">$2</a>');
-        content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]/g, '<a href="/wiki/$1">$1</a>');
         content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]\{(.+?)\}/g, '<a href="../$1">$2</a>');
-        content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]/g, '<a href="../$1">$1</a>');
+
+        content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]/g, function(_, raw) {
+            var data = splitWikiTarget(raw);
+            return `<a href="/wiki/${data.target}">${data.label}</a>`;
+        });
+
+        content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]/g, function(_, raw) {
+            var data = splitWikiTarget(raw);
+            return `<a href="../${data.target}">${data.label}</a>`;
+        });
     })();
 </script>

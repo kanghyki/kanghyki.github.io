@@ -64,7 +64,7 @@
 
     for (const file_path of mention_map.keys()) {
         try {
-            const res = await fetch(`/data/metadata/${file_path}.json`);
+            const res = await fetch(`/data/metadata/${encodeURI(file_path)}.json`);
             if (!res.ok) continue;
             const data = await res.json();
             mention_map.get(file_path).metadata = data;

@@ -29,7 +29,7 @@
     }
 
     for (let i = 0; i < target_data.children.length; ++i) {
-        let uri = `/data/metadata/${target_data.children[i]}.json`
+        let uri = `/data/metadata/${encodeURI(target_data.children[i])}.json`
         let child_data = null;
         try {
             const child_res = await fetch(uri)

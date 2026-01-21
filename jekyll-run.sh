@@ -3,7 +3,7 @@
 rm -rf data
 ./generateData.js
 
-jekyll s --watch &
+bundle exec jekyll s --watch &
 JEKYLL_PID=$!
 
 fswatch -o _wiki | xargs -n 1 sh -c 'rm -rf data; ./generateData.js' &

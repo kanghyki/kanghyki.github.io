@@ -4,6 +4,7 @@ import { Search } from "./js/search/search.js";
 import { Indexer } from "./js/search/indexer.js";
 
 import fs from "fs";
+import { execSync } from "child_process";
 const PRINT = true;
 const NO_PRINT = false;
 
@@ -16,12 +17,14 @@ function main() {
     const pageMap = {};
     const mentionMap = {};
 
+    ensureIndexPages("./_wiki");
+
     getFiles("./_wiki", "wiki", list);
     //getFiles('./_posts', 'blog', list);
 
     const dataList = list
         .map((file) => collectData(file))
-        .filter((row) => row && row.public == "true")
+        .filter((row) => row)
         .sort(lexicalOrderingBy("fileName"));
 
     dataList.forEach((data) => {
@@ -62,19 +65,22 @@ function main() {
             summary: page.summary,
             parent: page.parent,
             url: page.url,
-            updated: page.updated || page.date,
+            updated: page.updated || page.created || page.date,
             resource: page.resource,
             children: [],
             body: page.body,
         };
     });
 
-    dataList.forEach((page) => {
+    inferParentsFromPath(pageMap);
+
+    Object.keys(pageMap).forEach((key) => {
+        const page = pageMap[key];
         if (page.parent) {
             const parent = pageMap[page.parent];
 
             if (parent && parent.children) {
-                parent.children.push(page.fileName);
+                parent.children.push(key);
             }
         }
     });
@@ -82,7 +88,11 @@ function main() {
     dataList.forEach((page) => {
         if (page.mentions == null || page.mentions.length == 0) return;
         for (let i = 0; i < page.mentions.length; ++i) {
-            const url = page.mentions[i].url;
+            let url = page.mentions[i].url || "";
+            url = url.replace(/^\/+/, "").replace(/^wiki\//, "");
+            if (pageMap[`${url}/index`]) {
+                url = `${url}/index`;
+            }
             if (!mentionMap[url]) {
                 mentionMap[url] = [];
             }
@@ -98,6 +108,7 @@ function main() {
     saveMetaDataFiles(pageMap);
     saveDocumentUrlList(pageMap);
     saveMentionList(mentionMap);
+    saveMiscList(pageMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
 }
 
@@ -184,7 +195,7 @@ function saveTagFiles(tagMap, pageMap) {
 function saveMetaDataFiles(pageMap) {
     for (const page in pageMap) {
         const data = pageMap[page];
-        const fileName = data.url.replace(/^[/]wiki[/]/, "");
+        const fileName = page;
         const dirName = `./data/metadata/${fileName}`
             .replace(/(\/\/)/g, "/")
             .replace(/[/][^/]*$/, "");
@@ -283,10 +294,6 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
 }
 
 function parseInfo(file, info, body) {
-    if (info === null) {
-        return undefined;
-    }
-
     const obj = {
         fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, "$1"),
         type: file.type,
@@ -319,11 +326,33 @@ function parseInfo(file, info, body) {
             "$1"
         );
     } else if (file.type === "wiki") {
-        obj.url = file.path.replace(/^\.\/_wiki/, "/wiki").replace(/\.md$/, "");
+        obj.url = obj.permalink
+            ? obj.permalink
+            : file.path.replace(/^\.\/_wiki/, "/wiki").replace(/\.md$/, "");
     }
 
     if (obj.tag) {
         obj.tag = obj.tag.split(/\s+/);
+    } else {
+        const inferredTags = extractHashtags(body);
+        if (inferredTags.length > 0) {
+            obj.tag = inferredTags;
+        }
+    }
+
+    if (!obj.title) {
+        obj.title = inferTitle(file, body);
+    }
+
+
+    if (!obj.created || !obj.updated) {
+        const gitTimes = getGitTimes(file.path);
+        if (!obj.created) {
+            obj.created = gitTimes.created || formatDate(obj.modified);
+        }
+        if (!obj.updated) {
+            obj.updated = gitTimes.updated || formatDate(obj.modified);
+        }
     }
 
     const mentions = body.match(/.*\[\[.+?\]\].*/g);
@@ -332,7 +361,10 @@ function parseInfo(file, info, body) {
         mentions.forEach((mention) => {
             const wiki_links = mention.match(/\[\[.+?\]\]/g);
             for (const wiki_link of wiki_links) {
-                const path = wiki_link.replace(/((\[\[)|(\]\]))/g, "");
+                const path = wiki_link
+                    .replace(/((\[\[)|(\]\]))/g, "")
+                    .split("|")[0]
+                    .trim();
                 let prefix = "";
                 if (path && path[0] !== "/") {
                     prefix = file.path
@@ -347,6 +379,175 @@ function parseInfo(file, info, body) {
         });
 
     return obj;
+}
+
+function inferParentsFromPath(pageMap) {
+    const keys = Object.keys(pageMap);
+    const keySet = new Set(keys);
+    const rootIndex = keySet.has("index") ? "index" : null;
+
+    keys.forEach((fileName) => {
+        const page = pageMap[fileName];
+        if (page.parent) {
+            return;
+        }
+        if (fileName.endsWith("/index")) {
+            const parts = fileName.split("/");
+            if (parts.length <= 2) {
+                if (rootIndex && fileName !== rootIndex) {
+                    page.parent = rootIndex;
+                }
+                return;
+            }
+            const candidate = parts.slice(0, -2).join("/") + "/index";
+            if (keySet.has(candidate)) {
+                page.parent = candidate;
+            }
+            return;
+        }
+        const parts = fileName.split("/");
+        for (let i = parts.length - 1; i > 0; i--) {
+            const candidate = parts.slice(0, i).join("/");
+            if (keySet.has(candidate)) {
+                page.parent = candidate;
+                return;
+            }
+            const indexCandidate = `${candidate}/index`;
+            if (indexCandidate !== fileName && keySet.has(indexCandidate)) {
+                page.parent = indexCandidate;
+                return;
+            }
+        }
+    });
+}
+
+function saveMiscList(pageMap) {
+    const list = [];
+    for (const page in pageMap) {
+        if (page === "index") continue;
+        if (page.endsWith("/index")) continue;
+        const data = pageMap[page];
+        if (!data.parent) {
+            list.push({
+                title: data.title,
+                url: data.url,
+            });
+        }
+    }
+    saveToFile(
+        "./data/misc.json",
+        JSON.stringify(list.sort(lexicalOrderingBy("title")), null, 1),
+        NO_PRINT
+    );
+}
+
+function ensureIndexPages(rootPath) {
+    const root = rootPath.replace(/\/$/, "");
+
+    function walk(dir) {
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        const hasMarkdown = entries.some(
+            (entry) => entry.isFile() && /\.md$/.test(entry.name)
+        );
+        const subdirs = entries.filter((entry) => entry.isDirectory());
+
+        if (dir !== root && hasMarkdown) {
+            const indexPath = `${dir}/index.md`;
+            const dirName = dir.split("/").pop();
+            const title = dirName ? dirName.replace(/[-_]/g, " ") : "Index";
+            const content = ["---", `title: ${title}`, "---", ""].join("\n");
+            if (!fs.existsSync(indexPath)) {
+                fs.writeFileSync(indexPath, content);
+            } else {
+                const existing = fs.readFileSync(indexPath, "utf8");
+                const body = existing.replace(/^---[\\s\\S]*?---/, "").trim();
+                const bodyLines = body
+                    .split("\n")
+                    .map((line) => line.trim())
+                    .filter(Boolean);
+                const isTrivialBody = bodyLines.every(
+                    (line) => line === "---" || line.startsWith("title:")
+                );
+                if (
+                    existing.includes("generated: true") ||
+                    existing.includes("permalink:") ||
+                    existing.includes("layout:") ||
+                    existing.includes("public:") ||
+                    isTrivialBody
+                ) {
+                    fs.writeFileSync(indexPath, content);
+                }
+            }
+        }
+
+        subdirs.forEach((entry) => {
+            if (entry.name.startsWith(".")) {
+                return;
+            }
+            if (entry.name === "assets") {
+                return;
+            }
+            walk(`${dir}/${entry.name}`);
+        });
+    }
+
+    walk(root);
+}
+
+function inferTitle(file, body) {
+    const headingMatch = body.match(/^#\s+(.+)$/m);
+    if (headingMatch) {
+        return headingMatch[1].trim();
+    }
+    return file.name.replace(/\.md$/, "");
+}
+
+function extractHashtags(body) {
+    const cleaned = body.replace(/```[\s\S]*?```/g, "");
+    const regex = /(^|[\s(])#([A-Za-z0-9/_-]+)/g;
+    const tags = new Set();
+    let match;
+    while ((match = regex.exec(cleaned)) !== null) {
+        tags.add(match[2]);
+    }
+    return Array.from(tags);
+}
+
+function formatDate(date) {
+    const pad = (value) => String(value).padStart(2, "0");
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
+    const seconds = pad(date.getSeconds());
+    const offsetMinutes = -date.getTimezoneOffset();
+    const offsetSign = offsetMinutes >= 0 ? "+" : "-";
+    const offsetHours = pad(Math.floor(Math.abs(offsetMinutes) / 60));
+    const offsetMins = pad(Math.abs(offsetMinutes) % 60);
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${offsetSign}${offsetHours}${offsetMins}`;
+}
+
+function getGitTimes(filePath) {
+    try {
+        const output = execSync(
+            `git log --follow --format=%cI -- \"${filePath}\"`,
+            { stdio: ["ignore", "pipe", "ignore"] }
+        )
+            .toString()
+            .trim();
+        if (!output) {
+            return { created: null, updated: null };
+        }
+        const lines = output.split("\n");
+        const updated = lines[0] ? formatDate(new Date(lines[0])) : null;
+        const created = lines[lines.length - 1]
+            ? formatDate(new Date(lines[lines.length - 1]))
+            : null;
+        return { created, updated };
+    } catch (e) {
+        return { created: null, updated: null };
+    }
 }
 
 function isDirectory(path) {
@@ -384,10 +585,13 @@ function collectData(file) {
     const data = fs.readFileSync(file.path, "utf8");
 
     const sep = "---";
-    const s1 = data.indexOf(sep) + sep.length;
-    const s2 = data.indexOf(sep, s1);
-    const info = data.substring(s1, s2);
-    const body = data.substring(s2 + sep.length);
+    const hasFrontMatter = data.startsWith(sep);
+    const s1 = hasFrontMatter ? data.indexOf(sep) + sep.length : -1;
+    const s2 = hasFrontMatter ? data.indexOf(sep, s1) : -1;
+    const info =
+        hasFrontMatter && s2 !== -1 ? data.substring(s1, s2) : "";
+    const body =
+        hasFrontMatter && s2 !== -1 ? data.substring(s2 + sep.length) : data;
 
     return parseInfo(file, info, body);
 }

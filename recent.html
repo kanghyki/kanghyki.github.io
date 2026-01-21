@@ -3,14 +3,15 @@ layout: default
 permalink: /recent/
 ---
 
-{% assign wikies = site.wiki | where: "layout", "wiki" %}
-{% assign documents = wikies | where: "public", true | sort: "updated" | reverse %}
+{% assign documents = site.wiki | sort: "updated" | reverse %}
 
 <div>
-    <h3>최근 변경된 문서 ({{ documents | size }} 항목)</h3>
+    {% assign total_non_index = 0 %}
+    <h3>최근 변경된 문서</h3>
     <ul class="post_list">
         {% for doc in documents %}
-            {% if doc.public != false and doc.title != 'wiki' %}
+            {% unless doc.path contains '/index.md' %}
+                {% assign total_non_index = total_non_index | plus: 1 %}
                 <li class="post_list_item">
                     <a href="{{ doc.url | prepend: site.baseurl }}">
                         <div class="post-title">
@@ -30,9 +31,10 @@ permalink: /recent/
                     {% endif %}
 
                 </li>
-            {% endif %}
+            {% endunless %}
         {% endfor %}
     </ul>
+    <h4>전체 문서 수: {{ total_non_index }}</h4>
 </div>
 
 {% include createLink.html %}

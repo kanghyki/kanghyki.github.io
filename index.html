@@ -2,14 +2,18 @@
 layout: default
 ---
 
-{% assign wikies = site.wiki | where: "layout", "wiki" %}
-{% assign documents = wikies | where: "public", true | sort: "updated" | reverse %}
+{% assign documents = site.wiki | sort: "updated" | reverse %}
+{% assign shown = 0 %}
+{% assign total_non_index = 0 %}
 
 <div>
     <h3>최근 변경된 문서</h3>
     <ul class="post_list">
-        {% for doc in documents limit: 10 %}
-            {% if doc.public == true and doc.title != 'wiki index'%}
+        {% for doc in documents %}
+            {% unless doc.path contains '/index.md' %}
+                {% assign total_non_index = total_non_index | plus: 1 %}
+                {% if shown < 10 %}
+                    {% assign shown = shown | plus: 1 %}
 
             <li class="post_list_item">
 
@@ -32,11 +36,12 @@ layout: default
 
             </li>
 
-            {% endif %}
+                {% endif %}
+            {% endunless %}
         {% endfor %}
     </ul>
     <h4>
-        <a href="/recent/">전체 문서 리스트 보기 ({{ documents | size }} 항목)</a>
+        <a href="/recent/">전체 문서 리스트 보기 ({{ total_non_index }} 항목)</a>
     </h4>
 </div>
 

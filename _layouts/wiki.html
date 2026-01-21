@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign thisName = page.id | remove: '/wiki/' %}
+{% assign thisName = page.path | remove: '_wiki/' | remove: '.md' %}
 {% assign tags = page.tags | sort %}
 
 <input type="hidden" id="thisName" value="{{ thisName }}"/>
@@ -16,7 +16,7 @@ layout: default
         <ul class="post-git">
             <p align="right">
                 <a href="{{ site.github.history }}/{{ thisName }}.md" target="_blank">
-                    created : {{ page.date | date: '%Y.%m.%d' }}
+                    created : {{ page.created | default: page.date | date: '%Y.%m.%d' }}
                 </a>
             </p>
             <p align="right">
@@ -31,10 +31,6 @@ layout: default
             </p>
         </ul>
 
-{% raw %}
-        <div id="parent-list"></div>
-{% endraw %}
-
         {% if page.tags %}
         <ul class="post-tags">
             {% for tag in tags %}
@@ -46,6 +42,10 @@ layout: default
         {% endif %}
 
     </header>
+
+    {% raw %}
+        <div id="parent-list"></div>
+    {% endraw %}
 
     <article class="post-content">
         {{ content }}
@@ -59,6 +59,7 @@ layout: default
         <div id="mention-list"></div>
     {% endraw %}
 
+
     {% if page.comment != false %}
     {% include comment.html %}
     {% endif %}
@@ -70,13 +71,8 @@ layout: default
 <link rel="stylesheet" href="{{ "/css/mention.css" | prepend: site.baseurl }}">
 
 <script async src="/js/parentLink.js"></script>
+<script async src="/js/childLink.js"></script>
 <script async src="/js/mentionLink.js"></script>
 
+<script src="/js/auto-toc.js"></script>
 <script src="/js/active-toc.js"></script>
-
-<script async src="/js/childLink.js"></script>
-<style>
-#child-list {
-    padding: 1.0em 0;
-}
-</style>

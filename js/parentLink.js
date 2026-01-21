@@ -17,7 +17,11 @@
         }
         var pr = "상위 문서: "
         for (var i = 0; i < plist.length; i++) {
-            pr += `<a href="${plist[i].url}">${plist[i].title}</a>`;
+            var title = plist[i].title;
+            if (!title || title.toLowerCase() === "index") {
+                title = plist[i].url.replace(/\/index$/, "").split("/").pop();
+            }
+            pr += `<a href="${plist[i].url}">${title}</a>`;
             if (i < plist.length - 1) {
                 pr += `<span> / </span>`;
             }
@@ -34,7 +38,7 @@
             return;
         }
 
-        fetch(`/data/metadata/${target}.json`)
+        fetch(`/data/metadata/${encodeURI(target)}.json`)
             .then(response => response.json())
             .then(function(data) {
                 if (data == null) {

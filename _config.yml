@@ -29,6 +29,14 @@ collections:
         output: true
         permalink: /:collection/:path/
 
+defaults:
+  - scope:
+      path: ""
+      type: "wiki"
+    values:
+      layout: "wiki"
+      latex: true
+
 markdown: kramdown
 kramdown:
   input: GFM
