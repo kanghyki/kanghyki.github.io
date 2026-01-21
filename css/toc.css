@@ -9,7 +9,7 @@
 
     @media (min-width: 1360px) {
         position: fixed;
-        top: 120px;
+        top: 60px;
         left: calc(50vw + 384px + 50px);
         width: 200px;
         border: 0px solid;
