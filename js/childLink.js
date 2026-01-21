@@ -7,6 +7,7 @@
     function makeHTML(clist) {
         if (clist == null || clist.length < 1) return '';
 
+        clist.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
         let ret = '<h2>하위 문서</h2><ul>';
         for (let i = 0; i < clist.length; ++i) {
             ret += `<li><a href="${clist[i].url}">${clist[i].title}</a></li>`;
