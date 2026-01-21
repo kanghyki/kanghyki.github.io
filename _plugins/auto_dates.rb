@@ -20,6 +20,10 @@ module Jekyll
     rescue ArgumentError
       nil
     end
+
+    def self.blank?(value)
+      value.nil? || (value.respond_to?(:empty?) && value.empty?) || value.to_s.strip == ""
+    end
   end
 end
 
@@ -35,8 +39,12 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     created, updated = Jekyll::AutoDates.git_times(path)
     full_path = File.join(site.source, path)
     file_mtime = File.exist?(full_path) ? File.mtime(full_path) : nil
-    item.data["date"] ||= created || file_mtime
-    item.data["updated"] ||= updated || file_mtime
+    if Jekyll::AutoDates.blank?(item.data["date"])
+      item.data["date"] = created || file_mtime
+    end
+    if Jekyll::AutoDates.blank?(item.data["updated"])
+      item.data["updated"] = updated || file_mtime
+    end
     if item.respond_to?(:date=) && item.data["date"]
       item.date = item.data["date"]
     end
@@ -44,6 +52,16 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       Jekyll.logger.warn(
         "auto_dates",
         "missing date/updated for #{path} (date=#{item.data['date']}, updated=#{item.data['updated']})"
+      )
+      Jekyll.logger.warn(
+        "auto_dates",
+        "debug path=#{path} full_path=#{full_path} exists=#{File.exist?(full_path)} mtime=#{file_mtime} git_created=#{created} git_updated=#{updated}"
+      )
+    end
+    if ENV["AUTO_DATES_DEBUG"] == "1"
+      Jekyll.logger.info(
+        "auto_dates",
+        "debug path=#{path} date=#{item.data['date']} updated=#{item.data['updated']} git_created=#{created} git_updated=#{updated} mtime=#{file_mtime}"
       )
     end
   end
