@@ -3,6 +3,9 @@
     margin-bottom: 1em;
     padding: 1em;
     border: 1px solid var(--accent-low);
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     @media (min-width: 1360px) {
         position: fixed;
@@ -11,12 +14,15 @@
         width: 200px;
         border: 0px solid;
         border-left: 2px solid var(--accent-low);
-        padding: 0 1em;
+        padding: 0 1.2em;
         font-size: small;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
     }
 
     a {
         color: var(--cloudy-text-color);
+        text-decoration: none;
     }
     .active-toc {
       color: var(--link-text-color);
@@ -24,3 +30,24 @@
     }
 }
 
+#markdown-toc ul,
+#markdown-toc ol {
+    margin: 0.2em 0;
+    padding-left: 0.6em;
+}
+
+#markdown-toc ul ul,
+#markdown-toc ol ol {
+    padding-left: 0.7em;
+}
+
+#markdown-toc li {
+    margin: 0.2em 0;
+    list-style-position: inside;
+}
+
+#markdown-toc li a {
+    display: inline-block;
+    padding: 0.15em 0;
+    line-height: 1.5;
+}

@@ -20,15 +20,29 @@
     function buildToc(headings) {
         var toc = document.createElement("ul");
         toc.id = "markdown-toc";
+        var stack = [{ level: 1, list: toc }];
+
         headings.forEach(function (heading, index) {
             var id = ensureHeadingId(heading, index);
+            var level = parseInt(heading.tagName.replace("H", ""), 10) || 1;
+
+            while (stack.length > 1 && level <= stack[stack.length - 1].level) {
+                stack.pop();
+            }
+
+            var parentList = stack[stack.length - 1].list;
             var li = document.createElement("li");
             var a = document.createElement("a");
             a.href = "#" + encodeURIComponent(id);
             a.textContent = heading.textContent || id;
             li.appendChild(a);
-            toc.appendChild(li);
+            parentList.appendChild(li);
+
+            var subList = document.createElement("ul");
+            li.appendChild(subList);
+            stack.push({ level: level, list: subList });
         });
+
         return toc;
     }
 

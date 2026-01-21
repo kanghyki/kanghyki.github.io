@@ -93,14 +93,16 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-size: 1.05em;
 
     max-width: var(--width);
     background-color: var(--background);
     color: var(--text-color);
     margin: auto;
     padding: 1em;
-    line-height: 1.7;
+    line-height: 1.8;
     overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -110,8 +112,9 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
-    line-height: 1.8;
+    line-height: 1.45;
     font-weight: 400;
+    margin: 1.2em 0 0.4em;
 }
 
 h1 {
@@ -138,13 +141,17 @@ h6 {
     font-size: 0.9em;
 }
 
+.header h1 {
+    margin: 0;
+}
+
 hr {
     margin: 0.5em 0;
     border: 1px solid var(--accent-low);
 }
 
 p {
-    margin: 0.67em 0;
+    margin: 0.8em 0;
 }
 
 p:last-child {
@@ -171,6 +178,7 @@ a {
 
 a:hover {
     text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 a:visited {
@@ -189,6 +197,7 @@ pre {
     overflow: auto;
     padding: 1em;
     margin: 1em 0;
+    line-height: 1.6;
 }
 
 pre code {
@@ -204,6 +213,7 @@ blockquote {
     border-left: 4px solid var(--text-color);
     padding: 1em 1em 1em 2em;
     margin: 1em 0;
+    line-height: 1.7;
 }
 
 img {
@@ -214,6 +224,16 @@ img {
 
 article {
     padding: 1em 0;
+}
+
+.post-content a {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 3px;
+}
+
+.post-content a:hover {
+    text-decoration-thickness: 2px;
 }
 
 .footer {
@@ -344,10 +364,12 @@ article ol > li > ul > li {
 table {
     border: 1px solid var(--light-background);
     border-collapse: collapse;
+    font-size: 0.95em;
     th,
     td {
         border: 1px solid var(--light-background);
         padding: 0.5em 0.5em;
+        line-height: 1.5;
     }
     th {
         background-color: var(--heavy-background);
