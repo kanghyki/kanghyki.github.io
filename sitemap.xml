@@ -2,12 +2,6 @@
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>{{ site.url }}/tag/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>
@@ -31,7 +25,7 @@
 
     {% assign documents = site.wiki %}
     {% for doc in documents %}
-    {% if doc.public == true and doc.title != 'wiki index'%}
+    {% if doc.title != 'wiki index'%}
     <url>
         <loc>{{ site.url }}{{ doc.url }}</loc>
             {% if doc.updated == null %}

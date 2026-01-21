@@ -4,16 +4,39 @@
     </h1>
     <ul>
         <li>
-            <a href="/wiki/index"> Index </a>
+            <a href="{{ "/recent/" | prepend: site.baseurl }}" aria-label="Recent">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 8v5l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="sr-only">Recent</span>
+            </a>
         </li>
         <li>
-            <a href="{{ "/tag/" | prepend: site.baseurl }}"> Tags </a>
+            <a href="{{ "/tag/" | prepend: site.baseurl }}" aria-label="Tags">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12l-8 8-10-10V4h6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="7" cy="7" r="1.5" fill="currentColor"/>
+                </svg>
+                <span class="sr-only">Tags</span>
+            </a>
         </li>
         <li>
-            <a href="{{ "/recent/" | prepend: site.baseurl }}"> Recent </a>
+            <a href="/wiki/index" aria-label="Index">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h6l2 2h8v10H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+                <span class="sr-only">Index</span>
+            </a>
         </li>
         <li>
-            <a href="{{ "/search/" | prepend: site.baseurl }}"> Search </a>
+            <a href="{{ "/search/" | prepend: site.baseurl }}" aria-label="Search">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="sr-only">Search</span>
+            </a>
         </li>
     </ul>
 </header>
@@ -26,23 +49,44 @@
         justify-content: space-between;
     }
 
+    .header_title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
     .header h1 a {
         font-family: "GyeonggiMillenniumTitle";
 
         color: var(--text-color);
         margin: 0;
+        font-size: 1em;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
     }
 
     .header ul {
         display: flex;
+        align-items: center;
     }
 
     .header li {
         list-style-type: none;
         margin-left: 1em;
+        display: flex;
+        align-items: center;
     }
 
     .header li a {
         color: var(--link-text-color);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-icon {
+        width: 20px;
+        height: 20px;
     }
 </style>
