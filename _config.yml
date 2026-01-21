@@ -5,6 +5,12 @@ title: kanghyki
 baseurl: ""
 description: >
   블로그
+profile_image: "https://avatars.githubusercontent.com/u/94736461?v=4"
+profile_bio: |
+  Hello! I’m kanghyki, a student studying game development starting in 2026.
+  I document what I’ve learned, what I’ve experimented with,
+  and even the things I don’t fully understand yet.
+  Sometimes, I also post whatever comes to mind.
 url: "https://kanghyki.github.io"
 github:
   username: kanghyki

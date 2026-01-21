@@ -1,29 +1,28 @@
-<hr />
-<footer>
-    <ul class="footer">
-        <li class="footer_item">
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-title">© {{ site.title }}</div>
+        <div class="footer-links">
             <a href="https://github.com/{{ site.github.username }}">GitHub</a>
-        </li>
-        <li class="footer_item">
             <a href="mailto:{{ site.email }}">Email</a>
-        </li>
-    </ul>
+        </div>
+    </div>
+    <div class="footer-license">
+        <div class="footer-license-grid">
+            <div class="footer-license-fonts">
+                <div>이 웹사이트에는 아래 글꼴이 사용되었습니다.</div>
+                <ul>
+                    <li>리디바탕, 리디주식회사, SIL OFL 1.1</li>
+                    <li>JetBrains Mono, JetBrains, SIL OFL 1.1</li>
+                    <li>경기천년제목, 경기도, 무료 사용</li>
+                </ul>
+            </div>
+            <div class="footer-license-theme">
+                <div>이 웹사이트에는 아래 테마가 적용되었습니다.</div>
+                <ul>
+                    <li>Everforest Medium Dark</li>
+                    <li>Everforest Medium Light</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>
-
-<style>
-    .footer {
-        margin-top: 1em;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        list-style: none;
-    }
-
-    .footer_item {
-        margin-right: 10px;
-    }
-
-    .footer li a {
-        color: var(--link-text-color);
-    }
-</style>

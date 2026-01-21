@@ -1,20 +1,85 @@
+@font-face {
+    font-family: "Ridibatang";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff")
+        format("woff");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GyeonggiMillenniumTitle";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Light.woff")
+        format("woff");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GyeonggiMillenniumTitle";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Medium.woff")
+        format("woff");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GyeonggiMillenniumTitle";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Bold.woff")
+        format("woff");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GyeonggiMillenniumTitle";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/TitleV.woff")
+        format("woff");
+    font-weight: 800;
+    font-display: swap;
+}
+
 :root {
-    --background: #2e343a;
-    --heavy-background: #262b30;
-    --light-background: #393e46;
+    --background: #fffbef;
+    --heavy-background: #f2efdf;
+    --light-background: #f8f5e4;
 
-    --accent-low: #393e46;
+    --accent-low: rgba(92, 106, 114, 0.2);
 
-    --text-color: #d0c6ad;
-    --cloudy-text-color: #b2b2b2;
-    --link-text-color: #8cb9b2;
-    --visited-link-text-color: #cc9bb4;
+    --text-color: #5c6a72;
+    --cloudy-text-color: #829181;
+    --link-text-color: #3a94c5;
+    --visited-link-text-color: #df69ba;
 
-    --cyan-text-color: #58a47e;
-    --green-text-color: #abbf86;
-    --yellow-text-color: #d5bd86;
+    --cyan-text-color: #3a94c5;
+    --green-text-color: #8da101;
+    --yellow-text-color: #f57d26;
 
     --width: 768px;
+    --font-body: "Ridibatang", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino,
+        serif;
+    --font-display: "GyeonggiMillenniumTitle", "Ridibatang", "Iowan Old Style", "Palatino Linotype",
+        "Book Antiqua", Palatino, serif;
+    --font-ui: "Ridibatang", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino,
+        serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #2f383e;
+        --heavy-background: #374247;
+        --light-background: #374247;
+
+        --accent-low: rgba(211, 198, 170, 0.18);
+
+        --text-color: #d3c6aa;
+        --cloudy-text-color: #a7b0a6;
+        --link-text-color: #7fbbb3;
+        --visited-link-text-color: #f0b27a;
+
+        --cyan-text-color: #7fbbb3;
+        --green-text-color: #a7c080;
+        --yellow-text-color: #dbbc7f;
+    }
 }
 
 * {
@@ -24,7 +89,7 @@
 }
 
 body {
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: var(--font-body);
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -44,6 +109,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: var(--font-display);
     line-height: 1.8;
     font-weight: 400;
 }
@@ -148,6 +214,111 @@ img {
 
 article {
     padding: 1em 0;
+}
+
+.footer {
+    margin-top: 2em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--accent-low);
+    color: var(--cloudy-text-color);
+    font-size: 0.95em;
+    display: grid;
+    gap: 0.6em;
+}
+
+.footer-inner {
+    display: grid;
+    gap: 0.4em;
+    align-items: start;
+}
+
+.footer-title {
+    font-family: var(--font-display);
+    color: var(--text-color);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em 1em;
+    font-family: var(--font-ui);
+}
+
+.footer-license {
+    display: grid;
+    gap: 0.6em;
+    font-family: var(--font-ui);
+}
+
+.footer-license ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+.footer-license li {
+    margin: 0.2em 0;
+}
+
+.footer-license-grid {
+    display: grid;
+    gap: 0.8em;
+}
+
+@media (min-width: 720px) {
+    .footer-license-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 1.4em;
+        align-items: start;
+    }
+}
+
+.footer a {
+    color: var(--link-text-color);
+}
+
+.home-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2em;
+    margin-top: 2.0em;
+    margin-bottom: 2.0em;
+}
+
+.home-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--accent-low);
+    background: var(--light-background);
+}
+
+.home-avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2.2em;
+    color: var(--text-color);
+}
+
+.home-hero-text {
+    display: grid;
+    gap: 0.5em;
+}
+
+.home-bio {
+    white-space: pre-line;
+    max-width: 560px;
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .home-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 article ul > li {

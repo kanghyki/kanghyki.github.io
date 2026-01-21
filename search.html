@@ -82,9 +82,14 @@ permalink: /search/
                 "<h2>인덱싱 에러</h2>";
             return;
         }
-        document.getElementById("search-list").innerHTML = "<h2>검색중...</h2>";
         const params = new URLSearchParams(window.location.search);
-        const query = params.get("searchString");
+        const query = (params.get("searchString") || "").trim();
+        if (!query) {
+            document.getElementById("search-list").innerHTML =
+                "<h2>검색어를 입력해주세요.</h2>";
+            return;
+        }
+        document.getElementById("search-list").innerHTML = "<h2>검색중...</h2>";
         const file_names = engine.searchFilesByQuery(query);
         const metadata_list = await engine.fetchMetadataForFiles(file_names);
 

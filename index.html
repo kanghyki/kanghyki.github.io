@@ -7,6 +7,22 @@ layout: default
 {% assign total_non_index = 0 %}
 
 <div>
+    <header class="home-hero">
+        {% if site.profile_image %}
+        <img
+            src="{{ site.profile_image | prepend: site.baseurl }}"
+            alt="Profile"
+            class="home-avatar"
+            width="96"
+            height="96"
+        />
+        {% else %}
+        <div class="home-avatar home-avatar-fallback">{{ site.title | slice: 0, 1 }}</div>
+        {% endif %}
+        <div class="home-hero-text">
+            <p class="home-bio">{{ site.profile_bio | default: site.description }}</p>
+        </div>
+    </header>
     <h3>최근 변경된 문서</h3>
     <ul class="post_list">
         {% for doc in documents %}

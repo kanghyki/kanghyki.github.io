@@ -6,6 +6,15 @@
         <li>
             <a href="/wiki/index"> Index </a>
         </li>
+        <li>
+            <a href="{{ "/tag/" | prepend: site.baseurl }}"> Tags </a>
+        </li>
+        <li>
+            <a href="{{ "/recent/" | prepend: site.baseurl }}"> Recent </a>
+        </li>
+        <li>
+            <a href="{{ "/search/" | prepend: site.baseurl }}"> Search </a>
+        </li>
     </ul>
 </header>
 <hr />
@@ -18,7 +27,7 @@
     }
 
     .header h1 a {
-        font-family: "Playwrite CU";
+        font-family: "GyeonggiMillenniumTitle";
 
         color: var(--text-color);
         margin: 0;
