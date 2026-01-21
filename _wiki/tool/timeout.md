@@ -1,19 +1,8 @@
 ---
-layout  : wiki
 title   : GNU timeout
 summary : run a command with a time limit
-date    : 2024-10-06 12:28:50 +0900
-updated : 2024-10-06 13:09:13 +0900
 tag     :
-toc     : true
-public  : true
-parent  : [[/tool]]
-latex   : false
-resource: 770318C4-72D1-47BE-8A4C-611A7F3A966B
 ---
-* TOC
-{:toc}
-
 # timeout
 
 GNU coreutil에 포함된 timeout 유틸리티는 명령을 실행하고

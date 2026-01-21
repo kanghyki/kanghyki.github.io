@@ -1,19 +1,8 @@
 ---
-layout  : wiki
 title   : grep
 summary : file pattern searcher
-date    : 2024-10-03 15:56:04 +0900
-updated : 2024-10-05 22:45:18 +0900
 tag     :
-toc     : true
-public  : true
-parent  : [[/tool]]
-latex   : false
-resource: C276F943-4684-4901-8967-E81DCC78953E
 ---
-* TOC
-{:toc}
-
 # grep
 
 grep은 주어진 입력 파일에서 패턴이 일치하는 라인을 찾아주는 유틸리티다.

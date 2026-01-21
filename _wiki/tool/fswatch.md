@@ -1,18 +1,8 @@
 ---
-layout  : wiki
 title   : fswatch
 summary : 파일시스템 모니터링 도구
-date    : 2024-10-01 17:31:04 +0900
-updated : 2024-10-04 12:22:23 +0900
 tag     :
-toc     : true
-public  : true
-parent  : [[/tool]]
-latex   : false
-resource: 6DD7BCEA-230C-4E49-8CC3-74327D390BCE
 ---
-* TOC
-{:toc}
 
 [fswatch](https://github.com/emcrisostomo/fswatch)는 파일시스템의 이벤트를 감시하고 추적하는 모니터다.
 모니터는 지속적으로 변화를 감지하고 특정 작업을 수행하는 도구를 의미한다.

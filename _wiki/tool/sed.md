@@ -1,19 +1,8 @@
 ---
-layout  : wiki
 title   : sed
 summary : stream editor
-date    : 2024-10-02 12:04:23 +0900
-updated : 2024-10-04 15:14:15 +0900
 tag     :
-toc     : true
-public  : true
-parent  : [[/tool]]
-latex   : false
-resource: 413751CC-2C36-4332-996B-FDE47BA33308
 ---
-* TOC
-{:toc}
-
 # sed
 sed는 입력 파일에서 패턴을 찾아 명령어를 수행한다.
 

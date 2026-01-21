@@ -1,19 +1,8 @@
 ---
-layout  : wiki
 title   : xargs
 summary : construct argument list(s) and execute utility
-date    : 2024-10-01 23:21:54 +0900
-updated : 2024-10-04 15:08:10 +0900
 tag     :
-toc     : true
-public  : true
-parent  : [[/tool]]
-latex   : false
-resource: D089243E-5A19-4ABB-B9AE-2BE7C31B89C2
 ---
-* TOC
-{:toc}
-
 # xargs
 
 xargs는 표준 입력으로 받은 데이터를 다른 명령어의 인수로 전달하는 유틸리티다.
