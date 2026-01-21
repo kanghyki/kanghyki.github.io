@@ -475,7 +475,11 @@ function ensureIndexPages(rootPath) {
                     existing.includes("public:") ||
                     isTrivialBody
                 ) {
-                    fs.writeFileSync(indexPath, content);
+                    const normalizedExisting = existing.trim();
+                    const normalizedContent = content.trim();
+                    if (normalizedExisting !== normalizedContent) {
+                        fs.writeFileSync(indexPath, content);
+                    }
                 }
             }
         }
