@@ -53,16 +53,6 @@ Jekyll::Hooks.register :site, :pre_render do |site|
         "auto_dates",
         "missing date/updated for #{path} (date=#{item.data['date']}, updated=#{item.data['updated']})"
       )
-      Jekyll.logger.warn(
-        "auto_dates",
-        "debug path=#{path} full_path=#{full_path} exists=#{File.exist?(full_path)} mtime=#{file_mtime} git_created=#{created} git_updated=#{updated}"
-      )
-    end
-    if ENV["AUTO_DATES_DEBUG"] == "1"
-      Jekyll.logger.info(
-        "auto_dates",
-        "debug path=#{path} date=#{item.data['date']} updated=#{item.data['updated']} git_created=#{created} git_updated=#{updated} mtime=#{file_mtime}"
-      )
     end
   end
 end
