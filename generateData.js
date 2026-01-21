@@ -65,7 +65,7 @@ function main() {
             summary: page.summary,
             parent: page.parent,
             url: page.url,
-            updated: page.updated || page.created || page.date,
+            updated: page.updated || page.date,
             resource: page.resource,
             children: [],
             body: page.body,
@@ -345,10 +345,10 @@ function parseInfo(file, info, body) {
     }
 
 
-    if (!obj.created || !obj.updated) {
+    if (!obj.date || !obj.updated) {
         const gitTimes = getGitTimes(file.path);
-        if (!obj.created) {
-            obj.created = gitTimes.created || formatDate(obj.modified);
+        if (!obj.date) {
+            obj.date = gitTimes.created || formatDate(obj.modified);
         }
         if (!obj.updated) {
             obj.updated = gitTimes.updated || formatDate(obj.modified);

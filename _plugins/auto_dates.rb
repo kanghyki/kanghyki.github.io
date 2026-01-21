@@ -27,7 +27,8 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page|
   path = page.path
   created, updated = Jekyll::AutoDates.git_times(path)
 
-  file_mtime = File.exist?(path) ? File.mtime(path) : nil
-  page.data["created"] ||= created || file_mtime
+  full_path = File.join(page.site.source, path)
+  file_mtime = File.exist?(full_path) ? File.mtime(full_path) : nil
+  page.data["date"] ||= created || file_mtime
   page.data["updated"] ||= updated || file_mtime
 end
