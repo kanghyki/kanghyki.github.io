@@ -381,6 +381,26 @@ function parseInfo(file, info, body) {
     return obj;
 }
 
+function saveMiscList(pageMap) {
+    const list = [];
+    for (const page in pageMap) {
+        if (page === "index") continue;
+        if (page.endsWith("/index")) continue;
+        const data = pageMap[page];
+        if (!data.parent) {
+            list.push({
+                title: data.title,
+                url: data.url,
+            });
+        }
+    }
+    saveToFile(
+        "./data/misc.json",
+        JSON.stringify(list.sort(lexicalOrderingBy("title")), null, 1),
+        NO_PRINT
+    );
+}
+
 function inferParentsFromPath(pageMap) {
     const keys = Object.keys(pageMap);
     const keySet = new Set(keys);
@@ -419,26 +439,6 @@ function inferParentsFromPath(pageMap) {
             }
         }
     });
-}
-
-function saveMiscList(pageMap) {
-    const list = [];
-    for (const page in pageMap) {
-        if (page === "index") continue;
-        if (page.endsWith("/index")) continue;
-        const data = pageMap[page];
-        if (!data.parent) {
-            list.push({
-                title: data.title,
-                url: data.url,
-            });
-        }
-    }
-    saveToFile(
-        "./data/misc.json",
-        JSON.stringify(list.sort(lexicalOrderingBy("title")), null, 1),
-        NO_PRINT
-    );
 }
 
 function ensureIndexPages(rootPath) {

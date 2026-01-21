@@ -23,12 +23,14 @@ module Jekyll
   end
 end
 
-Jekyll::Hooks.register [:pages, :documents], :pre_render do |page|
-  path = page.path
-  created, updated = Jekyll::AutoDates.git_times(path)
-
-  full_path = File.join(page.site.source, path)
-  file_mtime = File.exist?(full_path) ? File.mtime(full_path) : nil
-  page.data["date"] ||= created || file_mtime
-  page.data["updated"] ||= updated || file_mtime
+Jekyll::Hooks.register :site, :pre_render do |site|
+  docs = site.collections["wiki"]&.docs || []
+  docs.each do |doc|
+    path = doc.path
+    created, updated = Jekyll::AutoDates.git_times(path)
+    full_path = File.join(site.source, path)
+    file_mtime = File.exist?(full_path) ? File.mtime(full_path) : nil
+    doc.data["date"] ||= created || file_mtime
+    doc.data["updated"] ||= updated || file_mtime
+  end
 end
