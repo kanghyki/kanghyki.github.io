@@ -1,12 +1,11 @@
 email: kanghyk@gmail.com
 author: kanghyki
 
-title: hywiki
+title: kanghyki
 baseurl: ""
 description: >
-    블로그
+  블로그
 url: "https://kanghyki.github.io"
-
 github:
   username: kanghyki
   blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
@@ -16,18 +15,18 @@ github:
 
 giscus:
   repo: kanghyki/kanghyki.github.io
-  repo_id: R_kgDOMu3cnQ
-  category: Comments
-  category_id: DIC_kwDOMu3cnc4CiZVC
+  repo_id: R_kgDOQ-eBbQ
+  category: Announcements
+  category_id: DIC_kwDOQ-eBbc4C1P6j
 
 # Build settings
 plugins:
   - jekyll-feed
 
 collections:
-    wiki:
-        output: true
-        permalink: /:collection/:path/
+  wiki:
+    output: true
+    permalink: /:collection/:path/
 
 defaults:
   - scope:
