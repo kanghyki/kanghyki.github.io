@@ -62,6 +62,12 @@ make clean-data # data/ 삭제
 - Settings → Pages → Source를 **GitHub Actions**로 설정
 - `git push` 시 자동 배포
 
+### 주의: Pages 설정이 GitHub Actions가 아닐 때
+
+- `_plugins/auto_dates.rb`는 GitHub Actions 빌드에서만 실행됩니다.
+- Pages가 **Deploy from branch**로 설정되어 있으면 `_plugins`가 실행되지 않아
+  `date/updated`가 비고 검색 인덱스가 깨질 수 있습니다.
+
 ## 게시글 날짜 처리
 
 - `date` = 생성일, 파일 최초 커밋 시간 (없으면 mtime)
