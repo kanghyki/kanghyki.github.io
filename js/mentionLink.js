@@ -5,7 +5,7 @@
     }
     const target = getTarget();
 
-    function makeHTML(mention_map) {
+    function makeHTML(mention_map, targetKey) {
         let ret = '<h2>이 문서를 참조한 문서</h2><ul class="mention-ul">';
         for (const key of mention_map.keys()) {
             const value = mention_map.get(key);
@@ -13,11 +13,12 @@
                 <a class="mention-link" href="${value.metadata.url}">
                     <span>${value.metadata.title}</span>`;
             for (const paragraph of value.paragraphs) {
-                const para = paragraph.replace(
-                    /\[\[(.+?)\]\](\{(.+?)\})?/g,
-                    (match, p1, p2, p3) => (p3 ? p3 : p1)
+                const snippet = extractSnippet(
+                    paragraph,
+                    value.metadata.resource,
+                    targetKey
                 );
-                ret += `<div> - ${para}</div>`;
+                ret += `<div> - ${snippet}</div>`;
             }
             ret += `</a></li>`;
         }
@@ -74,5 +75,72 @@
         }
     }
 
-    document.getElementById("mention-list").innerHTML = makeHTML(mention_map);
+    document.getElementById("mention-list").innerHTML = makeHTML(
+        mention_map,
+        target
+    );
 })();
+
+function extractSnippet(paragraph, sourceFile, targetKey) {
+    if (!paragraph) return "";
+    const text = paragraph.toString();
+    const regex = /\[\[([^\]]+?)\]\](\{([^}]+)\})?/g;
+    let output = "";
+    let lastIndex = 0;
+    let targetStart = -1;
+    let targetEnd = -1;
+    let match;
+
+    while ((match = regex.exec(text)) !== null) {
+        output += text.slice(lastIndex, match.index);
+
+        const raw = match[1] || "";
+        const rawLabel = match[3];
+        const parts = raw.split("|");
+        const target = (parts[0] || "").trim();
+        const label = (rawLabel || parts[1] || target).trim();
+
+        if (isTargetMatch(target, sourceFile, targetKey)) {
+            targetStart = output.length;
+            targetEnd = output.length + label.length;
+        }
+
+        output += label;
+        lastIndex = match.index + match[0].length;
+    }
+    output += text.slice(lastIndex);
+
+    if (targetStart === -1) {
+        return output.trim();
+    }
+
+    const context = 40;
+    const start = Math.max(0, targetStart - context);
+    const end = Math.min(output.length, targetEnd + context);
+    let snippet = output.slice(start, end).trim();
+    if (start > 0) snippet = "…" + snippet;
+    if (end < output.length) snippet = snippet + "…";
+    return snippet;
+}
+
+function isTargetMatch(linkTarget, sourceFile, targetKey) {
+    if (!linkTarget) return false;
+
+    let resolved = linkTarget;
+    if (!resolved.startsWith("/")) {
+        const prefix = getSourcePrefix(sourceFile);
+        resolved = prefix + resolved;
+    }
+
+    resolved = resolved.replace(/^\/+/, "").replace(/^wiki\//, "");
+    if (resolved === targetKey) return true;
+    if (`${resolved}/index` === targetKey) return true;
+    return false;
+}
+
+function getSourcePrefix(sourceFile) {
+    if (!sourceFile) return "/";
+    const normalized = sourceFile.replace(/^\/+/, "");
+    if (!normalized.includes("/")) return "/";
+    return `/${normalized.replace(/\/[^/]+$/, "")}/`;
+}
