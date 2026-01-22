@@ -366,7 +366,8 @@ function parseInfo(file, info, body) {
                     .split("|")[0]
                     .trim();
                 let prefix = "";
-                if (path && path[0] !== "/") {
+                const looksAbsolute = path.includes("/");
+                if (path && path[0] !== "/" && !looksAbsolute) {
                     prefix = file.path
                         .replace(/^(.*\/).*\.md/, "$1")
                         .replace(/^\.\/_wiki/, "");

@@ -54,7 +54,8 @@ permalink: /tag/
     })();
 
     function showTag(tagName) {
-        fetch(`/data/tag/${tagName}.json`)
+        const safeTagName = encodeURIComponent(tagName);
+        fetch(`/data/tag/${safeTagName}.json`)
             .then((response) => response.json())
             .then((data) => createLinks(data, tagName))
             .catch(function (error) {
@@ -86,7 +87,8 @@ permalink: /tag/
     }
 
     function insertDocumentLink(documentId, tagName) {
-        fetch(`/data/metadata/${documentId}.json`)
+        const safeDocumentId = encodeURI(documentId);
+        fetch(`/data/metadata/${safeDocumentId}.json`)
             .then((response) => response.json())
             .then(function (data) {
                 if (data == null) {
