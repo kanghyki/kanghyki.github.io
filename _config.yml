@@ -40,15 +40,10 @@ defaults:
       layout: "wiki"
       latex: true
 
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  toc_levels: 1..6
-  hard_wrap: true
-  #   syntax_highlighter_opts:
-  #     block:
-  #       line_numbers: true
+markdown: CommonMark
+commonmark:
+  options: ["SMART", "FOOTNOTES", "STRIKETHROUGH_DOUBLE_TILDE", "HARDBREAKS", "GITHUB_PRE_LANG"]
+  extensions: ["table", "strikethrough", "autolink", "tasklist"]
 
 exclude:
   - scripts
