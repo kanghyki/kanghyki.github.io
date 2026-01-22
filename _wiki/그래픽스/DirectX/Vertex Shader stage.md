@@ -10,7 +10,7 @@ D3D 10 이상 API는 그래픽 기능을 여러단계(stage)로 나누어 구성
 IA 다음에 오는 단계가 **Vertex Shader(VS) stage**다.
 
 Vertex Shader는 **정점 단위로 실행되는 셰이더**로,  
-[[그래픽스/DirectX/Input Assembler stage|Input Assembler]]가 조립해 넘겨준 정점 데이터를 받아 **좌표 변환과 데이터 전달을 수행**한다.
+[[Input Assembler stage|Input Assembler]]가 조립해 넘겨준 정점 데이터를 받아 **좌표 변환과 데이터 전달을 수행**한다.
 
 결론적으로 **VS**는 다음 역할만 수행한다.
 
@@ -72,9 +72,9 @@ VSOut VSMain(VSIn vin)
 - 오브젝트 공간 좌표에서
 - 클립 공간 좌표로 변환된다
 
-`SV_POSITION`으로 출력된 값은 다음 단계인 [[그래픽스/DirectX/Rasterizer stage|Rasterizer]]가 **화면 픽셀**로 변환하는 기준이 된다.
+`SV_POSITION`으로 출력된 값은 다음 단계인 [[Rasterizer stage|Rasterizer]]가 **화면 픽셀**로 변환하는 기준이 된다.
 
 ## 3) 데이터 전달
 
 VS 출력 구조체에 담긴 값들(`COLOR`, `TEXCOORD` 등)은 Vertex Shader에서 정점 단위로 출력되고,  
-이 값들은 [[그래픽스/DirectX/Rasterizer stage|Rasterizer stage]]에서 primitive 내부 픽셀 기준으로 보간된 뒤 [[그래픽스/DirectX/Pixel Shader stage|Pixel Shader stage]]의 입력으로 전달된다.
+이 값들은 [[Rasterizer stage|Rasterizer stage]]에서 primitive 내부 픽셀 기준으로 보간된 뒤 [[Pixel Shader stage|Pixel Shader stage]]의 입력으로 전달된다.

@@ -1,6 +1,6 @@
 {
   "propertiesInDocument": "source",
-  "newLinkFormat": "absolute",
+  "newLinkFormat": "relative",
   "alwaysUpdateLinks": true,
   "spellcheck": false,
   "attachmentFolderPath": "assets",

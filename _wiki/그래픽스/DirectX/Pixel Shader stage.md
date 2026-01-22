@@ -52,4 +52,4 @@ context->PSSetSamplers(0, 1, &samplerState);
 ```
 
 이 코드는 Pixel Shader를 파이프라인에 바인딩하고, 셰이더에서 사용할 텍스처(SRV)와 샘플러를 설정한다.  
-Pixel Shader stage의 결과는 [[그래픽스/DirectX/Output Merger stage|Output Merger stage]] 단계에서 렌더 타깃에 합성되어 화면에 표시된다.
+Pixel Shader stage의 결과는 [[Output Merger stage|Output Merger stage]] 단계에서 렌더 타깃에 합성되어 화면에 표시된다.

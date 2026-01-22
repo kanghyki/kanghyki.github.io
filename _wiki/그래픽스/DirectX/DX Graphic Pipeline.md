@@ -12,13 +12,13 @@ https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11
 
 ![[assets/Pasted image 20260122082930.jpg]]
 
-1. [[그래픽스/DirectX/Input Assembler stage]]
-2. [[그래픽스/DirectX/Vertex Shader stage]]
-3. [[그래픽스/DirectX/Hull Shader stage]] x
-4. [[그래픽스/DirectX/Tessellator Stage]] x
-5. [[그래픽스/DirectX/Geometry Shader stage]] x
-6. [[그래픽스/DirectX/Domain Shader stage]] x
-7. [[그래픽스/DirectX/Stream Output stage]] x
-8. [[그래픽스/DirectX/Rasterizer stage]]
-9. [[그래픽스/DirectX/Pixel Shader stage]]
-10. [[그래픽스/DirectX/Output Merger stage]]
+1. [[Input Assembler stage]]
+2. [[Vertex Shader stage]]
+3. [[Hull Shader stage]]
+4. [[Tessellator Stage]]
+5. [[Geometry Shader stage]]
+6. [[Domain Shader stage]]
+7. [[Stream Output stage]]
+8. [[Rasterizer stage]]
+9. [[Pixel Shader stage]]
+10. [[Output Merger stage]]

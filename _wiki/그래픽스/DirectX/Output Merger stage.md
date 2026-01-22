@@ -6,7 +6,7 @@ tag:
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-output-merger-stage
 
-Output Merger stage는 [[그래픽스/DirectX/Pixel Shader stage|Pixel Shader]]가 계산한 픽셀 결과를 받아서 **최종적으로 렌더 타깃과 깊이/스텐실 버퍼에 반영하는 단계**다.  
+Output Merger stage는 [[Pixel Shader stage|Pixel Shader]]가 계산한 픽셀 결과를 받아서 **최종적으로 렌더 타깃과 깊이/스텐실 버퍼에 반영하는 단계**다.  
 이 단계에서 픽셀이 실제로 **화면 데이터**가 될지 말지가 결정된다.
 
 Pixel Shader까지 끝나면 각 픽셀에 대해 이런 값이 하나 만들어진 상태다.

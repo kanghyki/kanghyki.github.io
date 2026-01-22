@@ -51,6 +51,6 @@ struct PSIn
 };
 ```
 
-Rasterizer의 출력은 픽셀 단위 입력 데이터 스트림이며 이 데이터가 [[그래픽스/DirectX/Pixel Shader stage|Pixel Shader stage]]로 전달된다.
+Rasterizer의 출력은 픽셀 단위 입력 데이터 스트림이며 이 데이터가 [[Pixel Shader stage|Pixel Shader stage]]로 전달된다.
 
 정리하면 Vertex Shader가 정점의 위치와 속성을 정리하고 Rasterizer가 그 결과를 화면 픽셀 기준으로 변환하며 Pixel Shader가 픽셀의 최종 색을 결정한다.
