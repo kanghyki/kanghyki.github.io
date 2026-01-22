@@ -1,5 +1,9 @@
 <script>
-    ;(function() {
+    function runCreateLink() {
+        if (!window.PathUtils) {
+            return;
+        }
+        (function() {
         var tags = document.querySelectorAll('.post-tag');
         if(tags == null || tags.length < 1) {
             return;
@@ -22,10 +26,15 @@
         return;
     })();
 
-    ;(function() {
+        (function() {
         var content = document.querySelector('article.post-content');
         if (!content) {
             return;
+        }
+        var sourceDocId = "";
+        var nameNode = document.getElementById('thisName');
+        if (nameNode && nameNode.value) {
+            sourceDocId = window.PathUtils.normalizeDocId(nameNode.value);
         }
 
         function splitWikiTarget(raw) {
@@ -50,6 +59,15 @@
             return encodeURI('/wiki/assets/' + cleaned);
         }
 
+        function buildWikiHref(rawTarget) {
+            var trimmed = (rawTarget || '').trim();
+            if (!trimmed) {
+                return "";
+            }
+            var resolved = window.PathUtils.resolveLinkTarget(sourceDocId, trimmed);
+            return window.PathUtils.toWikiUrl(resolved);
+        }
+
         content.innerHTML = content.innerHTML.replace(/!\[\[(.+?)\]\]/g, function(_, raw) {
             var data = splitWikiTarget(raw);
             if (isImageTarget(data.target)) {
@@ -57,23 +75,32 @@
                 var alt = data.label || data.target;
                 return `<img src="${src}" alt="${alt}" loading="lazy">`;
             }
-            var embedHref = data.target[0] === '/'
-                ? `/wiki/${data.target.replace(/^\/+/, '')}`
-                : `../${data.target}`;
+            var embedHref = buildWikiHref(data.target);
             return `<a href="${embedHref}">${data.label}</a>`;
         });
 
-        content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]\{(.+?)\}/g, '<a href="/wiki/$1">$2</a>');
-        content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]\{(.+?)\}/g, '<a href="../$1">$2</a>');
+        content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]\{(.+?)\}/g, function(_, raw, label) {
+            return `<a href="${buildWikiHref('/' + raw)}">${label}</a>`;
+        });
+        content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]\{(.+?)\}/g, function(_, raw, label) {
+            return `<a href="${buildWikiHref(raw)}">${label}</a>`;
+        });
 
         content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]/g, function(_, raw) {
             var data = splitWikiTarget(raw);
-            return `<a href="/wiki/${data.target}">${data.label}</a>`;
+            return `<a href="${buildWikiHref('/' + data.target)}">${data.label}</a>`;
         });
 
         content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]/g, function(_, raw) {
             var data = splitWikiTarget(raw);
-            return `<a href="../${data.target}">${data.label}</a>`;
+            return `<a href="${buildWikiHref(data.target)}">${data.label}</a>`;
         });
-    })();
+        })();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runCreateLink);
+    } else {
+        runCreateLink();
+    }
 </script>

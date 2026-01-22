@@ -1,7 +1,7 @@
 (function() {
     function getTarget() {
         var thisName = document.getElementById('thisName').value;
-        return encodeURI(thisName);
+        return window.PathUtils.normalizeDocId(thisName);
     }
 
     const recursiveLimit = 30;
@@ -38,7 +38,7 @@
             return;
         }
 
-        fetch(`/data/metadata/${encodeURI(target)}.json`)
+        fetch(window.PathUtils.toDataUrl("metadata", target))
             .then(response => response.json())
             .then(function(data) {
                 if (data == null) {

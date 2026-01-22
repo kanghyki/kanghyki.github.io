@@ -1,7 +1,7 @@
 (async () => {
     function getTarget() {
         var thisName = document.getElementById("thisName").value;
-        return encodeURI(thisName);
+        return window.PathUtils.normalizeDocId(thisName);
     }
     const target = getTarget();
 
@@ -29,7 +29,7 @@
 
     let target_data = null;
     try {
-        let target_res = await fetch(`/data/mention/${target}.json`);
+        let target_res = await fetch(window.PathUtils.toDataUrl("mention", target));
         if (!target_res.ok) return;
         target_data = await target_res.json();
     } catch (e) {
@@ -65,7 +65,7 @@
 
     for (const file_path of mention_map.keys()) {
         try {
-            const res = await fetch(`/data/metadata/${encodeURI(file_path)}.json`);
+            const res = await fetch(window.PathUtils.toDataUrl("metadata", file_path));
             if (!res.ok) continue;
             const data = await res.json();
             mention_map.get(file_path).metadata = data;
@@ -126,21 +126,8 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
 function isTargetMatch(linkTarget, sourceFile, targetKey) {
     if (!linkTarget) return false;
 
-    let resolved = linkTarget;
-    if (!resolved.startsWith("/")) {
-        const prefix = getSourcePrefix(sourceFile);
-        resolved = prefix + resolved;
-    }
-
-    resolved = resolved.replace(/^\/+/, "").replace(/^wiki\//, "");
+    let resolved = window.PathUtils.resolveLinkTarget(sourceFile, linkTarget);
     if (resolved === targetKey) return true;
     if (`${resolved}/index` === targetKey) return true;
     return false;
-}
-
-function getSourcePrefix(sourceFile) {
-    if (!sourceFile) return "/";
-    const normalized = sourceFile.replace(/^\/+/, "");
-    if (!normalized.includes("/")) return "/";
-    return `/${normalized.replace(/\/[^/]+$/, "")}/`;
 }

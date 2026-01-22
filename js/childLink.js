@@ -1,7 +1,7 @@
 (async () => {
     function getTarget() {
         var thisName = document.getElementById('thisName').value;
-        return encodeURI(thisName);
+        return window.PathUtils.normalizeDocId(thisName);
     }
 
     function makeHTML(clist) {
@@ -20,7 +20,7 @@
     const clist = [];
     let target_data = null;
     try {
-        const target_res = await fetch(`/data/metadata/${target}.json`);
+        const target_res = await fetch(window.PathUtils.toDataUrl("metadata", target));
         if (!target_res.ok) return;
         target_data = await target_res.json();
     }
@@ -30,7 +30,7 @@
     }
 
     for (let i = 0; i < target_data.children.length; ++i) {
-        let uri = `/data/metadata/${encodeURI(target_data.children[i])}.json`
+        let uri = window.PathUtils.toDataUrl("metadata", target_data.children[i]);
         let child_data = null;
         try {
             const child_res = await fetch(uri)
