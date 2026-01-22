@@ -20,6 +20,80 @@ Vertex Shader는 **정점 단위로 실행되는 셰이더**로,
 
 > If no vertex modification or transformation is required, a pass-through vertex shader must be created and set to the pipeline.
 
+## 주요 Direct3D 11 함수
+- [ID3D11Device::CreateVertexShader](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createvertexshader): 컴파일된 셰이더에서 정점 셰이더 개체를 만듦
+```cpp
+HRESULT CreateVertexShader(
+  [in]            const void         *pShaderBytecode,
+  [in]            SIZE_T             BytecodeLength,
+  [in, optional]  ID3D11ClassLinkage *pClassLinkage,
+  [out, optional] ID3D11VertexShader **ppVertexShader
+);
+
+// 1. Vertex Shader 생성 (Device)
+ID3D11VertexShader* vertexShader = nullptr;
+device->CreateVertexShader(
+    compiledVS->GetBufferPointer(),
+    compiledVS->GetBufferSize(),
+    nullptr,
+    &vertexShader
+);
+```
+
+- [ID3D11DeviceContext::VSSetShader](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader): 정점 셰이더를 [[D3D Device|디바이스]]로 설정
+```cpp
+void VSSetShader(
+  [in, optional] ID3D11VertexShader  *pVertexShader,
+  [in, optional] ID3D11ClassInstance * const *ppClassInstances,
+                 UINT                NumClassInstances
+);
+
+// 2. Vertex Shader 바인딩 (DeviceContext)
+deviceContext->VSSetShader(vertexShader, nullptr, 0);
+```
+
+
+- [ID3D11DeviceContext::VSSetConstantBuffers](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-vssetconstantbuffers): 정점 셰이더 파이프라인 단계에서 사용하는 [[상수 버퍼]]를 설정
+```cpp
+void VSSetConstantBuffers(
+  [in]           UINT         StartSlot,
+  [in]           UINT         NumBuffers,
+  [in, optional] ID3D11Buffer * const *ppConstantBuffers
+);
+
+// 3. Constant Buffer 바인딩 (Vertex Shader 단계)
+ID3D11Buffer* vsConstantBuffers[] = { constantBuffer };
+deviceContext->VSSetConstantBuffers(0, 1, vsConstantBuffers);
+```
+
+- [ID3D11DeviceContext::VSSetShaderResources](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshaderresources): 셰이더 리소스 배열을 정점 셰이더 단계에 바인딩
+```cpp
+void VSSetShaderResources(
+  [in]           UINT                     StartSlot,
+  [in]           UINT                     NumViews,
+  [in, optional] ID3D11ShaderResourceView * const *ppShaderResourceViews
+);
+
+// 4. Shader Resource(View) 바인딩 (Vertex Shader 단계)
+ID3D11ShaderResourceView* vsSRVs[] = { textureSRV };
+deviceContext->VSSetShaderResources(0, 1, vsSRVs);
+```
+[[D3D 11 View]] 참고
+
+- [ID3D11DeviceContext::VSSetSamplers](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-vssetsamplers): 샘플러 상태의 배열을 정점 셰이더 파이프라인 단계로 설정
+```cpp
+void VSSetSamplers(
+  [in]           UINT               StartSlot,
+  [in]           UINT               NumSamplers,
+  [in, optional] ID3D11SamplerState * const *ppSamplers
+);
+
+// 5. Sampler State 바인딩 (Vertex Shader 단계)
+ID3D11SamplerState* samplers[] = { samplerState };
+deviceContext->VSSetSamplers(0, 1, samplers);
+```
+[[Sampler State]] 참고
+
 ## VS가 하는 일
 
 Vertex Shader 단계에서 하는 일은 명확하다.
@@ -27,6 +101,7 @@ Vertex Shader 단계에서 하는 일은 명확하다.
 1. IA가 만들어 준 VS 입력 구조체를 받는다
 2. 정점 좌표를 변환한다 (Object → World → View → Projection)
 3. 픽셀 셰이더로 넘길 값을 출력 구조체에 담는다
+
 
 ## 1) Vertex Shader 입력 정의
 
