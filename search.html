@@ -7,45 +7,62 @@ permalink: /search/
 
 <script type="module">
     import { Search } from "/js/search/search.js";
-    import { TrieElement } from "/js/search/trie.js";
     import { Indexer } from "/js/search/indexer.js";
+    import {
+        applyMark,
+        buildContextRegex,
+        buildQueryRegex,
+        clampSnippet,
+        SNIPPET_JOINER,
+    } from "/js/snippet-utils.js";
 
     function highlightSearchSnippet(content, query) {
         const sanitized_content_str = content
             .replace(/\[(.+)\]\(.*\)/gm, "$1")
             .replace(/```[\s\S]*?```/g, "");
 
-        const matched = sanitized_content_str.match(
-            new RegExp(String.raw`(.{0,40}${query}.{0,40})`, "gi")
-        );
+        const contextRegex = buildContextRegex(query);
+        if (!contextRegex) return "";
+        const matched = sanitized_content_str.match(contextRegex);
         if (!matched) return "";
 
-        let joined = matched.join(" ... ");
-
-        if (joined.length > 120) joined = joined.slice(0, 120);
-
-        return `... ${joined.replace(
-            new RegExp(String.raw`(${query})`, "gi"),
-            "<mark>$1</mark>"
-        )} ...`;
+        const joined = clampSnippet(matched.join(SNIPPET_JOINER));
+        const queryRegex = buildQueryRegex(query);
+        if (!queryRegex) return "";
+        return `… ${applyMark(joined, queryRegex)} …`;
     }
 
     function makeHTML(query, metadata_list) {
         if (metadata_list == null || metadata_list.length < 1)
             return "<h2>검색 결과 없음</h2>";
 
-        /* 검색 키워드를 mark 태그로 감싸는 Regex */
-        const reg_exp = new RegExp(String.raw`(${query})`, "gi");
-        const replace_exp = "<mark>$1</mark>";
+        const reg_exp = buildQueryRegex(query);
+        if (!reg_exp) return "<h2>검색어를 입력해주세요.</h2>";
+
+        function buildHierarchy(metadata) {
+            if (!metadata) return "";
+            if (Array.isArray(metadata.hierarchy) && metadata.hierarchy.length > 0) {
+                return metadata.hierarchy.join(" › ");
+            }
+            const url = metadata.url || "";
+            const decoded = decodeURI(url);
+            if (decoded.startsWith("/wiki/")) {
+                let path = decoded.replace(/^\/wiki\//, "");
+                path = path.replace(/\/index$/, "");
+                if (!path) return "ROOT";
+                return `ROOT › ${path.replace(/\//g, " › ")}`;
+            }
+            return decoded.replace(/\//g, " › ").replace(/^ › /, "");
+        }
 
         let inner_html_str = `<h2>검색 결과 (${metadata_list.length} 항목)</h2>`;
         inner_html_str += '<ul class="post-list">';
         for (const metadata of metadata_list) {
             inner_html_str += '<li class="post-list-item">';
             inner_html_str += `<a href="${metadata.url}">`;
-            inner_html_str += `<span class="post-title">${metadata.title.replace(
-                reg_exp,
-                replace_exp
+            inner_html_str += `<span class="post-title">${applyMark(
+                metadata.title,
+                reg_exp
             )}</span>`;
             /* 날짜를 2024-09-20 같이 표현함 */
             const updated = metadata.updated.replace(
@@ -53,10 +70,10 @@ permalink: /search/
                 "$1"
             );
             inner_html_str += `<span style="float: right;">${updated}</span>`;
-            inner_html_str += `<div class="post-hier">${metadata.url
-                .replace(/\/wiki\//, " › ")
-                .replace(/\//g, " › ")
-                .replace(reg_exp, replace_exp)}</div>`;
+            inner_html_str += `<div class="post-hier">${applyMark(
+                buildHierarchy(metadata),
+                reg_exp
+            )}</div>`;
             inner_html_str += `<div class="post-snip">${highlightSearchSnippet(
                 /* content = */ metadata.summary + metadata.body,
                 /* query = */ query

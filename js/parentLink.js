@@ -1,5 +1,5 @@
 import { toDataUrl } from "./path-utils.js";
-import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
+import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from "./client-utils.js";
 
 (function() {
     const recursiveLimit = 30;
@@ -16,17 +16,15 @@ import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
         }
         let pr = "상위 문서: "
         for (let i = 0; i < plist.length; i++) {
-            let title = plist[i].title;
-            if (!title || title.toLowerCase() === "index") {
-                title = plist[i].url.replace(/\/index$/, "").split("/").pop();
-            }
+            const title = getDisplayTitle(plist[i]);
             pr += `<a href="${plist[i].url}">${title}</a>`;
             if (i < plist.length - 1) {
-                pr += `<span> / </span>`;
+                pr += `<span> › </span>`;
             }
         }
         return pr;
     }
+
 
     /**
      * 재귀하며 부모 문서 정보를 가져온다.

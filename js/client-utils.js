@@ -23,3 +23,17 @@ export function setHTML(id, html) {
     el.innerHTML = html;
     return true;
 }
+
+export function getDisplayTitle(page) {
+    if (!page) return "";
+    if (Array.isArray(page.hierarchy) && page.hierarchy.length > 0) {
+        return page.hierarchy[page.hierarchy.length - 1];
+    }
+    if (page.title && page.title.toLowerCase() !== "index") {
+        return page.title;
+    }
+    if (page.url) {
+        return page.url.replace(/\/index$/, "").split("/").pop();
+    }
+    return "";
+}

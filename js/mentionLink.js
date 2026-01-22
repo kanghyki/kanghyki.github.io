@@ -1,5 +1,11 @@
 import { resolveLinkTarget, toDataUrl } from "./path-utils.js";
 import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
+import {
+    clampSnippet,
+    escapeRegExp,
+    SNIPPET_CONTEXT,
+    SNIPPET_MAX,
+} from "./snippet-utils.js";
 
 (async () => {
     const target = getDocIdFromPage();
@@ -100,9 +106,8 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
         return output.trim();
     }
 
-    const context = 40;
-    const start = Math.max(0, targetStart - context);
-    const end = Math.min(output.length, targetEnd + context);
+    const start = Math.max(0, targetStart - SNIPPET_CONTEXT);
+    const end = Math.min(output.length, targetEnd + SNIPPET_CONTEXT);
     let snippet = output.slice(start, end).trim();
     if (start > 0) snippet = "…" + snippet;
     if (end < output.length) snippet = snippet + "…";
@@ -113,11 +118,7 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
             `<mark>${targetLabel}</mark>`
         );
     }
-    return snippet;
-}
-
-function escapeRegExp(str) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return clampSnippet(snippet, SNIPPET_MAX);
 }
 
 function isTargetMatch(linkTarget, sourceFile, targetKey) {

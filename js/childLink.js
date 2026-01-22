@@ -1,14 +1,14 @@
 import { toDataUrl } from "./path-utils.js";
-import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
+import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from "./client-utils.js";
 
 (async () => {
     function makeHTML(clist) {
         if (clist == null || clist.length < 1) return '';
 
-        clist.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+        clist.sort((a, b) => (getDisplayTitle(a) || '').localeCompare(getDisplayTitle(b) || ''));
         let ret = '<h2>하위 문서</h2><ul>';
         for (let i = 0; i < clist.length; ++i) {
-            ret += `<li><a href="${clist[i].url}">${clist[i].title}</a></li>`;
+            ret += `<li><a href="${clist[i].url}">${getDisplayTitle(clist[i])}</a></li>`;
         }
         ret += '</ul>'
         return ret;
