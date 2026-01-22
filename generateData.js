@@ -43,6 +43,8 @@ function main() {
         engine.indexer.addIndex(data.fileName, str);
     });
 
+    const wikiFileIndex = buildWikiFileIndex(dataList);
+
     dataList.forEach(function collectTagMap(data) {
         if (!data.tag) {
             return;
@@ -115,11 +117,34 @@ function main() {
     saveMentionList(mentionMap);
     saveMiscList(pageMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
+    saveToFile(
+        `./data/wiki-file-index.json`,
+        JSON.stringify(wikiFileIndex, null, 1),
+        NO_PRINT
+    );
 }
 
 function lexicalOrderingBy(property) {
     return (a, b) =>
         a[property].toLowerCase().localeCompare(b[property].toLowerCase());
+}
+
+function buildWikiFileIndex(dataList) {
+    // Obsidian "Shortest" link resolution support:
+    // - Map basename -> list of docIds for disambiguation.
+    const index = {};
+    dataList.forEach((data) => {
+        if (!data || data.type !== "wiki") return;
+        const fileName = data.fileName || "";
+        const baseName = fileName.split("/").pop();
+        if (!baseName) return;
+        if (!index[baseName]) index[baseName] = [];
+        index[baseName].push(fileName);
+    });
+    Object.keys(index).forEach((key) => {
+        index[key].sort();
+    });
+    return index;
 }
 
 /**

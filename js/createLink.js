@@ -3,8 +3,72 @@ import {
     resolveLinkTarget,
     toWikiUrl,
 } from "./path-utils.js";
+import { fetchJson } from "./client-utils.js";
 
-function runCreateLink() {
+let cachedIndex = null;
+
+async function loadWikiFileIndex() {
+    if (cachedIndex) return cachedIndex;
+    const data = await fetchJson("/data/wiki-file-index.json");
+    cachedIndex = data || {};
+    return cachedIndex;
+}
+
+function normalizeLinkName(rawTarget) {
+    const trimmed = (rawTarget || "").trim();
+    return trimmed.replace(/\.md$/i, "");
+}
+
+// Obsidian "Shortest" rules we mirror:
+// 1) Links can be written as filename only (path omitted).
+// 2) If multiple files share the same name, pick the nearest by folder distance.
+// 3) File extension (.md) is optional in the link.
+function resolveShortestLink(sourceDocId, rawTarget, indexMap) {
+    const normalized = normalizeLinkName(rawTarget);
+    if (!normalized) return "";
+    if (normalized.includes("/")) {
+        return resolveLinkTarget(sourceDocId, normalized);
+    }
+
+    const candidates = indexMap[normalized];
+    if (!Array.isArray(candidates) || candidates.length === 0) {
+        return resolveLinkTarget(sourceDocId, normalized);
+    }
+    if (candidates.length === 1) {
+        return candidates[0];
+    }
+
+    const sourceDir = sourceDocId
+        ? sourceDocId.split("/").slice(0, -1)
+        : [];
+
+    let best = candidates[0];
+    let bestScore = Infinity;
+
+    candidates.forEach((candidate) => {
+        const candDir = candidate.split("/").slice(0, -1);
+        let common = 0;
+        while (
+            common < sourceDir.length &&
+            common < candDir.length &&
+            sourceDir[common] === candDir[common]
+        ) {
+            common++;
+        }
+        const score =
+            (sourceDir.length - common) + (candDir.length - common);
+        if (score < bestScore) {
+            bestScore = score;
+            best = candidate;
+        } else if (score === bestScore && candidate < best) {
+            best = candidate;
+        }
+    });
+
+    return best;
+}
+
+async function runCreateLink() {
     const tags = document.querySelectorAll(".post-tag");
     if (tags && tags.length > 0) {
         for (let i = 0; i < tags.length; i++) {
@@ -58,7 +122,7 @@ function runCreateLink() {
         if (!trimmed) {
             return "";
         }
-        const resolved = resolveLinkTarget(sourceDocId, trimmed);
+        const resolved = resolveShortestLink(sourceDocId, trimmed, cachedIndex);
         return toWikiUrl(resolved);
     }
 
@@ -99,7 +163,13 @@ function runCreateLink() {
 }
 
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", runCreateLink);
+    document.addEventListener("DOMContentLoaded", async () => {
+        cachedIndex = await loadWikiFileIndex();
+        runCreateLink();
+    });
 } else {
-    runCreateLink();
+    (async () => {
+        cachedIndex = await loadWikiFileIndex();
+        runCreateLink();
+    })();
 }
