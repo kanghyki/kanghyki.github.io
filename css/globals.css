@@ -448,6 +448,7 @@ article {
   white-space: pre-line;
   max-width: 560px;
   line-height: 1.7;
+  text-align: left;
 }
 
 @media (max-width: 640px) {
