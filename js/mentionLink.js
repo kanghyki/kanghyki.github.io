@@ -1,9 +1,9 @@
+import { resolveLinkTarget, toDataUrl } from "./path-utils.js";
+import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
+
 (async () => {
-    function getTarget() {
-        var thisName = document.getElementById("thisName").value;
-        return window.PathUtils.normalizeDocId(thisName);
-    }
-    const target = getTarget();
+    const target = getDocIdFromPage();
+    if (!target) return;
 
     function makeHTML(mention_map, targetKey) {
         let ret = '<h2>이 문서를 참조한 문서</h2><ul class="mention-ul">';
@@ -27,15 +27,8 @@
         return ret;
     }
 
-    let target_data = null;
-    try {
-        let target_res = await fetch(window.PathUtils.toDataUrl("mention", target));
-        if (!target_res.ok) return;
-        target_data = await target_res.json();
-    } catch (e) {
-        console.log(e);
-        return;
-    }
+    const target_data = await fetchJson(toDataUrl("mention", target));
+    if (!target_data) return;
 
     // mention_map의 value는 다음과 같이 저장된다.
     // {
@@ -64,21 +57,12 @@
     }
 
     for (const file_path of mention_map.keys()) {
-        try {
-            const res = await fetch(window.PathUtils.toDataUrl("metadata", file_path));
-            if (!res.ok) continue;
-            const data = await res.json();
-            mention_map.get(file_path).metadata = data;
-        } catch (e) {
-            console.log(e);
-            continue;
-        }
+        const data = await fetchJson(toDataUrl("metadata", file_path));
+        if (!data) continue;
+        mention_map.get(file_path).metadata = data;
     }
 
-    document.getElementById("mention-list").innerHTML = makeHTML(
-        mention_map,
-        target
-    );
+    setHTML("mention-list", makeHTML(mention_map, target));
 })();
 
 function extractSnippet(paragraph, sourceFile, targetKey) {
@@ -126,7 +110,7 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
 function isTargetMatch(linkTarget, sourceFile, targetKey) {
     if (!linkTarget) return false;
 
-    let resolved = window.PathUtils.resolveLinkTarget(sourceFile, linkTarget);
+    let resolved = resolveLinkTarget(sourceFile, linkTarget);
     if (resolved === targetKey) return true;
     if (`${resolved}/index` === targetKey) return true;
     return false;

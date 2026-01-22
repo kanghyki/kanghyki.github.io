@@ -26,40 +26,34 @@ permalink: /tag/
     }
 </style>
 
-<script>
+<script type="module">
+    import { toDataUrl, toTagUrl } from "/js/path-utils.js";
+    import { fetchJson, setHTML } from "/js/client-utils.js";
     (function () {
-        fetch(`/data/tag_count.json`)
-            .then((response) => response.json())
-            .then(function (data) {
-                if (data == null) {
-                    return;
-                }
-                const tags = data;
+        fetchJson(`/data/tag_count.json`).then((data) => {
+            if (!data) {
+                return;
+            }
+            const tags = data;
 
-                let template = "";
-                for (let i = 0; i < tags.length; i++) {
-                    const tag = tags[i];
-                    template += `
-                    <li class="tag-item">
-                        <a href="#${tag.name}" onclick="showTag('${tag.name}')">${tag.name}<sup>${tag.size}</sup></a>
-                    </li>`;
-                }
-                document.getElementById("tag-list").innerHTML = template;
+            let template = "";
+            for (let i = 0; i < tags.length; i++) {
+                const tag = tags[i];
+                template += `
+                <li class="tag-item">
+                    <a href="#${tag.name}" onclick="showTag('${tag.name}')">${tag.name}<sup>${tag.size}</sup></a>
+                </li>`;
+            }
+            setHTML("tag-list", template);
 
-                showInitTag();
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+            showInitTag();
+        });
     })();
 
     function showTag(tagName) {
-        fetch(window.PathUtils.toTagUrl(tagName))
-            .then((response) => response.json())
-            .then((data) => createLinks(data, tagName))
-            .catch(function (error) {
-                console.error(error);
-            });
+        fetchJson(toTagUrl(tagName)).then((data) =>
+            createLinks(data, tagName)
+        );
     }
 
     function createLinks(data, tagName) {
@@ -78,7 +72,7 @@ permalink: /tag/
             <h3>${tagName}</h3>
             <ul class="post-list"> ${listItems} </ul>`;
 
-        document.getElementById("tag-collection").innerHTML = template;
+        setHTML("tag-collection", template);
 
         for (let i = 0; i < data.length; i++) {
             setTimeout(() => insertDocumentLink(data[i], tagName), 0);
@@ -86,7 +80,7 @@ permalink: /tag/
     }
 
     function insertDocumentLink(documentId, tagName) {
-        fetch(window.PathUtils.toDataUrl("metadata", documentId))
+        fetch(toDataUrl("metadata", documentId))
             .then((response) => response.json())
             .then(function (data) {
                 if (data == null) {

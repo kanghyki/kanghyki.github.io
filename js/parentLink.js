@@ -1,11 +1,10 @@
-(function() {
-    function getTarget() {
-        var thisName = document.getElementById('thisName').value;
-        return window.PathUtils.normalizeDocId(thisName);
-    }
+import { toDataUrl } from "./path-utils.js";
+import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
 
+(function() {
     const recursiveLimit = 30;
-    const target = getTarget();
+    const target = getDocIdFromPage();
+    if (!target) return;
     insertParent(target, 0, [])
 
     /**
@@ -15,9 +14,9 @@
         if (plist == null || plist.length < 1) {
             return "";
         }
-        var pr = "상위 문서: "
-        for (var i = 0; i < plist.length; i++) {
-            var title = plist[i].title;
+        let pr = "상위 문서: "
+        for (let i = 0; i < plist.length; i++) {
+            let title = plist[i].title;
             if (!title || title.toLowerCase() === "index") {
                 title = plist[i].url.replace(/\/index$/, "").split("/").pop();
             }
@@ -38,25 +37,19 @@
             return;
         }
 
-        fetch(window.PathUtils.toDataUrl("metadata", target))
-            .then(response => response.json())
-            .then(function(data) {
-                if (data == null) {
-                    return;
-                }
-                parentList.unshift(data);
-
-                if (data.parent == null) {
-                    parentList.pop();   // this 문서가 부모 문서 목록에 나오지 않도록 제거해준다.
-                    document.getElementById('parent-list').innerHTML = makeHTML(parentList);
-                    return;
-                }
-
-                setTimeout(() => insertParent(data.parent, recursiveCount + 1, parentList), 0);
+        fetchJson(toDataUrl("metadata", target)).then((data) => {
+            if (data == null) {
                 return;
-            })
-            .catch(function(error) {
-                console.error(error);
-            });
+            }
+            parentList.unshift(data);
+
+            if (data.parent == null) {
+                parentList.pop();   // this 문서가 부모 문서 목록에 나오지 않도록 제거해준다.
+                setHTML("parent-list", makeHTML(parentList));
+                return;
+            }
+
+            setTimeout(() => insertParent(data.parent, recursiveCount + 1, parentList), 0);
+        });
     }
 })();

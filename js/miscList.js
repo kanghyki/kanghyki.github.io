@@ -1,8 +1,11 @@
+import { normalizeDocId } from "./path-utils.js";
+import { fetchJson, setHTML } from "./client-utils.js";
+
 (() => {
     const container = document.getElementById("misc-list");
     if (!container) return;
     const current = document.getElementById("thisName");
-    if (current && current.value !== "index") return;
+    if (current && normalizeDocId(current.value) !== "index") return;
 
     function makeHTML(list) {
         if (!list || list.length === 0) return "";
@@ -14,10 +17,8 @@
         return html;
     }
 
-    fetch("/data/misc.json")
-        .then((res) => (res.ok ? res.json() : []))
-        .then((data) => {
-            container.innerHTML = makeHTML(data);
-        })
-        .catch(() => {});
+    fetchJson("/data/misc.json").then((data) => {
+        if (!data) return;
+        setHTML("misc-list", makeHTML(data));
+    });
 })();
