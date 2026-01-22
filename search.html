@@ -49,7 +49,7 @@ permalink: /search/
             if (decoded.startsWith("/wiki/")) {
                 let path = decoded.replace(/^\/wiki\//, "");
                 path = path.replace(/\/index$/, "");
-                if (!path) return "ROOT";
+                if (!path) return "ROOT"; // TODO: 루트 이름 변경되면 수정 필요
                 return `ROOT › ${path.replace(/\//g, " › ")}`;
             }
             return decoded.replace(/\//g, " › ").replace(/^ › /, "");
