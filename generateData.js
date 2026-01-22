@@ -338,11 +338,6 @@ function parseInfo(file, info, body) {
 
     if (obj.tag) {
         obj.tag = obj.tag.split(/\s+/);
-    } else {
-        const inferredTags = extractHashtags(body);
-        if (inferredTags.length > 0) {
-            obj.tag = inferredTags;
-        }
     }
 
     if (!obj.title) {
@@ -509,17 +504,6 @@ function inferTitle(file, body) {
         return headingMatch[1].trim();
     }
     return file.name.replace(/\.md$/, "");
-}
-
-function extractHashtags(body) {
-    const cleaned = body.replace(/```[\s\S]*?```/g, "");
-    const regex = /(^|[\s(])#([A-Za-z0-9/_-]+)/g;
-    const tags = new Set();
-    let match;
-    while ((match = regex.exec(cleaned)) !== null) {
-        tags.add(match[2]);
-    }
-    return Array.from(tags);
 }
 
 function formatDate(date) {
