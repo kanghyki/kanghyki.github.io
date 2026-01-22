@@ -44,6 +44,8 @@
   --light-background: #f8f5e4;
 
   --accent-low: rgba(92, 106, 114, 0.2);
+  --highlight-bg: rgba(245, 125, 38, 0.2);
+  --highlight-text: inherit;
 
   --text-color: #5c6a72;
   --cloudy-text-color: #829181;
@@ -73,6 +75,8 @@
     --light-background: #374247;
 
     --accent-low: rgba(211, 198, 170, 0.18);
+    --highlight-bg: rgba(219, 188, 127, 0.22);
+    --highlight-text: inherit;
 
     --text-color: #d3c6aa;
     --cloudy-text-color: #a7b0a6;
@@ -201,6 +205,13 @@ code.language-plaintext {
   padding: 0.1em 0.2em;
   border-radius: 0.3em;
   color: var(--cloudy-text-color);
+}
+
+mark {
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text);
+  padding: 0 0.15em;
+  border-radius: 0.2em;
 }
 
 a {

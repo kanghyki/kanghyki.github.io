@@ -15,7 +15,7 @@ import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
             for (const paragraph of value.paragraphs) {
                 const snippet = extractSnippet(
                     paragraph,
-                    value.metadata.resource,
+                    key,
                     targetKey
                 );
                 ret += `<div> - ${snippet}</div>`;
@@ -73,6 +73,7 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
     let lastIndex = 0;
     let targetStart = -1;
     let targetEnd = -1;
+    let targetLabel = "";
     let match;
 
     while ((match = regex.exec(text)) !== null) {
@@ -87,6 +88,7 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
         if (isTargetMatch(target, sourceFile, targetKey)) {
             targetStart = output.length;
             targetEnd = output.length + label.length;
+            targetLabel = label;
         }
 
         output += label;
@@ -104,7 +106,18 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
     let snippet = output.slice(start, end).trim();
     if (start > 0) snippet = "…" + snippet;
     if (end < output.length) snippet = snippet + "…";
+    if (targetLabel) {
+        const escaped = escapeRegExp(targetLabel);
+        snippet = snippet.replace(
+            new RegExp(escaped, "g"),
+            `<mark>${targetLabel}</mark>`
+        );
+    }
     return snippet;
+}
+
+function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function isTargetMatch(linkTarget, sourceFile, targetKey) {

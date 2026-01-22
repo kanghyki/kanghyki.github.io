@@ -26,7 +26,7 @@ permalink: /search/
 
         return `... ${joined.replace(
             new RegExp(String.raw`(${query})`, "gi"),
-            "<strong>$1</strong>"
+            "<mark>$1</mark>"
         )} ...`;
     }
 
@@ -34,9 +34,9 @@ permalink: /search/
         if (metadata_list == null || metadata_list.length < 1)
             return "<h2>검색 결과 없음</h2>";
 
-        /* 검색 키워드를 strong 태그로 감싸는 Regex */
+        /* 검색 키워드를 mark 태그로 감싸는 Regex */
         const reg_exp = new RegExp(String.raw`(${query})`, "gi");
-        const replace_exp = "<strong>$1</strong>";
+        const replace_exp = "<mark>$1</mark>";
 
         let inner_html_str = `<h2>검색 결과 (${metadata_list.length} 항목)</h2>`;
         inner_html_str += '<ul class="post-list">';
