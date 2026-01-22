@@ -4,10 +4,14 @@ summary: 정점을 픽셀로
 tag:
 ---
 
+
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-rasterizer-stage
+
+
 
 ## 주요 Direct3D 11 함수
 - [ID3D11Device::CreateRasterizerState](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createrasterizerstate) : 래스터라이저 단계에 동작 방법을 알려주는 래스터라이저 상태 개체를 만듦
+
 ```cpp
 HRESULT CreateRasterizerState(
   [in]            const D3D11_RASTERIZER_DESC *pRasterizerDesc,
@@ -26,6 +30,7 @@ device->CreateRasterizerState(&rsDesc, &rasterizerState);
 ```
 
 - [ID3D11DeviceContext::RSSetState](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-rssetstate) : 파이프라인의 [[Rasterizer stage]]에 대한 래스터라이저 상태를 설정
+
 ```cpp
 void RSSetState(
   [in, optional] ID3D11RasterizerState *pRasterizerState
@@ -36,6 +41,7 @@ deviceContext->RSSetState(rasterizerState);
 ```
 
 - [ID3D11DeviceContext::RSSetViewports](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-rssetviewports) : 뷰포트 배열을 파이프라인의 래스터라이저 단계에 바인딩
+
 ```cpp
 void RSSetViewports(
   [in]           UINT                 NumViewports,
@@ -56,6 +62,7 @@ deviceContext->RSSetViewports(1, &viewport);
 ```
 
 - [ID3D11DeviceContext::RSSetScissorRects](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-rssetscissorrects) : scissor rect 배열을 래스터라이저 단계에 바인딩
+
 ```cpp
 void RSSetScissorRects(
   [in]           UINT             NumRects,
@@ -71,6 +78,7 @@ scissor.bottom = height;
 
 deviceContext->RSSetScissorRects(1, &scissor);
 ```
+
 > `scissor rect`는 **래스터라이저 단계에서 픽셀 출력이 허용되는 화면 영역**입니다.
 
 **Rasterizer stage**는 Vertex Shader에서 출력된 정점 결과를 받아 삼각형(IA에서 설정된 Primitive)을 **화면 픽셀 단위로 변환**하는 단계다.
