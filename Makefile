@@ -12,13 +12,13 @@ setup:
 	bundle install
 
 data:
-	./generateData.js
+	node ./generateData.js
 
 dev:
 	./jekyll-run.sh
 
 build:
-	./generateData.js
+	node ./generateData.js
 	bundle exec jekyll build -d _site
 
 clean-data:

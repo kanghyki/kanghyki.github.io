@@ -1,11 +1,11 @@
 #!/bin/bash
 
-./generateData.js
+node ./generateData.js
 
 bundle exec jekyll s --watch &
 JEKYLL_PID=$!
 
-fswatch -o _wiki | xargs -n 1 sh -c './generateData.js' &
+fswatch -o _wiki | xargs -n 1 sh -c 'node ./generateData.js' &
 FSWATCH_PID=$!
 
 trap "kill $FSWATCH_PID $JEKYLL_PID; exit" SIGINT

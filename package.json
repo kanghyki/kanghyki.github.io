@@ -1,9 +1,5 @@
 {
     "name": "kanghyki.github.io",
-    "version": "1.0.0",
-    "main": "generateData.js",
-    "repository": "git@github.com:kanghyki/kanghyki.github.io.git",
-    "author": "kanghyki <kanghyki@gmail.com>",
-    "license": "MIT",
+    "private": true,
     "type": "module"
 }

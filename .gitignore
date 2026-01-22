@@ -8,7 +8,7 @@ tags
 tags.lock
 tags.temp
 
-# generateData.js
+package-lock.json
 node_modules
 yarn.lock
 
