@@ -15,6 +15,34 @@ D3D 10 이상 API는 기능 영역을 단계로 구분한다.
 2. 정점 버퍼의 메모리 배치를 VS input과 어떻게 매칭할지
 3. 정점을 어떤 방식으로 묶어 primitive를 만들지 (Topology + Index Buffer)
 
+## 주요 Direct3D 11 함수
+
+- [ID3D11Device::CreateInputLayout](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createinputlayout) : 입력 버퍼 데이터를 설명하는 입력 레이아웃 생성함
+```cpp
+HRESULT CreateInputLayout(
+  [in]            const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,
+  [in]            UINT                           NumElements,
+  [in]            const void                     *pShaderBytecodeWithInputSignature,
+  [in]            SIZE_T                         BytecodeLength,
+  [out, optional] ID3D11InputLayout              **ppInputLayout
+);
+```
+
+- [ID3D11DeviceContext::IASetInputLayout](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) : 입력 레이아웃 개체를 입력 어셈블러 단계에 바인딩함
+```cpp
+void IASetInputLayout(
+  [in, optional] ID3D11InputLayout *pInputLayout
+);
+```
+
+- [ID3D11DeviceContext::IASetPrimitiveTopology](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology) : 기본 형식 및 입력 어셈블러 단계의 입력 데이터를 설명하는 데이터 순서에 대한 정보를 바인딩함
+```cpp
+void IASetPrimitiveTopology(
+  [in] D3D11_PRIMITIVE_TOPOLOGY Topology
+);
+```
+
+
 ## 1) 셰이더 입력(VS)부터 정하기
 
 IA는 버퍼의 바이트 배열을 읽고 Input Layout 규칙으로 VS input을 만들어준다.
