@@ -113,7 +113,6 @@ function main() {
     saveMetaDataFiles(pageMap);
     saveDocumentUrlList(pageMap);
     saveMentionList(mentionMap);
-    saveMiscList(pageMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
     saveToFile(`./data/wiki-file-index.json`, JSON.stringify(wikiFileIndex, null, 1), NO_PRINT);
 }
@@ -453,6 +452,10 @@ function inferParentsFromPath(pageMap) {
             return;
         }
         const parts = fileName.split('/');
+        if (parts.length === 1 && rootIndex && fileName !== rootIndex) {
+            page.parent = rootIndex;
+            return;
+        }
         for (let i = parts.length - 1; i > 0; i--) {
             const candidate = parts.slice(0, i).join('/');
             if (keySet.has(candidate)) {

@@ -1,4 +1,4 @@
-import { normalizeDocId, toDataUrl } from './path-utils.js';
+import { toDataUrl } from './path-utils.js';
 import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from './client-utils.js';
 
 (async () => {
@@ -52,21 +52,10 @@ import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from './client-
     }
 
     // Show documents under current index
-    const isRoot = normalizeDocId(target) === 'index';
-    if (isRoot) {
-        const misc = await fetchJson('/data/misc.json');
-        if (Array.isArray(misc)) {
-            misc.forEach((item) => {
-                if (!item || !item.url) return;
-                docItems.push({ url: item.url, title: item.title || '' });
-            });
-        }
-    } else {
-        for (const id of leafChildren) {
-            const data = await fetchJson(toDataUrl('metadata', id));
-            if (!data || !data.url) continue;
-            docItems.push({ url: data.url, title: getDisplayTitle(data) });
-        }
+    for (const id of leafChildren) {
+        const data = await fetchJson(toDataUrl('metadata', id));
+        if (!data || !data.url) continue;
+        docItems.push({ url: data.url, title: getDisplayTitle(data) });
     }
 
     folderItems.sort((a, b) => a.title.localeCompare(b.title));
