@@ -4,5 +4,6 @@
   "alwaysUpdateLinks": true,
   "spellcheck": false,
   "attachmentFolderPath": "assets",
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "vimMode": true
 }
