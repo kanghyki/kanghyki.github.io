@@ -1,6 +1,6 @@
 ---
-title: 프레임 버퍼
-summary:
+title: OpenGL 프레임 버퍼
+summary: OpenGL에서 프레임 버퍼 사용하기
 tag:
 ---
 
