@@ -1,3 +1,3 @@
 ---
-title: tool
+title: 도구
 ---
