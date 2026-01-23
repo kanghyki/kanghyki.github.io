@@ -41,10 +41,11 @@ permalink: /tag/
                 const tag = tags[i];
                 template += `
                 <li class="tag-item">
-                    <a href="#${tag.name}" onclick="showTag('${tag.name}')">${tag.name}<sup>${tag.size}</sup></a>
+                    <a href="#${encodeURIComponent(tag.name)}" data-tag="${tag.name}">${tag.name}<sup>${tag.size}</sup></a>
                 </li>`;
             }
             setHTML("tag-list", template);
+            wireTagList();
 
             showInitTag();
         });
@@ -128,5 +129,19 @@ permalink: /tag/
             let tagName = decodeURI(req.pop());
             showTag(tagName);
         }
+    }
+
+    function wireTagList() {
+        const list = document.getElementById("tag-list");
+        if (!list) return;
+        list.addEventListener("click", (event) => {
+            const link = event.target.closest("a[data-tag]");
+            if (!link) return;
+            event.preventDefault();
+            const tagName = link.dataset.tag;
+            if (!tagName) return;
+            history.replaceState(null, "", `#${encodeURIComponent(tagName)}`);
+            showTag(tagName);
+        });
     }
 </script>
