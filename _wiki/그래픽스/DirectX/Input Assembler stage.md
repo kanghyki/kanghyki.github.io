@@ -47,7 +47,7 @@ void IASetPrimitiveTopology(
 
 IA는 버퍼의 바이트 배열을 읽고 Input Layout 규칙으로 VS input을 만들어준다.
 
-```hlsl
+```cpp
 // Vertex Shader input
 struct VSIn
 {

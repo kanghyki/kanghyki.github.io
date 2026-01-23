@@ -12,6 +12,10 @@ https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11
 
 ![[assets/Pasted image 20260122082930.jpg]]
 
+
+> 아래 스테이지들에서 사용하는 Create, Set 함수들은 그래픽스 파이프라인의 옵션들을 만들고 설정하는 것 뿐,
+> 실제로 이 옵션들을 사용해 그래픽스 파이프라인의 흐름대로 렌더링하는건 DrawIndexed() 함수가 호출된 이후다.
+
 1. [[Input Assembler stage]]
 2. [[Vertex Shader stage]]
 3. [[Hull Shader stage]]

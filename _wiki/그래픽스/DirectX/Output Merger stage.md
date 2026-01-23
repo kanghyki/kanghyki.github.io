@@ -4,10 +4,64 @@ summary: 여행의 종착지
 tag:
 ---
 
+
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-output-merger-stage
 
-## 주요 Direct3D 11 함수
 
+
+## 주요 Direct3D 11 함수
+- [ID3D11DeviceContext::ClearDepthStencilView](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-cleardepthstencilview) : Depth/Stencil View(DSV)가 가리키는 깊이/스텐실 버퍼를 초기화한다.
+
+```cpp
+void ClearDepthStencilView(
+  [in] ID3D11DepthStencilView *pDepthStencilView,
+  [in] UINT                   ClearFlags,
+  [in] FLOAT                  Depth,
+  [in] UINT8                  Stencil
+);
+
+// ex
+// 프레임 시작 시: 깊이/스텐실 버퍼 초기화
+context->ClearDepthStencilView(
+    dsv,
+    D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
+    1.0f,
+    0
+);
+```
+
+- [ID3D11DeviceContext::OMSetRenderTargets](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) : OM 단계에 **출력 대상**을 바인딩한다.
+
+```cpp
+void OMSetRenderTargets(
+  [in]           UINT                   NumViews,
+  [in, optional] ID3D11RenderTargetView * const *ppRenderTargetViews,
+  [in, optional] ID3D11DepthStencilView *pDepthStencilView
+);
+
+// ex
+ID3D11RenderTargetView* rtvs[] = { backBufferRTV };
+
+context->OMSetRenderTargets(
+    1,
+    rtvs,
+    dsv
+);
+```
+
+- [ID3D11DeviceContext::OMSetDepthStencilState](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-omsetdepthstencilstate) : Depth/Stencil 테스트 및 쓰기 규칙을 설정한다.
+
+```cpp
+void OMSetDepthStencilState(
+  [in, optional] ID3D11DepthStencilState *pDepthStencilState,
+  [in]           UINT                    StencilRef
+);
+
+//ex
+context->OMSetDepthStencilState(depthTestWriteState, 0);
+```
+
+---
 Output Merger stage는 [[Pixel Shader stage|Pixel Shader]]가 계산한 픽셀 결과를 받아서 **최종적으로 렌더 타깃과 깊이/스텐실 버퍼에 반영하는 단계**다.  
 이 단계에서 픽셀이 실제로 **화면 데이터**가 될지 말지가 결정된다.
 
