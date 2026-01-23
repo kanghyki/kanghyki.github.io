@@ -1,8 +1,9 @@
 ---
 title: D3D View
 summary: D3D 11 View를 알아보자
-tags: 
+tags:
 ---
+
 ## Direct3D 11에서 "View"라는 개념
 
 Direct3D 11을 공부하다 보면 `Shader Resource View`, `Render Target View`, `Depth Stencil View`가 계속 등장한다.  
@@ -123,11 +124,11 @@ ID3D11RenderTargetView* rtv;
 ```
 
 - `texture`  
-    데이터 저장소
+   데이터 저장소
 - `srv`  
-    셰이더 입력 관점
+   셰이더 입력 관점
 - `rtv`  
-    렌더링 출력 관점
+   렌더링 출력 관점
 
 Direct3D 11은 이 셋을 명확히 분리한다.
 

@@ -1,8 +1,9 @@
 ---
-title   : xargs
-summary : construct argument list(s) and execute utility
-tags: 
+title: xargs
+summary: construct argument list(s) and execute utility
+tags:
 ---
+
 # xargs
 
 xargs는 표준 입력으로 받은 데이터를 다른 명령어의 인수로 전달하는 유틸리티다.
@@ -11,6 +12,7 @@ xargs는 표준 입력으로 받은 데이터를 다른 명령어의 인수로 �
 ## 옵션
 
 ##### `-n N`, 그룹화
+
 `--max-args=N`
 한번에 최대 N개의 인수를 명령어에 전달한다.
 
@@ -24,12 +26,15 @@ $ echo "1 2 3 4 5 6 7" | xargs -n 2
 ```
 
 ##### `-I {}`, 플레이스 홀더 지정
+
 입력에서 받은 각 항목을 지정된 플레이스홀더(기본 `{}`)으로 대체해서 명령어에 전달한다.
+
 ```sh
 $ echo "aaa bbb" | xargs -n 1 -I {} echo "{}"
 ```
 
 ##### `-0`, NUL 구분자
+
 NUL(`\0`) 문자로 구분된 입력을 처리한다.
 NUL문자를 구분자로 사용하면 공백, 줄바꿈 문자가 포함된 경우에도 올바르게 처리할 수 있다.
 
@@ -43,6 +48,7 @@ about.md
 ```
 
 ##### `-P n`, 병렬 처리 모드
+
 `--max-procs=maxprocs`
 병렬로 실행할 프로세스의 수를 지정한다.
 

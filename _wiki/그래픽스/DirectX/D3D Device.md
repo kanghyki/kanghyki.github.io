@@ -1,7 +1,7 @@
 ---
 title: D3D Device란 무엇인가
 summary: D3D Device에 대해 알아보자
-tags: 
+tags:
 ---
 
 ## Device란 무엇인가
@@ -22,7 +22,6 @@ tags:
 - Device는 **상태를 기억하지 않는다**
 - Device는 **렌더링을 수행하지 않는다**
 - “무엇을 그릴지”가 아니라 **“그릴 재료를 만드는 공장”**에 가깝다
-    
 
 예시:
 

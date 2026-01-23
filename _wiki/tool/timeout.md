@@ -1,13 +1,13 @@
 ---
-title   : GNU timeout
-summary : run a command with a time limit
-tags: 
+title: GNU timeout
+summary: run a command with a time limit
+tags:
 ---
+
 # timeout
 
 GNU coreutil에 포함된 timeout 유틸리티는 명령을 실행하고
 지정된 시간 간격 이후에도 실행중이면 프로세스를 종료한다.
-
 
 ## 설치
 
@@ -38,7 +38,7 @@ $ timeout 10s bash -c "( $BIN_DIR/$testcase )" > $output 2>&1 &
 ### duration
 
 | 플래그 | 단위         |
-|--------|--------------|
+| ------ | ------------ |
 | `s`    | 초 (기본 값) |
 | `m`    | 분           |
 | `h`    | 시           |
@@ -49,6 +49,7 @@ $ timeout 10s bash -c "( $BIN_DIR/$testcase )" > $output 2>&1 &
 [레퍼런스 참고](#reference)
 
 ### 종료코드
+
 - 124, 명령이 타임아웃됨 (`--preserve-status`가 지정되지 않은 경우)
 - 125, timeout 명령어 자체가 실패
 - 126, 명령은 찾았지만 호출할 수 없음

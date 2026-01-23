@@ -1,9 +1,8 @@
 ---
 title: Vertex Shader stage
 summary: 정점 단위로 실행되는 셰이더
-tags: 
+tags:
 ---
-
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/vertex-shader-stage
 
@@ -21,9 +20,8 @@ Vertex Shader는 **정점 단위로 실행되는 셰이더**로,
 
 > If no vertex modification or transformation is required, a pass-through vertex shader must be created and set to the pipeline.
 
-
-
 ## 주요 Direct3D 11 함수
+
 - [ID3D11Device::CreateVertexShader](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createvertexshader): 컴파일된 셰이더에서 정점 셰이더 개체를 만듦
 
 ```cpp
@@ -103,18 +101,16 @@ deviceContext->VSSetSamplers(0, 1, samplers);
 
 [[Sampler State]] 참고
 
-
-
 ## VS가 하는 일
+
 Vertex Shader 단계에서 하는 일은 명확하다.
 
 1. IA가 만들어 준 VS 입력 구조체를 받는다
 2. 정점 좌표를 변환한다 (Object → World → View → Projection)
 3. 픽셀 셰이더로 넘길 값을 출력 구조체에 담는다
 
-
-
 ## 1) Vertex Shader 입력 정의
+
 VS 입력은 IA의 Input Layout(VSIn, VSOut)과 Semantic(Position, Color)으로 연결된다.
 
 ```hlsl
@@ -133,9 +129,8 @@ struct VSOut
 
 > `POSITION`, `COLOR`는 IA가 채워서 넘겨주고 VS는 이 값을 사용한다
 
-
-
 ## 2) 정점 좌표 변환
+
 Vertex Shader의 가장 중요한 출력은 `SV_POSITION`이다.
 
 ```hlsl
@@ -160,8 +155,7 @@ VSOut VSMain(VSIn vin)
 
 `SV_POSITION`으로 출력된 값은 다음 단계인 [[Rasterizer stage|Rasterizer]]가 **화면 픽셀**로 변환하는 기준이 된다.
 
-
-
 ## 3) 데이터 전달
+
 VS 출력 구조체에 담긴 값들(`COLOR`, `TEXCOORD` 등)은 Vertex Shader에서 정점 단위로 출력되고,  
 이 값들은 [[Rasterizer stage|Rasterizer stage]]에서 primitive 내부 픽셀 기준으로 보간된 뒤 [[Pixel Shader stage|Pixel Shader stage]]의 입력으로 전달된다.

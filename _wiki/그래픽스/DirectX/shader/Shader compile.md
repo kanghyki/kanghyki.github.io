@@ -1,7 +1,7 @@
 ---
 title: DX11 셰이더 컴파일
 summary: DX11에서 셰이더를 컴파일 해보자
-tags: 
+tags:
 ---
 
 ## 1. 셰이더 컴파일이란
@@ -9,9 +9,9 @@ tags:
 DX11은 HLSL(.hlsl) 소스를 **GPU가 실행 가능한 바이트코드**로 바꿔서 사용한다.
 이 변환 과정을 컴파일이라고 부른다.
 
-* 입력: HLSL 소스 코드
-* 출력: 컴파일된 바이트코드(blob)
-* 사용처: CreateVertexShader / CreatePixelShader 등에 전달
+- 입력: HLSL 소스 코드
+- 출력: 컴파일된 바이트코드(blob)
+- 사용처: CreateVertexShader / CreatePixelShader 등에 전달
 
 ---
 
@@ -83,11 +83,11 @@ if (FAILED(hr))
 
 핵심 포인트만 보면 된다.
 
-* `main`
+- `main`
   → HLSL에서 시작 함수 이름
-* `vs_5_0`
+- `vs_5_0`
   → Vertex Shader, Shader Model 5.0
-* 결과는 `ID3DBlob`에 저장됨
+- 결과는 `ID3DBlob`에 저장됨
 
 ---
 
@@ -104,8 +104,8 @@ device->CreateVertexShader(
 );
 ```
 
-* 컴파일된 바이트코드를 GPU용 객체로 변환
-* 이후 vsBlob은 InputLayout 생성 등에 재사용 가능
+- 컴파일된 바이트코드를 GPU용 객체로 변환
+- 이후 vsBlob은 InputLayout 생성 등에 재사용 가능
 
 ---
 
@@ -121,11 +121,11 @@ context->VSSetShader(vertexShader, nullptr, 0);
 
 ## 7. 자주 헷갈리는 포인트
 
-* 컴파일은 GPU 작업이 아님
+- 컴파일은 GPU 작업이 아님
   → CPU에서 수행, 결과만 GPU로 전달
-* 런타임 컴파일 vs 오프라인 컴파일
+- 런타임 컴파일 vs 오프라인 컴파일
   → 실무에선 fxc/dxc로 미리 컴파일한 .cso를 로드하는 경우가 많음
-* 에러 로그는 반드시 출력
+- 에러 로그는 반드시 출력
   → HLSL 에러는 errorBlob 안에만 있음
 
 ---

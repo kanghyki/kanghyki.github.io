@@ -1,15 +1,13 @@
 ---
 title: Output Merger stage
 summary: 여행의 종착지
-tags: 
+tags:
 ---
-
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-output-merger-stage
 
-
-
 ## 주요 Direct3D 11 함수
+
 - [ID3D11DeviceContext::ClearDepthStencilView](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-cleardepthstencilview) : Depth/Stencil View(DSV)가 가리키는 깊이/스텐실 버퍼를 초기화한다.
 
 ```cpp
@@ -62,6 +60,7 @@ context->OMSetDepthStencilState(depthTestWriteState, 0);
 ```
 
 ---
+
 Output Merger stage는 [[Pixel Shader stage|Pixel Shader]]가 계산한 픽셀 결과를 받아서 **최종적으로 렌더 타깃과 깊이/스텐실 버퍼에 반영하는 단계**다.  
 이 단계에서 픽셀이 실제로 **화면 데이터**가 될지 말지가 결정된다.
 

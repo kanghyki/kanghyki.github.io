@@ -1,17 +1,15 @@
 ---
 title: Pixel Shader stage
 summary: 픽셀에 아름다움을 추가하기
-tags: 
+tags:
 ---
-
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/pixel-shader-stage
 
-
-
 ## 주요 Direct3D 11 함수
+
 - [ID3D11Device::CreatePixelShader](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createpixelshader) : 픽셀 셰이더 객체를 생성한다
-컴파일된 HLSL 바이트코드를 GPU에서 사용할 수 있는 상태 객체로 만든다.
+  컴파일된 HLSL 바이트코드를 GPU에서 사용할 수 있는 상태 객체로 만든다.
 
 ```cpp
 HRESULT CreatePixelShader(
@@ -33,7 +31,7 @@ HRESULT hr = device->CreatePixelShader(
 ```
 
 - [ID3D11DeviceContext::PSSetShader](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) : 픽셀 셰이더를 파이프라인에 바인딩한다.
-이 호출 이후부터 필셀 처리에 해당 셰이더가 사용됨
+  이 호출 이후부터 필셀 처리에 해당 셰이더가 사용됨
 
 ```cpp
 void PSSetShader(
@@ -47,7 +45,7 @@ context->PSSetShader(pixelShader, nullptr, 0);
 ```
 
 - [ID3D11DeviceContext::PSSetConstantBuffers](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-pssetconstantbuffers) : 픽셀 셰이더에서 사용하는 [[Constant Buffer]]를 바인딩한다.
-조명 파라미터, 색상 계수, 시간 값 등이 여기에 들어간다.
+  조명 파라미터, 색상 계수, 시간 값 등이 여기에 들어간다.
 
 ```cpp
   void PSSetConstantBuffers(
@@ -77,7 +75,7 @@ context->PSSetConstantBuffers(
 ```
 
 - [ID3D11DeviceContext::PSSetShaderResources](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshaderresources) : 픽셀 셰이더에서 읽을 Shader Resource View(SRV, [[D3D 11 View 참고]]) 를 바인딩한다.  
-주로 텍스처를 연결할 때 사용한다.
+  주로 텍스처를 연결할 때 사용한다.
 
 ```cpp
 void PSSetShaderResources(
@@ -100,7 +98,7 @@ context->PSSetShaderResources(
 ```
 
 - [ID3D11DeviceContext::PSSetSamplers](https://learn.microsoft.com/en-us/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-pssetsamplers) : 텍스처를 **어떻게 샘플링할지** 정의하는 Sampler State([[Sampler State|Sampler State 참고]])를 바인딩한다.  
-필터링 방식과 주소 모드가 여기서 결정된다.
+  필터링 방식과 주소 모드가 여기서 결정된다.
 
 ```cpp
 void PSSetSamplers(
@@ -125,8 +123,6 @@ context->PSSetSamplers(
 ---
 
 Pixel Shader stage는 Rasterizer가 만든 픽셀 단위 입력을 받아서 각 픽셀의 최종 색을 계산해 렌더 타깃에 출력하는 단계다.
-
-
 
 Pixel Shader는 primitive 내부의 각 픽셀마다 한 번씩 실행되며, 입력으로 들어오는 값들은 Rasterizer에서 보간된 값들이다.
 

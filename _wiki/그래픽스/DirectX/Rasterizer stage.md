@@ -1,15 +1,13 @@
 ---
 title: Rasterizer stage
 summary: 정점을 픽셀로
-tags: 
+tags:
 ---
-
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-rasterizer-stage
 
-
-
 ## 주요 Direct3D 11 함수
+
 - [ID3D11Device::CreateRasterizerState](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createrasterizerstate) : 래스터라이저 단계에 동작 방법을 알려주는 래스터라이저 상태 개체를 만듦
 
 ```cpp
@@ -95,13 +93,13 @@ Rasterizer는 다음 일을 순서대로 수행한다.
 1. 클립 공간 좌표를 기준으로 화면 좌표로 변환하고 뷰포트에 맞게 잘라낸다
 2. 삼각형이 화면에서 차지하는 영역을 계산한다
 3. 그 영역 안에 포함되는 픽셀들을 나열한다
-4. 각 픽셀에 대해  정점 출력 값들을 위치 비율에 따라 보간한다
+4. 각 픽셀에 대해 정점 출력 값들을 위치 비율에 따라 보간한다
 
 이때 보간되는 값은
 
 - COLOR
 - TEXCOORD
-- NORMAL 등  
+- NORMAL 등
 
 Vertex Shader 출력 중 `SV_POSITION`을 제외한 값들이다.
 
@@ -114,6 +112,7 @@ P.uv    = w0 * v0.uv    + w1 * v1.uv    + w2 * v2.uv
 ```
 
 Rasterizer는
+
 - **이 픽셀은 이 삼각형에 속한다**
 - **이 픽셀에서 사용할 입력 값은 이것이다** 를 결정하는 것이다.
 

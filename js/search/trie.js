@@ -1,11 +1,11 @@
-import { Queue } from "./queue.js";
+import { Queue } from './queue.js';
 
 export class TrieElement {
     constructor(c) {
         this.ch = c;
         this.isWord = false;
         this.children = [];
-        this.value = "";
+        this.value = '';
     }
 
     getChild(c) {

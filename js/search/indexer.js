@@ -1,9 +1,9 @@
-import { TrieElement } from "./trie.js";
+import { TrieElement } from './trie.js';
 
 export class Indexer {
     constructor() {
         this.storage = new Map();
-        this.trie = new TrieElement("");
+        this.trie = new TrieElement('');
     }
 
     find(word) {
@@ -14,7 +14,7 @@ export class Indexer {
 
     addIndex(id, data) {
         const tokens = data
-            .replace(/\[(.+)\]\(.*\)/gm, "$1")
+            .replace(/\[(.+)\]\(.*\)/gm, '$1')
             .match(/<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g);
         if (!tokens) return;
         for (let i = 0; i < tokens.length; ++i) {

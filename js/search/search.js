@@ -7,9 +7,7 @@ export class Search {
         const page_meatadata_list = [];
         for (const file_name of file_names) {
             try {
-                const metadata_res = await fetch(
-                    `/data/metadata/${file_name}.json`
-                );
+                const metadata_res = await fetch(`/data/metadata/${file_name}.json`);
                 const metadata_json = await metadata_res.json();
                 page_meatadata_list.push(metadata_json);
             } catch (e) {
@@ -20,9 +18,7 @@ export class Search {
     }
 
     searchFilesByQuery(query) {
-        const query_words = query.match(
-            /<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g
-        );
+        const query_words = query.match(/<?\/?([a-zA-Z가-힣0-9]+|".+"|'.+')>?/g);
         if (!query_words) return [];
         const page_prior_map = new Map(); // (file_name : String) -> (priority : int)
         let word_children = [];
@@ -31,9 +27,7 @@ export class Search {
         for (const query_word of query_words) {
             // 하위 노드에서 단어를 찾아 값을 리스트에 추가한다.
             // 찾지 못하면 아무것도 추가되지 않는다.
-            word_children = word_children.concat(
-                this.indexer.getTrieChildren(query_word)
-            );
+            word_children = word_children.concat(this.indexer.getTrieChildren(query_word));
         }
         for (const child of word_children) {
             // 단어 인덱스를 찾아서 리스트에 추가한다.
@@ -59,9 +53,9 @@ export class Search {
 
     calcScore(index) {
         const metawords = [
-            { keyword: "title", score: 50 },
-            { keyword: "tag", score: 15 },
-            { keyword: "summray", score: 10 },
+            { keyword: 'title', score: 50 },
+            { keyword: 'tag', score: 15 },
+            { keyword: 'summray', score: 10 },
         ];
         for (const meta of metawords) {
             if (this.isInMetaWord(index, meta.keyword)) {

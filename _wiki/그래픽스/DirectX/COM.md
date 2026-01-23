@@ -1,8 +1,9 @@
 ---
 title: COM
 summary: Component Object Model
-tags: 
+tags:
 ---
+
 ## COM이란 무엇인가
 
 COM은 **Component Object Model**의 약자다.  
@@ -118,12 +119,12 @@ HRESULT QueryInterface(...);
 의미는 다음과 같다.
 
 - AddRef  
-    참조 하나 추가
+   참조 하나 추가
 - Release  
-    참조 하나 제거  
-    0이 되면 객체 파괴
+   참조 하나 제거  
+   0이 되면 객체 파괴
 - QueryInterface  
-    같은 객체의 다른 인터페이스 요청
+   같은 객체의 다른 인터페이스 요청
 
 ---
 

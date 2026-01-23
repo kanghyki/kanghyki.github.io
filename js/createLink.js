@@ -1,22 +1,18 @@
-import {
-    normalizeDocId,
-    resolveLinkTarget,
-    toWikiUrl,
-} from "./path-utils.js";
-import { fetchJson } from "./client-utils.js";
+import { normalizeDocId, resolveLinkTarget, toWikiUrl } from './path-utils.js';
+import { fetchJson } from './client-utils.js';
 
 let cachedIndex = null;
 
 async function loadWikiFileIndex() {
     if (cachedIndex) return cachedIndex;
-    const data = await fetchJson("/data/wiki-file-index.json");
+    const data = await fetchJson('/data/wiki-file-index.json');
     cachedIndex = data || {};
     return cachedIndex;
 }
 
 function normalizeLinkName(rawTarget) {
-    const trimmed = (rawTarget || "").trim();
-    return trimmed.replace(/\.md$/i, "");
+    const trimmed = (rawTarget || '').trim();
+    return trimmed.replace(/\.md$/i, '');
 }
 
 // Obsidian "Shortest" rules we mirror:
@@ -25,8 +21,8 @@ function normalizeLinkName(rawTarget) {
 // 3) File extension (.md) is optional in the link.
 function resolveShortestLink(sourceDocId, rawTarget, indexMap) {
     const normalized = normalizeLinkName(rawTarget);
-    if (!normalized) return "";
-    if (normalized.includes("/")) {
+    if (!normalized) return '';
+    if (normalized.includes('/')) {
         return resolveLinkTarget(sourceDocId, normalized);
     }
 
@@ -38,15 +34,13 @@ function resolveShortestLink(sourceDocId, rawTarget, indexMap) {
         return candidates[0];
     }
 
-    const sourceDir = sourceDocId
-        ? sourceDocId.split("/").slice(0, -1)
-        : [];
+    const sourceDir = sourceDocId ? sourceDocId.split('/').slice(0, -1) : [];
 
     let best = candidates[0];
     let bestScore = Infinity;
 
     candidates.forEach((candidate) => {
-        const candDir = candidate.split("/").slice(0, -1);
+        const candDir = candidate.split('/').slice(0, -1);
         let common = 0;
         while (
             common < sourceDir.length &&
@@ -55,8 +49,7 @@ function resolveShortestLink(sourceDocId, rawTarget, indexMap) {
         ) {
             common++;
         }
-        const score =
-            (sourceDir.length - common) + (candDir.length - common);
+        const score = sourceDir.length - common + (candDir.length - common);
         if (score < bestScore) {
             bestScore = score;
             best = candidate;
@@ -69,7 +62,7 @@ function resolveShortestLink(sourceDocId, rawTarget, indexMap) {
 }
 
 async function runCreateLink() {
-    const tags = document.querySelectorAll(".post-tag");
+    const tags = document.querySelectorAll('.post-tag');
     if (tags && tags.length > 0) {
         for (let i = 0; i < tags.length; i++) {
             const item = tags[i];
@@ -80,27 +73,27 @@ async function runCreateLink() {
             tagList = tagList
                 .split(/\s+/)
                 .map((tag) => `<a href="/tag/#${tag}">#${tag}</a>`)
-                .join(" ");
+                .join(' ');
             tags[i].innerHTML = tagList;
         }
     }
 
-    const content = document.querySelector("article.post-content");
+    const content = document.querySelector('article.post-content');
     if (!content) {
         return;
     }
-    let sourceDocId = "";
-    const nameNode = document.getElementById("thisName");
+    let sourceDocId = '';
+    const nameNode = document.getElementById('thisName');
     if (nameNode && nameNode.value) {
         sourceDocId = normalizeDocId(nameNode.value);
     }
 
     function splitWikiTarget(raw) {
-        let parts = raw.split("@@WIKILINK_PIPE@@");
+        let parts = raw.split('@@WIKILINK_PIPE@@');
         if (parts.length === 1) {
-            parts = raw.split("|");
+            parts = raw.split('|');
         }
-        const target = (parts[0] || "").trim();
+        const target = (parts[0] || '').trim();
         const label = (parts[1] || target).trim();
         return { target, label };
     }
@@ -110,17 +103,17 @@ async function runCreateLink() {
     }
 
     function normalizeAssetTarget(target) {
-        const cleaned = target.replace(/^\/+/, "");
-        if (cleaned.startsWith("assets/")) {
-            return encodeURI("/wiki/" + cleaned);
+        const cleaned = target.replace(/^\/+/, '');
+        if (cleaned.startsWith('assets/')) {
+            return encodeURI('/wiki/' + cleaned);
         }
-        return encodeURI("/wiki/assets/" + cleaned);
+        return encodeURI('/wiki/assets/' + cleaned);
     }
 
     function buildWikiHref(rawTarget) {
-        const trimmed = (rawTarget || "").trim();
+        const trimmed = (rawTarget || '').trim();
         if (!trimmed) {
-            return "";
+            return '';
         }
         const resolved = resolveShortestLink(sourceDocId, trimmed, cachedIndex);
         return toWikiUrl(resolved);
@@ -139,22 +132,17 @@ async function runCreateLink() {
 
     content.innerHTML = content.innerHTML.replace(
         /\[\[\/(.+?)\]\]\{(.+?)\}/g,
-        (_, raw, label) => `<a href="${buildWikiHref("/" + raw)}">${label}</a>`
+        (_, raw, label) => `<a href="${buildWikiHref('/' + raw)}">${label}</a>`,
     );
     content.innerHTML = content.innerHTML.replace(
         /\[\[(.+?)\]\]\{(.+?)\}/g,
-        (_, raw, label) => `<a href="${buildWikiHref(raw)}">${label}</a>`
+        (_, raw, label) => `<a href="${buildWikiHref(raw)}">${label}</a>`,
     );
 
-    content.innerHTML = content.innerHTML.replace(
-        /\[\[\/(.+?)\]\]/g,
-        (_, raw) => {
-            const data = splitWikiTarget(raw);
-            return `<a href="${buildWikiHref("/" + data.target)}">${
-                data.label
-            }</a>`;
-        }
-    );
+    content.innerHTML = content.innerHTML.replace(/\[\[\/(.+?)\]\]/g, (_, raw) => {
+        const data = splitWikiTarget(raw);
+        return `<a href="${buildWikiHref('/' + data.target)}">${data.label}</a>`;
+    });
 
     content.innerHTML = content.innerHTML.replace(/\[\[(.+?)\]\]/g, (_, raw) => {
         const data = splitWikiTarget(raw);
@@ -162,8 +150,8 @@ async function runCreateLink() {
     });
 }
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", async () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', async () => {
         cachedIndex = await loadWikiFileIndex();
         runCreateLink();
     });

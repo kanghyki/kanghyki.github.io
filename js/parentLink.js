@@ -1,20 +1,20 @@
-import { toDataUrl } from "./path-utils.js";
-import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from "./client-utils.js";
+import { toDataUrl } from './path-utils.js';
+import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from './client-utils.js';
 
-(function() {
+(function () {
     const recursiveLimit = 30;
     const target = getDocIdFromPage();
     if (!target) return;
-    insertParent(target, 0, [])
+    insertParent(target, 0, []);
 
     /**
      * 부모 문서 목록을 받아, 부모 문서들의 링크를 만들어준다.
      */
     function makeHTML(plist) {
         if (plist == null || plist.length < 1) {
-            return "";
+            return '';
         }
-        let pr = "상위 문서: "
+        let pr = '상위 문서: ';
         for (let i = 0; i < plist.length; i++) {
             const title = getDisplayTitle(plist[i]);
             pr += `<a href="${plist[i].url}">${title}</a>`;
@@ -25,7 +25,6 @@ import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from "./client-
         return pr;
     }
 
-
     /**
      * 재귀하며 부모 문서 정보를 가져온다.
      * 모든 부모 문서를 가져오면 화면에 부모 문서 링크를 만들어 준다.
@@ -35,15 +34,15 @@ import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from "./client-
             return;
         }
 
-        fetchJson(toDataUrl("metadata", target)).then((data) => {
+        fetchJson(toDataUrl('metadata', target)).then((data) => {
             if (data == null) {
                 return;
             }
             parentList.unshift(data);
 
             if (data.parent == null) {
-                parentList.pop();   // this 문서가 부모 문서 목록에 나오지 않도록 제거해준다.
-                setHTML("parent-list", makeHTML(parentList));
+                parentList.pop(); // this 문서가 부모 문서 목록에 나오지 않도록 제거해준다.
+                setHTML('parent-list', makeHTML(parentList));
                 return;
             }
 

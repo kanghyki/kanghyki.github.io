@@ -1,7 +1,7 @@
 ---
 title: Sampler state
 summary: Sampler state에 대해 알아보자
-tags: 
+tags:
 ---
 
 Sampler State는 **텍스처를 읽는 방식에 대한 상태 객체**다.  
@@ -29,12 +29,12 @@ Direct3D 11에서 Sampler State는 파이프라인의 일부로 취급되며,
 Sampler State는 다음과 같은 규칙을 고정한다.
 
 - 필터링 방식  
-    point / linear / anisotropic
+   point / linear / anisotropic
 - 주소 지정 방식  
-    wrap / clamp / mirror / border
+   wrap / clamp / mirror / border
 - LOD 정책  
-    mip 선택 범위  
-    min LOD / max LOD / bias
+   mip 선택 범위  
+   min LOD / max LOD / bias
 
 이 규칙들은 샘플링 시 GPU 하드웨어에서 직접 사용된다.
 

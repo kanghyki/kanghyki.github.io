@@ -1,7 +1,7 @@
 ---
 title: Input Assembler stage
 summary: 입력을 어셈블해주는 IA
-tags: 
+tags:
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage
@@ -18,6 +18,7 @@ D3D 10 이상 API는 기능 영역을 단계로 구분한다.
 ## 주요 Direct3D 11 함수
 
 - [ID3D11Device::CreateInputLayout](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11device-createinputlayout) : 입력 버퍼 데이터를 설명하는 입력 레이아웃 생성함
+
 ```cpp
 HRESULT CreateInputLayout(
   [in]            const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,
@@ -29,6 +30,7 @@ HRESULT CreateInputLayout(
 ```
 
 - [ID3D11DeviceContext::IASetInputLayout](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) : 입력 레이아웃 개체를 입력 어셈블러 단계에 바인딩함
+
 ```cpp
 void IASetInputLayout(
   [in, optional] ID3D11InputLayout *pInputLayout
@@ -36,12 +38,12 @@ void IASetInputLayout(
 ```
 
 - [ID3D11DeviceContext::IASetPrimitiveTopology](https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology) : 기본 형식 및 입력 어셈블러 단계의 입력 데이터를 설명하는 데이터 순서에 대한 정보를 바인딩함
+
 ```cpp
 void IASetPrimitiveTopology(
   [in] D3D11_PRIMITIVE_TOPOLOGY Topology
 );
 ```
-
 
 ## 1) 셰이더 입력(VS)부터 정하기
 
@@ -179,10 +181,12 @@ context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 즉,
 
 1. vertex buffer에서 0번째 정점 읽기
+
 ```
 bytes[0..11] → POSITION(float3)
 bytes[12..27] → COLOR(float4)
 ```
+
 2. index buffer의 0,1,2를 보고 정점 3개를 모아서 triangle 1개로 조립
 3. 조립된 정점 스트림을 VSMain(VSIn vin)으로 흘려보낸다.
 

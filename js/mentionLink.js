@@ -1,11 +1,6 @@
-import { resolveLinkTarget, toDataUrl } from "./path-utils.js";
-import { fetchJson, getDocIdFromPage, setHTML } from "./client-utils.js";
-import {
-    clampSnippet,
-    escapeRegExp,
-    SNIPPET_CONTEXT,
-    SNIPPET_MAX,
-} from "./snippet-utils.js";
+import { resolveLinkTarget, toDataUrl } from './path-utils.js';
+import { fetchJson, getDocIdFromPage, setHTML } from './client-utils.js';
+import { clampSnippet, escapeRegExp, SNIPPET_CONTEXT, SNIPPET_MAX } from './snippet-utils.js';
 
 (async () => {
     const target = getDocIdFromPage();
@@ -19,21 +14,17 @@ import {
                 <a class="mention-link" href="${value.metadata.url}">
                     <span>${value.metadata.title}</span>`;
             for (const paragraph of value.paragraphs) {
-                const snippet = extractSnippet(
-                    paragraph,
-                    key,
-                    targetKey
-                );
+                const snippet = extractSnippet(paragraph, key, targetKey);
                 ret += `<div> - ${snippet}</div>`;
             }
             ret += `</a></li>`;
         }
-        ret += "</ul>";
+        ret += '</ul>';
 
         return ret;
     }
 
-    const target_data = await fetchJson(toDataUrl("mention", target));
+    const target_data = await fetchJson(toDataUrl('mention', target));
     if (!target_data) return;
 
     // mention_map의 value는 다음과 같이 저장된다.
@@ -63,32 +54,32 @@ import {
     }
 
     for (const file_path of mention_map.keys()) {
-        const data = await fetchJson(toDataUrl("metadata", file_path));
+        const data = await fetchJson(toDataUrl('metadata', file_path));
         if (!data) continue;
         mention_map.get(file_path).metadata = data;
     }
 
-    setHTML("mention-list", makeHTML(mention_map, target));
+    setHTML('mention-list', makeHTML(mention_map, target));
 })();
 
 function extractSnippet(paragraph, sourceFile, targetKey) {
-    if (!paragraph) return "";
+    if (!paragraph) return '';
     const text = paragraph.toString();
     const regex = /\[\[([^\]]+?)\]\](\{([^}]+)\})?/g;
-    let output = "";
+    let output = '';
     let lastIndex = 0;
     let targetStart = -1;
     let targetEnd = -1;
-    let targetLabel = "";
+    let targetLabel = '';
     let match;
 
     while ((match = regex.exec(text)) !== null) {
         output += text.slice(lastIndex, match.index);
 
-        const raw = match[1] || "";
+        const raw = match[1] || '';
         const rawLabel = match[3];
-        const parts = raw.split("|");
-        const target = (parts[0] || "").trim();
+        const parts = raw.split('|');
+        const target = (parts[0] || '').trim();
         const label = (rawLabel || parts[1] || target).trim();
 
         if (isTargetMatch(target, sourceFile, targetKey)) {
@@ -109,14 +100,11 @@ function extractSnippet(paragraph, sourceFile, targetKey) {
     const start = Math.max(0, targetStart - SNIPPET_CONTEXT);
     const end = Math.min(output.length, targetEnd + SNIPPET_CONTEXT);
     let snippet = output.slice(start, end).trim();
-    if (start > 0) snippet = "…" + snippet;
-    if (end < output.length) snippet = snippet + "…";
+    if (start > 0) snippet = '…' + snippet;
+    if (end < output.length) snippet = snippet + '…';
     if (targetLabel) {
         const escaped = escapeRegExp(targetLabel);
-        snippet = snippet.replace(
-            new RegExp(escaped, "g"),
-            `<mark>${targetLabel}</mark>`
-        );
+        snippet = snippet.replace(new RegExp(escaped, 'g'), `<mark>${targetLabel}</mark>`);
     }
     return clampSnippet(snippet, SNIPPET_MAX);
 }

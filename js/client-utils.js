@@ -1,8 +1,8 @@
-import { normalizeDocId } from "./path-utils.js";
+import { normalizeDocId } from './path-utils.js';
 
 export function getDocIdFromPage() {
-    const node = document.getElementById("thisName");
-    if (!node || !node.value) return "";
+    const node = document.getElementById('thisName');
+    if (!node || !node.value) return '';
     return normalizeDocId(node.value);
 }
 
@@ -25,15 +25,18 @@ export function setHTML(id, html) {
 }
 
 export function getDisplayTitle(page) {
-    if (!page) return "";
+    if (!page) return '';
     if (Array.isArray(page.hierarchy) && page.hierarchy.length > 0) {
         return page.hierarchy[page.hierarchy.length - 1];
     }
-    if (page.title && page.title.toLowerCase() !== "index") {
+    if (page.title && page.title.toLowerCase() !== 'index') {
         return page.title;
     }
     if (page.url) {
-        return page.url.replace(/\/index$/, "").split("/").pop();
+        return page.url
+            .replace(/\/index$/, '')
+            .split('/')
+            .pop();
     }
-    return "";
+    return '';
 }

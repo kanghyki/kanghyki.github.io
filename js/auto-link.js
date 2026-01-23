@@ -1,14 +1,14 @@
 (() => {
     const urlRegex = /\bhttps?:\/\/[^\s<>"']+/g;
     const excludedTags = new Set([
-        "A",
-        "CODE",
-        "PRE",
-        "SCRIPT",
-        "STYLE",
-        "TEXTAREA",
-        "KBD",
-        "SAMP",
+        'A',
+        'CODE',
+        'PRE',
+        'SCRIPT',
+        'STYLE',
+        'TEXTAREA',
+        'KBD',
+        'SAMP',
     ]);
 
     const isExcluded = (node) => {
@@ -31,7 +31,7 @@
         for (const match of matches) {
             const start = match.index;
             let url = match[0];
-            let trailing = "";
+            let trailing = '';
 
             while (/[),.;:!?]$/.test(url)) {
                 trailing = url.slice(-1) + trailing;
@@ -43,11 +43,11 @@
             }
 
             if (url.length > 0) {
-                const link = document.createElement("a");
+                const link = document.createElement('a');
                 link.href = url;
                 link.textContent = url;
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
                 frag.append(link);
             } else {
                 frag.append(document.createTextNode(match[0]));
@@ -65,19 +65,15 @@
     };
 
     const linkify = (root) => {
-        const walker = document.createTreeWalker(
-            root,
-            NodeFilter.SHOW_TEXT,
-            {
-                acceptNode(node) {
-                    if (!node.nodeValue || !urlRegex.test(node.nodeValue)) {
-                        return NodeFilter.FILTER_REJECT;
-                    }
-                    if (isExcluded(node)) return NodeFilter.FILTER_REJECT;
-                    return NodeFilter.FILTER_ACCEPT;
-                },
-            }
-        );
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+                if (!node.nodeValue || !urlRegex.test(node.nodeValue)) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                if (isExcluded(node)) return NodeFilter.FILTER_REJECT;
+                return NodeFilter.FILTER_ACCEPT;
+            },
+        });
 
         const nodes = [];
         while (walker.nextNode()) nodes.push(walker.currentNode);
@@ -85,12 +81,12 @@
     };
 
     const run = () => {
-        const root = document.querySelector("main.page") || document.body;
+        const root = document.querySelector('main.page') || document.body;
         if (root) linkify(root);
     };
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", run);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
     } else {
         run();
     }

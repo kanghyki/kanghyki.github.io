@@ -1,5 +1,5 @@
 ---
-title   : 
-summary : 
-tags: 
+title:
+summary:
+tags:
 ---

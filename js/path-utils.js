@@ -1,54 +1,54 @@
-const DATA_PREFIX = "/data";
-const WIKI_PREFIX = "/wiki";
+const DATA_PREFIX = '/data';
+const WIKI_PREFIX = '/wiki';
 
 export function normalizeDocId(raw) {
-    if (!raw) return "";
+    if (!raw) return '';
     let id = String(raw).trim();
-    id = id.replace(/^\/+/, "");
-    id = id.replace(/^wiki\//, "");
-    id = id.replace(/\\/g, "/");
-    id = id.replace(/\/{2,}/g, "/");
+    id = id.replace(/^\/+/, '');
+    id = id.replace(/^wiki\//, '');
+    id = id.replace(/\\/g, '/');
+    id = id.replace(/\/{2,}/g, '/');
     return id;
 }
 
 export function normalizeTagName(raw) {
-    if (!raw) return "";
+    if (!raw) return '';
     return String(raw).trim();
 }
 
 export function resolveLinkTarget(sourceDocId, linkTarget) {
-    if (!linkTarget) return "";
+    if (!linkTarget) return '';
     const trimmed = String(linkTarget).trim();
-    if (trimmed.startsWith("/")) {
+    if (trimmed.startsWith('/')) {
         return normalizeDocId(trimmed);
     }
-    const looksAbsolute = trimmed.includes("/");
+    const looksAbsolute = trimmed.includes('/');
     if (looksAbsolute) {
         return normalizeDocId(trimmed);
     }
     const source = normalizeDocId(sourceDocId);
-    if (!source || !source.includes("/")) {
+    if (!source || !source.includes('/')) {
         return normalizeDocId(trimmed);
     }
-    const prefix = source.replace(/\/[^/]+$/, "");
+    const prefix = source.replace(/\/[^/]+$/, '');
     return normalizeDocId(`${prefix}/${trimmed}`);
 }
 
 export function toDataUrl(type, docId) {
-    const safeType = String(type || "").trim();
+    const safeType = String(type || '').trim();
     const safeDocId = normalizeDocId(docId);
-    if (!safeType || !safeDocId) return "";
+    if (!safeType || !safeDocId) return '';
     return `${DATA_PREFIX}/${safeType}/${encodeURI(safeDocId)}.json`;
 }
 
 export function toTagUrl(tagName) {
     const safe = normalizeTagName(tagName);
-    if (!safe) return "";
+    if (!safe) return '';
     return `${DATA_PREFIX}/tag/${encodeURIComponent(safe)}.json`;
 }
 
 export function toWikiUrl(docId) {
     const safeDocId = normalizeDocId(docId);
-    if (!safeDocId) return "";
+    if (!safeDocId) return '';
     return `${WIKI_PREFIX}/${encodeURI(safeDocId)}`;
 }

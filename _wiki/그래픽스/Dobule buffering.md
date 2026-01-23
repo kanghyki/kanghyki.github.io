@@ -1,14 +1,14 @@
 ---
 title: 더블 버퍼링
 summary:
-tags: 
+tags:
 ---
 
 ### Reference
 
 - https://docs.oracle.com/javase/tutorial/extra/fullscreen/doublebuf.html
-### 더블 버퍼링이란
 
+### 더블 버퍼링이란
 
 ![dobule-buffering](https://docs.oracle.com/javase/tutorial/figures/extra/fullscreen/doubleBuffering.gif)
 
@@ -17,11 +17,13 @@ tags:
 이렇게 하면 그리는 중간 과정이 사용자에게 노출되지 않는다.
 
 ### 왜 필요한가
+
 화면에 직접 그리면 프레임이 완성되기 전에 일부만 갱신되어
 깜박임이나 찢어진 화면이 보일 수 있다.
 더블 버퍼링은 이 문제를 해결한다. (화면을 안정적으로 만든다.)
 
 ### 동작 흐름
+
 1. 백 버퍼에서 다음 프레임을 렌더링한다
 2. 프레임이 완성되면 프런트 버퍼와 교체한다
 3. 교체된 프런트 버퍼가 화면에 표시된다
@@ -49,9 +51,9 @@ tags:
 
 이 방식은
 
-* 픽셀 데이터 복사가 없고
-* 포인터 하나만 변경하면 되며
-* 프레임 교체 비용이 매우 작다
+- 픽셀 데이터 복사가 없고
+- 포인터 하나만 변경하면 되며
+- 프레임 교체 비용이 매우 작다
 
 ### 핵심 포인트
 
@@ -60,6 +62,6 @@ tags:
 - 깜박임과 중간 상태 노출이 사라진다
 - 페이지 플리핑은 버퍼 복사 대신 참조 전환으로 이를 구현한다
 
-> If your performance metric is simply the speed at which double-buffering or page-flipping occurs versus direct rendering, you may be disappointed. You may find that your numbers for direct rendering far exceed those for double-buffering and that those numbers far exceed those for page-flipping. Each of these techniques is for used for improving _perceived performance_, which is much more important in graphical applications than _numerical performance_.
+> If your performance metric is simply the speed at which double-buffering or page-flipping occurs versus direct rendering, you may be disappointed. You may find that your numbers for direct rendering far exceed those for double-buffering and that those numbers far exceed those for page-flipping. Each of these techniques is for used for improving *perceived performance*, which is much more important in graphical applications than *numerical performance*.
 >
 > 그래픽 어플리케이션에서는 수치적 성능보다 체감 성능이 더 중요하다.

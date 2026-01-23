@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { Search } from "./js/search/search.js";
-import { Indexer } from "./js/search/indexer.js";
+import { Search } from './js/search/search.js';
+import { Indexer } from './js/search/indexer.js';
 
-import fs from "fs";
-import { execSync } from "child_process";
+import fs from 'fs';
+import { execSync } from 'child_process';
 const PRINT = true;
 const NO_PRINT = false;
 
@@ -22,24 +22,22 @@ function main() {
     const pageMap = {};
     const mentionMap = {};
 
-    ensureIndexPages("./_wiki");
+    ensureIndexPages('./_wiki');
 
-    getFiles("./_wiki", "wiki", list);
+    getFiles('./_wiki', 'wiki', list);
     //getFiles('./_posts', 'blog', list);
 
     const dataList = list
         .map((file) => collectData(file))
         .filter((row) => row)
-        .sort(lexicalOrderingBy("fileName"));
+        .sort(lexicalOrderingBy('fileName'));
 
     dataList.forEach((data) => {
-        let str = "";
+        let str = '';
         str += `<title>${data.title}</title>`;
         data.summary && (str += `<summary>${data.summary}</summary>`);
-        data.tags && (str += `<tag>${data.tags.join(" ")}</tag>`);
-        str += data.body
-            .replace(/\* TOC\s{:toc}/, "")
-            .replace(/```[\s\S]*?```/g, "");
+        data.tags && (str += `<tag>${data.tags.join(' ')}</tag>`);
+        str += data.body.replace(/\* TOC\s{:toc}/, '').replace(/```[\s\S]*?```/g, '');
         engine.indexer.addIndex(data.fileName, str);
     });
 
@@ -62,10 +60,10 @@ function main() {
     });
 
     for (const tag in tagMap) {
-        tagMap[tag].sort(lexicalOrderingBy("fileName"));
+        tagMap[tag].sort(lexicalOrderingBy('fileName'));
     }
 
-    dataList.sort(lexicalOrderingBy("fileName")).forEach((page) => {
+    dataList.sort(lexicalOrderingBy('fileName')).forEach((page) => {
         pageMap[page.fileName] = {
             type: page.type,
             title: page.title,
@@ -95,8 +93,8 @@ function main() {
     dataList.forEach((page) => {
         if (page.mentions == null || page.mentions.length == 0) return;
         for (let i = 0; i < page.mentions.length; ++i) {
-            let url = page.mentions[i].url || "";
-            url = url.replace(/^\/+/, "").replace(/^wiki\//, "");
+            let url = page.mentions[i].url || '';
+            url = url.replace(/^\/+/, '').replace(/^wiki\//, '');
             if (pageMap[`${url}/index`]) {
                 url = `${url}/index`;
             }
@@ -117,16 +115,11 @@ function main() {
     saveMentionList(mentionMap);
     saveMiscList(pageMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
-    saveToFile(
-        `./data/wiki-file-index.json`,
-        JSON.stringify(wikiFileIndex, null, 1),
-        NO_PRINT
-    );
+    saveToFile(`./data/wiki-file-index.json`, JSON.stringify(wikiFileIndex, null, 1), NO_PRINT);
 }
 
 function lexicalOrderingBy(property) {
-    return (a, b) =>
-        a[property].toLowerCase().localeCompare(b[property].toLowerCase());
+    return (a, b) => a[property].toLowerCase().localeCompare(b[property].toLowerCase());
 }
 
 function buildWikiFileIndex(dataList) {
@@ -134,9 +127,9 @@ function buildWikiFileIndex(dataList) {
     // - Map basename -> list of docIds for disambiguation.
     const index = {};
     dataList.forEach((data) => {
-        if (!data || data.type !== "wiki") return;
-        const fileName = data.fileName || "";
-        const baseName = fileName.split("/").pop();
+        if (!data || data.type !== 'wiki') return;
+        const fileName = data.fileName || '';
+        const baseName = fileName.split('/').pop();
         if (!baseName) return;
         if (!index[baseName]) index[baseName] = [];
         index[baseName].push(fileName);
@@ -180,7 +173,7 @@ function buildWikiFileIndex(dataList) {
 */
 
 function saveTagFiles(tagMap, pageMap) {
-    fs.mkdirSync("./data/tag", { recursive: true }, (err) => {
+    fs.mkdirSync('./data/tag', { recursive: true }, (err) => {
         if (err) {
             return console.log(err);
         }
@@ -190,7 +183,7 @@ function saveTagFiles(tagMap, pageMap) {
 
     for (const tag in tagMap) {
         if (completedTags[tag.toLowerCase()]) {
-            console.log("중복 태그가 있습니다.", tag);
+            console.log('중복 태그가 있습니다.', tag);
             break;
         }
         completedTags[tag.toLowerCase()] = true;
@@ -202,17 +195,12 @@ function saveTagFiles(tagMap, pageMap) {
             const tagData = tagDatas[index];
             const data = pageMap[tagData.fileName];
 
-            const documentId =
-                data.type === "wiki" ? tagData.fileName : data.url;
+            const documentId = data.type === 'wiki' ? tagData.fileName : data.url;
 
             collection.push(documentId);
         }
 
-        saveToFile(
-            `./data/tag/${tag}.json`,
-            JSON.stringify(collection, null, 1),
-            NO_PRINT
-        );
+        saveToFile(`./data/tag/${tag}.json`, JSON.stringify(collection, null, 1), NO_PRINT);
     }
 }
 
@@ -227,8 +215,8 @@ function saveMetaDataFiles(pageMap) {
         const data = pageMap[page];
         const fileName = page;
         const dirName = `./data/metadata/${fileName}`
-            .replace(/(\/\/)/g, "/")
-            .replace(/[/][^/]*$/, "");
+            .replace(/(\/\/)/g, '/')
+            .replace(/[/][^/]*$/, '');
 
         fs.mkdirSync(dirName, { recursive: true }, (err) => {
             if (err) {
@@ -236,11 +224,7 @@ function saveMetaDataFiles(pageMap) {
             }
         });
 
-        saveToFile(
-            `./data/metadata/${fileName}.json`,
-            JSON.stringify(data, null, 1),
-            NO_PRINT
-        );
+        saveToFile(`./data/metadata/${fileName}.json`, JSON.stringify(data, null, 1), NO_PRINT);
     }
 }
 
@@ -252,8 +236,8 @@ function saveMentionList(mentionMap) {
         const data = mentionMap[mention];
         const fileName = mention;
         const dirName = `./data/mention/${fileName}`
-            .replace(/(\/\/)/g, "/")
-            .replace(/[/][^/]*$/, "");
+            .replace(/(\/\/)/g, '/')
+            .replace(/[/][^/]*$/, '');
 
         fs.mkdirSync(dirName, { recursive: true }, (err) => {
             if (err) {
@@ -261,11 +245,7 @@ function saveMentionList(mentionMap) {
             }
         });
 
-        saveToFile(
-            `./data/mention/${fileName}.json`,
-            JSON.stringify(data, null, 1),
-            NO_PRINT
-        );
+        saveToFile(`./data/mention/${fileName}.json`, JSON.stringify(data, null, 1), NO_PRINT);
     }
 }
 
@@ -278,11 +258,7 @@ function saveDocumentUrlList(pageMap) {
         const data = pageMap[page];
         urlList.push(data.url);
     }
-    saveToFile(
-        "./data/total-document-url-list.json",
-        JSON.stringify(urlList, null, 1),
-        PRINT
-    );
+    saveToFile('./data/total-document-url-list.json', JSON.stringify(urlList, null, 1), PRINT);
 }
 
 /**
@@ -296,13 +272,9 @@ function saveTagCount(tagMap) {
             size: tagMap[tag].length,
         });
     }
-    const sortedList = list.sort(lexicalOrderingBy("name"));
+    const sortedList = list.sort(lexicalOrderingBy('name'));
 
-    saveToFile(
-        "./data/tag_count.json",
-        JSON.stringify(sortedList, null, 1),
-        PRINT
-    );
+    saveToFile('./data/tag_count.json', JSON.stringify(sortedList, null, 1), PRINT);
 }
 
 /**
@@ -326,11 +298,11 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
 function parseTagsValue(value) {
     if (!value) return [];
     let raw = value.trim();
-    if (raw.startsWith("[") && raw.endsWith("]")) {
+    if (raw.startsWith('[') && raw.endsWith(']')) {
         raw = raw.slice(1, -1);
     }
     return raw
-        .replace(/,/g, " ")
+        .replace(/,/g, ' ')
         .split(/\s+/)
         .map((tag) => tag.trim())
         .filter(Boolean);
@@ -338,15 +310,15 @@ function parseTagsValue(value) {
 
 function parseInfo(file, info, body) {
     const obj = {
-        fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, "$1"),
+        fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, '$1'),
         type: file.type,
-        url: "",
+        url: '',
         modified: fs.statSync(file.path).mtime,
         mentions: [],
         body: body,
     };
 
-    const rawData = info.split("\n");
+    const rawData = info.split('\n');
 
     for (let i = 0; i < rawData.length; i++) {
         const str = rawData[i];
@@ -359,7 +331,7 @@ function parseInfo(file, info, body) {
         const key = result[1].trim();
         let val = result[2].trim();
 
-        if (key === "tags" || key === "tag") {
+        if (key === 'tags' || key === 'tag') {
             if (!val) {
                 const list = [];
                 let j = i + 1;
@@ -380,22 +352,17 @@ function parseInfo(file, info, body) {
             continue;
         }
 
-        val = val.replace(/\[{2}\/?|\]{2}/g, ""); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
+        val = val.replace(/\[{2}\/?|\]{2}/g, ''); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
         obj[key] = val;
     }
 
-    if (file.type === "blog") {
-        obj.url =
-            "/blog/" +
-            obj.date.replace(/^(\d{4})-(\d{2})-(\d{2}).*$/, "$1/$2/$3/");
-        obj.url += obj.fileName.replace(
-            /^.*[/]\d{4}-\d{2}-\d{2}-([^/]*)\.md$/,
-            "$1"
-        );
-    } else if (file.type === "wiki") {
+    if (file.type === 'blog') {
+        obj.url = '/blog/' + obj.date.replace(/^(\d{4})-(\d{2})-(\d{2}).*$/, '$1/$2/$3/');
+        obj.url += obj.fileName.replace(/^.*[/]\d{4}-\d{2}-\d{2}-([^/]*)\.md$/, '$1');
+    } else if (file.type === 'wiki') {
         obj.url = obj.permalink
             ? obj.permalink
-            : file.path.replace(/^\.\/_wiki/, "/wiki").replace(/\.md$/, "");
+            : file.path.replace(/^\.\/_wiki/, '/wiki').replace(/\.md$/, '');
     }
 
     if (!obj.tags && obj.tag) {
@@ -405,7 +372,6 @@ function parseInfo(file, info, body) {
     if (!obj.title) {
         obj.title = inferTitle(file, body);
     }
-
 
     if (!obj.date || !obj.updated) {
         const gitTimes = getGitTimes(file.path);
@@ -424,15 +390,13 @@ function parseInfo(file, info, body) {
             const wiki_links = mention.match(/\[\[.+?\]\]/g);
             for (const wiki_link of wiki_links) {
                 const path = wiki_link
-                    .replace(/((\[\[)|(\]\]))/g, "")
-                    .split("|")[0]
+                    .replace(/((\[\[)|(\]\]))/g, '')
+                    .split('|')[0]
                     .trim();
-                let prefix = "";
-                const looksAbsolute = path.includes("/");
-                if (path && path[0] !== "/" && !looksAbsolute) {
-                    prefix = file.path
-                        .replace(/^(.*\/).*\.md/, "$1")
-                        .replace(/^\.\/_wiki/, "");
+                let prefix = '';
+                const looksAbsolute = path.includes('/');
+                if (path && path[0] !== '/' && !looksAbsolute) {
+                    prefix = file.path.replace(/^(.*\/).*\.md/, '$1').replace(/^\.\/_wiki/, '');
                 }
                 obj.mentions.push({
                     paragraph: mention,
@@ -447,8 +411,8 @@ function parseInfo(file, info, body) {
 function saveMiscList(pageMap) {
     const list = [];
     for (const page in pageMap) {
-        if (page === "index") continue;
-        if (page.endsWith("/index")) continue;
+        if (page === 'index') continue;
+        if (page.endsWith('/index')) continue;
         const data = pageMap[page];
         if (!data.parent) {
             list.push({
@@ -458,39 +422,39 @@ function saveMiscList(pageMap) {
         }
     }
     saveToFile(
-        "./data/misc.json",
-        JSON.stringify(list.sort(lexicalOrderingBy("title")), null, 1),
-        NO_PRINT
+        './data/misc.json',
+        JSON.stringify(list.sort(lexicalOrderingBy('title')), null, 1),
+        NO_PRINT,
     );
 }
 
 function inferParentsFromPath(pageMap) {
     const keys = Object.keys(pageMap);
     const keySet = new Set(keys);
-    const rootIndex = keySet.has("index") ? "index" : null;
+    const rootIndex = keySet.has('index') ? 'index' : null;
 
     keys.forEach((fileName) => {
         const page = pageMap[fileName];
         if (page.parent) {
             return;
         }
-        if (fileName.endsWith("/index")) {
-            const parts = fileName.split("/");
+        if (fileName.endsWith('/index')) {
+            const parts = fileName.split('/');
             if (parts.length <= 2) {
                 if (rootIndex && fileName !== rootIndex) {
                     page.parent = rootIndex;
                 }
                 return;
             }
-            const candidate = parts.slice(0, -2).join("/") + "/index";
+            const candidate = parts.slice(0, -2).join('/') + '/index';
             if (keySet.has(candidate)) {
                 page.parent = candidate;
             }
             return;
         }
-        const parts = fileName.split("/");
+        const parts = fileName.split('/');
         for (let i = parts.length - 1; i > 0; i--) {
-            const candidate = parts.slice(0, i).join("/");
+            const candidate = parts.slice(0, i).join('/');
             if (keySet.has(candidate)) {
                 page.parent = candidate;
                 return;
@@ -505,37 +469,35 @@ function inferParentsFromPath(pageMap) {
 }
 
 function ensureIndexPages(rootPath) {
-    const root = rootPath.replace(/\/$/, "");
+    const root = rootPath.replace(/\/$/, '');
 
     function walk(dir) {
         const entries = fs.readdirSync(dir, { withFileTypes: true });
-        const hasMarkdown = entries.some(
-            (entry) => entry.isFile() && /\.md$/.test(entry.name)
-        );
+        const hasMarkdown = entries.some((entry) => entry.isFile() && /\.md$/.test(entry.name));
         const subdirs = entries.filter((entry) => entry.isDirectory());
 
         if (dir !== root && hasMarkdown) {
             const indexPath = `${dir}/index.md`;
-            const dirName = dir.split("/").pop();
-            const title = dirName ? dirName.replace(/[-_]/g, " ") : "Index";
-            const content = ["---", `title: ${title}`, "---", ""].join("\n");
+            const dirName = dir.split('/').pop();
+            const title = dirName ? dirName.replace(/[-_]/g, ' ') : 'Index';
+            const content = ['---', `title: ${title}`, '---', ''].join('\n');
             if (!fs.existsSync(indexPath)) {
                 fs.writeFileSync(indexPath, content);
             } else {
-                const existing = fs.readFileSync(indexPath, "utf8");
-                const body = existing.replace(/^---[\\s\\S]*?---/, "").trim();
+                const existing = fs.readFileSync(indexPath, 'utf8');
+                const body = existing.replace(/^---[\\s\\S]*?---/, '').trim();
                 const bodyLines = body
-                    .split("\n")
+                    .split('\n')
                     .map((line) => line.trim())
                     .filter(Boolean);
                 const isTrivialBody = bodyLines.every(
-                    (line) => line === "---" || line.startsWith("title:")
+                    (line) => line === '---' || line.startsWith('title:'),
                 );
                 if (
-                    existing.includes("generated: true") ||
-                    existing.includes("permalink:") ||
-                    existing.includes("layout:") ||
-                    existing.includes("public:") ||
+                    existing.includes('generated: true') ||
+                    existing.includes('permalink:') ||
+                    existing.includes('layout:') ||
+                    existing.includes('public:') ||
                     isTrivialBody
                 ) {
                     const normalizedExisting = existing.trim();
@@ -548,7 +510,7 @@ function ensureIndexPages(rootPath) {
         }
 
         subdirs.forEach((entry) => {
-            if (entry.name.startsWith(".")) {
+            if (entry.name.startsWith('.')) {
                 return;
             }
             if (isExcludedDir(entry.name)) {
@@ -566,11 +528,11 @@ function inferTitle(file, body) {
     if (headingMatch) {
         return headingMatch[1].trim();
     }
-    return file.name.replace(/\.md$/, "");
+    return file.name.replace(/\.md$/, '');
 }
 
 function formatDate(date) {
-    const pad = (value) => String(value).padStart(2, "0");
+    const pad = (value) => String(value).padStart(2, '0');
     const year = date.getFullYear();
     const month = pad(date.getMonth() + 1);
     const day = pad(date.getDate());
@@ -578,7 +540,7 @@ function formatDate(date) {
     const minutes = pad(date.getMinutes());
     const seconds = pad(date.getSeconds());
     const offsetMinutes = -date.getTimezoneOffset();
-    const offsetSign = offsetMinutes >= 0 ? "+" : "-";
+    const offsetSign = offsetMinutes >= 0 ? '+' : '-';
     const offsetHours = pad(Math.floor(Math.abs(offsetMinutes) / 60));
     const offsetMins = pad(Math.abs(offsetMinutes) % 60);
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${offsetSign}${offsetHours}${offsetMins}`;
@@ -586,16 +548,15 @@ function formatDate(date) {
 
 function getGitTimes(filePath) {
     try {
-        const output = execSync(
-            `git log --follow --format=%cI -- \"${filePath}\"`,
-            { stdio: ["ignore", "pipe", "ignore"] }
-        )
+        const output = execSync(`git log --follow --format=%cI -- \"${filePath}\"`, {
+            stdio: ['ignore', 'pipe', 'ignore'],
+        })
             .toString()
             .trim();
         if (!output) {
             return { created: null, updated: null };
         }
-        const lines = output.split("\n");
+        const lines = output.split('\n');
         const updated = lines[0] ? formatDate(new Date(lines[0])) : null;
         const created = lines[lines.length - 1]
             ? formatDate(new Date(lines[lines.length - 1]))
@@ -617,7 +578,7 @@ function isMarkdown(fileName) {
 function isExcludedDir(dirName) {
     // Exclude template folders (case-insensitive) and assets.
     const name = dirName.toLowerCase();
-    return name === "assets" || name === "templates" || name === "_templates";
+    return name === 'assets' || name === 'templates' || name === '_templates';
 }
 
 function getFiles(path, type, array, testFileList = null) {
@@ -645,16 +606,14 @@ function getFiles(path, type, array, testFileList = null) {
 }
 
 function collectData(file) {
-    const data = fs.readFileSync(file.path, "utf8");
+    const data = fs.readFileSync(file.path, 'utf8');
 
-    const sep = "---";
+    const sep = '---';
     const hasFrontMatter = data.startsWith(sep);
     const s1 = hasFrontMatter ? data.indexOf(sep) + sep.length : -1;
     const s2 = hasFrontMatter ? data.indexOf(sep, s1) : -1;
-    const info =
-        hasFrontMatter && s2 !== -1 ? data.substring(s1, s2) : "";
-    const body =
-        hasFrontMatter && s2 !== -1 ? data.substring(s2 + sep.length) : data;
+    const info = hasFrontMatter && s2 !== -1 ? data.substring(s1, s2) : '';
+    const body = hasFrontMatter && s2 !== -1 ? data.substring(s2 + sep.length) : data;
 
     return parseInfo(file, info, body);
 }
