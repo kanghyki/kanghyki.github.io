@@ -36,7 +36,6 @@ import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from './client-
 
     const target = getDocIdFromPage();
     if (!target) return;
-    if (!(target === 'index' || target.endsWith('/index'))) return;
     const folderItems = [];
     const docItems = [];
     const target_data = await fetchJson(toDataUrl('metadata', target));

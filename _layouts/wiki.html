@@ -73,7 +73,9 @@ layout: default
 <link rel="stylesheet" href="{{ "/css/mention.css" | prepend: site.baseurl }}">
 
 <script type="module" src="/js/parentLink.js"></script>
+{% if page.path == 'index.md' or page.path contains '/index.md' %}
 <script type="module" src="/js/childLink.js"></script>
+{% endif %}
 <script type="module" src="/js/mentionLink.js"></script>
 
 <script src="/js/auto-toc.js"></script>
