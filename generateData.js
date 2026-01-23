@@ -36,7 +36,7 @@ function main() {
         let str = "";
         str += `<title>${data.title}</title>`;
         data.summary && (str += `<summary>${data.summary}</summary>`);
-        data.tag && (str += `<tag>${data.tag.join(" ")}</tag>`);
+        data.tags && (str += `<tag>${data.tags.join(" ")}</tag>`);
         str += data.body
             .replace(/\* TOC\s{:toc}/, "")
             .replace(/```[\s\S]*?```/g, "");
@@ -46,11 +46,11 @@ function main() {
     const wikiFileIndex = buildWikiFileIndex(dataList);
 
     dataList.forEach(function collectTagMap(data) {
-        if (!data.tag) {
+        if (!data.tags) {
             return;
         }
 
-        data.tag.forEach((tag) => {
+        data.tags.forEach((tag) => {
             if (!tagMap[tag]) {
                 tagMap[tag] = [];
             }
@@ -323,6 +323,19 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
     }
 }
 
+function parseTagsValue(value) {
+    if (!value) return [];
+    let raw = value.trim();
+    if (raw.startsWith("[") && raw.endsWith("]")) {
+        raw = raw.slice(1, -1);
+    }
+    return raw
+        .replace(/,/g, " ")
+        .split(/\s+/)
+        .map((tag) => tag.trim())
+        .filter(Boolean);
+}
+
 function parseInfo(file, info, body) {
     const obj = {
         fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, "$1"),
@@ -335,17 +348,41 @@ function parseInfo(file, info, body) {
 
     const rawData = info.split("\n");
 
-    rawData.forEach((str) => {
-        const result = /^\s*([^:]+):\s*(.+)\s*$/.exec(str);
+    for (let i = 0; i < rawData.length; i++) {
+        const str = rawData[i];
+        const result = /^\s*([^:]+):\s*(.*)\s*$/.exec(str);
 
         if (result == null) {
-            return;
+            continue;
         }
 
         const key = result[1].trim();
-        const val = result[2].trim().replace(/\[{2}\/?|\]{2}/g, ""); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
+        let val = result[2].trim();
+
+        if (key === "tags" || key === "tag") {
+            if (!val) {
+                const list = [];
+                let j = i + 1;
+                while (j < rawData.length) {
+                    const line = rawData[j];
+                    const item = /^\s*-\s*(.+)\s*$/.exec(line);
+                    if (!item) break;
+                    list.push(item[1].trim());
+                    j++;
+                }
+                if (list.length > 0) {
+                    obj.tags = list;
+                }
+                i = j - 1;
+                continue;
+            }
+            obj.tags = parseTagsValue(val);
+            continue;
+        }
+
+        val = val.replace(/\[{2}\/?|\]{2}/g, ""); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
         obj[key] = val;
-    });
+    }
 
     if (file.type === "blog") {
         obj.url =
@@ -361,8 +398,8 @@ function parseInfo(file, info, body) {
             : file.path.replace(/^\.\/_wiki/, "/wiki").replace(/\.md$/, "");
     }
 
-    if (obj.tag) {
-        obj.tag = obj.tag.split(/\s+/);
+    if (!obj.tags && obj.tag) {
+        obj.tags = parseTagsValue(obj.tag);
     }
 
     if (!obj.title) {
@@ -514,7 +551,7 @@ function ensureIndexPages(rootPath) {
             if (entry.name.startsWith(".")) {
                 return;
             }
-            if (entry.name === "assets") {
+            if (isExcludedDir(entry.name)) {
                 return;
             }
             walk(`${dir}/${entry.name}`);
@@ -577,11 +614,18 @@ function isMarkdown(fileName) {
     return /\.md$/.test(fileName);
 }
 
+function isExcludedDir(dirName) {
+    // Exclude template folders (case-insensitive) and assets.
+    const name = dirName.toLowerCase();
+    return name === "assets" || name === "templates" || name === "_templates";
+}
+
 function getFiles(path, type, array, testFileList = null) {
     fs.readdirSync(path).forEach((fileName) => {
         const subPath = `${path}/${fileName}`;
 
         if (isDirectory(subPath)) {
+            if (isExcludedDir(fileName)) return;
             return getFiles(subPath, type, array, testFileList);
         }
         if (isMarkdown(fileName)) {
