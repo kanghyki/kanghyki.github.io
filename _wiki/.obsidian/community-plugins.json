@@ -2,6 +2,5 @@
   "templater-obsidian",
   "file-cleaner-redux",
   "formatto-format",
-  "obsidian-vimrc-support",
-  "obsidian-git"
+  "obsidian-vimrc-support"
 ]
