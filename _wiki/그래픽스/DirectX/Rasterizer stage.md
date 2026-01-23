@@ -1,7 +1,7 @@
 ---
 title: Rasterizer stage
 summary: 정점을 픽셀로
-tag:
+tags: 
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: D3D Device란 무엇인가
 summary: D3D Device에 대해 알아보자
-tag:
+tags: 
 ---
 
 ## Device란 무엇인가

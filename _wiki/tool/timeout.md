@@ -1,7 +1,7 @@
 ---
 title   : GNU timeout
 summary : run a command with a time limit
-tag     :
+tags: 
 ---
 # timeout
 

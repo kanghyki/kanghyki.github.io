@@ -1,7 +1,7 @@
 ---
 title: Pixel Shader stage
 summary: 픽셀에 아름다움을 추가하기
-tag:
+tags: 
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: DX Graphic Pipeline
 summary: DirectX의 그래픽스 파이프라인
-tag:
+tags: 
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11-graphics-pipeline

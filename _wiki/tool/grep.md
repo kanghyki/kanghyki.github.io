@@ -1,7 +1,7 @@
 ---
 title   : grep
 summary : file pattern searcher
-tag     :
+tags: 
 ---
 # grep
 

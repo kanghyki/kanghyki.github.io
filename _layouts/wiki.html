@@ -3,7 +3,9 @@ layout: default
 ---
 
 {% assign thisName = page.path | remove: '_wiki/' | remove: '.md' %}
+{% if page.tags %}
 {% assign tags = page.tags | sort %}
+{% endif %}
 
 <input type="hidden" id="thisName" value="{{ thisName }}"/>
 <div>

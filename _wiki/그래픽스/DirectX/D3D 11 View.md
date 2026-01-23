@@ -1,7 +1,7 @@
 ---
 title: D3D View
 summary: D3D 11 View를 알아보자
-tag:
+tags: 
 ---
 ## Direct3D 11에서 "View"라는 개념
 

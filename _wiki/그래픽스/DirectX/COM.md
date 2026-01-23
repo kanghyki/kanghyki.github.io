@@ -1,7 +1,7 @@
 ---
 title: COM
 summary: Component Object Model
-tag:
+tags: 
 ---
 ## COM이란 무엇인가
 

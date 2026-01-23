@@ -1,5 +1,5 @@
 ---
 title   : 
 summary : 
-tag     :
+tags: 
 ---

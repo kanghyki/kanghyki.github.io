@@ -1,7 +1,7 @@
 ---
 title: vcpkg with Visual Studio
 summary:
-tag:
+tags: 
 ---
 
 # vcpkg ?

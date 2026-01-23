@@ -1,7 +1,7 @@
 ---
 title: D3D Buffer
 summary: Vertex / Index / Constant
-tag:
+tags: 
 ---
 
 

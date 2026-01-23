@@ -1,7 +1,7 @@
 ---
 title   : xargs
 summary : construct argument list(s) and execute utility
-tag     :
+tags: 
 ---
 # xargs
 

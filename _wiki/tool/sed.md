@@ -1,7 +1,7 @@
 ---
 title   : sed
 summary : stream editor
-tag     :
+tags: 
 ---
 # sed
 sed는 입력 파일에서 패턴을 찾아 명령어를 수행한다.

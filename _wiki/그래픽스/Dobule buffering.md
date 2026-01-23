@@ -1,7 +1,7 @@
 ---
 title: 더블 버퍼링
 summary:
-tag:
+tags: 
 ---
 
 ### Reference

@@ -1,7 +1,7 @@
 ---
 title: Output Merger stage
 summary: 여행의 종착지
-tag:
+tags: 
 ---
 
 

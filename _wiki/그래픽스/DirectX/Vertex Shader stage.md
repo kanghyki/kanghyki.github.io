@@ -1,7 +1,7 @@
 ---
 title: Vertex Shader stage
 summary: 정점 단위로 실행되는 셰이더
-tag:
+tags: 
 ---
 
 
