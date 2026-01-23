@@ -14,7 +14,7 @@ import { fetchJson, getDocIdFromPage, getDisplayTitle, setHTML } from './client-
         if (plist == null || plist.length < 1) {
             return '';
         }
-        let pr = '상위 문서: ';
+        let pr = '상위 폴더: ';
         for (let i = 0; i < plist.length; i++) {
             const title = getDisplayTitle(plist[i]);
             pr += `<a href="${plist[i].url}">${title}</a>`;
