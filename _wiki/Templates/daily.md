@@ -1,11 +1,11 @@
 ---
 title: <% tp.file.title %>
-created: <% tp.file.creation_date() %>
+summary: 
 tags: dailynote
+date: 
+updated:
 ---
 
 # Todo
 
 - [ ]
-
----
