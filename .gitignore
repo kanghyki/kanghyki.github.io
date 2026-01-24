@@ -17,13 +17,7 @@ yarn.lock
 # generated data
 data
 
-# Obsidian workspace/cache
-_wiki/.obsidian/workspace*
-_wiki/.obsidian/cache/
-_wiki/.obsidian/graph.json
-_wiki/.obsidian/workspace.json
-_wiki/.obsidian/workspace-mobile.json
-_wiki/.obsidian/plugins
-_wiki/.obsidian/themes
+# It is now managed as a submodule
+_wiki/.obsidian
 
 _wiki/daily
