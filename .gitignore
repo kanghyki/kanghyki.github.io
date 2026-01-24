@@ -17,7 +17,6 @@ yarn.lock
 # generated data
 data
 
-# It is now managed as a submodule
 _wiki/.obsidian
-
 _wiki/daily
+_wiki/.trash
