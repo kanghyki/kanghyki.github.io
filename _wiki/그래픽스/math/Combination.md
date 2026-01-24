@@ -28,7 +28,7 @@ $$
 ### Affine combination
 
 $$
-\sum_i \alpha_i x_i,\quad \sum_i \alpha_i = 1
+\sum\limits_{i=0}^n \alpha_i x_i,\quad \sum\limits_{i=0}^n \alpha_i = 1
 $$
 
 - 가중치 합이 1
@@ -45,7 +45,7 @@ $$
 
 ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Convex_combination_illustration.svg/250px-Convex_combination_illustration.svg.png)
 
-- affine combination + 음수 금지
+- affine combination이면서+ 음수 금지
 - 결과는 항상 **점들이 만든 영역 내부**
 - 외삽 불가, 보간만 가능
 
