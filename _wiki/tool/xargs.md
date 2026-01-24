@@ -2,6 +2,8 @@
 title: xargs
 summary: construct argument list(s) and execute utility
 tags:
+date: 2024-10-02 00:13:35 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 # xargs

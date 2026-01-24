@@ -2,6 +2,8 @@
 title: grep
 summary: file pattern searcher
 tags:
+date: 2024-10-03 16:55:02 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 # grep

@@ -2,6 +2,8 @@
 title: Sampler state
 summary: Sampler state에 대해 알아보자
 tags:
+date: 2026-01-22 19:04:53 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 Sampler State는 **텍스처를 읽는 방식에 대한 상태 객체**다.  

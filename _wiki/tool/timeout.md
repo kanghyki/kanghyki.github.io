@@ -2,6 +2,8 @@
 title: GNU timeout
 summary: run a command with a time limit
 tags:
+date: 2024-10-06 13:10:07 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 # timeout

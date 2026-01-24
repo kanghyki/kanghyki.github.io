@@ -2,6 +2,8 @@
 title: Input Assembler stage
 summary: 입력을 어셈블해주는 IA
 tags:
+date: 2026-01-22 09:28:07 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage

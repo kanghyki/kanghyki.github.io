@@ -2,6 +2,8 @@
 title: Pixel Shader stage
 summary: 픽셀에 아름다움을 추가하기
 tags:
+date: 2026-01-22 09:28:07 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/pixel-shader-stage

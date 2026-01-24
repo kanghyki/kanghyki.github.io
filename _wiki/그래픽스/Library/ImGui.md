@@ -2,6 +2,8 @@
 title: ImGui
 summary: Immediate Mode Graphical User Interface
 tags:
+date: 2026-01-23 15:12:25 +0900
+updated: 2026-01-24 06:24:38 +0900
 ---
 
 ## ImGui란

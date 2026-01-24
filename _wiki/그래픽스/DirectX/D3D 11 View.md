@@ -2,6 +2,8 @@
 title: D3D View
 summary: D3D 11 View를 알아보자
 tags:
+date: 2026-01-22 19:04:53 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 ## Direct3D 11에서 "View"라는 개념

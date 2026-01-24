@@ -2,6 +2,8 @@
 title: Vertex Shader stage
 summary: 정점 단위로 실행되는 셰이더
 tags:
+date: 2026-01-22 09:28:07 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/vertex-shader-stage

@@ -2,6 +2,8 @@
 title: D3D Device란 무엇인가
 summary: D3D Device에 대해 알아보자
 tags:
+date: 2026-01-22 19:04:53 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 ## Device란 무엇인가

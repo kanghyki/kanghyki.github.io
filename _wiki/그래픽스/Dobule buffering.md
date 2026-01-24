@@ -2,6 +2,8 @@
 title: 더블 버퍼링
 summary:
 tags:
+date: 2026-01-23 17:08:21 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 ### Reference

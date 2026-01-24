@@ -2,6 +2,8 @@
 title: DX Graphic Pipeline
 summary: DirectX의 그래픽스 파이프라인
 tags:
+date: 2026-01-22 09:28:07 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11-graphics-pipeline

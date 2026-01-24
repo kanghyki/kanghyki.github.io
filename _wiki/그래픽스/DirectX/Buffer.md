@@ -2,6 +2,8 @@
 title: D3D Buffer
 summary: Vertex / Index / Constant
 tags:
+date: 2026-01-23 16:50:50 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 ## 정점 버퍼 (Vertex Buffer)

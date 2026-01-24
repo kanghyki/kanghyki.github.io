@@ -2,6 +2,8 @@
 title: sed
 summary: stream editor
 tags:
+date: 2024-10-02 12:22:41 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 # sed

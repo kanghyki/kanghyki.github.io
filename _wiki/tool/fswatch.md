@@ -2,6 +2,8 @@
 title: fswatch
 summary: 파일시스템 모니터링 도구
 tags:
+date: 2024-10-02 00:13:35 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 [fswatch](https://github.com/emcrisostomo/fswatch)는 파일시스템의 이벤트를 감시하고 추적하는 모니터다.

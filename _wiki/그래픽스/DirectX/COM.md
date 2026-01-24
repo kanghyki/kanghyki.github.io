@@ -2,6 +2,8 @@
 title: COM
 summary: Component Object Model
 tags:
+date: 2026-01-22 19:04:53 +0900
+updated: 2026-01-23 17:55:38 +0900
 ---
 
 ## COM이란 무엇인가
