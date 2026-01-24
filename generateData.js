@@ -4,7 +4,6 @@ import { Search } from './js/search/search.js';
 import { Indexer } from './js/search/indexer.js';
 
 import fs from 'fs';
-import { execSync } from 'child_process';
 const PRINT = true;
 const NO_PRINT = false;
 
@@ -312,7 +311,6 @@ function parseInfo(file, info, body) {
         fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, '$1'),
         type: file.type,
         url: '',
-        modified: fs.statSync(file.path).mtime,
         mentions: [],
         body: body,
     };
@@ -370,16 +368,6 @@ function parseInfo(file, info, body) {
 
     if (!obj.title) {
         obj.title = inferTitle(file, body);
-    }
-
-    if (!obj.date || !obj.updated) {
-        const gitTimes = getGitTimes(file.path);
-        if (!obj.date) {
-            obj.date = gitTimes.created || formatDate(obj.modified);
-        }
-        if (!obj.updated) {
-            obj.updated = gitTimes.updated || formatDate(obj.modified);
-        }
     }
 
     const mentions = body.match(/.*\[\[.+?\]\].*/g);
@@ -532,42 +520,6 @@ function inferTitle(file, body) {
         return headingMatch[1].trim();
     }
     return file.name.replace(/\.md$/, '');
-}
-
-function formatDate(date) {
-    const pad = (value) => String(value).padStart(2, '0');
-    const year = date.getFullYear();
-    const month = pad(date.getMonth() + 1);
-    const day = pad(date.getDate());
-    const hours = pad(date.getHours());
-    const minutes = pad(date.getMinutes());
-    const seconds = pad(date.getSeconds());
-    const offsetMinutes = -date.getTimezoneOffset();
-    const offsetSign = offsetMinutes >= 0 ? '+' : '-';
-    const offsetHours = pad(Math.floor(Math.abs(offsetMinutes) / 60));
-    const offsetMins = pad(Math.abs(offsetMinutes) % 60);
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${offsetSign}${offsetHours}${offsetMins}`;
-}
-
-function getGitTimes(filePath) {
-    try {
-        const output = execSync(`git log --follow --format=%cI -- \"${filePath}\"`, {
-            stdio: ['ignore', 'pipe', 'ignore'],
-        })
-            .toString()
-            .trim();
-        if (!output) {
-            return { created: null, updated: null };
-        }
-        const lines = output.split('\n');
-        const updated = lines[0] ? formatDate(new Date(lines[0])) : null;
-        const created = lines[lines.length - 1]
-            ? formatDate(new Date(lines[lines.length - 1]))
-            : null;
-        return { created, updated };
-    } catch (e) {
-        return { created: null, updated: null };
-    }
 }
 
 function isDirectory(path) {
