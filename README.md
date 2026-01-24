@@ -10,17 +10,20 @@
 
 - Vault는 이 레포의 `_wiki/` 폴더를 선택
 - 첨부 파일 저장 위치: `_wiki/assets/`
-- index.md를 제외한 문서는 아래 frontmatter를 포함해야 함
+- 모든 문서는 아래 frontmatter를 포함해야 함
 
 ```
 ---
 title: 문서 제목
 summary: 문서 요약
-tag: tool reference
+tags: tool reference
+date: 2025-01-24 13:45:00 +0900
+updated: 2026-01-10 09:12:34 +0900
 ---
 ```
 
-- tag는 공백으로 구분합니다. (예: `tag: tool reference`)
+- tag는 공백으로 구분합니다. (예: `tags: tool reference`)
+- date/updated 포맷은 `YY-MM-DD HH:mm:ss Z`
 
 ### 2) 로컬 실행
 
@@ -62,16 +65,11 @@ make clean-data # data/ 삭제
 - Settings → Pages → Source를 **GitHub Actions**로 설정
 - `git push` 시 자동 배포
 
-### 주의: Pages 설정이 GitHub Actions가 아닐 때
-
-- `_plugins/auto_dates.rb`는 GitHub Actions 빌드에서만 실행됩니다.
-- Pages가 **Deploy from branch**로 설정되어 있으면 `_plugins`가 실행되지 않아
-  `date/updated`가 비고 검색 인덱스가 깨질 수 있습니다.
-
 ## 게시글 날짜 처리
 
-- `date` = 생성일, 파일 최초 커밋 시간 (없으면 mtime)
-- `updated` = 수정일, 파일 최신 커밋 시간 (없으면 mtime)
+- `date` = 생성일
+- `updated` = 수정일
+- 자동 채움은 하지 않으므로 frontmatter에 직접 입력해야 합니다.
 
 ## Reference
 
