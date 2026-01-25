@@ -496,12 +496,6 @@ article {
   margin-bottom: 1.2em;
 }
 
-@media (min-width: 900px) {
-  .home-bio {
-    max-width: 900px;
-  }
-}
-
 article ul > li {
   padding: 0px;
 }
