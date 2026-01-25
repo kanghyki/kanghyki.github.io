@@ -7,7 +7,7 @@ import { clampSnippet, escapeRegExp, SNIPPET_CONTEXT, SNIPPET_MAX } from './snip
     if (!target) return;
 
     function makeHTML(mention_map, targetKey) {
-        let ret = '<h2>이 문서를 참조한 문서</h2><ul class="mention-ul">';
+        let ret = '<h2>이 노트를 참조한 노트</h2><ul class="mention-ul">';
         for (const key of mention_map.keys()) {
             const value = mention_map.get(key);
             ret += `<li>

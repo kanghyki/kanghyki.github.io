@@ -186,7 +186,7 @@ function saveTagFiles(tagMap, pageMap) {
  * 파일 하나의 정보 파일을 만든다.
  * 각 파일 하나는 자신만의 정보를 갖는 json 파일을 갖게 된다.
  * 예를 들어 math.md 라는 파일이 있다면 ./data/metadata/math.json 파일이 만들어진다.
- * json 파일의 내용은 자신의 metadata와 자식 문서들의 목록이 된다.
+ * json 파일의 내용은 자신의 metadata와 자식 노트들의 목록이 된다.
  */
 function saveMetaDataFiles(pageMap) {
     for (const page in pageMap) {
@@ -207,7 +207,7 @@ function saveMetaDataFiles(pageMap) {
 }
 
 /**
- * 문서가 갖는 멘션의 정보를 파일로 저장한다.
+ * 노트가 갖는 멘션의 정보를 파일로 저장한다.
  */
 function saveMentionList(mentionMap) {
     for (const mention in mentionMap) {
@@ -228,10 +228,10 @@ function saveMentionList(mentionMap) {
 }
 
 /**
- * 모든 문서 파일의 목록 json 파일을 생성합니다.
+ * 모든 노트 파일의 목록 json 파일을 생성합니다.
  */
 /**
- * 태그 하나가 갖는 자식 문서의 수를 파일로 저장한다.
+ * 태그 하나가 갖는 자식 노트의 수를 파일로 저장한다.
  */
 function saveTagCount(tagMap) {
     const list = [];
@@ -320,7 +320,7 @@ function parseInfo(file, info, body) {
             continue;
         }
 
-        val = val.replace(/\[{2}\/?|\]{2}/g, ''); // 문서 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
+        val = val.replace(/\[{2}\/?|\]{2}/g, ''); // 노트 이름 앞뒤의 [[  ]], [[/ ]] 를 제거한다.
         obj[key] = val;
     }
 
