@@ -19,11 +19,6 @@ permalink: /tag/
         list-style: none;
         margin-right: 1em;
     }
-
-    .post-item .post-excerpt {
-        color: var(--cloudy-text-color);
-        font-size: small;
-    }
 </style>
 
 <script type="module">
@@ -62,16 +57,14 @@ permalink: /tag/
             return;
         }
 
-        const documents = [];
-
         let listItems = "";
         for (let i = 0; i < data.length; i++) {
             const idText = getDocumentElementId(tagName, data[i]);
-            listItems += `<li id="${idText}" class="post-item"></li>`;
+            listItems += `<li id="${idText}" class="doc-item"></li>`;
         }
         const template = `
             <h3>${tagName}</h3>
-            <ul class="post-list"> ${listItems} </ul>`;
+            <ul class="doc-list"> ${listItems} </ul>`;
 
         setHTML("tag-collection", template);
 
@@ -93,16 +86,19 @@ permalink: /tag/
                     /^(\d{4}-\d{2}-\d{2}).*$/,
                     "$1"
                 );
-                const docType = d.doc_type || "";
                 const summaryText =
                     d.summary == null || /^\s*$/.test(d.summary)
                         ? ""
                         : d.summary;
+                const tags = Array.isArray(d.tags) ? d.tags : [];
                 const link = `
-                <a class="post-link" href="${d.url}">
-                    <span>${d.title}</span>
-                    <div class="post-meta" style="float: right;" title="${d.updated}">${updatedDate}</div>
-                    <div class="post-excerpt">${summaryText}</div>
+                <a class="doc-link" href="${d.url}">
+                    <div class="doc-title-row">
+                        <span class="doc-title">${d.title}</span>
+                        <span class="doc-date" title="${d.updated}">${updatedDate}</span>
+                    </div>
+                    ${summaryText ? `<div class="doc-summary">${summaryText}</div>` : ""}
+                    ${tags.length ? `<div class="doc-tags">${tags.join(" ")}</div>` : ""}
                 </a>`;
 
                 const idText = getDocumentElementId(tagName, documentId);

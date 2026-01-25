@@ -40,11 +40,12 @@ permalink: /search/
         if (!reg_exp) return "<h2>검색어를 입력해주세요.</h2>";
 
         let inner_html_str = `<h2>검색 결과 (${metadata_list.length} 항목)</h2>`;
-        inner_html_str += '<ul class="post-list">';
+        inner_html_str += '<ul class="doc-list">';
         for (const metadata of metadata_list) {
-            inner_html_str += '<li class="post-list-item">';
-            inner_html_str += `<a href="${metadata.url}">`;
-            inner_html_str += `<span class="post-title">${applyMark(
+            inner_html_str += '<li class="doc-item">';
+            inner_html_str += `<a class="doc-link" href="${metadata.url}">`;
+            inner_html_str += `<div class="doc-title-row">`;
+            inner_html_str += `<span class="doc-title">${applyMark(
                 metadata.title,
                 reg_exp
             )}</span>`;
@@ -53,11 +54,16 @@ permalink: /search/
                 /^(\d{4}-\d{2}-\d{2}).*$/,
                 "$1"
             );
-            inner_html_str += `<span style="float: right;">${updated}</span>`;
-            inner_html_str += `<div class="post-snip">${highlightSearchSnippet(
+            inner_html_str += `<span class="doc-date">${updated}</span>`;
+            inner_html_str += `</div>`;
+            const snippet = highlightSearchSnippet(
                 /* content = */ metadata.summary + metadata.body,
                 /* query = */ query
-            )}</div>`;
+            );
+            const summaryText = snippet || metadata.summary || "";
+            if (summaryText) {
+                inner_html_str += `<div class="doc-summary">${summaryText}</div>`;
+            }
             inner_html_str += `</a>`;
             inner_html_str += "</li>";
         }
