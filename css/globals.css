@@ -487,49 +487,18 @@ article {
   color: var(--link-text-color);
 }
 
-.home-hero {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.2em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.home-avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--accent-low);
-  background: var(--light-background);
-}
-
-.home-avatar-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 2.2em;
-  color: var(--text-color);
-}
-
-.home-hero-text {
-  display: grid;
-  gap: 0.5em;
-}
-
 .home-bio {
   white-space: pre-line;
-  max-width: 560px;
+  max-width: 100%;
   line-height: 1.7;
   text-align: left;
+  margin-top: 2em;
+  margin-bottom: 1.2em;
 }
 
-@media (max-width: 640px) {
-  .home-hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+@media (min-width: 900px) {
+  .home-bio {
+    max-width: 900px;
   }
 }
 

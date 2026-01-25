@@ -4,11 +4,12 @@ author: kanghyki
 title: kanghyki
 baseurl: ""
 description: A wiki documenting what I learn and experiment with.
-profile_image: "https://avatars.githubusercontent.com/u/94736461?v=4"
 profile_bio: |
   Hello! I’m kanghyki.
   I document what I’ve learned, what I’ve experimented with, and even the things I don’t fully understand yet.
-  Sometimes, I also post whatever comes to mind.
+  Sometimes, I also write down whatever comes to mind.
+
+  This site is less about delivering polished knowledge and more about personally storing, connecting, and revisiting ideas over time.
 url: "https://kanghyki.github.io"
 timezone: Asia/Seoul
 github:
