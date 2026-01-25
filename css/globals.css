@@ -345,7 +345,6 @@ article {
   line-height: 1.55;
 }
 
-.post-hier,
 .post-snip {
   color: var(--cloudy-text-color);
   line-height: 1.6;
@@ -458,24 +457,6 @@ article {
   max-width: 560px;
   line-height: 1.7;
   text-align: left;
-}
-
-.child-index-section {
-  margin: 0.8em 0 1.2em;
-}
-
-.child-index-section > h2 {
-  margin: 0 0 0.4em;
-}
-
-.child-index-list {
-  padding-left: 0.2em;
-}
-
-.child-index-empty {
-  margin: 0.2em 0 0;
-  color: var(--cloudy-text-color);
-  font-size: 0.95em;
 }
 
 @media (max-width: 640px) {

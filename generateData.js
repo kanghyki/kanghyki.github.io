@@ -21,8 +21,6 @@ function main() {
     const pageMap = {};
     const mentionMap = {};
 
-    ensureIndexPages('./_wiki');
-
     getFiles('./_wiki', 'wiki', list);
     //getFiles('./_posts', 'blog', list);
 
@@ -67,26 +65,11 @@ function main() {
             type: page.type,
             title: page.title,
             summary: page.summary,
-            parent: page.parent,
             url: page.url,
             updated: page.updated || page.date,
             resource: page.resource,
-            children: [],
             body: page.body,
         };
-    });
-
-    inferParentsFromPath(pageMap);
-
-    Object.keys(pageMap).forEach((key) => {
-        const page = pageMap[key];
-        if (page.parent) {
-            const parent = pageMap[page.parent];
-
-            if (parent && parent.children) {
-                parent.children.push(key);
-            }
-        }
     });
 
     dataList.forEach((page) => {
@@ -94,9 +77,6 @@ function main() {
         for (let i = 0; i < page.mentions.length; ++i) {
             let url = page.mentions[i].url || '';
             url = url.replace(/^\/+/, '').replace(/^wiki\//, '');
-            if (pageMap[`${url}/index`]) {
-                url = `${url}/index`;
-            }
             if (!mentionMap[url]) {
                 mentionMap[url] = [];
             }
@@ -110,7 +90,6 @@ function main() {
     saveTagFiles(tagMap, pageMap);
     saveTagCount(tagMap);
     saveMetaDataFiles(pageMap);
-    saveDocumentUrlList(pageMap);
     saveMentionList(mentionMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
     saveToFile(`./data/wiki-file-index.json`, JSON.stringify(wikiFileIndex, null, 1), NO_PRINT);
@@ -250,15 +229,6 @@ function saveMentionList(mentionMap) {
 /**
  * 모든 문서 파일의 목록 json 파일을 생성합니다.
  */
-function saveDocumentUrlList(pageMap) {
-    const urlList = [];
-    for (const page in pageMap) {
-        const data = pageMap[page];
-        urlList.push(data.url);
-    }
-    saveToFile('./data/total-document-url-list.json', JSON.stringify(urlList, null, 1), PRINT);
-}
-
 /**
  * 태그 하나가 갖는 자식 문서의 수를 파일로 저장한다.
  */
@@ -395,124 +365,6 @@ function parseInfo(file, info, body) {
     return obj;
 }
 
-function saveMiscList(pageMap) {
-    const list = [];
-    for (const page in pageMap) {
-        if (page === 'index') continue;
-        if (page.endsWith('/index')) continue;
-        const data = pageMap[page];
-        if (!data.parent) {
-            list.push({
-                title: data.title,
-                url: data.url,
-            });
-        }
-    }
-    saveToFile(
-        './data/misc.json',
-        JSON.stringify(list.sort(lexicalOrderingBy('title')), null, 1),
-        NO_PRINT,
-    );
-}
-
-function inferParentsFromPath(pageMap) {
-    const keys = Object.keys(pageMap);
-    const keySet = new Set(keys);
-    const rootIndex = keySet.has('index') ? 'index' : null;
-
-    keys.forEach((fileName) => {
-        const page = pageMap[fileName];
-        if (page.parent) {
-            return;
-        }
-        if (fileName.endsWith('/index')) {
-            const parts = fileName.split('/');
-            if (parts.length <= 2) {
-                if (rootIndex && fileName !== rootIndex) {
-                    page.parent = rootIndex;
-                }
-                return;
-            }
-            const candidate = parts.slice(0, -2).join('/') + '/index';
-            if (keySet.has(candidate)) {
-                page.parent = candidate;
-            }
-            return;
-        }
-        const parts = fileName.split('/');
-        if (parts.length === 1 && rootIndex && fileName !== rootIndex) {
-            page.parent = rootIndex;
-            return;
-        }
-        for (let i = parts.length - 1; i > 0; i--) {
-            const candidate = parts.slice(0, i).join('/');
-            if (keySet.has(candidate)) {
-                page.parent = candidate;
-                return;
-            }
-            const indexCandidate = `${candidate}/index`;
-            if (indexCandidate !== fileName && keySet.has(indexCandidate)) {
-                page.parent = indexCandidate;
-                return;
-            }
-        }
-    });
-}
-
-function ensureIndexPages(rootPath) {
-    const root = rootPath.replace(/\/$/, '');
-
-    function walk(dir) {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        const hasMarkdown = entries.some((entry) => entry.isFile() && /\.md$/.test(entry.name));
-        const subdirs = entries.filter((entry) => entry.isDirectory());
-
-        if (dir !== root && hasMarkdown) {
-            const indexPath = `${dir}/index.md`;
-            const dirName = dir.split('/').pop();
-            const title = dirName ? dirName.replace(/[-_]/g, ' ') : 'Index';
-            const content = ['---', `title: ${title}`, '---', ''].join('\n');
-            if (!fs.existsSync(indexPath)) {
-                fs.writeFileSync(indexPath, content);
-            } else {
-                const existing = fs.readFileSync(indexPath, 'utf8');
-                const body = existing.replace(/^---[\\s\\S]*?---/, '').trim();
-                const bodyLines = body
-                    .split('\n')
-                    .map((line) => line.trim())
-                    .filter(Boolean);
-                const isTrivialBody = bodyLines.every(
-                    (line) => line === '---' || line.startsWith('title:'),
-                );
-                if (
-                    existing.includes('generated: true') ||
-                    existing.includes('permalink:') ||
-                    existing.includes('layout:') ||
-                    existing.includes('public:') ||
-                    isTrivialBody
-                ) {
-                    const normalizedExisting = existing.trim();
-                    const normalizedContent = content.trim();
-                    if (normalizedExisting !== normalizedContent) {
-                        fs.writeFileSync(indexPath, content);
-                    }
-                }
-            }
-        }
-
-        subdirs.forEach((entry) => {
-            if (entry.name.startsWith('.')) {
-                return;
-            }
-            if (isExcludedDir(entry.name)) {
-                return;
-            }
-            walk(`${dir}/${entry.name}`);
-        });
-    }
-
-    walk(root);
-}
 
 function inferTitle(file, body) {
     const headingMatch = body.match(/^#\s+(.+)$/m);

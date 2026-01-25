@@ -97,17 +97,11 @@ permalink: /tag/
                     d.summary == null || /^\s*$/.test(d.summary)
                         ? ""
                         : d.summary;
-                const subDocument =
-                    d.children && d.children.length > 0
-                        ? `- 서브 문서: ${d.children.length} 개`
-                        : "";
-
                 const link = `
                 <a class="post-link" href="${d.url}">
                     <span>${d.title}</span>
                     <div class="post-meta" style="float: right;" title="${d.updated}">${updatedDate}</div>
                     <div class="post-excerpt">${summaryText}</div>
-                    <div class="post-sub-document">${subDocument}</div>
                 </a>`;
 
                 const idText = getDocumentElementId(tagName, documentId);

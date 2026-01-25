@@ -114,6 +114,5 @@ function isTargetMatch(linkTarget, sourceFile, targetKey) {
 
     let resolved = resolveLinkTarget(sourceFile, linkTarget);
     if (resolved === targetKey) return true;
-    if (`${resolved}/index` === targetKey) return true;
     return false;
 }
