@@ -6,29 +6,19 @@ permalink: /all-notes/
 {% assign documents = site.notes | sort: "updated" | reverse %}
 
 <div>
-    {% assign total_non_index = 0 %}
-    <ul class="post_list">
+    <ul class="doc-list">
         {% for doc in documents %}
             {% unless doc.path contains '/index.md' %}
-                {% assign total_non_index = total_non_index | plus: 1 %}
-                <li class="post_list_item">
-                    <a href="{{ doc.url | prepend: site.baseurl }}">
-                        <div class="post-title">
-                            {{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}
+                <li class="doc-item">
+                    <a class="doc-link" href="{{ doc.url | prepend: site.baseurl }}">
+                        <div class="doc-title-row">
+                            <span class="doc-title">{{ doc.title }}</span>
+                            <span class="doc-date">{{ doc.updated | date: "%Y.%m.%d" }}</span>
                         </div>
-                        <div class="post-summary">{{ doc.summary }}</div>
+                        {% if doc.summary %}
+                        <div class="doc-summary">{{ doc.summary }}</div>
+                        {% endif %}
                     </a>
-
-                    {% if doc.tags %}
-                    <ul class="post-tags">
-                        {% for tag in doc.tags %}
-                        <li class="post-tag">
-                            {{ tag }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-
                 </li>
             {% endunless %}
         {% endfor %}
