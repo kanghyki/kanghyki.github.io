@@ -13,10 +13,10 @@ url: "https://kanghyki.github.io"
 timezone: Asia/Seoul
 github:
   username: kanghyki
-  blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
-  history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_wiki"
+  blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_notes"
+  history: "https://github.com/kanghyki/kanghyki.github.io/commits/main/_notes"
   issue: "https://github.com/kanghyki/kanghyki.github.io/issues/new"
-  edit: "https://github.com/kanghyki/kanghyki.github.io/edit/main/_wiki"
+  edit: "https://github.com/kanghyki/kanghyki.github.io/edit/main/_notes"
 
 giscus:
   repo: kanghyki/kanghyki.github.io
@@ -29,14 +29,14 @@ plugins:
   - jekyll-feed
 
 collections:
-  wiki:
+  notes:
     output: true
-    permalink: /:collection/:path/
+    permalink: /notes/:path/
 
 defaults:
   - scope:
       path: ""
-      type: "wiki"
+      type: "notes"
     values:
       layout: "wiki"
       latex: true
@@ -48,8 +48,8 @@ commonmark:
 
 exclude:
   - scripts
-  - _wiki/Templates
+  - _notes/Templates
 
 include:
-  - _wiki/assets
+  - _notes/assets
   - data

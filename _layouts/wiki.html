@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign thisName = page.path | remove: '_wiki/' | remove: '.md' %}
+{% assign thisName = page.path | remove: '_notes/' | remove: '.md' %}
 {% if page.tags %}
 {% assign tags = page.tags | sort %}
 {% endif %}

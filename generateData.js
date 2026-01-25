@@ -21,7 +21,7 @@ function main() {
     const pageMap = {};
     const mentionMap = {};
 
-    getFiles('./_wiki', 'wiki', list);
+    getFiles('./_notes', 'notes', list);
     //getFiles('./_posts', 'blog', list);
 
     const dataList = list
@@ -38,7 +38,7 @@ function main() {
         engine.indexer.addIndex(data.fileName, str);
     });
 
-    const wikiFileIndex = buildWikiFileIndex(dataList);
+    const notesFileIndex = buildNotesFileIndex(dataList);
 
     dataList.forEach(function collectTagMap(data) {
         if (!data.tags) {
@@ -93,19 +93,19 @@ function main() {
     saveMetaDataFiles(pageMap);
     saveMentionList(mentionMap);
     saveToFile(`./data/search-index.json`, engine.indexer.toJson(), NO_PRINT);
-    saveToFile(`./data/wiki-file-index.json`, JSON.stringify(wikiFileIndex, null, 1), NO_PRINT);
+    saveToFile(`./data/notes-file-index.json`, JSON.stringify(notesFileIndex, null, 1), NO_PRINT);
 }
 
 function lexicalOrderingBy(property) {
     return (a, b) => a[property].toLowerCase().localeCompare(b[property].toLowerCase());
 }
 
-function buildWikiFileIndex(dataList) {
+function buildNotesFileIndex(dataList) {
     // Obsidian "Shortest" link resolution support:
     // - Map basename -> list of docIds for disambiguation.
     const index = {};
     dataList.forEach((data) => {
-        if (!data || data.type !== 'wiki') return;
+        if (!data || data.type !== 'notes') return;
         const fileName = data.fileName || '';
         const baseName = fileName.split('/').pop();
         if (!baseName) return;
@@ -133,7 +133,7 @@ function buildWikiFileIndex(dataList) {
       "title": "애자일(agile)에 대한 토막글 모음",
       "summary": "",
       "parent": "software-engineering",
-      "url": "/wiki/agile",
+      "url": "/notes/agile",
       "updated": "2020-01-20 21:57:44 +0900",
       "children": []
     },
@@ -142,7 +142,7 @@ function buildWikiFileIndex(dataList) {
       "title": "망원경 규칙 (Telescope Rule)",
       "summary": "4인치 반사경을 만든 다음에 6인치 반사경을 만드는 것이, 6인치 반사경 하나 만드는 것보다 더 빠르다",
       "parent": "proverb",
-      "url": "/wiki/Tompson-s-rule-for-first-time-telescope-makers",
+      "url": "/notes/Tompson-s-rule-for-first-time-telescope-makers",
       "updated": "2019-11-24 09:36:53 +0900",
       "children": []
     }
@@ -279,7 +279,7 @@ function parseTagsValue(value) {
 
 function parseInfo(file, info, body) {
     const obj = {
-        fileName: file.path.replace(/^\.\/_wiki\/(.+)?\.md$/, '$1'),
+        fileName: file.path.replace(/^\.\/_notes\/(.+)?\.md$/, '$1'),
         type: file.type,
         url: '',
         mentions: [],
@@ -327,10 +327,10 @@ function parseInfo(file, info, body) {
     if (file.type === 'blog') {
         obj.url = '/blog/' + obj.date.replace(/^(\d{4})-(\d{2})-(\d{2}).*$/, '$1/$2/$3/');
         obj.url += obj.fileName.replace(/^.*[/]\d{4}-\d{2}-\d{2}-([^/]*)\.md$/, '$1');
-    } else if (file.type === 'wiki') {
+    } else if (file.type === 'notes') {
         obj.url = obj.permalink
             ? obj.permalink
-            : file.path.replace(/^\.\/_wiki/, '/wiki').replace(/\.md$/, '');
+            : file.path.replace(/^\.\/_notes/, '/notes').replace(/\.md$/, '');
     }
 
     if (!obj.tags && obj.tag) {
@@ -354,7 +354,7 @@ function parseInfo(file, info, body) {
                 let prefix = '';
                 const looksAbsolute = path.includes('/');
                 if (path && path[0] !== '/' && !looksAbsolute) {
-                    prefix = file.path.replace(/^(.*\/).*\.md/, '$1').replace(/^\.\/_wiki/, '');
+                    prefix = file.path.replace(/^(.*\/).*\.md/, '$1').replace(/^\.\/_notes/, '');
                 }
                 obj.mentions.push({
                     paragraph: mention,

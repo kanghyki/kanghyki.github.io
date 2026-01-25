@@ -1,5 +1,5 @@
 const DATA_PREFIX = '/data';
-const WIKI_PREFIX = '/wiki';
+const NOTES_PREFIX = '/notes';
 
 export function normalizeDocId(raw) {
     if (!raw) return '';
@@ -50,5 +50,5 @@ export function toTagUrl(tagName) {
 export function toWikiUrl(docId) {
     const safeDocId = normalizeDocId(docId);
     if (!safeDocId) return '';
-    return `${WIKI_PREFIX}/${encodeURI(safeDocId)}`;
+    return `${NOTES_PREFIX}/${encodeURI(safeDocId)}`;
 }

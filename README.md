@@ -8,8 +8,8 @@
 
 ### 1) Obsidian 설정
 
-- Vault는 이 레포의 `_wiki/` 폴더를 선택
-- 첨부 파일 저장 위치: `_wiki/assets/`
+- Vault는 이 레포의 `_notes/` 폴더를 선택
+- 첨부 파일 저장 위치: `_notes/assets/`
 - 모든 문서는 아래 frontmatter를 포함해야 함
 
 ```
@@ -37,8 +37,8 @@ bundle install
 ## 링크/자산 규칙
 
 - 내부 링크: `[[문서]]`, `[[경로/문서]]`, `[[경로/문서|표시명]]`
-- 이미지: `![[image.png]]` → `/wiki/assets/image.png`로 렌더됨
-- 자산 파일은 `_wiki/assets/`에 저장
+- 이미지: `![[image.png]]` → `/notes/assets/image.png`로 렌더됨
+- 자산 파일은 `_notes/assets/`에 저장
 
 ## 명령어 (Makefile)
 
@@ -54,8 +54,10 @@ make clean-data # data/ 삭제
 
 ## 문서 구조
 
-- 루트는 `_wiki/`이며, 폴더는 단순 분류 용도
+- 루트는 `_notes/`이며, 폴더는 단순 분류 용도
 - 상/하위 계층이나 폴더 인덱스 개념은 사용하지 않음
+- `doc_type`는 문서 유형 표시용이며 값은 자유지만 다음을 권장
+  - `capture` / `reference` / `permanent` / `archive`
 
 ## 배포 (GitHub Pages)
 

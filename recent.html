@@ -3,7 +3,7 @@ layout: default
 permalink: /recent/
 ---
 
-{% assign documents = site.wiki | sort: "updated" | reverse %}
+{% assign documents = site.notes | sort: "updated" | reverse %}
 
 <div>
     {% assign total_non_index = 0 %}

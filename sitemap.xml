@@ -23,7 +23,7 @@
     </url>
     {% endfor %}
 
-    {% assign documents = site.wiki %}
+    {% assign documents = site.notes %}
     {% for doc in documents %}
     {% if doc.title != 'wiki index'%}
     <url>

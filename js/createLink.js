@@ -5,7 +5,7 @@ let cachedIndex = null;
 
 async function loadWikiFileIndex() {
     if (cachedIndex) return cachedIndex;
-    const data = await fetchJson('/data/wiki-file-index.json');
+    const data = await fetchJson('/data/notes-file-index.json');
     cachedIndex = data || {};
     return cachedIndex;
 }
@@ -105,9 +105,9 @@ async function runCreateLink() {
     function normalizeAssetTarget(target) {
         const cleaned = target.replace(/^\/+/, '');
         if (cleaned.startsWith('assets/')) {
-            return encodeURI('/wiki/' + cleaned);
+            return encodeURI('/notes/' + cleaned);
         }
-        return encodeURI('/wiki/assets/' + cleaned);
+        return encodeURI('/notes/assets/' + cleaned);
     }
 
     function buildWikiHref(rawTarget) {

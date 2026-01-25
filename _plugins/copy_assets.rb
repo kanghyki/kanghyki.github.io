@@ -1,7 +1,7 @@
 require "fileutils"
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  source = File.join(site.source, "_wiki", "assets")
+  source = File.join(site.source, "_notes", "assets")
   dest = File.join(site.dest, "wiki", "assets")
   next unless Dir.exist?(source)
 
