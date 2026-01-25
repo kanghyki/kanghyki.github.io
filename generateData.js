@@ -65,6 +65,7 @@ function main() {
             type: page.type,
             title: page.title,
             summary: page.summary,
+            doc_type: page.doc_type,
             url: page.url,
             updated: page.updated || page.date,
             resource: page.resource,

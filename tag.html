@@ -93,6 +93,7 @@ permalink: /tag/
                     /^(\d{4}-\d{2}-\d{2}).*$/,
                     "$1"
                 );
+                const docType = d.doc_type || "";
                 const summaryText =
                     d.summary == null || /^\s*$/.test(d.summary)
                         ? ""

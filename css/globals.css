@@ -345,6 +345,18 @@ article {
   line-height: 1.55;
 }
 
+.doc-type-badge {
+  display: inline-block;
+  margin-top: 0.35em;
+  padding: 0.15em 0.5em;
+  border: 1px solid var(--accent-low);
+  border-radius: 999px;
+  font-size: 0.75em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cloudy-text-color);
+}
+
 .post-snip {
   color: var(--cloudy-text-color);
   line-height: 1.6;

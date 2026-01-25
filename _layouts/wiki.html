@@ -11,6 +11,9 @@ layout: default
 <div>
     <header>
         <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.doc_type %}
+        <div class="doc-type-badge">{{ page.doc_type }}</div>
+        {% endif %}
         {% if page.summary %}
         <h2 class="post-summary">{{ page.summary }}</h2>
         {% endif %}
