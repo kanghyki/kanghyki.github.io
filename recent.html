@@ -7,7 +7,6 @@ permalink: /recent/
 
 <div>
     {% assign total_non_index = 0 %}
-    <h3>최근 변경된 문서</h3>
     <ul class="post_list">
         {% for doc in documents %}
             {% unless doc.path contains '/index.md' %}
@@ -34,7 +33,6 @@ permalink: /recent/
             {% endunless %}
         {% endfor %}
     </ul>
-    <h4>전체 문서 수: {{ total_non_index }}</h4>
 </div>
 
 {% include createLink.html %}
