@@ -6,6 +6,7 @@ export function normalizeDocId(raw) {
     let id = String(raw).trim();
     id = id.replace(/^\/+/, '');
     id = id.replace(/^wiki\//, '');
+    id = id.replace(/^notes\//, '');
     id = id.replace(/\\/g, '/');
     id = id.replace(/\/{2,}/g, '/');
     return id;

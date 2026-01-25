@@ -173,7 +173,7 @@ function saveTagFiles(tagMap, pageMap) {
             const tagData = tagDatas[index];
             const data = pageMap[tagData.fileName];
 
-            const documentId = data.type === 'wiki' ? tagData.fileName : data.url;
+            const documentId = data.type === 'notes' ? tagData.fileName : data.url;
 
             collection.push(documentId);
         }
