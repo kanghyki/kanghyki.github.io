@@ -10,6 +10,7 @@ profile_bio: |
   I document what I’ve learned, what I’ve experimented with, and even the things I don’t fully understand yet.
   Sometimes, I also post whatever comes to mind.
 url: "https://kanghyki.github.io"
+timezone: Asia/Seoul
 github:
   username: kanghyki
   blame: "https://github.com/kanghyki/kanghyki.github.io/blame/main/_wiki"
