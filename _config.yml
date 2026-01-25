@@ -42,7 +42,7 @@ defaults:
 
 markdown: CommonMark
 commonmark:
-  options: ["SMART", "FOOTNOTES", "STRIKETHROUGH_DOUBLE_TILDE", "GITHUB_PRE_LANG"]
+  options: ["SMART", "FOOTNOTES", "STRIKETHROUGH_DOUBLE_TILDE", "HARDBREAKS", "GITHUB_PRE_LANG"]
   extensions: ["table", "strikethrough", "autolink", "tasklist"]
 
 exclude:
