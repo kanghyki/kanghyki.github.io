@@ -17,6 +17,6 @@ yarn.lock
 # generated data
 data
 
-_wiki/.obsidian
-_wiki/daily
-_wiki/.trash
+_notes/.obsidian
+_notes/daily
+_notes/.trash
