@@ -4,5 +4,5 @@ summary:
 tags:
 date:
 updated:
-doc_type:
+doc_type: capture
 ---
