@@ -2,8 +2,8 @@
 title: C++ using vs typedef
 summary:
 tags:
-date: 26-01-28 19:19:35 +09:00
-updated: 26-01-28 19:23:11 +09:00
+date: 2026-01-28 19:19:35 +09:00
+updated: 2026-01-28 19:23:11 +09:00
 doc_type: reference
 ---
 ```cpp

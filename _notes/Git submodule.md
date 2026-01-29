@@ -3,8 +3,8 @@ title: Git submodule
 summary:
 tags:
   - git
-date: 26-01-24 20:16:52 +09:00
-updated: 26-01-25 02:02:09 +09:00
+date: 2026-01-24 20:16:52 +09:00
+updated: 2026-01-25 02:02:09 +09:00
 doc_type: reference
 ---
 
