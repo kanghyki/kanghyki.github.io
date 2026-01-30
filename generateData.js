@@ -34,7 +34,7 @@ function main() {
         str += `<title>${data.title}</title>`;
         data.summary && (str += `<summary>${data.summary}</summary>`);
         data.tags && (str += `<tag>${data.tags.join(' ')}</tag>`);
-        str += data.body.replace(/\* TOC\s{:toc}/, '').replace(/```[\s\S]*?```/g, '');
+        str += data.body.replace(/```[\s\S]*?```/g, '');
         engine.indexer.addIndex(data.fileName, str);
     });
 
