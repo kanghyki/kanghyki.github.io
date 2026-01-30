@@ -4,7 +4,7 @@ summary:
 tags:
   - IDE
 date: 2026-01-29 14:40:46 +09:00
-updated: 2026-01-29 16:04:56 +09:00
+updated: 2026-01-30 18:34:20 +09:00
 doc_type: reference
 ---
 프로젝트 루트에 `.clang-format` 파일을 추가한다.
@@ -96,6 +96,7 @@ AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
 
 # ===== Function =====
+AllowShortFunctionsOnASingleLine: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakAfterDefinitionReturnType: None
 
