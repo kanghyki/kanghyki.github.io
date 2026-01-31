@@ -53,7 +53,7 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 
 # ===== Includes =====
-SortIncludes: true
+SortIncludes: false
 IncludeBlocks: Regroup
 
 # ===== Misc =====
